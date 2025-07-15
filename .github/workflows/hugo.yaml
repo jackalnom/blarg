@@ -70,6 +70,7 @@ jobs:
       - name: Configure Git
         run: git config core.quotepath false
       - name: Build with Hugo
+        working-directory: site
         run: |
           hugo \
             --gc \

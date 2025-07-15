@@ -2,31 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/posts/are_we_cooked/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/are_we_cooked/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/categories/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/tags/computer-science/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/computer-science/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/categories/llm/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/llm/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/tags/llm/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/llm/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/posts/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/tags/student/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/student/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/tags/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/</loc>
+    <lastmod>2025-07-15T10:58:15-07:00</lastmod>
   </url>
 </urlset>

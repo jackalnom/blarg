@@ -15,6 +15,10 @@ pagerSize = 5
 tags = "tags"
 categories = "categories"
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [params]
 title="BonnyCode"
 author = "Lucas Pierce"
