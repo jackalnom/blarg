@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "The Syllabus"
 date: 2008-11-02T22:42:11
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Philosophy"]
+tags: ["education", "code-reading", "curriculum"]
 ---
 
 I explained before why I thought "programology" should be taught, but I didn't go into detail on what I would teach.

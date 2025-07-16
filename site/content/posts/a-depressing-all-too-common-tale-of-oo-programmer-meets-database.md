@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "A Depressing, All Too Common Tale of OO Programmer meets Database"
 date: 2008-06-22T20:50:50
-categories: ["Web/Tech"]
-tags: []
+categories: ["Database & Performance"]
+tags: ["orm", "database", "performance", "optimization"]
 ---
 
 You've just been hired for your first job as an astronomical programmer. You have a graduate degree from CalTech in computer science and you regularly check your horoscope so you feel imminently qualified. Your first assignment is to write a method to count all the red giants in the universe. They use an object relational mapping framework so that you can put all your object oriented design skills to work and not need to worry anything about databases which is awesome because you know nothing about databases.

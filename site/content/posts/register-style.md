@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Register Style Programming"
 date: 2008-03-09T09:23:37
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["code-style", "readability", "best-practices"]
 ---
 
 Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.

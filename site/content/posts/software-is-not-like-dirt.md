@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Software is not like Dirt"
 date: 2009-03-01T22:37:49
-categories: ["General"]
-tags: []
+categories: ["Software Philosophy"]
+tags: ["metaphors", "software-development", "design"]
 ---
 
 Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with [good King DRY](http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html) by throwing more metaphors in the mix.

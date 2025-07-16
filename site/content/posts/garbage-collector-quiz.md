@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Garbage Collector Quiz"
 date: 2008-05-24T16:49:31
-categories: ["Web/Tech"]
-tags: []
+categories: ["Programming Languages"]
+tags: ["java", "garbage-collection", "quiz", "memory-management"]
 ---
 
 As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I've left a fairly large hint in the code. First person to get the correct answer gets 25 points.  

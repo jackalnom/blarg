@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "The Joy of Immutability"
 date: 2008-04-06T21:57:15
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["immutability", "functional-programming", "best-practices"]
 ---
 
 No man ever steps in the same river twice, for it's not the same river and he's not the same man.  

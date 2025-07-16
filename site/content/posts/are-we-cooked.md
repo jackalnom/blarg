@@ -3,8 +3,8 @@ author: Lucas Pierce
 title: Are we cooked?
 date: 2025-07-15
 description: Are LLMs doom for new computer science graduates?
-categories: ["LLM"]
-tags: ["LLM", "student", "computer science"]
+categories: ["Career & Professional"]
+tags: ["llm", "student", "computer-science", "career-advice", "professional-development"]
 ---
 
 My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of "low-key, are we cooked?". The last one, if you are not one of my students, translates in millennial to "good esteemed professor, tell me true, are we f\#@ked?" While I've given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.

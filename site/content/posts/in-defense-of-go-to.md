@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "In Defense of Go To"
 date: 2008-12-07T13:36:48
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["control-flow", "goto", "programming-constructs"]
 ---
 
 I continue this entry from my [defense of duplicated code](http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html). If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say "Lucas Pierce supports the use of go to! Heresy!".

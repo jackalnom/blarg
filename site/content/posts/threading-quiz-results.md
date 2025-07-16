@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Threading Quiz Results"
 date: 2008-07-13T19:28:30
-categories: ["General"]
-tags: []
+categories: ["Programming Languages"]
+tags: ["java", "threading", "concurrency", "quiz"]
 ---
 
 Congratulations to Peter and Michael for together coming up with the correct answer. They have both been awarded 5 points.

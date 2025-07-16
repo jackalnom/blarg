@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functional-Programming on BonnyCode</title>
+    <link>http://localhost:1313/tags/functional-programming/</link>
+    <description>Recent content in Functional-Programming on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 06 Apr 2008 21:57:15 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Joy of Immutability</title>
+      <link>http://localhost:1313/posts/the-joy-of-immu/</link>
+      <pubDate>Sun, 06 Apr 2008 21:57:15 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/the-joy-of-immu/</guid>
+      <description>&lt;p&gt;No man ever steps in the same river twice, for it&amp;rsquo;s not the same river and he&amp;rsquo;s not the same man.&lt;br&gt;
+&amp;ndash; Heraclitus&lt;/p&gt;
+&lt;p&gt;The relation between identity and change is a basic philosophical problem. How can one define anything when everything is always changing? For example, your tax return includes basic information about yourself such as marital status. When you get married, this doesn&amp;rsquo;t make all previous years tax returns invalid. They are still true, but refer to your self at that point in time.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Person&lt;br&gt;
+  &amp;hellip;&lt;br&gt;
+  &lt;strong&gt;def&lt;/strong&gt; setMaritalStatus(MaritalStatus newStatus)&lt;br&gt;
+    maritalStatus = newStatus&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;def&lt;/strong&gt; MaritalStatus getMaritalStatus()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; maritalStatus&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &amp;hellip;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; TaxReturn&lt;br&gt;
+  &amp;hellip;&lt;br&gt;
+  &lt;strong&gt;def&lt;/strong&gt; Person getPerson()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; person&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &amp;hellip;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;This is the code the IRS used to use to store people&amp;rsquo;s tax returns. This caused innumerable problems for the IRS especially with divorce rates on the rise. At first, the IRS tried to solve the problem by pushing for the No Divorce Act of 1983 (which they intended to follow up with No New Marriage act), but when this failed to pass they were faced with a huge dilemma. How could they ever go back to audit previous year&amp;rsquo;s tax returns when a person&amp;rsquo;s marital status was allowed to fluctuate? Here is what I changed the code to when I was eventually called in as a consultant.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Person&lt;br&gt;
+  &amp;hellip;&lt;br&gt;
+  &lt;strong&gt;def&lt;/strong&gt; Person setMaritalStatus(MaritalStatus newStatus)&lt;br&gt;
+    newPerson = this.clone&lt;br&gt;
+    newPerson.maritalStatus = newStatus&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; newPerson&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;def&lt;/strong&gt; MaritalStatus getMaritalStatus()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; maritalStatus&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &amp;hellip;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Keep in mind this was the 80s and I was only 3 years old, so this was not my most beautiful code. This solved the IRS&amp;rsquo;s problem though by making Person immutable, when one attempts to change a Person it makes a copy of the Person with the new attribute and hands that back instead. This meant that the old tax returns could still refer to the original Person and no longer needed to worry about changing marital status.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

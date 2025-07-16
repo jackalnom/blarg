@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "N+1 Select"
 date: 2008-06-17T21:42:16
-categories: ["Web/Tech"]
-tags: []
+categories: ["Database & Performance"]
+tags: ["n+1-problem", "orm", "database", "performance"]
 ---
 
 You can forget about the performance of synchronized vs. unsynchronized, when you write code hitting your database that looks like this:

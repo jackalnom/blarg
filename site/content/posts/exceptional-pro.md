@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Exceptional Programming"
 date: 2008-04-13T20:14:29
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["exception-handling", "error-handling", "best-practices"]
 ---
 
 No battle plan ever survives contact with the enemy.  

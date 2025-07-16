@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Catching Exceptions"
 date: 2008-05-04T22:07:32
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["exception-handling", "error-handling", "resilience"]
 ---
 
 > “It’s 3 am and your children are safe and asleep.

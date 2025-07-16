@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Building Software Over Time"
 date: 2009-02-09T00:36:46
-categories: ["Web/Tech"]
-tags: []
+categories: ["Management & Process"]
+tags: ["software-lifecycle", "maintenance", "requirements", "yagni", "agile"]
 ---
 
 When choosing a sorting algorithm, we typically don't look at how fast it performs on collections of 10 items. What matters is how it scales with the size of the input data. It is very easy to get sidetracked by success on toy problems or to concentrate on optimizing the wrong thing. Sure you can spend days optimizing the inner loop of your sort, but if you're using an n squared algorithm you're not using your time efficiently.

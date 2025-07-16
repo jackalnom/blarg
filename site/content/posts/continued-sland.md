@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Continued Slander against the Noble If"
 date: 2008-03-16T13:26:43
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["polymorphism", "inheritance", "design-patterns"]
 ---
 
 I've often said that **if** statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm[1](#disclaimer):

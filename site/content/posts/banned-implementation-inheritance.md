@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Banned: Implementation Inheritance"
 date: 2008-09-07T13:21:40
-categories: ["General"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["inheritance", "composition", "oop", "best-practices", "technical-debt"]
 ---
 
 Most software developers are aware of the principle "favor object composition over class inheritance". I've written before about [tactical polymorphism](http://www.bonnycode.com/guide/2008/03/tactical-polymo.html), and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.

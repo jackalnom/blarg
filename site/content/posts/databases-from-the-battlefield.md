@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Databases from the Battlefield"
 date: 2008-06-15T23:15:07
-categories: ["Web/Tech"]
-tags: []
+categories: ["Database & Performance"]
+tags: ["database", "sql", "performance"]
 ---
 
 There is a ladder of knowledge in learning about databases. Step one is learning the basic commands SELECT, INSERT, UPDATE and DELETE. After that you learn about Subselects and the various JOINs. Eventually you learn about creating your own schema, many to many relationships and database indexes. Eventually you might even learn about [database normal forms](http://en.wikipedia.org/wiki/Database_normalization) which are similar to the Ten Commandments: people think they know what they are but when pressed can normally only name one or two (killing and stealing are bad right?).

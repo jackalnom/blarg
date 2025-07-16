@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "How to be a better software manager"
 date: 2014-03-16
-categories: ["Web/Tech"]
-tags: []
+categories: ["Management & Process"]
+tags: ["management", "leadership", "team-building"]
 ---
 
 “My dev team is failing, what software process should we use to be more successful?”  

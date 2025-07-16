@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Requirements on BonnyCode</title>
+    <link>http://localhost:1313/tags/requirements/</link>
+    <description>Recent content in Requirements on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 09 Feb 2009 00:36:46 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/requirements/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building Software Over Time</title>
+      <link>http://localhost:1313/posts/building-software-over-time/</link>
+      <pubDate>Mon, 09 Feb 2009 00:36:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/building-software-over-time/</guid>
+      <description>&lt;p&gt;When choosing a sorting algorithm, we typically don&amp;rsquo;t look at how fast it performs on collections of 10 items. What matters is how it scales with the size of the input data. It is very easy to get sidetracked by success on toy problems or to concentrate on optimizing the wrong thing. Sure you can spend days optimizing the inner loop of your sort, but if you&amp;rsquo;re using an n squared algorithm you&amp;rsquo;re not using your time efficiently.&lt;/p&gt;
+&lt;p&gt;The same lessons apply in software design. Programmers most often optimize around initial construction time. If you have a fixed set of requirements for the lifetime of the software than that is indeed a suitable area to optimize and in that case you are probably working for a government contractor of some sort. For the rest of us, you are almost certainly working in an area with changing requirements and code that will be read and reworked many times through its life. Much more time will be spent on the maintenance side, an often cited number is greater than 90% of time is spent on maintenance. People&amp;rsquo;s first response to this is that it is a code quality issue, but that is largely untrue from my experience. The reason maintenance absorbs so much time is that requirements are constantly in flux. The code must be changed to meet new demands as those demands stream in.&lt;/p&gt;
+&lt;p&gt;Sounds good so far, so this means build in lots of flexibility to your code right? Not quite as most software developers are amazingly bad at predicting where they will need the flexibility. Some use their own creative imaginations to dream up ways in which new requirements may come in, this leads to the really horribly bad architectures. The more experienced developers draw from previous experience from previous projects which is sometimes useful, more often misleading. This leads to the principle the agilistas refer to as YAGNI aka you aren&amp;rsquo;t gonna need it. Basically they revoke your flexible architecture card on the premise that you are going to screw it up.&lt;/p&gt;
+&lt;p&gt;YAGNI is a good principle, better than the overbuilding it seeks to prevent, but it ultimately comes from too detached a place. Don&amp;rsquo;t get me wrong, for most developers out there, following YAGNI will lead to better code and better design. Most developers are over confident in themselves and their knowledge of what their software is used for, and spend very little time thinking about why they are building their software. The place where YAGNI falls short of nirvana though is that it presumes the software developer as contractor, which means the software developer is fed requirements from some unknown source which are then turned into code. Much better is software developer as active requirements gatherer and problem solver. The mindset has to change away from &amp;ldquo;God knows what the requirements will be next&amp;rdquo; to &amp;ldquo;What is the trajectory for this software and how can I provide the most value over time.&amp;rdquo; Is there value in you building something now vs. later? What is the opportunity cost to building it later? What is the risk of it changing? Is the best way to get more information to just build what we know so far and get further feedback? These are the questions that need to be asked and that you need to have deep requirements knowledge to answer. This is where as a developer you will provide real value to a business though, and where a single developer close to the business can easily outperform a fleet of programmers in some far off place.&lt;/p&gt;
+&lt;p&gt;Software design is about scalability. It is an organic process where you must constantly ask yourself not what something will cost at this point in time, but what will the cost vs. value be over time through the long, long, long lifetime of the software. Software developers are bad at this and so many just give up and resort to YAGNI like principles, but ultimately this is because software developers are too detached from the requirements and are poorly trained in risk management.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

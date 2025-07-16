@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Points Ranking"
 date: 2008-04-14T19:03:41
-categories: ["General"]
-tags: []
+categories: ["Management & Process"]
+tags: ["estimation", "productivity", "management"]
 ---
 
 * Evan Rosson - 25 Points

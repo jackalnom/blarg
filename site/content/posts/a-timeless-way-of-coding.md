@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "A Timeless Way of Coding"
 date: 2009-02-22T22:51:50
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["design-patterns", "architecture", "philosophy", "software-principles"]
 ---
 
 What do the Macarena and the GoF's [Design Patterns](http://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional/dp/0201633612/) have in common? They all became wildly popular in 1995 but in the following years experienced a large backlash from overexposure. There have been many arguments against Design Patterns as practiced in software development, chiefly that they promote over complicated code and that they really just paper over what should be seen as core deficiencies in mainstream object oriented languages.

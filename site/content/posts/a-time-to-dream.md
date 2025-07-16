@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "A time to dream"
 date: 2013-10-27
-categories: ["Web/Tech"]
-tags: []
+categories: ["Career & Professional"]
+tags: ["vision", "planning", "professional-development"]
 ---
 
 My success in life is based on my love and respect for daydreaming. I've always been a daydreamer. At the age of seven, I envisioned a space opera of powerful Lizians, Heart Monkeys and Star People who fought against the tyrannical Lizard Men. I loved this world and I visited every chance I got. I spent so much time fleshing out my world rather than school work that by the end of high school I had a written a truly intricate science fiction novel and I had the poor grades to show it. It was also an amazingly horrible novel. When I showed it to a girl I liked in high school, because high school chicks dig sci-fi authors, I couldn't have anticipated the reaction, “I can't believe you waste your time dreaming about stupid stuff like this.”

@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Persistence: The long lost virtue of fixing a bug"
 date: 2008-11-23T18:12:12
-categories: ["Web/Tech"]
-tags: []
+categories: ["Career & Professional"]
+tags: ["debugging", "persistence", "skill-development"]
 ---
 
 The heights by great men reached and kept  

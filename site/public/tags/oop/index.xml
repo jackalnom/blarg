@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oop on BonnyCode</title>
+    <link>http://localhost:1313/tags/oop/</link>
+    <description>Recent content in Oop on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Sep 2008 13:21:40 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/oop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Banned: Implementation Inheritance</title>
+      <link>http://localhost:1313/posts/banned-implementation-inheritance/</link>
+      <pubDate>Sun, 07 Sep 2008 13:21:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/banned-implementation-inheritance/</guid>
+      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://www.bonnycode.com/guide/2008/03/tactical-polymo.html&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
+&lt;p&gt;I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren&amp;rsquo;t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don&amp;rsquo;t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is &lt;a href=&#34;http://en.wikipedia.org/wiki/Technical_debt&#34;&gt;technical debt&lt;/a&gt;. And while it has done wonders for certain aging C++ programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.&lt;/p&gt;
+&lt;p&gt;So what does this mean for you? Next time you try to do any implementation inheritance in your design, stop and say to yourself:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Am I possessed by some evil demon lord of bad design?&lt;/li&gt;
+&lt;li&gt;Do I love this code so much that I want it to work on for the rest of my life and want no one else to ever understand it?&lt;/li&gt;
+&lt;li&gt;Do I have a really really good reason why this limited use of implementation inheritance won&amp;rsquo;t end the universe as we know it?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you can&amp;rsquo;t answer yes to one of the above, please please &amp;ldquo;favor object composition over class inheritance&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

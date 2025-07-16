@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Threading Quiz"
 date: 2008-06-30T21:37:40
-categories: ["Web/Tech"]
-tags: []
+categories: ["Programming Languages"]
+tags: ["java", "threading", "concurrency", "quiz"]
 ---
 
 This is a little baby quiz on threading. The program below works... kind of. Looking to award points to the first person who can come up with the following:

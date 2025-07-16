@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "The Ambiguous Null"
 date: 2008-02-24T22:50:54
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Philosophy"]
+tags: ["education", "programming-concepts", "learning"]
 ---
 
 > if (paintColor == null)  

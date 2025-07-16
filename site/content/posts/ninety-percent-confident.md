@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Ninety Percent Confident"
 date: 2008-08-24T21:38:25
-categories: ["Web/Tech"]
-tags: []
+categories: ["Career & Professional"]
+tags: ["estimation", "confidence", "professional-skills"]
 ---
 
 I know nothing except the fact of my ignorance.

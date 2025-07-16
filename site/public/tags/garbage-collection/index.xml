@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Garbage-Collection on BonnyCode</title>
+    <link>http://localhost:1313/tags/garbage-collection/</link>
+    <description>Recent content in Garbage-Collection on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 24 May 2008 16:49:31 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/garbage-collection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Garbage Collector Quiz</title>
+      <link>http://localhost:1313/posts/garbage-collector-quiz/</link>
+      <pubDate>Sat, 24 May 2008 16:49:31 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/garbage-collector-quiz/</guid>
+      <description>&lt;p&gt;As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I&amp;rsquo;ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;import java.lang.ref.*;&lt;br&gt;
+import java.util.*;&lt;/p&gt;
+&lt;p&gt;class WarmupQuestion {&lt;br&gt;
+    private static ArrayList list = track(new ArrayList());&lt;br&gt;
+    static public void main(String[] args) throws Exception {&lt;br&gt;
+        track(new WarmupQuestion());&lt;br&gt;
+        System.gc();&lt;br&gt;
+        Integer i = track(150);&lt;br&gt;
+        track(new int[1024*1024]);&lt;br&gt;
+        System.gc();&lt;br&gt;
+        track(&amp;ldquo;Hello&amp;rdquo;);&lt;br&gt;
+        i = null;&lt;br&gt;
+        System.gc();&lt;br&gt;
+    }&lt;br&gt;
+   &lt;br&gt;
+    public void finalize() {&lt;br&gt;
+        list.add(this);&lt;br&gt;
+    }&lt;br&gt;
+   &lt;br&gt;
+    public static&lt;!-- raw HTML omitted --&gt; T track(T o) {&lt;br&gt;
+        return ObjectTracker.track(o);&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    &amp;hellip;   &lt;br&gt;
+}&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;object of type [I lived for 12 milliseconds&lt;br&gt;
+ WarmupQuestion.main(WarmupQuestion.java:10)&lt;br&gt;
+object of type java.lang.Integer lived for 19 milliseconds&lt;br&gt;
+ WarmupQuestion.main(WarmupQuestion.java:9)&lt;br&gt;
+object of type java.util.ArrayList lived until program exit.&lt;br&gt;
+ WarmupQuestion.&lt;!-- raw HTML omitted --&gt;(WarmupQuestion.java:5)&lt;br&gt;
+object of type WarmupQuestion has a finalize that raises the dead.&lt;br&gt;
+ WarmupQuestion.main(WarmupQuestion.java:7)&lt;br&gt;
+object of type java.lang.String lived until program exit.&lt;br&gt;
+ WarmupQuestion.main(WarmupQuestion.java:12)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.&lt;/p&gt;
+&lt;p&gt;Good luck!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

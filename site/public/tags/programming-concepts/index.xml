@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming-Concepts on BonnyCode</title>
+    <link>http://localhost:1313/tags/programming-concepts/</link>
+    <description>Recent content in Programming-Concepts on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Feb 2008 22:50:54 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/programming-concepts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Ambiguous Null</title>
+      <link>http://localhost:1313/posts/the-ambiguous-n/</link>
+      <pubDate>Sun, 24 Feb 2008 22:50:54 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/the-ambiguous-n/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;if (paintColor == null)&lt;br&gt;
+  print &amp;ldquo;Room is wall papered.&amp;rdquo;&lt;br&gt;
+else&lt;br&gt;
+  print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;null represents a void reference, but programmers often want to overload it to have other meanings. In the above example, a null paintColor means that the room is wall papered. Overloading null like this has two problems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The caller becomes responsible for the special null case, rather than encapsulating this logic in one place.&lt;/li&gt;
+&lt;li&gt;The code is not self documenting and thus should require comments. In the above example, outside of the immediate context, another programmer might assume that a null paintColor means a wall with no paint or wall paper on it at all.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A better solution is to rename the object paintColor to something more representative such as wallDecoration and then encapsulate the logic inside the object being called:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;print wallDecoration.description&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

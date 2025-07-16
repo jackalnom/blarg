@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code-Style on BonnyCode</title>
+    <link>http://localhost:1313/tags/code-style/</link>
+    <description>Recent content in Code-Style on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 09 Mar 2008 09:23:37 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/code-style/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Register Style Programming</title>
+      <link>http://localhost:1313/posts/register-style/</link>
+      <pubDate>Sun, 09 Mar 2008 09:23:37 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/register-style/</guid>
+      <description>&lt;p&gt;Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;room = RoomDAO.findLivingRoom&lt;br&gt;
+&lt;strong&gt;if&lt;/strong&gt; (room &amp;lt;&amp;gt; nil)&lt;br&gt;
+  house.add(room)&lt;br&gt;
+room = RoomDAO.findKitchen&lt;br&gt;
+&lt;strong&gt;if&lt;/strong&gt; (room &amp;lt;&amp;gt; nil)&lt;br&gt;
+  house.add(room)&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Reusing variables with register style programming has several problems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.&lt;/li&gt;
+&lt;li&gt;It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Instead, variables should have only a single semantic meaning throughout their lifetime.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;livingRoom = RoomDAO.findLivingRoom&lt;br&gt;
+&lt;strong&gt;if&lt;/strong&gt; (livingRoom &amp;lt;&amp;gt; nil)&lt;br&gt;
+  house.add(livingRoom)&lt;br&gt;
+kitchen = RoomDAO.findKitchen&lt;br&gt;
+&lt;strong&gt;if&lt;/strong&gt; (kitchen &amp;lt;&amp;gt; nil)&lt;br&gt;
+  house.add(kitchen)&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

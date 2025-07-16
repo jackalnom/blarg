@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Just Say 'No' To Boring Code"
 date: 2009-04-12T22:51:32
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["code-quality", "readability", "maintainability"]
 ---
 
 *Thanks to [Casey](http://www.cs.uchicago.edu/people/clklein) for inspiring this entry and for fighting the good fight against boring code.*

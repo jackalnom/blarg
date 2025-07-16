@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "How feature estimates killed Bobo"
 date: 2012-06-24
-categories: ["Web/Tech"]
-tags: []
+categories: ["Management & Process"]
+tags: ["estimation", "productivity", "management"]
 ---
 
 Software development lacks a single meaningful, objective productivity metric. This is not for lack of trying. A productivity metric would make the life of a software development manager dramatically easier. Performance reviews? Just see who has the highest number. Need to find out how to boost productivity? Find the developer with the best process and have your other developers adopt it as a best practice. And so, managers grasp for measurement. Lines of code is so obviously wrong as a measurement that I've mostly heard it brought up for its comedic value. I'm not saying that in the history of software there hasn't been some misguided manager who actually reviewed their developers by lines of code, but it is certainly more myth than reality in the modern era.

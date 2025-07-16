@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "I'm back and I hate your estimates"
 date: 2012-06-11
-categories: ["Web/Tech"]
-tags: []
+categories: ["Management & Process"]
+tags: ["estimation", "project-management", "critique"]
 ---
 
 For 2,000 years, ever since the Ancient Greeks got it into their heads that disease was caused by excess fluids, most disease in the western world was treated through bloodletting. Your back hurts? Let's drain a quart of blood and see how you feel! Need to amputate your foot? Better drain some blood first. Was the practice scientifically baseless and actually harmful? Hell yes! There are today some cases where bloodletting is validly practiced, but it is no longer the panacea it once was. Effort estimation is software development's version of bloodletting. Developers use effort estimates to drive accountability, to conduct cost-benefit analysis, to pack sprints, create launch timelines and, I believe in some circles, to summon the nine dark lords of hell.

@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Code Comprehension"
 date: 2008-03-24T00:08:53
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["code-reading", "comprehension", "maintenance"]
 ---
 
 Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.

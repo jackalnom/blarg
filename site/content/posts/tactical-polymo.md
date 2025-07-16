@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Tactical Polymorphism"
 date: 2008-03-02T00:46:46
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["polymorphism", "design-patterns", "oop"]
 ---
 
 > **class** Room  

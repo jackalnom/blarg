@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Synchronized Performance"
 date: 2008-06-10T00:39:10
-categories: ["Web/Tech"]
-tags: []
+categories: ["Database & Performance"]
+tags: ["java", "threading", "performance", "synchronization"]
 ---
 
 In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.

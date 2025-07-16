@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Cost benefit analysis for bear lovers"
 date: 2013-08-25
-categories: ["Web/Tech"]
-tags: []
+categories: ["Management & Process"]
+tags: ["estimation", "project-management", "technical-debt"]
 ---
 
 Feature estimates are often blindly used for cost benefit analysis. This was no more apparent than when I once worked with a product manager named Bethany. She was responsible for what, in hindsight, was always a doomed social network for lovers of the North American Brown Bear. Bethany would routinely ask her developers to provide implementation costs for a long list of features. The developers would grumble and complain they need more detailed requirements before they can put together detailed estimates (because they had been burned in the past on being held to commitments based on changing scope). Bethany retorts that she just needs “T-shirt sizes”, which is code for wild ass guesses, so she can do cost benefit analysis. Logically, this makes sense. Like any savvy businesswoman, the product manager wants to get a return on her investment. You wouldn't buy a piano without first knowing the price, right?

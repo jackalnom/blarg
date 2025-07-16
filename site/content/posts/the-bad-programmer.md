@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "The Bad Programmer"
 date: 2008-12-13T21:25:04
-categories: ["Web/Tech"]
-tags: []
+categories: ["Career & Professional"]
+tags: ["team-dynamics", "hiring", "professional-development"]
 ---
 
 Nick makes a [good argument](http://www.bonnycode.com/guide/2008/12/in-defense-of-go-to.html#comment-142318906) for why go to should not be used. His closing argument is that zealous programmers will abuse go to. Pete makes a similar argument that go to has too much potential for abuse from programmers that we can't be bothered to explain the use of to and you are better off banning them.

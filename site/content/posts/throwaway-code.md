@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Throwaway Code: A Love Story"
 date: 2013-09-28
-categories: ["Web/Tech"]
-tags: []
+categories: ["Management & Process"]
+tags: ["iterative-development", "agile", "prototyping"]
 ---
 
 > **Throwaway Code**  

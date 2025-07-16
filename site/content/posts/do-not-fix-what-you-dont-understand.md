@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Do not fix what you don't understand"
 date: 2008-11-16T23:31:44
-categories: ["Web/Tech"]
-tags: []
+categories: ["Career & Professional"]
+tags: ["debugging", "problem-solving", "root-cause-analysis"]
 ---
 
 It's monday at 2pm and you are working on another bug report. It is a null pointer exception in a class you aren't familiar with.

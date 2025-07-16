@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Exceptions are part of the Method Signature"
 date: 2008-04-20T17:32:03
-categories: ["General"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["exception-handling", "error-handling", "best-practices"]
 ---
 
 The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:

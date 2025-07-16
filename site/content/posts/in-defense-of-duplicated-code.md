@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "In Defense of Duplicated Code"
 date: 2008-11-30T22:08:07
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["dry-principle", "code-duplication", "refactoring"]
 ---
 
 One of the first principles you will hear from anyone hoping to impart software development wisdom on young disciples is [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Don't Repeat Yourself. If software best practices all lived in a little nation, the Honourable Commonwealth of Softwaria, its king would be DRY. A good king he was too.

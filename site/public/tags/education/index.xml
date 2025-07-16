@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Education on BonnyCode</title>
+    <link>http://localhost:1313/tags/education/</link>
+    <description>Recent content in Education on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 02 Nov 2008 22:42:11 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Syllabus</title>
+      <link>http://localhost:1313/posts/the-syllabus/</link>
+      <pubDate>Sun, 02 Nov 2008 22:42:11 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/the-syllabus/</guid>
+      <description>&lt;p&gt;I explained before why I thought &amp;ldquo;programology&amp;rdquo; should be taught, but I didn&amp;rsquo;t go into detail on what I would teach.&lt;/p&gt;
+&lt;p&gt;To start, there would need to be at least a cursory mention of &lt;a href=&#34;http://en.wikipedia.org/wiki/Literate_Programming&#34;&gt;Literate Programming&lt;/a&gt;. Just like many English Literature classes start with Beowulf, we could start with a reading of &lt;a href=&#34;ftp://tug.ctan.org/pub/tex-archive/systems/knuth/dist/tex/tex.web&#34;&gt;TeX&lt;/a&gt;. Donald Knuth has a little sensor implanted in his brain that tells him every time someone reads his code; make the professor happy and at least try to read some of it.&lt;/p&gt;
+&lt;p&gt;I wouldn&amp;rsquo;t dwell very long on Literate Programming. To do so would, sadly, lead to a place where we focus on finding the best source code and studying that. Instead the point is to find the best programs and study their source code. Now given, there should be some correlation between quality of source code and quality of program, but I want that correlation to be discovered in its true form and not the usual manifestation of neophytes arguing over number of comments or spaces vs. tabs.&lt;/p&gt;
+&lt;p&gt;So, at this point I believe we are at about day 3 of the class. The first true source code reading I would do would be of the Java JDK compared and contrasted with Apache Commons. For instance, take a gander at &lt;a href=&#34;http://www.docjar.com/html/api/java/lang/String.java.html&#34;&gt;java.lang.String&lt;/a&gt; vs. &lt;a href=&#34;http://svn.apache.org/repos/asf/commons/proper/lang/trunk/src/java/org/apache/commons/lang/StringUtils.java&#34;&gt;org.apache.commons.lang.StringUtils&lt;/a&gt;. Library code like this is a good place to start because it is easy to read, self contained, and well commented. I find the java.lang classes especially to be friendly late night reading while sipping on hot cocoa next to a roaring fire.&lt;/p&gt;
+&lt;p&gt;Comparing the latest and greatest snapshots of programs is interesting in and of itself, but to truly understand a program you need to see its evolution. What were the choices the programmers made originally. What design decisions stuck around and which were abandoned. To this end I would now turn to the Ruby programming languages source code. This is a good candidate for such study because it was written mostly by one person, it is fairly small overall, and it was written over the course of many years with at least 10 years of subversion history to dig through. The reason I think it is important that it was largely the work of one person is that there will be less noise where code is rewritten simply because it is not understood which is very common in large programming teams. My inherent love of string code showing, take a look at the subversion history for &lt;a href=&#34;http://svn.ruby-lang.org/cgi-bin/viewvc.cgi/branches/ruby_1_9_1/string.c?view=log&#34;&gt;string.c&lt;/a&gt;. Look at some of the methods in his version 2 and see how they evolve over time. In what ways does the code get more and more complex? In what ways does it actually become easier to understand?&lt;/p&gt;
+&lt;p&gt;So far, we&amp;rsquo;ve only had to deal with largely isolated components which is nice when trying to study source code, but eventually one has to grasp with understanding large systems. The big guns in this case would be studying the Eclipse IDE code base. It is large, modular and built by a large disjointed set of people. I wouldn&amp;rsquo;t concentrate on reading code at this stage as I would on scanning it. The takeaway skill would be the ability to conceptualize the architecture of a large program and then be able to answer questions such as: if there was a bug in the string differencing, where would you go to fix it and if you were to add a feature that let you tear off subviews into their own windows where would you start.&lt;/p&gt;
+&lt;p&gt;This is of course just a taste of what the class would look like. There would have to be quizzes that prove you comprehended the code, midterms that involved reading new code on the spot as well as recalling code previously read and a major project where students would pick the source code to read and write their observations on.&lt;/p&gt;
+&lt;p&gt;Please let me know if there is publicly viewable source code that you have read in the past that you think is of particular note.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Programology</title>
+      <link>http://localhost:1313/posts/programology/</link>
+      <pubDate>Sun, 12 Oct 2008 13:03:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/programology/</guid>
+      <description>&lt;p&gt;If I were to teach a course at the University level, I would teach programology. Not the study of programming, but the study of existing computer programs. In the entire course, we would only read source code. Not small snippets of algorithms, and not trivialized polished examples of code created just for class. I&amp;rsquo;m talking about the industrial gritty always evolving code that actually runs a good part of the industrialized world now. Just as in cultural anthropology you study tribes from New Guinea to understand the various ways in which human society has evolved, we would study old programs, new programs, large programs, and small programs. We would study programs developed under a variety of different paradigms.&lt;/p&gt;
+&lt;p&gt;It would be a weeder class. Writing code is hard; reading code is harder. But that is the point, being able to take an existing code base and quickly conceptualize the architecture and its design elements is what separates the software developer who can make the trivial one line fix to a problem and the one who bolts on three hundred lines of monstrous code because they didn&amp;rsquo;t quite get it.&lt;/p&gt;
+&lt;p&gt;It will also help us not repeat the same mistakes that the majority of software developers have made before us. Most new software developers start out writing spaghetti code, code without known structure, features organically tacked on and general anarchy. Most developers eventually learn from their mistake, but when given the chance to rewrite their original software they swing too far the other way. They create a huge over-designed Frankenstein creation that is fully table driven, has an intricate inheritance tree and incorporates god knows how many design patterns. If we are lucky, the developer spends enough time in the field to eventually learn from this mistake as well and finds a happy medium.&lt;/p&gt;
+&lt;p&gt;Fred Brooks described this problem as the &lt;a href=&#34;http://en.wikipedia.org/wiki/Second-system_effect&#34;&gt;second system effect&lt;/a&gt; in his book the &lt;a href=&#34;http://en.wikipedia.org/wiki/The_Mythical_Man-Month&#34;&gt;Mythical Man-Month&lt;/a&gt;, published in 1975, before most software developers today were even born. Yet, the vast majority of software developers today still follow the same evolution because we don&amp;rsquo;t study source code and what factors led that source code to arise why it did. We are like building architects who have never actually studied the design of any other building  besides those we personally took part in creating. Or a writer of novels who has never read any novels besides his own. To progress as a field, we must study those who came before us.&lt;/p&gt;
+&lt;p&gt;I probably will never teach this class, despite the desperate need for it. In the end though, I say to anyone that wishes to be a great software developer, the surest way is to write lots and lots of code, and to read even more.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Ambiguous Null</title>
+      <link>http://localhost:1313/posts/the-ambiguous-n/</link>
+      <pubDate>Sun, 24 Feb 2008 22:50:54 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/the-ambiguous-n/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;if (paintColor == null)&lt;br&gt;
+  print &amp;ldquo;Room is wall papered.&amp;rdquo;&lt;br&gt;
+else&lt;br&gt;
+  print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;null represents a void reference, but programmers often want to overload it to have other meanings. In the above example, a null paintColor means that the room is wall papered. Overloading null like this has two problems:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The caller becomes responsible for the special null case, rather than encapsulating this logic in one place.&lt;/li&gt;
+&lt;li&gt;The code is not self documenting and thus should require comments. In the above example, outside of the immediate context, another programmer might assume that a null paintColor means a wall with no paint or wall paper on it at all.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A better solution is to rename the object paintColor to something more representative such as wallDecoration and then encapsulate the logic inside the object being called:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;print wallDecoration.description&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Exceptions vs. Status Codes vs. Assertions"
 date: 2008-04-14T19:57:57
-categories: ["General"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["exception-handling", "error-handling", "best-practices"]
 ---
 
 Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this [siren](http://www.joelonsoftware.com/items/2003/10/13.html)) and her false promises.

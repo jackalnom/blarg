@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming-Constructs on BonnyCode</title>
+    <link>http://localhost:1313/tags/programming-constructs/</link>
+    <description>Recent content in Programming-Constructs on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 07 Dec 2008 13:36:48 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/programming-constructs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>In Defense of Go To</title>
+      <link>http://localhost:1313/posts/in-defense-of-go-to/</link>
+      <pubDate>Sun, 07 Dec 2008 13:36:48 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/in-defense-of-go-to/</guid>
+      <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;That said, let&amp;rsquo;s say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.&lt;/p&gt;
+&lt;p&gt;main&lt;br&gt;
+  integer n = console.getInt()&lt;br&gt;
+  integer first = 0&lt;br&gt;
+  integer second = 1&lt;br&gt;
+  integer next&lt;/p&gt;
+&lt;p&gt;  fib_loop:&lt;br&gt;
+    print first&lt;br&gt;
+    next = first + second&lt;br&gt;
+    first = second&lt;br&gt;
+    second = next&lt;br&gt;
+    n = n - 1&lt;br&gt;
+  if (n &amp;gt; 0) goto fib_loop&lt;br&gt;
+end&lt;/p&gt;
+&lt;p&gt;&amp;lt;sarcasm_tags_for_the_clueless&amp;gt;Egads! That program is totally obtuse! Here let me write a version without &lt;strong&gt;go to&lt;/strong&gt; so that it makes more sense&amp;lt;/sarcasm_tags_for_the_clueless&amp;gt;:&lt;/p&gt;
+&lt;p&gt;main&lt;br&gt;
+  integer n = console.getInt()&lt;br&gt;
+  integer first = 0&lt;br&gt;
+  integer second = 1&lt;br&gt;
+  integer next&lt;/p&gt;
+&lt;p&gt;  do&lt;br&gt;
+    print first&lt;br&gt;
+    next = first + second&lt;br&gt;
+    first = second&lt;br&gt;
+    second = next&lt;br&gt;
+    n = n - 1&lt;br&gt;
+  while (n &amp;gt; 0)&lt;br&gt;
+end&lt;/p&gt;
+&lt;p&gt;Now it makes sense! Although we could use a for loop to make it even better:&lt;/p&gt;
+&lt;p&gt;main&lt;br&gt;
+  integer first = 0&lt;br&gt;
+  integer second = 1&lt;br&gt;
+  integer next&lt;/p&gt;
+&lt;p&gt;  for (integer n = console.getInt(); n &amp;gt; 0; n = n - 1)&lt;br&gt;
+    print first&lt;br&gt;
+    next = first + second&lt;br&gt;
+    first = second&lt;br&gt;
+    second = next&lt;br&gt;
+  end&lt;br&gt;
+end&lt;/p&gt;
+&lt;p&gt;Why is this version so much better than the &lt;a href=&#34;http://xkcd.com/292/&#34;&gt;go to&lt;/a&gt; version though? We&amp;rsquo;ve all been taught &lt;strong&gt;go to&lt;/strong&gt; is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why &lt;strong&gt;go to&lt;/strong&gt; is wrong.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

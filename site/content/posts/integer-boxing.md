@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Integer Boxing Quiz"
 date: 2008-05-08T19:35:45
-categories: ["Web/Tech"]
-tags: []
+categories: ["Programming Languages"]
+tags: ["java", "autoboxing", "quiz"]
 ---
 
 Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of the\_black\_box will the statement on line 11 print "Jonathan Kelly is really a robot!"? The only import allowed is java.lang.reflect.Field. 15 points will be awarded for the first correct answer.

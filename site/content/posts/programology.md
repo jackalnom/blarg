@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Programology"
 date: 2008-10-12T13:03:39
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Philosophy"]
+tags: ["education", "code-reading", "learning"]
 ---
 
 If I were to teach a course at the University level, I would teach programology. Not the study of programming, but the study of existing computer programs. In the entire course, we would only read source code. Not small snippets of algorithms, and not trivialized polished examples of code created just for class. I'm talking about the industrial gritty always evolving code that actually runs a good part of the industrialized world now. Just as in cultural anthropology you study tribes from New Guinea to understand the various ways in which human society has evolved, we would study old programs, new programs, large programs, and small programs. We would study programs developed under a variety of different paradigms.

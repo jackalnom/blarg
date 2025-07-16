@@ -2,8 +2,8 @@
 author: Lucas Pierce
 title: "Strictly Need to Know"
 date: 2008-05-18T17:05:29
-categories: ["Web/Tech"]
-tags: []
+categories: ["Software Engineering"]
+tags: ["information-hiding", "encapsulation", "security"]
 ---
 
 One of the bedrock principles in software engineering is information hiding. The traditional idea behind information hiding is imagined in the context of a group of software developers. Each of these software developers is working on their module that will use and be used by the modules made by other software developers. Given that software development is messy, we want to be able to make changes/fixes/upgrades to our module even after our module is in use by other modules. A module developer thus applies the principle of information hiding to separate the more stable interface of their module from the less stable implementation details. Other modules can only see the interface and not the implementation details, which gives the module developer the freedom to change the implementation details after it has begun to be used by other module developers.

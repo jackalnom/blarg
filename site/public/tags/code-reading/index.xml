@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code-Reading on BonnyCode</title>
+    <link>http://localhost:1313/tags/code-reading/</link>
+    <description>Recent content in Code-Reading on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 24 Mar 2008 00:08:53 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/code-reading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code Comprehension</title>
+      <link>http://localhost:1313/posts/code-comprehens/</link>
+      <pubDate>Mon, 24 Mar 2008 00:08:53 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/code-comprehens/</guid>
+      <description>&lt;p&gt;Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;System.out.println(&amp;ldquo;How old are you?&amp;rdquo;);&lt;br&gt;
+Integer age = Integer.getInteger(System.console().readLine());&lt;br&gt;
+System.out.println(String.format(&amp;ldquo;Congratulations! You are %d years old.&amp;rdquo;, age));&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;As cool as this program looks, it doesn&amp;rsquo;t actually work. At the risk of offending a developer from Sun Microsystems, &lt;a href=&#34;http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#getInteger(java.lang.String)&#34;&gt;Integer.getInteger&lt;/a&gt; is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don&amp;rsquo;t make assumptions about a method&amp;rsquo;s behavior or what a variable stores purely by its name and take the time to do the research.&lt;/p&gt;
+&lt;p&gt;Code comprehension is always important. Be especially cautious when dealing with third party code or your company&amp;rsquo;s legacy code. The code was likely developed using different coding standards, conventions, and best practices than you would assume.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
