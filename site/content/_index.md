@@ -1,6 +1,6 @@
-A silly little blog for silly little thoughts. I like to make silly late games. I currently do a lot of silly little things. 
+A little blog of questionable wisdom. I like to build little games. I do a lot of little things these days that I hope have a big impact.
 
-This mostly has quite old blog posts from a prior life. I've revived them for fun. I may or may not endorse them anymore.
+These posts are old and new, serious and absurd, technical yet hopelessly philosophical. I’ve preserved even the questionable stuff, partly for nostalgia, mostly as proof that wisdom arrives slowly—if at all.
 
 <div id="potion-shop" style="font-family: monospace; max-width: 500px; margin: 2rem auto;">
   <h2>🧪 Potion Shop: Color Match</h2>
