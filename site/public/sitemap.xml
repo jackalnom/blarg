@@ -3,163 +3,412 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/posts/are-we-cooked/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/career--professional/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/career-advice/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/computer-science/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/llm/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/llm/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/professional-development/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/student/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-07-16T08:16:06-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/how-to-be-a-better-software-manager/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/web/tech/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <loc>http://localhost:1313/tags/leadership/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/management/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/management--process/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/team-building/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/a-time-to-dream/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/planning/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/vision/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/agile/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/iterative-development/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/prototyping/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/throwaway-code/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/cost-benefit-analysis/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/estimation/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/project-management/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/technical-debt/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/feature-estimates/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/productivity/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/critique/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/i-hate-your-estimates/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/code-quality/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/just-say-no-to-boring-code/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/general/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <loc>http://localhost:1313/tags/maintainability/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/readability/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/software-engineering/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/design/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/metaphors/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/software-is-not-like-dirt/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/software-philosophy/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software-development/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/a-timeless-way-of-coding/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/architecture/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/design-patterns/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/philosophy/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software-principles/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/building-software-over-time/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/maintenance/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/requirements/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/software-lifecycle/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/yagni/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/hiring/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/team-dynamics/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/the-bad-programmer/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/control-flow/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/goto/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/in-defense-of-go-to/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/programming-constructs/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/code-duplication/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/dry-principle/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/in-defense-of-duplicated-code/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/refactoring/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/debugging/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/persistence/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/skill-development/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/do-not-fix-what-you-dont-understand/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/problem-solving/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/root-cause-analysis/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/code-reading/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/curriculum/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/education/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/the-syllabus/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/learning/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/programology/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/banned-implementation-inheritance/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/best-practices/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/composition/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/inheritance/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/oop/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/confidence/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/ninety-percent-confident/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/professional-skills/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/concurrency/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/java/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/programming-languages/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/quiz/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/threading/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/threading-quiz-results/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/threading-quiz/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/database/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/database--performance/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/optimization/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/orm/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/performance/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/n1-select/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/n&#43;1-problem/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/databases-from-the-battlefield/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/sql/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/synchronization/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/synchronized-performance/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/garbage-collection/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/winner-of-garbage-collection-quiz/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/garbage-collector-quiz/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/memory-management/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/encapsulation/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/information-hiding/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/security/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/strictly-need-t/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/boxing/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/integer-boxin-1/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/autoboxing/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/integer-boxing/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/catching-except/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/error-handling/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/exception-handling/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/resilience/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/exceptions-are/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/exceptions-vs-s/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/quiz-results/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/points-ranking/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/exceptional-pro/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/java-mutability/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/mutability/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/functional-programming/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/immutability/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/the-joy-of-immu/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/code-comprehens/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/comprehension/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/continued-sland/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/polymorphism/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/code-style/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/register-style/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/tactical-polymo/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/programming-concepts/</loc>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/the-ambiguous-n/</loc>
-    <lastmod>2025-07-15T21:51:57-07:00</lastmod>
+    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2025-07-15T21:51:57-07:00</lastmod>

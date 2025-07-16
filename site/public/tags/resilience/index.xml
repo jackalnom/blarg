@@ -60,6 +60,12 @@ Who do you want answering that phone?”
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Exception handling isn&amp;rsquo;t a glamorous topic, but it is still important. Be the humble programmer that looks for ways to make their program cool and confident in the face of adversity and unexpected situations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

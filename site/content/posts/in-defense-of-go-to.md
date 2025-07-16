@@ -6,7 +6,7 @@ categories: ["Software Engineering"]
 tags: ["control-flow", "goto", "programming-constructs"]
 ---
 
-I continue this entry from my [defense of duplicated code](http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html). If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say "Lucas Pierce supports the use of go to! Heresy!".
+I continue this entry from my [defense of duplicated code](/posts/in-defense-of-duplicated-code/). If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say "Lucas Pierce supports the use of go to! Heresy!".
 
 That said, let's say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.
 

@@ -13,7 +13,7 @@
       <pubDate>Sun, 07 Sep 2008 13:21:40 +0000</pubDate>
       
       <guid>http://localhost:1313/posts/banned-implementation-inheritance/</guid>
-      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://www.bonnycode.com/guide/2008/03/tactical-polymo.html&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
+      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://localhost:1313/posts/tactical-polymo/&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
 &lt;p&gt;I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren&amp;rsquo;t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don&amp;rsquo;t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is &lt;a href=&#34;http://en.wikipedia.org/wiki/Technical_debt&#34;&gt;technical debt&lt;/a&gt;. And while it has done wonders for certain aging C++ programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.&lt;/p&gt;
 &lt;p&gt;So what does this mean for you? Next time you try to do any implementation inheritance in your design, stop and say to yourself:&lt;/p&gt;
 &lt;ol&gt;
@@ -22,6 +22,110 @@
 &lt;li&gt;Do I have a really really good reason why this limited use of implementation inheritance won&amp;rsquo;t end the universe as we know it?&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;If you can&amp;rsquo;t answer yes to one of the above, please please &amp;ldquo;favor object composition over class inheritance&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tactical Polymorphism</title>
+      <link>http://localhost:1313/posts/tactical-polymo/</link>
+      <pubDate>Sun, 02 Mar 2008 00:46:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/tactical-polymo/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isPainted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isPainted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Color paintColor()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isWallpapered()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isWallpapered&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;String wallpaperDesign()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isVenetianPlastered()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isVenetianPlastered&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  describeWall()&lt;br&gt;
+    &lt;strong&gt;if&lt;/strong&gt; (isWallpapered)&lt;br&gt;
+      print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+    &lt;strong&gt;else if&lt;/strong&gt; (isPainted)&lt;br&gt;
+      print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+    &lt;strong&gt;else if&lt;/strong&gt; (isVenetianPlastered)&lt;br&gt;
+      print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+    &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Object oriented designers seeing this class will see an opportunity to refactor this class to take advantage of polymorphism.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;abstract class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;abstract&lt;/strong&gt; describeWall()&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; WallpaperedRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; PaintedRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; VenetianPlasteredRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;There are several problems with this refactor:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It isn&amp;rsquo;t modular. To add a new type of wall, one must understand the whole room class. This isn&amp;rsquo;t difficult in this case, but as the class gets larger this is intellectual overhead that is unnecessary.&lt;/li&gt;
+&lt;li&gt;It isn&amp;rsquo;t flexible. It artificially favors one axis of variance. For example, there could be multiple types of floors in the future (carpet, hardwood, and tile) each with their own sets of data. We need a room that allows us to mix and match every combination of wall and floor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A better design is to apply what I refer to as tactical polymorphism to distinguish it from all the abusive usages of polymorphism. Tactical polymorphism is limiting polymorphism to only what is logically varying and nothing else. Instead of making the entire room polymorphic, we make just the part of the room that is varying polymorphic and have the room contain this polymorphic object.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Wall wall()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; wall&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;interface&lt;/strong&gt; Wall&lt;br&gt;
+  describe()&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; WallpaperedWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; PaintedWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; VenetianPlasteredWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 </description>
     </item>
     

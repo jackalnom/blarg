@@ -21,3 +21,8 @@ The bar method is called shit happens exception throwing. It tells other program
 Much preferred is to design the exceptions your method throws as part of the signature for the method. Not just what can go wrong, but what error cases do we want to differentiate from. When parsing an Integer, most users probably don't care whether it failed because the string was null vs. the string containing non-digits vs. the string containing an integer that was bigger than max int. So the designers of the method just bundled it all up in a NumberFormatException. If there were a strong use case for differentiating between all other errors and the Integer being too large, then the method would instead throw NumberFormatException and IntegerOverflowException.
 
 I will follow up next week on how to properly catch exceptions.
+
+**Related posts in this series:**
+- [Exceptional Programming](/posts/exceptional-pro/) - Introduction to exception handling best practices
+- [Exceptions vs. Status Codes vs. Assertions](/posts/exceptions-vs-s/) - Understanding the differences between error handling techniques
+- [Catching Exceptions](/posts/catching-except/) - Comprehensive guide to error handling techniques

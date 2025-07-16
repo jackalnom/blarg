@@ -6,7 +6,7 @@ categories: ["Career & Professional"]
 tags: ["team-dynamics", "hiring", "professional-development"]
 ---
 
-Nick makes a [good argument](http://www.bonnycode.com/guide/2008/12/in-defense-of-go-to.html#comment-142318906) for why go to should not be used. His closing argument is that zealous programmers will abuse go to. Pete makes a similar argument that go to has too much potential for abuse from programmers that we can't be bothered to explain the use of to and you are better off banning them.
+Nick makes a [good argument](/posts/in-defense-of-go-to/) for why go to should not be used. His closing argument is that zealous programmers will abuse go to. Pete makes a similar argument that go to has too much potential for abuse from programmers that we can't be bothered to explain the use of to and you are better off banning them.
 
 It is a similar argument people make when arguing for gun restrictions. As the politicians will tell you, "Sure we trust you with a gun, but do you trust your neighbor or the guys from across town with them?"
 

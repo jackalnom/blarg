@@ -57,7 +57,7 @@ I still see people that are aware of all the above and yet they still persist in
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2008-09-07T13:21:40+00:00">
-    <meta property="article:modified_time" content="2025-07-15T21:51:57-07:00">
+    <meta property="article:modified_time" content="2025-07-16T09:31:34-07:00">
     <meta property="article:tag" content="Inheritance">
     <meta property="article:tag" content="Composition">
     <meta property="article:tag" content="Oop">
@@ -75,7 +75,7 @@ I still see people that are aware of all the above and yet they still persist in
   <meta itemprop="description" content="Most software developers are aware of the principle “favor object composition over class inheritance”. I’ve written before about tactical polymorphism, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.
 I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren’t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don’t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is technical debt. And while it has done wonders for certain aging C&#43;&#43; programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.">
   <meta itemprop="datePublished" content="2008-09-07T13:21:40+00:00">
-  <meta itemprop="dateModified" content="2025-07-15T21:51:57-07:00">
+  <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
   <meta itemprop="wordCount" content="330">
   <meta itemprop="keywords" content="Inheritance,Composition,Oop,Best-Practices,Technical-Debt">
 
@@ -242,7 +242,7 @@ I still see people that are aware of all the above and yet they still persist in
   
   <article class="content numbered-subtitles">
     
-    <p>Most software developers are aware of the principle &ldquo;favor object composition over class inheritance&rdquo;. I&rsquo;ve written before about <a href="http://www.bonnycode.com/guide/2008/03/tactical-polymo.html">tactical polymorphism</a>, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.</p>
+    <p>Most software developers are aware of the principle &ldquo;favor object composition over class inheritance&rdquo;. I&rsquo;ve written before about <a href="/posts/tactical-polymo/">tactical polymorphism</a>, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.</p>
 <p>I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren&rsquo;t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don&rsquo;t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is <a href="http://en.wikipedia.org/wiki/Technical_debt">technical debt</a>. And while it has done wonders for certain aging C++ programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.</p>
 <p>So what does this mean for you? Next time you try to do any implementation inheritance in your design, stop and say to yourself:</p>
 <ol>

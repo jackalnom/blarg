@@ -6,7 +6,52 @@
     <description>Recent content in Threading on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jun 2008 00:39:10 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/threading/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jul 2008 19:28:30 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/threading/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Threading Quiz Results</title>
+      <link>http://localhost:1313/posts/threading-quiz-results/</link>
+      <pubDate>Sun, 13 Jul 2008 19:28:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/threading-quiz-results/</guid>
+      <description>&lt;p&gt;Congratulations to Peter and Michael for together coming up with the correct answer. They have both been awarded 5 points.&lt;/p&gt;
+&lt;p&gt;The target &amp;ldquo;-server&amp;rdquo; is an instruction to use the server JVM. The reason this can affect the behavior of the program in the quiz is that the server JVM does more aggressive optimizations than the standard client JVM. Without setting foo to volatile, the compiler optimizes out foo in the first loop because it never changes and it can never possibly change in that loop.&lt;/p&gt;
+&lt;p&gt;When you set a variable as volatile, it instructs the JVM that the variable can be modified/read from multiple threads. This prevents the server JVM from optimizing out foo because it now knows it can be modified by some other thread even though this thread doesn&amp;rsquo;t touch foo.&lt;/p&gt;
+&lt;p&gt;Volatile has more implications than what I have just mentioned, but I will save that for when I start talking about the java memory model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Threading Quiz</title>
+      <link>http://localhost:1313/posts/threading-quiz/</link>
+      <pubDate>Mon, 30 Jun 2008 21:37:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/threading-quiz/</guid>
+      <description>&lt;p&gt;This is a little baby quiz on threading. The program below works&amp;hellip; kind of. Looking to award points to the first person who can come up with the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Without modifying the program on a Java 1.5 SDK, what VM argument will make the program never terminate.&lt;/li&gt;
+&lt;li&gt;You can add a single keyword that will make the program terminate even with the mysterious VM argument. Name the keyword and show where it should be placed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Good luck!&lt;/p&gt;
+&lt;p&gt;public class GuessTheVMArg {&lt;br&gt;
+    static boolean foo = true;&lt;/p&gt;
+&lt;p&gt;    public static void main(String[] args) throws InterruptedException {&lt;br&gt;
+        new Thread(new Runnable() {&lt;br&gt;
+            public void run() {&lt;br&gt;
+                while (foo) { }&lt;br&gt;
+                System.err.println(&amp;ldquo;Done!&amp;rdquo;);&lt;br&gt;
+            }&lt;br&gt;
+        }).start();&lt;br&gt;
+        Thread.sleep(1000);&lt;br&gt;
+        new Thread(new Runnable() {&lt;br&gt;
+            public void run() {&lt;br&gt;
+                foo = false;&lt;br&gt;
+            }&lt;br&gt;
+        }).start();&lt;br&gt;
+    }&lt;br&gt;
+}&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Synchronized Performance</title>
       <link>http://localhost:1313/posts/synchronized-performance/</link>
@@ -109,7 +154,7 @@ class Unsynchronized extends java.lang.Object{&lt;br&gt;
 Unsynchronized();&lt;br&gt;
   Code:&lt;br&gt;
    0:    aload_0&lt;br&gt;
-   1:    invokespecial    #1; //Method java/lang/Object.&amp;quot;&lt;!-- raw HTML omitted --&gt;&amp;rdquo;:()V&lt;br&gt;
+   1:    invokespecial    #1; //Method java/lang/Object.&amp;quot;&lt;init&gt;&amp;rdquo;:()V&lt;br&gt;
    4:    return&lt;/p&gt;
 &lt;p&gt;public static void main(java.lang.String[]);&lt;br&gt;
   Code:&lt;br&gt;
@@ -127,7 +172,7 @@ Unsynchronized();&lt;br&gt;
    22:    getstatic    #5; //Field java/lang/System.err:Ljava/io/PrintStream;&lt;br&gt;
    25:    new    #6; //class java/lang/StringBuilder&lt;br&gt;
    28:    dup&lt;br&gt;
-   29:    invokespecial    #7; //Method java/lang/StringBuilder.&amp;quot;&lt;!-- raw HTML omitted --&gt;&amp;rdquo;:()V&lt;br&gt;
+   29:    invokespecial    #7; //Method java/lang/StringBuilder.&amp;quot;&lt;init&gt;&amp;rdquo;:()V&lt;br&gt;
    32:    ldc    #8; //String Unsynchronized:&lt;br&gt;
    34:    invokevirtual    #9; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;&lt;br&gt;
    37:    invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J&lt;br&gt;

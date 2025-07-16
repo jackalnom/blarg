@@ -55,7 +55,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2008-05-31T16:19:27+00:00">
-    <meta property="article:modified_time" content="2025-07-15T21:51:57-07:00">
+    <meta property="article:modified_time" content="2025-07-16T09:31:34-07:00">
     <meta property="article:tag" content="Java">
     <meta property="article:tag" content="Garbage-Collection">
     <meta property="article:tag" content="Quiz">
@@ -70,8 +70,8 @@
   <meta itemprop="name" content="Winner of Garbage Collection Quiz">
   <meta itemprop="description" content="Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan’s is that I didn’t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of ReferenceQueue.remove(). I also didn’t use ReferenceQueue.poll in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.">
   <meta itemprop="datePublished" content="2008-05-31T16:19:27+00:00">
-  <meta itemprop="dateModified" content="2025-07-15T21:51:57-07:00">
-  <meta itemprop="wordCount" content="359">
+  <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
+  <meta itemprop="wordCount" content="361">
   <meta itemprop="keywords" content="Java,Garbage-Collection,Quiz">
 
   
@@ -196,7 +196,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          359 words
+          361 words
         </span>
       
       
@@ -237,88 +237,101 @@
 <p>import java.lang.ref.*;<br>
 import java.util.*;</p>
 <p>class WarmupQuestion {<br>
-    private static ArrayList list = track(new ArrayList());<br>
-    static public void main(String[] args) throws Exception {<br>
-        track(new WarmupQuestion());<br>
-        System.gc();<br>
-        Integer i = track(150);<br>
-        track(new int[1024 * 1024]);<br>
-        System.gc();<br>
-        track(&ldquo;Hello&rdquo;);<br>
-        i = null;<br>
-        System.gc();<br>
-    }</p>
-<p>    public void finalize() {<br>
-        list.add(this);<br>
-    }</p>
-<p>    public static <!-- raw HTML omitted --> T track(T o) {<br>
-        return ObjectTracker.track(o);<br>
-    }</p>
-<p>    static class TrackedObject {<br>
-        private StackTraceElement[] mStack = new Exception().getStackTrace();<br>
-        private Reference mPhantomRef;<br>
-        private Reference mWeakRef;<br>
-        private Class<!-- raw HTML omitted --> mCls;<br>
-        private Date mCreated = new Date();</p>
-<p>        public TrackedObject(Object obj, ReferenceQueue allrefs) {<br>
-            mPhantomRef = new PhantomReference(obj, allrefs);<br>
-            mWeakRef = new WeakReference(obj);<br>
-            mCls = obj.getClass();<br>
-        }</p>
-<p>        public Reference getRef() {<br>
-            return mPhantomRef;<br>
-        }</p>
-<p>        private void trace() {<br>
-            for (int i = 3; i &lt; mStack.length; i++)<br>
-                System.out.println(mStack[i].toString());<br>
-        }</p>
-<p>        public void die(Date killed) {<br>
-            System.out.println(String.format(<br>
-                    &ldquo;object of type %s lived for %d ms&rdquo;, mCls, killed.getTime()<br>
-                            - mCreated.getTime()));<br>
-            trace();<br>
-        }</p>
-<p>        public void die() {<br>
-            String format = (mWeakRef.get() == null)<br>
-                ? &ldquo;object of type %s has a finalize that raises the dead.&rdquo;<br>
-                : &ldquo;object of type %s lived until program exit.&rdquo;;<br>
-            System.out.println(String.format(format, mCls));<br>
-            trace();<br>
-        }<br>
-    }</p>
-<p>    static class ObjectTracker extends Thread {<br>
-        private static ReferenceQueue mRefs = new ReferenceQueue();<br>
-        private static Map&lt;Reference, TrackedObject&gt; mTracked =<br>
-            new HashMap&lt;Reference, TrackedObject&gt;();<br>
-        private Thread mMain;</p>
-<p>        public ObjectTracker(Thread thread) {<br>
-            mMain = thread;<br>
-        }</p>
-<p>        public static <!-- raw HTML omitted --> T track(T o) {<br>
-            TrackedObject tracked = new TrackedObject(o, mRefs);<br>
-            mTracked.put(tracked.getRef(), tracked);<br>
-            return o;<br>
-        }</p>
-<p>        public void run() {<br>
-            try {<br>
-                Reference o = null;<br>
-                while (mMain.isAlive() || null != (o = mRefs.remove(1000))) {<br>
-                    if (o != null) {<br>
-                        mTracked.remove(o).die(new Date());<br>
-                    }<br>
-                }<br>
-                for (TrackedObject tracked : mTracked.values()) {<br>
-                    tracked.die();<br>
-                }<br>
-            } catch (InterruptedException e) {<br>
-                throw new RuntimeException(e);<br>
-            }<br>
-        }<br>
-    }</p>
-<p>    static {<br>
-        new ObjectTracker(Thread.currentThread()).start();<br>
-    }<br>
-}</p></blockquote>
+private static ArrayList list = track(new ArrayList());<br>
+static public void main(String[] args) throws Exception {<br>
+track(new WarmupQuestion());<br>
+System.gc();<br>
+Integer i = track(150);<br>
+track(new int[1024 * 1024]);<br>
+System.gc();<br>
+track(&ldquo;Hello&rdquo;);<br>
+i = null;<br>
+System.gc();<br>
+}</p>
+<pre><code>public void finalize() {  
+    list.add(this);  
+}  
+
+public static &lt;T&gt; T track(T o) {  
+    return ObjectTracker.track(o);  
+}  
+
+static class TrackedObject {  
+    private StackTraceElement[] mStack = new Exception().getStackTrace();  
+    private Reference mPhantomRef;  
+    private Reference mWeakRef;  
+    private Class&lt;?&gt; mCls;  
+    private Date mCreated = new Date();  
+
+    public TrackedObject(Object obj, ReferenceQueue allrefs) {  
+        mPhantomRef = new PhantomReference(obj, allrefs);  
+        mWeakRef = new WeakReference(obj);  
+        mCls = obj.getClass();  
+    }  
+
+    public Reference getRef() {  
+        return mPhantomRef;  
+    }  
+
+    private void trace() {  
+        for (int i = 3; i &lt; mStack.length; i++)  
+            System.out.println(mStack[i].toString());  
+    }  
+
+    public void die(Date killed) {  
+        System.out.println(String.format(  
+                &quot;object of type %s lived for %d ms&quot;, mCls, killed.getTime()  
+                        - mCreated.getTime()));  
+        trace();  
+    }  
+
+    public void die() {  
+        String format = (mWeakRef.get() == null)   
+            ? &quot;object of type %s has a finalize that raises the dead.&quot;  
+            : &quot;object of type %s lived until program exit.&quot;;  
+        System.out.println(String.format(format, mCls));  
+        trace();  
+    }  
+}  
+
+static class ObjectTracker extends Thread {  
+    private static ReferenceQueue mRefs = new ReferenceQueue();  
+    private static Map&lt;Reference, TrackedObject&gt; mTracked =   
+        new HashMap&lt;Reference, TrackedObject&gt;();  
+    private Thread mMain;  
+
+    public ObjectTracker(Thread thread) {  
+        mMain = thread;  
+    }  
+
+    public static &lt;T&gt; T track(T o) {  
+        TrackedObject tracked = new TrackedObject(o, mRefs);  
+        mTracked.put(tracked.getRef(), tracked);  
+        return o;  
+    }  
+
+    public void run() {  
+        try {  
+            Reference o = null;  
+            while (mMain.isAlive() || null != (o = mRefs.remove(1000))) {  
+                if (o != null) {  
+                    mTracked.remove(o).die(new Date());  
+                }  
+            }  
+            for (TrackedObject tracked : mTracked.values()) {  
+                tracked.die();  
+            }  
+        } catch (InterruptedException e) {  
+            throw new RuntimeException(e);  
+        }  
+    }  
+}  
+
+static {  
+    new ObjectTracker(Thread.currentThread()).start();  
+}  
+</code></pre>
+<p>}</p></blockquote>
 
     
   </article>

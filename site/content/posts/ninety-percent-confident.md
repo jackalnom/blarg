@@ -23,3 +23,8 @@ There is some truth to our natural reaction about giving too wide of a range tho
 This doesn't mean you should ask to research every single estimate you give either. If you are 90% confident you can deliver a feature in 1 to 2 weeks, just say 2 weeks and call it done. The key is make sure that the estimate is actually something you are 90% confident in. If the last time you had a similar feature you ran into a multitude of problems, provide an estimate assuming that similar problems occur this time. Don't listen to the Optimism Angel on your shoulder that tells you that everything is going to go smooth and that you are finally going to be the super fast programmer you always dreamed of being. Always look at past features you have written and compare the feature being estimated with those.
 
 There is a lot more to software estimation than what I have covered here. One of my favorite new estimation techniques is [Planning Poker](http://en.wikipedia.org/wiki/Planning_poker). For the individual software developer doing feature estimation though, most of what you need is just figuring out 90% confident estimates.
+
+**Related posts on estimation:**
+- [I'm back and I hate your estimates](/posts/i-hate-your-estimates/) - Introduction to the problems with software estimation
+- [How feature estimates killed Bobo](/posts/feature-estimates/) - How estimates destroy productivity through misguided accountability
+- [Cost benefit analysis for bear lovers](/posts/cost-benefit-analysis/) - Problems with using estimates for cost-benefit analysis

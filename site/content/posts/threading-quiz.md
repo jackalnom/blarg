@@ -14,20 +14,20 @@ This is a little baby quiz on threading. The program below works... kind of. Loo
 Good luck!
 
 public class GuessTheVMArg {  
-    static boolean foo = true;
+    static boolean foo = true;
 
-    public static void main(String[] args) throws InterruptedException {  
-        new Thread(new Runnable() {  
-            public void run() {  
-                while (foo) { }  
-                System.err.println("Done!");  
-            }  
-        }).start();  
-        Thread.sleep(1000);  
-        new Thread(new Runnable() {  
-            public void run() {  
-                foo = false;  
-            }  
-        }).start();  
-    }  
+    public static void main(String[] args) throws InterruptedException {  
+        new Thread(new Runnable() {  
+            public void run() {  
+                while (foo) { }  
+                System.err.println("Done!");  
+            }  
+        }).start();  
+        Thread.sleep(1000);  
+        new Thread(new Runnable() {  
+            public void run() {  
+                foo = false;  
+            }  
+        }).start();  
+    }  
 }

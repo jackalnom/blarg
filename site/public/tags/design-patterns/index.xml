@@ -17,7 +17,168 @@
 &lt;p&gt;The original inspiration for the design patterns movement in software was Christopher Alexander&amp;rsquo;s &lt;a href=&#34;http://www.amazon.com/Timeless-Way-Building-Christopher-Alexander/dp/0195024028/&#34;&gt;The Timeless Way of Building&lt;/a&gt;. Somewhere from Christopher Alexander&amp;rsquo;s original text to the software industries adoption of design patterns, the very soul of his meaning was left behind. Envision for a moment the stereotype of a hard core believer in software design patterns. Their code is designed all up front using UML and every class is named after one design pattern or another. Often times even multiple of them, such as the FooBarStrategyAbstractFactorySingleton. They create big inorganic design, suitable to distinct job roles where one can be an architect that doesn&amp;rsquo;t design, a designer who doesn&amp;rsquo;t code and a coder who does as they are told.&lt;/p&gt;
 &lt;p&gt;The spirit of the timeless way of building is to evoke that quality without a name. Some buildings are just lifeless, cold and somehow wrong. Others have a cozy liveliness that just feels comfortable and right. To obtain the quality without a name, one has to look at how such designs organically arose and the micro principles and patterns they applied. The centrally planned cities, strip malls and cookie cutter suburban homes all lack this organically grown life.&lt;/p&gt;
 &lt;p&gt;This is the central problem with how design patterns are applied. They are used to dictate design as if it is something that can be rigorously planned rather than something that is adapted to. This is why so much enterprise code feels so bloated and lifeless, it lacks the natural flow and elegance of code that is designed to fit a specific problem rather than trying to fit into a wholly consistent uber architecture.&lt;/p&gt;
-&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;http://www.bonnycode.com/guide/2008/12/the-bad-programmer.html&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
+&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;http://localhost:1313/posts/the-bad-programmer/&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Continued Slander against the Noble If</title>
+      <link>http://localhost:1313/posts/continued-sland/</link>
+      <pubDate>Sun, 16 Mar 2008 13:26:43 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/continued-sland/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve often said that &lt;strong&gt;if&lt;/strong&gt; statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm&lt;a href=&#34;#disclaimer&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;def&lt;/strong&gt; Money calculateAutoInsurance&lt;br&gt;
+  &lt;strong&gt;if&lt;/strong&gt; (person &lt;strong&gt;is-a&lt;/strong&gt; Man)&lt;br&gt;
+    Man man = (Man)person&lt;br&gt;
+    &lt;strong&gt;if&lt;/strong&gt; (man.canGrowBeard)&lt;br&gt;
+      &lt;strong&gt;return&lt;/strong&gt; $50&lt;br&gt;
+    &lt;strong&gt;else&lt;/strong&gt;&lt;br&gt;
+      &lt;strong&gt;return&lt;/strong&gt; $2000&lt;br&gt;
+    &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &lt;strong&gt;else if&lt;/strong&gt; (person &lt;strong&gt;is-a&lt;/strong&gt; Woman)&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; $10&lt;br&gt;
+  &lt;strong&gt;else&lt;/strong&gt;&lt;br&gt;
+    kaboom!&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+ &lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;When casting or using any &lt;strong&gt;is-a&lt;/strong&gt; operator such as &lt;strong&gt;instanceof&lt;/strong&gt; in Java or &lt;strong&gt;kind_of?&lt;/strong&gt;/&lt;strong&gt;is_a?&lt;/strong&gt; in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;http://en.wikipedia.org/wiki/Liskov_substitution_principle&#34;&gt;Liskov Substitution Principle&lt;/a&gt; and &lt;a href=&#34;http://en.wikipedia.org/wiki/Substitutability&#34;&gt;substitutability&lt;/a&gt; are helpful in understanding how to design proper polymorphic classes. When a caller is acting upon an interface, one should be able to substitute any type that implements that interface. In this case, the caller is breaking substitutability by casting to a specific derived type and basing logic on what the derived type is.&lt;/p&gt;
+&lt;p&gt;Code that follows the substitutability principle is better for several reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Higher cohesion&lt;/strong&gt;&lt;/em&gt;. We can leave the polymorphic dispatch logic up to the language itself so that the calling code doesn&amp;rsquo;t have to worry about the specifics of manipulating derived types.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Better encapsulation&lt;/strong&gt;&lt;/em&gt;. If canGrowBeard was only exposed for auto insurance calculations, it can be rehidden when we push the auto insurance calculation into the derived Persons.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;strong&gt;Safer/Easier to extend&lt;/strong&gt;&lt;/em&gt;. For example, it will be easier to add a &lt;a href=&#34;http://en.wikipedia.org/wiki/Third_gender&#34;&gt;third gender&lt;/a&gt; for Person if we know the caller always follows the substitutability principle. I would not advocate removing simplicity to add this extensibility, but given that it is simpler, the extra extensibility is a nice bonus.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Man &lt;strong&gt;extends&lt;/strong&gt; Person&lt;br&gt;
+&amp;hellip;&lt;br&gt;
+  &lt;strong&gt;def&lt;/strong&gt; Money autoInsurance&lt;br&gt;
+    &lt;strong&gt;if&lt;/strong&gt; (canGrowBeard)&lt;br&gt;
+      &lt;strong&gt;return&lt;/strong&gt; $50&lt;br&gt;
+    &lt;strong&gt;else&lt;/strong&gt;&lt;br&gt;
+      &lt;strong&gt;return&lt;/strong&gt; $2000&lt;br&gt;
+    &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&amp;hellip;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Woman &lt;strong&gt;extends&lt;/strong&gt; Person&lt;br&gt;
+&amp;hellip;&lt;br&gt;
+  &lt;strong&gt;def&lt;/strong&gt; Money autoInsurance&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; $10&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&amp;hellip;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;BONUS POINTS&lt;/strong&gt; for anyone that can tell me what is still highly suspicious about the design for the final solution.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Any illegal activity presented here is fictional and any resemblance to illegal activity past, present, or fictional is purely and completely coincidental.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Tactical Polymorphism</title>
+      <link>http://localhost:1313/posts/tactical-polymo/</link>
+      <pubDate>Sun, 02 Mar 2008 00:46:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/tactical-polymo/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isPainted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isPainted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Color paintColor()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isWallpapered()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isWallpapered&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;String wallpaperDesign()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isVenetianPlastered()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isVenetianPlastered&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  describeWall()&lt;br&gt;
+    &lt;strong&gt;if&lt;/strong&gt; (isWallpapered)&lt;br&gt;
+      print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+    &lt;strong&gt;else if&lt;/strong&gt; (isPainted)&lt;br&gt;
+      print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+    &lt;strong&gt;else if&lt;/strong&gt; (isVenetianPlastered)&lt;br&gt;
+      print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+    &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Object oriented designers seeing this class will see an opportunity to refactor this class to take advantage of polymorphism.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;abstract class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;abstract&lt;/strong&gt; describeWall()&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; WallpaperedRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; PaintedRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; VenetianPlasteredRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;There are several problems with this refactor:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It isn&amp;rsquo;t modular. To add a new type of wall, one must understand the whole room class. This isn&amp;rsquo;t difficult in this case, but as the class gets larger this is intellectual overhead that is unnecessary.&lt;/li&gt;
+&lt;li&gt;It isn&amp;rsquo;t flexible. It artificially favors one axis of variance. For example, there could be multiple types of floors in the future (carpet, hardwood, and tile) each with their own sets of data. We need a room that allows us to mix and match every combination of wall and floor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A better design is to apply what I refer to as tactical polymorphism to distinguish it from all the abusive usages of polymorphism. Tactical polymorphism is limiting polymorphism to only what is logically varying and nothing else. Instead of making the entire room polymorphic, we make just the part of the room that is varying polymorphic and have the room contain this polymorphic object.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Wall wall()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; wall&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;interface&lt;/strong&gt; Wall&lt;br&gt;
+  describe()&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; WallpaperedWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; PaintedWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; VenetianPlasteredWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
 </description>
     </item>
     

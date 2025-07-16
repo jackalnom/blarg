@@ -60,6 +60,12 @@ Who do you want answering that phone?”
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Exception handling isn&amp;rsquo;t a glamorous topic, but it is still important. Be the humble programmer that looks for ways to make their program cool and confident in the face of adversity and unexpected situations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -79,6 +85,73 @@ Who do you want answering that phone?”
 &lt;p&gt;The bar method is called shit happens exception throwing. It tells other programmers that the designer of this method has no idea what could possibly go wrong so you better just be prepared to catch it all.&lt;/p&gt;
 &lt;p&gt;Much preferred is to design the exceptions your method throws as part of the signature for the method. Not just what can go wrong, but what error cases do we want to differentiate from. When parsing an Integer, most users probably don&amp;rsquo;t care whether it failed because the string was null vs. the string containing non-digits vs. the string containing an integer that was bigger than max int. So the designers of the method just bundled it all up in a NumberFormatException. If there were a strong use case for differentiating between all other errors and the Integer being too large, then the method would instead throw NumberFormatException and IntegerOverflowException.&lt;/p&gt;
 &lt;p&gt;I will follow up next week on how to properly catch exceptions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exceptions vs. Status Codes vs. Assertions</title>
+      <link>http://localhost:1313/posts/exceptions-vs-s/</link>
+      <pubDate>Mon, 14 Apr 2008 19:57:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/exceptions-vs-s/</guid>
+      <description>&lt;p&gt;Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this &lt;a href=&#34;http://www.joelonsoftware.com/items/2003/10/13.html&#34;&gt;siren&lt;/a&gt;) and her false promises.&lt;/p&gt;
+&lt;p&gt;A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.&lt;/p&gt;
+&lt;p&gt;Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&amp;rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.&lt;/p&gt;
+&lt;p&gt;Philosophically, the methodology I use with any of these error techniques is based on the beauty of a program driven by its linear proportions. I like code that looks like this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   expression2,&lt;br&gt;
+   expression3,&lt;br&gt;
+   expression4,&lt;br&gt;
+   &amp;hellip;&lt;/p&gt;
+&lt;p&gt;instead of like this:&lt;/p&gt;
+&lt;p&gt;   if (conditional)&lt;br&gt;
+      expression1,&lt;br&gt;
+   if (conditional2)&lt;br&gt;
+      if (conditional3)&lt;br&gt;
+         expression2,&lt;br&gt;
+      else&lt;br&gt;
+         expression3,&lt;br&gt;
+   else if (conditional4)&lt;br&gt;
+      expression4,&lt;/p&gt;
+&lt;p&gt;I could consume an entire post (and I shall!) on all the reasons I prefer the linear rather than the jagged program. The way I use exceptions, status codes and assertions can be roughly guided by this preference though. Exceptions are good when they promote code that is linear. When you need to check the status code on every line, that destroys the linear nature of the program. Many programmers get around this by then defining Macros that use gotos, but at that point you are really just crafting your own exception handling. When I do end up preferring status codes to exceptions is when using a status code leads me closer to a linear program. This is true of the validate method I mentioned above, I still prefer calling code that looks like this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   if (foo.isValid())&lt;br&gt;
+      expression2,&lt;br&gt;
+      expression3&lt;br&gt;
+   else&lt;br&gt;
+      expression4,&lt;br&gt;
+      expression5&lt;br&gt;
+   expression6&lt;/p&gt;
+&lt;p&gt;to this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   try&lt;br&gt;
+      foo.validate(),&lt;br&gt;
+      expression2,&lt;br&gt;
+      expression3&lt;br&gt;
+   catch(&amp;hellip;)&lt;br&gt;
+      expression4,&lt;br&gt;
+      expression5&lt;br&gt;
+   expression6&lt;/p&gt;
+&lt;p&gt;The flow of the second program is more confusing in this case. It is not readily apparent that the conditional dispatch actually is based on just the first line in the try block, and that the rest of the expressions are only there for the purpose of being run when foo validates. The if blocks make this point blatantly clear.&lt;/p&gt;
+&lt;p&gt;I prefer assertions for the same linear flow reasons. When I want to sanity check for a value, it is cleaner to do this:&lt;/p&gt;
+&lt;p&gt;   assert conditional1&lt;/p&gt;
+&lt;p&gt;rather than this:&lt;/p&gt;
+&lt;p&gt;   if (conditional1)&lt;br&gt;
+      throw BadException&lt;/p&gt;
+&lt;p&gt;This is on top of the semantic meaning of assertion which tells other programmers that &amp;ldquo;no, this really shouldn&amp;rsquo;t happen, but I&amp;rsquo;m just making sure.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method&amp;rsquo;s signature.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -93,6 +166,12 @@ Who do you want answering that phone?”
 &lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
 &lt;p&gt;I will imbue onto you the knowledge necessary to write such graceful programs. As part of a multi-part series, I will go into all the wonderful things that good developers should know when dealing with exceptional cases. I&amp;rsquo;m assuming that anyone reading this already understands the technical aspects of exceptions. If you don&amp;rsquo;t and you are programming in Java, you can start out by reading &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/essential/exceptions/index.html&#34;&gt;Sun&amp;rsquo;s tutorial&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

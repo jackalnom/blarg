@@ -48,7 +48,7 @@ class HelloWorldApp {&lt;br&gt;
 &lt;li&gt;Boring code is boring to review. A critical quality insurance practice in professional software development is code reviews. But boring code is boring to review. If you write boring code, it is far more likely the reviewer will just go &amp;lsquo;yadda yadda yadda looks good to me&amp;rsquo; and gloss over mistakes.&lt;/li&gt;
 &lt;li&gt;Boring code is boring. Come on, do you really want to be boring?&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
+&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
 </description>
     </item>
     

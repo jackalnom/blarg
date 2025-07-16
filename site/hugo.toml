@@ -35,6 +35,11 @@ math = true
 enableDuckDuckGoSearchBox = true
 numberedSubtitles = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params.commentEngine]
 code = """
 """

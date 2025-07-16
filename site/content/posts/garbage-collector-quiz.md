@@ -49,3 +49,9 @@ To complete the quiz you must fill in the ellipses with code that has this outpu
 The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.  
   
 Good luck!
+
+**Related Java quiz posts:**
+- [Winner of Garbage Collection Quiz](/posts/winner-of-garbage-collection-quiz/) - Results and solutions for this garbage collection quiz
+- [Java Mutability Pop Quiz](/posts/java-mutability/) - Challenge about Java string mutability
+- [Integer Boxing Quiz](/posts/integer-boxing/) - Test your knowledge of Java autoboxing
+- [Threading Quiz](/posts/threading-quiz/) - Challenge about threading and volatile keywords

@@ -11,18 +11,24 @@ Here is another fun little quiz I came up with to test your elite Java Integer a
 import java.lang.reflect.Field;
 
 class IntegerBoxing {  
-    static public void main(String[] args) throws Exception {  
-        the\_black\_box();  
-        char data[] = {'1', '3', '0'};  
-        Integer radix = 10;  
-        Integer x = Integer.parseInt(new String(data), radix);
+    static public void main(String[] args) throws Exception {  
+        the\_black\_box();  
+        char data[] = {'1', '3', '0'};  
+        Integer radix = 10;  
+        Integer x = Integer.parseInt(new String(data), radix);
 
-        if (2 == x) {  
-            System.out.println("Jonathan Kelly is really a robot!");  
-        }  
-    }
+        if (2 == x) {  
+            System.out.println("Jonathan Kelly is really a robot!");  
+        }  
+    }
 
-    public static void the\_black\_box() throws Exception {  
-       ...  
-    }  
+    public static void the\_black\_box() throws Exception {  
+       ...  
+    }  
 }
+
+**Related Java quiz posts:**
+- [Integer Boxing Quiz Results](/posts/integer-boxin-1/) - Results and solutions for this autoboxing quiz
+- [Java Mutability Pop Quiz](/posts/java-mutability/) - Challenge about Java string mutability
+- [Threading Quiz](/posts/threading-quiz/) - Challenge about threading and volatile keywords
+- [Garbage Collector Quiz](/posts/garbage-collector-quiz/) - Advanced quiz on garbage collection

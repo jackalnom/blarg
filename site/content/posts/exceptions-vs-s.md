@@ -70,4 +70,7 @@ This is on top of the semantic meaning of assertion which tells other programmer
 
 And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method's signature.
 
-  
+**Related posts in this series:**
+- [Exceptional Programming](/posts/exceptional-pro/) - Introduction to exception handling best practices
+- [Exceptions are part of the Method Signature](/posts/exceptions-are/) - How exceptions form part of your method's contract
+- [Catching Exceptions](/posts/catching-except/) - Comprehensive guide to error handling techniques

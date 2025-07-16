@@ -6,7 +6,103 @@
     <description>Recent content in Garbage-Collection on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 May 2008 16:49:31 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/garbage-collection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 May 2008 16:19:27 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/garbage-collection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Winner of Garbage Collection Quiz</title>
+      <link>http://localhost:1313/posts/winner-of-garbage-collection-quiz/</link>
+      <pubDate>Sat, 31 May 2008 16:19:27 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/winner-of-garbage-collection-quiz/</guid>
+      <description>&lt;p&gt;Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan&amp;rsquo;s is that I didn&amp;rsquo;t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of ReferenceQueue.remove(). I also didn&amp;rsquo;t use ReferenceQueue.poll in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;import java.lang.ref.*;&lt;br&gt;
+import java.util.*;&lt;/p&gt;
+&lt;p&gt;class WarmupQuestion {&lt;br&gt;
+    private static ArrayList list = track(new ArrayList());&lt;br&gt;
+    static public void main(String[] args) throws Exception {&lt;br&gt;
+        track(new WarmupQuestion());&lt;br&gt;
+        System.gc();&lt;br&gt;
+        Integer i = track(150);&lt;br&gt;
+        track(new int[1024 * 1024]);&lt;br&gt;
+        System.gc();&lt;br&gt;
+        track(&amp;ldquo;Hello&amp;rdquo;);&lt;br&gt;
+        i = null;&lt;br&gt;
+        System.gc();&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    public void finalize() {&lt;br&gt;
+        list.add(this);&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    public static &lt;T&gt; T track(T o) {&lt;br&gt;
+        return ObjectTracker.track(o);&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    static class TrackedObject {&lt;br&gt;
+        private StackTraceElement[] mStack = new Exception().getStackTrace();&lt;br&gt;
+        private Reference mPhantomRef;&lt;br&gt;
+        private Reference mWeakRef;&lt;br&gt;
+        private Class&lt;?&gt; mCls;&lt;br&gt;
+        private Date mCreated = new Date();&lt;/p&gt;
+&lt;p&gt;        public TrackedObject(Object obj, ReferenceQueue allrefs) {&lt;br&gt;
+            mPhantomRef = new PhantomReference(obj, allrefs);&lt;br&gt;
+            mWeakRef = new WeakReference(obj);&lt;br&gt;
+            mCls = obj.getClass();&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public Reference getRef() {&lt;br&gt;
+            return mPhantomRef;&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        private void trace() {&lt;br&gt;
+            for (int i = 3; i &amp;lt; mStack.length; i++)&lt;br&gt;
+                System.out.println(mStack[i].toString());&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public void die(Date killed) {&lt;br&gt;
+            System.out.println(String.format(&lt;br&gt;
+                    &amp;ldquo;object of type %s lived for %d ms&amp;rdquo;, mCls, killed.getTime()&lt;br&gt;
+                            - mCreated.getTime()));&lt;br&gt;
+            trace();&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public void die() {&lt;br&gt;
+            String format = (mWeakRef.get() == null)&lt;br&gt;
+                ? &amp;ldquo;object of type %s has a finalize that raises the dead.&amp;rdquo;&lt;br&gt;
+                : &amp;ldquo;object of type %s lived until program exit.&amp;rdquo;;&lt;br&gt;
+            System.out.println(String.format(format, mCls));&lt;br&gt;
+            trace();&lt;br&gt;
+        }&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    static class ObjectTracker extends Thread {&lt;br&gt;
+        private static ReferenceQueue mRefs = new ReferenceQueue();&lt;br&gt;
+        private static Map&amp;lt;Reference, TrackedObject&amp;gt; mTracked =&lt;br&gt;
+            new HashMap&amp;lt;Reference, TrackedObject&amp;gt;();&lt;br&gt;
+        private Thread mMain;&lt;/p&gt;
+&lt;p&gt;        public ObjectTracker(Thread thread) {&lt;br&gt;
+            mMain = thread;&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public static &lt;T&gt; T track(T o) {&lt;br&gt;
+            TrackedObject tracked = new TrackedObject(o, mRefs);&lt;br&gt;
+            mTracked.put(tracked.getRef(), tracked);&lt;br&gt;
+            return o;&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public void run() {&lt;br&gt;
+            try {&lt;br&gt;
+                Reference o = null;&lt;br&gt;
+                while (mMain.isAlive() || null != (o = mRefs.remove(1000))) {&lt;br&gt;
+                    if (o != null) {&lt;br&gt;
+                        mTracked.remove(o).die(new Date());&lt;br&gt;
+                    }&lt;br&gt;
+                }&lt;br&gt;
+                for (TrackedObject tracked : mTracked.values()) {&lt;br&gt;
+                    tracked.die();&lt;br&gt;
+                }&lt;br&gt;
+            } catch (InterruptedException e) {&lt;br&gt;
+                throw new RuntimeException(e);&lt;br&gt;
+            }&lt;br&gt;
+        }&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    static {&lt;br&gt;
+        new ObjectTracker(Thread.currentThread()).start();&lt;br&gt;
+    }&lt;br&gt;
+}&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
     <item>
       <title>Garbage Collector Quiz</title>
       <link>http://localhost:1313/posts/garbage-collector-quiz/</link>
@@ -34,7 +130,7 @@ import java.util.*;&lt;/p&gt;
         list.add(this);&lt;br&gt;
     }&lt;br&gt;
    &lt;br&gt;
-    public static&lt;!-- raw HTML omitted --&gt; T track(T o) {&lt;br&gt;
+    public static&lt;T&gt; T track(T o) {&lt;br&gt;
         return ObjectTracker.track(o);&lt;br&gt;
     }&lt;/p&gt;
 &lt;p&gt;    &amp;hellip;   &lt;br&gt;
@@ -46,7 +142,7 @@ import java.util.*;&lt;/p&gt;
 object of type java.lang.Integer lived for 19 milliseconds&lt;br&gt;
  WarmupQuestion.main(WarmupQuestion.java:9)&lt;br&gt;
 object of type java.util.ArrayList lived until program exit.&lt;br&gt;
- WarmupQuestion.&lt;!-- raw HTML omitted --&gt;(WarmupQuestion.java:5)&lt;br&gt;
+ WarmupQuestion.&lt;clinit&gt;(WarmupQuestion.java:5)&lt;br&gt;
 object of type WarmupQuestion has a finalize that raises the dead.&lt;br&gt;
  WarmupQuestion.main(WarmupQuestion.java:7)&lt;br&gt;
 object of type java.lang.String lived until program exit.&lt;br&gt;

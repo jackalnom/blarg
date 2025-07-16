@@ -54,4 +54,8 @@ This is not an argument about aesthetics. Boring code is bad for precisely three
 2. Boring code is boring to review. A critical quality insurance practice in professional software development is code reviews. But boring code is boring to review. If you write boring code, it is far more likely the reviewer will just go 'yadda yadda yadda looks good to me' and gloss over mistakes.
 3. Boring code is boring. Come on, do you really want to be boring?
 
-The only thing worse than boring code is [magic code](http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html). Stick to the exciting, elegant, simple code, believe me you'll sleep better at night if you do.
+The only thing worse than boring code is [magic code](/posts/in-defense-of-duplicated-code/). Stick to the exciting, elegant, simple code, believe me you'll sleep better at night if you do.
+
+**Related posts on code quality:**
+- [Code Comprehension](/posts/code-comprehens/) - Understanding code assumptions and avoiding mistakes
+- [Register Style Programming](/posts/register-style/) - Proper variable naming and scope management

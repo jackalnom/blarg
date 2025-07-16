@@ -64,5 +64,109 @@
 </description>
     </item>
     
+    <item>
+      <title>Tactical Polymorphism</title>
+      <link>http://localhost:1313/posts/tactical-polymo/</link>
+      <pubDate>Sun, 02 Mar 2008 00:46:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/tactical-polymo/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isPainted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isPainted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Color paintColor()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isWallpapered()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isWallpapered&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;String wallpaperDesign()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isVenetianPlastered()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isVenetianPlastered&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;  describeWall()&lt;br&gt;
+    &lt;strong&gt;if&lt;/strong&gt; (isWallpapered)&lt;br&gt;
+      print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+    &lt;strong&gt;else if&lt;/strong&gt; (isPainted)&lt;br&gt;
+      print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+    &lt;strong&gt;else if&lt;/strong&gt; (isVenetianPlastered)&lt;br&gt;
+      print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+    &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Object oriented designers seeing this class will see an opportunity to refactor this class to take advantage of polymorphism.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;abstract class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;abstract&lt;/strong&gt; describeWall()&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; WallpaperedRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; PaintedRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; VenetianPlasteredRoom&lt;br&gt;
+  describeWall()&lt;br&gt;
+    print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;There are several problems with this refactor:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It isn&amp;rsquo;t modular. To add a new type of wall, one must understand the whole room class. This isn&amp;rsquo;t difficult in this case, but as the class gets larger this is intellectual overhead that is unnecessary.&lt;/li&gt;
+&lt;li&gt;It isn&amp;rsquo;t flexible. It artificially favors one axis of variance. For example, there could be multiple types of floors in the future (carpet, hardwood, and tile) each with their own sets of data. We need a room that allows us to mix and match every combination of wall and floor.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;A better design is to apply what I refer to as tactical polymorphism to distinguish it from all the abusive usages of polymorphism. Tactical polymorphism is limiting polymorphism to only what is logically varying and nothing else. Instead of making the entire room polymorphic, we make just the part of the room that is varying polymorphic and have the room contain this polymorphic object.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Room&lt;br&gt;
+  String roomType()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; roomType&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;boolean isCarpetted()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; isCarpetted&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Wall wall()&lt;br&gt;
+    &lt;strong&gt;return&lt;/strong&gt; wall&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;interface&lt;/strong&gt; Wall&lt;br&gt;
+  describe()&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; WallpaperedWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is wall papered %s.&amp;rdquo;, wallpaperDesign&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; PaintedWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is painted %s.&amp;rdquo;, paintColor&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; VenetianPlasteredWall&lt;br&gt;
+  describe()&lt;br&gt;
+    print &amp;ldquo;Room is venetian plastered&amp;rdquo;&lt;br&gt;
+  &lt;strong&gt;end&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;end&lt;/strong&gt;&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>

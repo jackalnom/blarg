@@ -15,3 +15,7 @@ It will also help us not repeat the same mistakes that the majority of software 
 Fred Brooks described this problem as the [second system effect](http://en.wikipedia.org/wiki/Second-system_effect) in his book the [Mythical Man-Month](http://en.wikipedia.org/wiki/The_Mythical_Man-Month), published in 1975, before most software developers today were even born. Yet, the vast majority of software developers today still follow the same evolution because we don't study source code and what factors led that source code to arise why it did. We are like building architects who have never actually studied the design of any other building  besides those we personally took part in creating. Or a writer of novels who has never read any novels besides his own. To progress as a field, we must study those who came before us.
 
 I probably will never teach this class, despite the desperate need for it. In the end though, I say to anyone that wishes to be a great software developer, the surest way is to write lots and lots of code, and to read even more.
+
+**Related posts on education and learning:**
+- [The Syllabus](/posts/the-syllabus/) - Detailed curriculum for the programology course
+- [The Ambiguous Null](/posts/the-ambiguous-n/) - Teaching example about proper null handling

@@ -22,4 +22,5 @@ While Bethany can now afford to send several teams of highly trained ninja assas
 
 The developers on the other hand learned too simplistic a lesson on technical debt. Technical debt, like any form of debt, is not evil. Without the ability to go into debt (i.e., taking out a loan), most new businesses couldn't even get off the ground in the first place. If the demand for a Bearease translator was uncertain or if the immediate rush to market of being the first to have a Bearease translator justified it, the one month implementation with high technical debt could absolutely be the correct decision. For example, if they launched the Bearease translator and it completely tanked, they at least would have only lost out on 1 month of work rather than 2 years worth of work. Requirements and customer adoption are so subtly variable and changing in software development that this is often in fact the best approach to take. As long as ongoing operational cost is measured and time is continuously budgeted to reduce it, everyone can benefit from such a rapid iteration methodology.
 
-This post is also available in spoken [Bearease](http://www.youtube.com/watch?v=vAx6WqymurM "Cost benefit analysis for bear lovers [Bearease]").
+This post is also available in spoken [Bearease](/posts/rawr/).
+

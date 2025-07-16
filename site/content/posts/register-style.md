@@ -10,10 +10,10 @@ Register style programming is when a coder of a high level language treats varia
 
 > room = RoomDAO.findLivingRoom  
 > **if** (room <> nil)  
->   house.add(room)  
+>   house.add(room)  
 > room = RoomDAO.findKitchen  
 > **if** (room <> nil)  
->   house.add(room)
+>   house.add(room)
 
 Reusing variables with register style programming has several problems:
 
@@ -24,7 +24,7 @@ Instead, variables should have only a single semantic meaning throughout their l
 
 > livingRoom = RoomDAO.findLivingRoom  
 > **if** (livingRoom <> nil)  
->   house.add(livingRoom)  
+>   house.add(livingRoom)  
 > kitchen = RoomDAO.findKitchen  
 > **if** (kitchen <> nil)  
->   house.add(kitchen)
+>   house.add(kitchen)

@@ -14,10 +14,10 @@
 
 room = RoomDAO.findLivingRoom
 if (room &lt;&gt; nil)
-  house.add(room)
+house.add(room)
 room = RoomDAO.findKitchen
 if (room &lt;&gt; nil)
-  house.add(room)
+house.add(room)
 Reusing variables with register style programming has several problems:
 
 It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.
@@ -76,7 +76,7 @@ It unnecessarily increases the lifetime of a variable thus making it harder for 
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2008-03-09T09:23:37+00:00">
-    <meta property="article:modified_time" content="2025-07-15T21:51:57-07:00">
+    <meta property="article:modified_time" content="2025-07-16T09:31:34-07:00">
     <meta property="article:tag" content="Code-Style">
     <meta property="article:tag" content="Readability">
     <meta property="article:tag" content="Best-Practices">
@@ -99,7 +99,7 @@ house.add(room)
 Reusing variables with register style programming has several problems:
 It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state. It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time. Instead, variables should have only a single semantic meaning throughout their lifetime.">
   <meta itemprop="datePublished" content="2008-03-09T09:23:37+00:00">
-  <meta itemprop="dateModified" content="2025-07-15T21:51:57-07:00">
+  <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
   <meta itemprop="wordCount" content="122">
   <meta itemprop="keywords" content="Code-Style,Readability,Best-Practices">
 
@@ -273,10 +273,10 @@ It unnecessarily increases the lifetime of a variable thus making it harder for 
 <blockquote>
 <p>room = RoomDAO.findLivingRoom<br>
 <strong>if</strong> (room &lt;&gt; nil)<br>
-  house.add(room)<br>
+house.add(room)<br>
 room = RoomDAO.findKitchen<br>
 <strong>if</strong> (room &lt;&gt; nil)<br>
-  house.add(room)</p></blockquote>
+house.add(room)</p></blockquote>
 <p>Reusing variables with register style programming has several problems:</p>
 <ol>
 <li>It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.</li>
@@ -286,10 +286,10 @@ room = RoomDAO.findKitchen<br>
 <blockquote>
 <p>livingRoom = RoomDAO.findLivingRoom<br>
 <strong>if</strong> (livingRoom &lt;&gt; nil)<br>
-  house.add(livingRoom)<br>
+house.add(livingRoom)<br>
 kitchen = RoomDAO.findKitchen<br>
 <strong>if</strong> (kitchen &lt;&gt; nil)<br>
-  house.add(kitchen)</p></blockquote>
+house.add(kitchen)</p></blockquote>
 
     
   </article>

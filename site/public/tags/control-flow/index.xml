@@ -13,7 +13,7 @@
       <pubDate>Sun, 07 Dec 2008 13:36:48 +0000</pubDate>
       
       <guid>http://localhost:1313/posts/in-defense-of-go-to/</guid>
-      <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
+      <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;That said, let&amp;rsquo;s say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.&lt;/p&gt;
 &lt;p&gt;main&lt;br&gt;
   integer n = console.getInt()&lt;br&gt;

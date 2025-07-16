@@ -6,7 +6,54 @@
     <description>Recent content in Agile on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Feb 2009 00:36:46 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 28 Sep 2013 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/agile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Throwaway Code: A Love Story</title>
+      <link>http://localhost:1313/posts/throwaway-code/</link>
+      <pubDate>Sat, 28 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/throwaway-code/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Throwaway Code&lt;/strong&gt;&lt;br&gt;
+THrōəwā kōd&lt;br&gt;
+&lt;em&gt;noun&lt;/em&gt; -  Code that is written to launch a feature early, but will later be deleted either due to a future feature or a new process.&lt;br&gt;
+The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Not every love story is the same. There is the classic story of love at first sight. The love that feels destined and obvious from the very first moment. Source control was that way for me. I didn&amp;rsquo;t always use source control (gasp!), but I never went back once I did.&lt;/p&gt;
+&lt;p&gt;I didn&amp;rsquo;t always love throwaway code. I may have occasionally flirted with throwaway code&amp;rsquo;s prettier cousin, the prototype, but I wouldn&amp;rsquo;t be caught dead with throwaway code. Today though? Throwaway code is one of the most powerful tools for a software developer. If I was on a desert island, and I was for some reason forced to do software development on that island, and for some reason I was limited in what abstract concepts I could take with me to that desert island, I would take throwaway code. And I would take long, romantic, moonlit walks on that beautiful desert island beach with throwaway code.&lt;/p&gt;
+&lt;p&gt;How did I go from hating throwaway code to being soul mates? Throwaway code is so important because it is what makes iterative software development possible. The reason throwaway code is unappreciated, even in this age of Agile development, is because people don&amp;rsquo;t understand what it means to develop iteratively. Scientists have classified 3 stages of iterative development:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Stage 1: Pretending&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When most teams first try scrum (aka Agile with training wheels), they take a surface level approach to the process. They pick some short iteration cycle, 1-week, 2-weeks or a month. Strangely, nobody ever picks 3-weeks. Anyways, they then run the same process they always did, they just associated the work with whatever iteration is in flight. For example, a sprint planning meeting will go something like this:&lt;/p&gt;
+&lt;p&gt;“What are you working on this sprint?”&lt;/p&gt;
+&lt;p&gt;“We are first working on testing the new Bear Translator functionality developed in the last sprint. We are then finishing up coding on the Bear Imagine functionality that we started two sprints ago but got delayed.”&lt;/p&gt;
+&lt;p&gt;In the pretend stage of iterative development, iterations are treated more like time labels for when work occurred and a way of determining how often to have meetings to discuss what to work on. The work itself isn&amp;rsquo;t driven by the iterations though.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Stage 2: Done Done&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Teams advance from the pretending phase of iterative development to the done done phase. This phase is characterized by the following exchange occurring several times a sprint:&lt;/p&gt;
+&lt;p&gt;“Is the Bear Translator done?”&lt;br&gt;
+“Yes”&lt;br&gt;
+“Is it done done?”&lt;br&gt;
+“No”&lt;/p&gt;
+&lt;p&gt;This makes up for the failings of the pretend stage by emphasizing that the goal is to finish work inside of the sprint boundaries. It enforces a good discipline on the team to finish features. There is a heavy emphasis in this stage on time-boxing. Unlike the previous stage, the time-boxed sprint becomes the main driver for how work is broken up and assigned.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Stage 3: Customer Use&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The final stage of iterative development moves from the frame of reference away from time-boxes towards minimizing the time before a customer gets value from the software. A typical exchange follows:&lt;/p&gt;
+&lt;p&gt;“The Bear Translator feature is finished! Let&amp;rsquo;s party!”&lt;br&gt;
+“That&amp;rsquo;s great, how many people have used it?”&lt;br&gt;
+“Nobody, we don&amp;rsquo;t have a UI for interacting with it yet. We&amp;rsquo;ve only deployed the backend work.”&lt;br&gt;
+“Party is over everyone, the feature isn&amp;rsquo;t actually finished.”&lt;br&gt;
+&amp;lt;collective groan, people throwing red plastic cups at the developer for being lame&amp;gt;&lt;/p&gt;
+&lt;p&gt;This stage emphasizes building the minimal customer-valuable feature and then iteratively building on that to provide more value. The training wheels are off at this point and the sprint time-boxes are no longer necessary. The discipline learned from progressing through Stage 2 is useful at this point though because the emphasis needs to remain on finishing features.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Most software teams are stuck somewhere between stages 1 and 2 of iterative development. Throwaway code appears as waste in these first two stages. If total value of a feature is measured as a typical manufacturing formula (Total Value = Manufacturing Rate * Value of Good), then any code that is thrown away is a loss on the expected total value. The secret to iterative development comes down to one concept. And it has little to do with the time-value of money or economic order quantities.&lt;/p&gt;
+&lt;p&gt;The reason why iterative development is important is because s&lt;strong&gt;oftware requirements aren&amp;rsquo;t known until the software is used by customers.&lt;/strong&gt; I no longer say this phrase around experienced developers because it provokes an uncontrollable reaction to tell me war-stories about just how true it is. The period between software development and customer use is when software can go off track. The smaller you make the cycle between the two, the more likely you are developing the right thing. These constant checkpoints make sure you are pointed in the right direction.&lt;/p&gt;
+&lt;p&gt;To get an intuitive sense of just how critical this is, you can try the following experiment at home. Get in your car (a bike will also work) and drive to a part of town you&amp;rsquo;ve been to before.&lt;/p&gt;
+&lt;p&gt;First, to simulate non-iterative software development: while driving, close your eyes for 1 minute and open them for minute, then close them for a minute, etc. You&amp;rsquo;ll find that when your eyes were closed, you probably ran into a building, ran stop lights, endangered many lives including your own.&lt;/p&gt;
+&lt;p&gt;Second, if you are still conscious, simulate iterative software development: while driving, close your eyes for 1 second, then open them for 1 second, etc. Despite your eyes being closed for the same amount of time as in the first example, you likely never ran off the road and, if you did hit someone, you probably meant to do it.&lt;/p&gt;
+&lt;p&gt;This is the difference between iterative development and non-iterative development. You know that you are on track because you are getting constant feedback. And you are getting that feedback where it matters, from the people that will use your software. Iterative development is so critical to staying on track that I will write copious amount of throwaway code to make iterations short. The ironic thing is, the people that avoid throwaway code end up writing the most in the end. They just do it unintentionally because they write large amounts of code that never gets used because their feature was off-track from the beginning.&lt;/p&gt;
+&lt;p&gt;I love writing throwaway code because it is this beautiful launch vehicle to get the code I want to last out there and used immediately. When I actively make the decision to write it, I know there is a good chance I&amp;rsquo;m on the right track.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>Building Software Over Time</title>
       <link>http://localhost:1313/posts/building-software-over-time/</link>

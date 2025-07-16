@@ -98,7 +98,7 @@ return ObjectTracker.track(o);
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2008-05-24T16:49:31+00:00">
-    <meta property="article:modified_time" content="2025-07-15T21:51:57-07:00">
+    <meta property="article:modified_time" content="2025-07-16T09:31:34-07:00">
     <meta property="article:tag" content="Java">
     <meta property="article:tag" content="Garbage-Collection">
     <meta property="article:tag" content="Quiz">
@@ -134,8 +134,8 @@ public static T track(T o) {
 return ObjectTracker.track(o);
 }">
   <meta itemprop="datePublished" content="2008-05-24T16:49:31+00:00">
-  <meta itemprop="dateModified" content="2025-07-15T21:51:57-07:00">
-  <meta itemprop="wordCount" content="278">
+  <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
+  <meta itemprop="wordCount" content="325">
   <meta itemprop="keywords" content="Java,Garbage-Collection,Quiz,Memory-Management">
 
   
@@ -280,7 +280,7 @@ return ObjectTracker.track(o);
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          278 words
+          325 words
         </span>
       
       
@@ -339,7 +339,7 @@ import java.util.*;</p>
         list.add(this);<br>
     }<br>
    <br>
-    public static<!-- raw HTML omitted --> T track(T o) {<br>
+    public static<T> T track(T o) {<br>
         return ObjectTracker.track(o);<br>
     }</p>
 <p>    &hellip;   <br>
@@ -351,13 +351,20 @@ import java.util.*;</p>
 object of type java.lang.Integer lived for 19 milliseconds<br>
  WarmupQuestion.main(WarmupQuestion.java:9)<br>
 object of type java.util.ArrayList lived until program exit.<br>
- WarmupQuestion.<!-- raw HTML omitted -->(WarmupQuestion.java:5)<br>
+ WarmupQuestion.<clinit>(WarmupQuestion.java:5)<br>
 object of type WarmupQuestion has a finalize that raises the dead.<br>
  WarmupQuestion.main(WarmupQuestion.java:7)<br>
 object of type java.lang.String lived until program exit.<br>
  WarmupQuestion.main(WarmupQuestion.java:12)</p></blockquote>
 <p>The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.</p>
 <p>Good luck!</p>
+<p><strong>Related Java quiz posts:</strong></p>
+<ul>
+<li><a href="/posts/winner-of-garbage-collection-quiz/">Winner of Garbage Collection Quiz</a> - Results and solutions for this garbage collection quiz</li>
+<li><a href="/posts/java-mutability/">Java Mutability Pop Quiz</a> - Challenge about Java string mutability</li>
+<li><a href="/posts/integer-boxing/">Integer Boxing Quiz</a> - Test your knowledge of Java autoboxing</li>
+<li><a href="/posts/threading-quiz/">Threading Quiz</a> - Challenge about threading and volatile keywords</li>
+</ul>
 
     
   </article>

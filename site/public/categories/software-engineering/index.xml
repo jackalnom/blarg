@@ -6,7 +6,52 @@
     <description>Recent content in Software Engineering on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Feb 2009 22:51:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2009 22:51:32 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Just Say &#39;No&#39; To Boring Code</title>
+      <link>http://localhost:1313/posts/just-say-no-to-boring-code/</link>
+      <pubDate>Sun, 12 Apr 2009 22:51:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/just-say-no-to-boring-code/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;http://www.cs.uchicago.edu/people/clklein&#34;&gt;Casey&lt;/a&gt; for inspiring this entry and for fighting the good fight against boring code.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:&lt;/p&gt;
+&lt;p&gt;int getBlah() {&lt;br&gt;
+   return blah;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;void setBlah(int blah) {&lt;br&gt;
+   this.blah = blah;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;String getSoBored() {&lt;br&gt;
+   return soBored;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;void setSoBored(String soBored) {&lt;br&gt;
+  this.soBored = soBored;&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;In Ruby, this looks like:&lt;/p&gt;
+&lt;p&gt;attr_accessor :blah, :soBored&lt;/p&gt;
+&lt;p&gt;If you are using Java, a certain amount of this type of verbose code is just necessary. The far more insidious problem is that it trains developers into believing this type of pattern is a good thing. The best thing about Ruby and the functional programming communities is that the first point emphasized is that code should be concise and full of meat and if it isn&amp;rsquo;t you aren&amp;rsquo;t thinking hard enough. For instance, the Hello World program in Ruby:&lt;/p&gt;
+&lt;p&gt;puts &amp;ldquo;Hello, World!&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Straight to the point. In Java, you are already entering the world of boilerplate thinking (from &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)&#34;&gt;http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;/**&lt;br&gt;
+ * The HelloWorldApp class implements an application that&lt;br&gt;
+ * simply displays &amp;ldquo;Hello World!&amp;rdquo; to the standard output.&lt;br&gt;
+ */&lt;br&gt;
+class HelloWorldApp {&lt;br&gt;
+    public static void main(String[] args) {&lt;br&gt;
+        System.out.println(&amp;ldquo;Hello World!&amp;rdquo;); //Display the string.&lt;br&gt;
+    }&lt;br&gt;
+}&lt;/p&gt;
+&lt;p&gt;My knock here is not actually that Ruby or functional languages magically eliminate all boilerplate code, or that this extra overhead in these cases is really that painful. You can easily use a code generator for both of these situations and if this is the only boilerplate in your code you are doing pretty good. The problem is the Java community teaches its developers that all of their code should be at about this level of signal to noise.&lt;/p&gt;
+&lt;p&gt;This is not an argument about aesthetics. Boring code is bad for precisely three reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Boring code is boring to read. Code is read far more than it is written. This means programmers coming in to modify your code are more likely to miss something and then make the wrong code change.&lt;/li&gt;
+&lt;li&gt;Boring code is boring to review. A critical quality insurance practice in professional software development is code reviews. But boring code is boring to review. If you write boring code, it is far more likely the reviewer will just go &amp;lsquo;yadda yadda yadda looks good to me&amp;rsquo; and gloss over mistakes.&lt;/li&gt;
+&lt;li&gt;Boring code is boring. Come on, do you really want to be boring?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>A Timeless Way of Coding</title>
       <link>http://localhost:1313/posts/a-timeless-way-of-coding/</link>
@@ -17,7 +62,284 @@
 &lt;p&gt;The original inspiration for the design patterns movement in software was Christopher Alexander&amp;rsquo;s &lt;a href=&#34;http://www.amazon.com/Timeless-Way-Building-Christopher-Alexander/dp/0195024028/&#34;&gt;The Timeless Way of Building&lt;/a&gt;. Somewhere from Christopher Alexander&amp;rsquo;s original text to the software industries adoption of design patterns, the very soul of his meaning was left behind. Envision for a moment the stereotype of a hard core believer in software design patterns. Their code is designed all up front using UML and every class is named after one design pattern or another. Often times even multiple of them, such as the FooBarStrategyAbstractFactorySingleton. They create big inorganic design, suitable to distinct job roles where one can be an architect that doesn&amp;rsquo;t design, a designer who doesn&amp;rsquo;t code and a coder who does as they are told.&lt;/p&gt;
 &lt;p&gt;The spirit of the timeless way of building is to evoke that quality without a name. Some buildings are just lifeless, cold and somehow wrong. Others have a cozy liveliness that just feels comfortable and right. To obtain the quality without a name, one has to look at how such designs organically arose and the micro principles and patterns they applied. The centrally planned cities, strip malls and cookie cutter suburban homes all lack this organically grown life.&lt;/p&gt;
 &lt;p&gt;This is the central problem with how design patterns are applied. They are used to dictate design as if it is something that can be rigorously planned rather than something that is adapted to. This is why so much enterprise code feels so bloated and lifeless, it lacks the natural flow and elegance of code that is designed to fit a specific problem rather than trying to fit into a wholly consistent uber architecture.&lt;/p&gt;
-&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;http://www.bonnycode.com/guide/2008/12/the-bad-programmer.html&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
+&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;http://localhost:1313/posts/the-bad-programmer/&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>In Defense of Go To</title>
+      <link>http://localhost:1313/posts/in-defense-of-go-to/</link>
+      <pubDate>Sun, 07 Dec 2008 13:36:48 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/in-defense-of-go-to/</guid>
+      <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;That said, let&amp;rsquo;s say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.&lt;/p&gt;
+&lt;p&gt;main&lt;br&gt;
+  integer n = console.getInt()&lt;br&gt;
+  integer first = 0&lt;br&gt;
+  integer second = 1&lt;br&gt;
+  integer next&lt;/p&gt;
+&lt;p&gt;  fib_loop:&lt;br&gt;
+    print first&lt;br&gt;
+    next = first + second&lt;br&gt;
+    first = second&lt;br&gt;
+    second = next&lt;br&gt;
+    n = n - 1&lt;br&gt;
+  if (n &amp;gt; 0) goto fib_loop&lt;br&gt;
+end&lt;/p&gt;
+&lt;p&gt;&amp;lt;sarcasm_tags_for_the_clueless&amp;gt;Egads! That program is totally obtuse! Here let me write a version without &lt;strong&gt;go to&lt;/strong&gt; so that it makes more sense&amp;lt;/sarcasm_tags_for_the_clueless&amp;gt;:&lt;/p&gt;
+&lt;p&gt;main&lt;br&gt;
+  integer n = console.getInt()&lt;br&gt;
+  integer first = 0&lt;br&gt;
+  integer second = 1&lt;br&gt;
+  integer next&lt;/p&gt;
+&lt;p&gt;  do&lt;br&gt;
+    print first&lt;br&gt;
+    next = first + second&lt;br&gt;
+    first = second&lt;br&gt;
+    second = next&lt;br&gt;
+    n = n - 1&lt;br&gt;
+  while (n &amp;gt; 0)&lt;br&gt;
+end&lt;/p&gt;
+&lt;p&gt;Now it makes sense! Although we could use a for loop to make it even better:&lt;/p&gt;
+&lt;p&gt;main&lt;br&gt;
+  integer first = 0&lt;br&gt;
+  integer second = 1&lt;br&gt;
+  integer next&lt;/p&gt;
+&lt;p&gt;  for (integer n = console.getInt(); n &amp;gt; 0; n = n - 1)&lt;br&gt;
+    print first&lt;br&gt;
+    next = first + second&lt;br&gt;
+    first = second&lt;br&gt;
+    second = next&lt;br&gt;
+  end&lt;br&gt;
+end&lt;/p&gt;
+&lt;p&gt;Why is this version so much better than the &lt;a href=&#34;http://xkcd.com/292/&#34;&gt;go to&lt;/a&gt; version though? We&amp;rsquo;ve all been taught &lt;strong&gt;go to&lt;/strong&gt; is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why &lt;strong&gt;go to&lt;/strong&gt; is wrong.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>In Defense of Duplicated Code</title>
+      <link>http://localhost:1313/posts/in-defense-of-duplicated-code/</link>
+      <pubDate>Sun, 30 Nov 2008 22:08:07 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/in-defense-of-duplicated-code/</guid>
+      <description>&lt;p&gt;One of the first principles you will hear from anyone hoping to impart software development wisdom on young disciples is &lt;a href=&#34;http://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;DRY&lt;/a&gt;. Don&amp;rsquo;t Repeat Yourself. If software best practices all lived in a little nation, the Honourable Commonwealth of Softwaria, its king would be DRY. A good king he was too.&lt;/p&gt;
+&lt;p&gt;Since ages long since past, DRY has helped to keep javascripters from copy and pasting themselves into another rathole. At first, King DRY used methods to remove duplicate code. Formatting integers to currency a bajillion different places? No problem make a method to do the formating. The code is better because it is more readable (formatAsCurrency) and if you ever need to change or extend the logic you can do so in one place. Huzzah!&lt;/p&gt;
+&lt;p&gt;Over the years, DRY took on further battles for the people of Softwaria. In the Thirty Year War against Visual Basic programmers, DRY brought forth the mighty powers of &lt;a href=&#34;http://en.wikipedia.org/wiki/Object_composition&#34;&gt;composition&lt;/a&gt;. Now large segments of functionality and data, not just individual methods, could be transported and duplicated to be used anywhere. A method to format an integer into currency? How about a currency class instead that can not only format itself to a string but also do any other logic you want to on currency all bundled nicely in a little package. Besides removing duplicate code, composition also provided encapsulation, higher cohesion and lowered coupling (the bad kind not the good kind!).&lt;/p&gt;
+&lt;p&gt;As Lord Action once said though, power tends to corrupt, and absolute power corrupts absolutely. For in his zealous fervor to ban any duplicate code or logic he was tempted into delving into powerful and dark arts. DRY called upon his most powerful sorcerers who gave him the power of &lt;a href=&#34;http://localhost:1313/posts/banned-implementation-inheritance/&#34;&gt;implementation inheritance&lt;/a&gt;. Yes he did eke out yet more removal of duplicated code. But in the process he sacrificed most of the benefits that encapsulation had provided.&lt;/p&gt;
+&lt;p&gt;Yet more dissidents were found in the kingdom of Softwaria though and DRY delved into yet darker arts to combat them. This time he tapped into the power of &lt;a href=&#34;http://en.wikipedia.org/wiki/Reflection_%28computer_science%29&#34;&gt;reflection&lt;/a&gt;. With this power he could make mountains move (even if they were declared private!). Giddy with power, the king annihilated the duplicated code. Yes he had to sacrifice readability, but it seemed a small price to pay to eliminate those treasonous and heretical duplicate code bastards.&lt;/p&gt;
+&lt;p&gt;Finally, in the dark recesses of the kingdom, DRY found the last remaining resistance movements of duplicated code. They didn&amp;rsquo;t bother people much, they were largely just simple workers tilling away at their small plot of program. By this time the good king had become fanatical though. ALL DUPLICATED CODE MUST DIE! He called on his sorcerers one final time and asked for the power to remove the remaining resistance. He offered anything in his kingdom just for this one final grant of power. And the sorcerers delivered for they offered the power of &lt;a href=&#34;http://en.wikipedia.org/wiki/Metaprogramming&#34;&gt;metaprogramming&lt;/a&gt;. Now the King was no longer bound by the traditional physics of the land, instead he could reshape it in whatever likeness he desired. In the land of Java the king created code generators that created wide areas of forbidden code, code never to be touched or even looked at. XML spread like a disease, soon used to store the most important program logic. In the land of Ruby, programs created other programs and whole new languages sprang forth from nowhere to solve the most trivial of problems. Ruby on Rails came riding high with &lt;a href=&#34;http://www.rubyonrails.org/screencasts&#34;&gt;instant magical scaffolds&lt;/a&gt;. And the last of the duplicated code died&amp;hellip;&lt;/p&gt;
+&lt;p&gt;The king was satisfied with himself for he had finally fulfilled his ultimate goal. Old King DRY stepped out to view his wondrous kingdom and no longer recognized what he saw. It was incomprehensible. Nothing made sense anymore, nothing was predictable and nothing worked as it seemed. Nobody, not even King DRY who created this world, understood it anymore. The sorcerers laughed knowing the land was now ruled by magic and the good king wept.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Banned: Implementation Inheritance</title>
+      <link>http://localhost:1313/posts/banned-implementation-inheritance/</link>
+      <pubDate>Sun, 07 Sep 2008 13:21:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/banned-implementation-inheritance/</guid>
+      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://localhost:1313/posts/tactical-polymo/&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
+&lt;p&gt;I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren&amp;rsquo;t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don&amp;rsquo;t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is &lt;a href=&#34;http://en.wikipedia.org/wiki/Technical_debt&#34;&gt;technical debt&lt;/a&gt;. And while it has done wonders for certain aging C++ programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.&lt;/p&gt;
+&lt;p&gt;So what does this mean for you? Next time you try to do any implementation inheritance in your design, stop and say to yourself:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Am I possessed by some evil demon lord of bad design?&lt;/li&gt;
+&lt;li&gt;Do I love this code so much that I want it to work on for the rest of my life and want no one else to ever understand it?&lt;/li&gt;
+&lt;li&gt;Do I have a really really good reason why this limited use of implementation inheritance won&amp;rsquo;t end the universe as we know it?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you can&amp;rsquo;t answer yes to one of the above, please please &amp;ldquo;favor object composition over class inheritance&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Strictly Need to Know</title>
+      <link>http://localhost:1313/posts/strictly-need-t/</link>
+      <pubDate>Sun, 18 May 2008 17:05:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/strictly-need-t/</guid>
+      <description>&lt;p&gt;One of the bedrock principles in software engineering is information hiding. The traditional idea behind information hiding is imagined in the context of a group of software developers. Each of these software developers is working on their module that will use and be used by the modules made by other software developers. Given that software development is messy, we want to be able to make changes/fixes/upgrades to our module even after our module is in use by other modules. A module developer thus applies the principle of information hiding to separate the more stable interface of their module from the less stable implementation details. Other modules can only see the interface and not the implementation details, which gives the module developer the freedom to change the implementation details after it has begun to be used by other module developers.&lt;/p&gt;
+&lt;p&gt;If this was still 1972 then the discussion could end here and we could all go back to writing that  payroll program on the company&amp;rsquo;s UNIVAC 1108 like these two developers.&lt;/p&gt;
+&lt;p&gt;Today, in the year 2008, state of the art software development looks more like these two developers who are pair programming a new facebook app.&lt;/p&gt;
+&lt;p&gt;One of the first things you should notice is that today&amp;rsquo;s developers smile a lot more than developers from the 70s. This is because programming in the 70s was boring and lonely. Everybody (not just software developers) was all secretive and into hoarding information. Government agencies had strict need to know policies which prevented information from being shared and real intelligence from being synthesized. It is no surprise that this environment spawned a software methodology like waterfall based on the premise of cleanly separated departments with well established hand off points and restricted communication.&lt;/p&gt;
+&lt;p&gt;The failings of this approach are evident across the board. The 9/11 Report offers a clear description of the problem.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In each of our examples, no one was firmly in charge of managing the case and able to draw relevant intelligence from anywhere in the government,assign responsibilities across the agencies (foreign or domestic), track progress, and quickly bring obstacles up to the level where they could be resolved. Responsibility and accountability were diffuse.&lt;br&gt;
+The agencies cooperated, some of the time. But even such cooperation as there was is not the same thing as joint action. &lt;strong&gt;When agencies cooperate, one defines the problem and seeks help with it. When they act jointly, the problem and options for action are defined differently from the start. Individuals from different backgrounds come together in analyzing a case and planning how to manage it.&lt;/strong&gt;&lt;br&gt;
+&amp;hellip;&lt;br&gt;
+In the 9/11 story, for example, we sometimes see examples of information that could be accessed—like the undistributed NSA information that would have helped identify Nawaf al Hazmi in January 2000.But someone had to ask for it. In that case, no one did. Or, as in the episodes we describe in chapter 8, the information is distributed, but in a compartmented channel. Or the information is available, and someone does ask, but it cannot be shared. &lt;strong&gt;What all these stories have in common is a system that requires a demonstrated “need to know” before sharing. This approach assumes it is possible to know,in advance,who will need to use the information.&lt;/strong&gt; Such a system implicitly assumes that the risk of inadvertent disclosure outweighs the benefits of wider sharing. Those ColdWar assumptions are no longer appropriate. The culture of agencies feeling they own the information they gathered at taxpayer expense must be replaced by a culture in which the agencies instead feel they have a duty to the information—to repay the taxpayers’ investment by making that information available.&lt;br&gt;
+Each intelligence agency has its own security practices, outgrowths of the Cold War. We certainly understand the reason for these practices. Counterintelligence concerns are still real,even if the old Soviet enemy has been replaced by other spies.&lt;br&gt;
+But the security concerns need to be weighed against the costs. Current security requirements nurture overclassification and excessive compartmentation of information among agencies. Each agency’s incentive structure opposes sharing,with risks (criminal,civil,and internal administrative sanctions) but few rewards for sharing information. No one has to pay the long-term costs of overclassifying information, though these costs—even in literal financial terms— are substantial. There are no punishments for not sharing information. &lt;strong&gt;Agencies uphold a “need-to-know” culture of information protection rather than promoting a “need-to-share” culture of integration.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ndash; The 9/11 Commission Report&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Modern agile programming techniques no longer have us living in a world of solitary software developers building their solely owned modules. Instead code is collectively owned by the team and there is no longer an &amp;ldquo;other&amp;rdquo; on the team to hide information from. Change is not feared because anyone on the team can make changes anywhere in the code. Changes are made safe through constant communication, a strict adherence to simplicity and a profound emphasis on readability.&lt;/p&gt;
+&lt;p&gt;In this way the principle of information hiding is replaced by the principle of readability, changing the software team from a &amp;ldquo;need-to-know&amp;rdquo; culture to a &amp;ldquo;need-to-share&amp;rdquo; culture. Encapsulation and separation of concerns are no longer important because of information hiding but only when they make programs more readable. If the US government is willing to acknowledge the failures of information hiding despite the very real threat of espionage from foreign governments, what reasoning do you still have for promoting information hiding to protect yourself from your coworker at the next desk?&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Catching Exceptions</title>
+      <link>http://localhost:1313/posts/catching-except/</link>
+      <pubDate>Sun, 04 May 2008 22:07:32 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/catching-except/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;“It’s 3 am and your children are safe and asleep.
+But there’s a phone in the White House and it is ringing.
+Something is happening in the world.
+Your vote will decide who answers that call.
+Whether it is someone who already knows the world’s leaders,
+Knows the military,
+Someone tested and ready to lead in a dangerous world.
+It&amp;rsquo;s 3 am and your children are safe and asleep.
+Who do you want answering that phone?”
+&amp;ndash; voiceover for Hillary Clinton campaign ad&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;How will you respond when things don&amp;rsquo;t go accordingly to plan? We recognize true greatness not as those that do well when everything is fine, but those who respond with grace and courage when things go terribly wrong. Most historians consider our three greatest presidents to be George Washington, Abraham Lincoln, and Franklin Roosevelt. It is no coincidence that they led us through the 4 largest crises our nation has faced: the War for Independence, the Civil War, the Great Depression and World War II.&lt;/p&gt;
+&lt;p&gt;I believe the absolutely most important thing about being a great professional software developer is being prepared for when things go wrong. The naive developer will claim that nothing can go wrong and so fails to prepare. The battle hardened but cynical developer throws up their hands and says there is nothing they can do about it. I will try to walk you somewhere between these two extremes and combine the pessimism that tells us what can go wrong and the optimism that tells us how we can recover from it.&lt;/p&gt;
+&lt;p&gt;These are the error handling techniques that software developers should be aware of:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;The hard fail.&lt;/strong&gt; This is the easiest and normally the least useful way to handle an error. Just kill your program when something goes wrong. I once worked with a programmer that handled every catch statement with:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;} catch(Exception) {
+  System.exit(1);
+}&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;As a user, this was a bizarre experience to say the least. You would select a menu option and it would suddenly and unexpectedly quit, losing all of your work and giving you no indication of what you actually did wrong. It is a good way to make your user base fearful, neurotic and afraid to color outside the lines though.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;The hard fail with a heartbeat.&lt;/strong&gt; This is similar to the hard fail, but with a separate process whose sole job is to detect the death of your program and to restart it when it dies. This can actually be an amazingly simple and powerful way to handle errors for always up, non-user facing programs. It spares you from writing unnecessary and potentially buggy error recovery code. For highly fault tolerant programs, this approach is used across multiple machines with automatic failover when errors occur. Erlang is built with this style of error handling and was used to write the 1.7 million line &lt;a href=&#34;http://wadler.blogspot.com/2005/05/concurrency-oriented-programming-in.html&#34;&gt;AXD301&lt;/a&gt; which has a measured reliability of 99.9999999% (9 nines).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Keep on trying.&lt;/strong&gt; Sometimes persistence is all it takes. This type of error handling is useful in situations where it is reasonable to assume that you will eventually succeed. This is especially useful when building resilient applications that work across a network. Be careful to differentiate between errors that can reasonably expected to eventually work when retried. For example if you receive an HTTP 403 Forbidden error it makes no sense to continue to retry the request, an HTTP 503 Service Unavailable error on the other hand is a good candidate for a retry. As Albert Einstein warned &amp;ldquo;The definition of insanity is doing the same thing over and over again and expecting different results.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Lastly, be a good citizen and use an &lt;a href=&#34;http://en.wikipedia.org/wiki/Exponential_backoff&#34;&gt;exponential back off&lt;/a&gt; when retrying. The last thing that will help an overburdened server is to have all of its clients hitting it repeatedly every half second when they encounter an error.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Fix it and move on.&lt;/strong&gt; Some errors are just plain correctable. A good example is if a directory you are expecting doesn&amp;rsquo;t exist. If the directory is just going to be used to output some files, consider just creating the directory and then moving on.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Tell me about all about it.&lt;/strong&gt; This is the style of error handling most often encountered by non-technical users. A ominous dialog box appears to slap the user across the face saying &amp;ldquo;Error Encountered 0xDEADBEEF I/O unknown Result Code 42&amp;rdquo;. There are several things commonly wrong with this style of error.&lt;/p&gt;
+&lt;p&gt;The first is that programmers write non-understandable error messages. It is bad enough when programmers write error messages that only they understand, worse I see error messages that even the programmer who wrote the program doesn&amp;rsquo;t understand because it provides no context for what the error actually is. Don&amp;rsquo;t just say, &amp;ldquo;error encountered&amp;rdquo;, you need to tell the user why the error occurred and what they can do to correct it if it isn&amp;rsquo;t obvious.&lt;/p&gt;
+&lt;p&gt;The second thing wrong with this type of error is that it is used in cases where the program is making the user do something manually that the program could have done automatically. If you need a temp directory created before you start, don&amp;rsquo;t tell the user and make them create it when the program could more easily create the directory itself and keep on working. If you encounter a network error, try auto-retrying with a cancel button, and don&amp;rsquo;t make the user sit there manually clicking retry.&lt;/p&gt;
+&lt;p&gt;The third thing wrong with this type of error is that it can be a potential security hole. If you expose programmatic details in your error message such as a Java stack trace, this can be valuable information to those trying to hack your program. Sometimes you can be too helpful in your error message as well. If someone is prohibited from accessing a piece of information, telling them that it exists but that they can&amp;rsquo;t get it can be valuable to the would be hacker in itself. In this case, you might want to make forbidden return the same error as not found.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Phone home.&lt;/strong&gt; Too many programmers never anticipate what it will be like to debug a problem when the program is out in the wild and not sitting in debug mode on their own box. If you think it is hard reproducing problems on your machine, imagine what you will do when a user calls up and says &amp;ldquo;I hit the blue button on the right and then it told me &amp;lsquo;unexpected error&amp;rsquo;&amp;rdquo; when there is no blue button in your program and unexpected error is the error message you use for a gazillion different possible error cases. If possible, collect and even automatically send as much information as you can gather about errors back to yourself when an error occurs. There are numerous caveats to this such as being careful to not send sensitive information (credit card numbers, classified material, yadda yadda) and letting users know before sending the debug info if it is an externally distributed software. The lesson is the same though. When handling an error that indicates a bug in the program, collect the information you will need to reproduce and fix the bug back on your own machine.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Rollback.&lt;/strong&gt; This type of error handling is useful normally in combination with one of the methods mentioned above. Its a travesty that most programmers only encounter rollbacks when dealing with database transactions. Being able to rollback the state of your program is an extremely useful concept when writing explorable user friendly applications. Your transactional rollback mechanism can be tied into an undo mechanism that allows your user to to undo undesirable behavior. This type of program would be the opposite of the fear driven program described in the &amp;lsquo;fail hard&amp;rsquo; error handling I first described. A word of caution though, writing rollback features is notoriously difficult. If at all humanly (computerly?) possible, it is far easier to snapshot the state and just revert back then to actually try to rewind an operation. This isn&amp;rsquo;t always possible but it should always be the first option you consider.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Exception handling isn&amp;rsquo;t a glamorous topic, but it is still important. Be the humble programmer that looks for ways to make their program cool and confident in the face of adversity and unexpected situations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exceptions are part of the Method Signature</title>
+      <link>http://localhost:1313/posts/exceptions-are/</link>
+      <pubDate>Sun, 20 Apr 2008 17:32:03 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/exceptions-are/</guid>
+      <description>&lt;p&gt;The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;OR this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;def bar throws Exception&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.&lt;/p&gt;
+&lt;p&gt;The bar method is called shit happens exception throwing. It tells other programmers that the designer of this method has no idea what could possibly go wrong so you better just be prepared to catch it all.&lt;/p&gt;
+&lt;p&gt;Much preferred is to design the exceptions your method throws as part of the signature for the method. Not just what can go wrong, but what error cases do we want to differentiate from. When parsing an Integer, most users probably don&amp;rsquo;t care whether it failed because the string was null vs. the string containing non-digits vs. the string containing an integer that was bigger than max int. So the designers of the method just bundled it all up in a NumberFormatException. If there were a strong use case for differentiating between all other errors and the Integer being too large, then the method would instead throw NumberFormatException and IntegerOverflowException.&lt;/p&gt;
+&lt;p&gt;I will follow up next week on how to properly catch exceptions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exceptions vs. Status Codes vs. Assertions</title>
+      <link>http://localhost:1313/posts/exceptions-vs-s/</link>
+      <pubDate>Mon, 14 Apr 2008 19:57:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/exceptions-vs-s/</guid>
+      <description>&lt;p&gt;Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this &lt;a href=&#34;http://www.joelonsoftware.com/items/2003/10/13.html&#34;&gt;siren&lt;/a&gt;) and her false promises.&lt;/p&gt;
+&lt;p&gt;A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.&lt;/p&gt;
+&lt;p&gt;Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&amp;rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.&lt;/p&gt;
+&lt;p&gt;Philosophically, the methodology I use with any of these error techniques is based on the beauty of a program driven by its linear proportions. I like code that looks like this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   expression2,&lt;br&gt;
+   expression3,&lt;br&gt;
+   expression4,&lt;br&gt;
+   &amp;hellip;&lt;/p&gt;
+&lt;p&gt;instead of like this:&lt;/p&gt;
+&lt;p&gt;   if (conditional)&lt;br&gt;
+      expression1,&lt;br&gt;
+   if (conditional2)&lt;br&gt;
+      if (conditional3)&lt;br&gt;
+         expression2,&lt;br&gt;
+      else&lt;br&gt;
+         expression3,&lt;br&gt;
+   else if (conditional4)&lt;br&gt;
+      expression4,&lt;/p&gt;
+&lt;p&gt;I could consume an entire post (and I shall!) on all the reasons I prefer the linear rather than the jagged program. The way I use exceptions, status codes and assertions can be roughly guided by this preference though. Exceptions are good when they promote code that is linear. When you need to check the status code on every line, that destroys the linear nature of the program. Many programmers get around this by then defining Macros that use gotos, but at that point you are really just crafting your own exception handling. When I do end up preferring status codes to exceptions is when using a status code leads me closer to a linear program. This is true of the validate method I mentioned above, I still prefer calling code that looks like this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   if (foo.isValid())&lt;br&gt;
+      expression2,&lt;br&gt;
+      expression3&lt;br&gt;
+   else&lt;br&gt;
+      expression4,&lt;br&gt;
+      expression5&lt;br&gt;
+   expression6&lt;/p&gt;
+&lt;p&gt;to this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   try&lt;br&gt;
+      foo.validate(),&lt;br&gt;
+      expression2,&lt;br&gt;
+      expression3&lt;br&gt;
+   catch(&amp;hellip;)&lt;br&gt;
+      expression4,&lt;br&gt;
+      expression5&lt;br&gt;
+   expression6&lt;/p&gt;
+&lt;p&gt;The flow of the second program is more confusing in this case. It is not readily apparent that the conditional dispatch actually is based on just the first line in the try block, and that the rest of the expressions are only there for the purpose of being run when foo validates. The if blocks make this point blatantly clear.&lt;/p&gt;
+&lt;p&gt;I prefer assertions for the same linear flow reasons. When I want to sanity check for a value, it is cleaner to do this:&lt;/p&gt;
+&lt;p&gt;   assert conditional1&lt;/p&gt;
+&lt;p&gt;rather than this:&lt;/p&gt;
+&lt;p&gt;   if (conditional1)&lt;br&gt;
+      throw BadException&lt;/p&gt;
+&lt;p&gt;This is on top of the semantic meaning of assertion which tells other programmers that &amp;ldquo;no, this really shouldn&amp;rsquo;t happen, but I&amp;rsquo;m just making sure.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method&amp;rsquo;s signature.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exceptional Programming</title>
+      <link>http://localhost:1313/posts/exceptional-pro/</link>
+      <pubDate>Sun, 13 Apr 2008 20:14:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/exceptional-pro/</guid>
+      <description>&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;br&gt;
+&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;
+&lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
+&lt;p&gt;I will imbue onto you the knowledge necessary to write such graceful programs. As part of a multi-part series, I will go into all the wonderful things that good developers should know when dealing with exceptional cases. I&amp;rsquo;m assuming that anyone reading this already understands the technical aspects of exceptions. If you don&amp;rsquo;t and you are programming in Java, you can start out by reading &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/essential/exceptions/index.html&#34;&gt;Sun&amp;rsquo;s tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

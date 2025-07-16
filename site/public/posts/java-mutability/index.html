@@ -13,13 +13,14 @@
   <meta name="description" content="Can Java strings actually be mutable? I will award 10 points for the first person to give me an implementation of robotocize that makes the println on line 2 of the main method print &ldquo;Jonathan Kelly is a robot!&rdquo; instead of &ldquo;Jonathan Kelly is a human.&rdquo;.
 
 class WantToBet {
-    static public void main(String[] args) throws Exception {
-        robotocize();
-        System.out.println(&ldquo;Jonathan Kelly is a human.&rdquo;);
-    }
-    public static void robotocize() throws Exception {
-        &hellip;
-    }
+static public void main(String[] args) throws Exception {
+robotocize();
+System.out.println(&ldquo;Jonathan Kelly is a human.&rdquo;);
+}
+public static void robotocize() throws Exception {  
+    ...  
+}  
+
 }">
   
 
@@ -66,15 +67,12 @@ static public void main(String[] args) throws Exception {
 robotocize();
 System.out.println(“Jonathan Kelly is a human.”);
 }
-public static void robotocize() throws Exception {
-…
-}
-}">
+public static void robotocize() throws Exception { ... } }">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2008-04-12T19:57:26+00:00">
-    <meta property="article:modified_time" content="2025-07-15T21:51:57-07:00">
+    <meta property="article:modified_time" content="2025-07-16T09:31:34-07:00">
     <meta property="article:tag" content="Java">
     <meta property="article:tag" content="Mutability">
     <meta property="article:tag" content="Quiz">
@@ -93,13 +91,10 @@ static public void main(String[] args) throws Exception {
 robotocize();
 System.out.println(“Jonathan Kelly is a human.”);
 }
-public static void robotocize() throws Exception {
-…
-}
-}">
+public static void robotocize() throws Exception { ... } }">
   <meta itemprop="datePublished" content="2008-04-12T19:57:26+00:00">
-  <meta itemprop="dateModified" content="2025-07-15T21:51:57-07:00">
-  <meta itemprop="wordCount" content="74">
+  <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
+  <meta itemprop="wordCount" content="116">
   <meta itemprop="keywords" content="Java,Mutability,Quiz">
 
   
@@ -128,10 +123,7 @@ static public void main(String[] args) throws Exception {
 robotocize();
 System.out.println(“Jonathan Kelly is a human.”);
 }
-public static void robotocize() throws Exception {
-…
-}
-}">
+public static void robotocize() throws Exception { ... } }">
 
 
   
@@ -233,7 +225,7 @@ public static void robotocize() throws Exception {
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          74 words
+          116 words
         </span>
       
       
@@ -272,14 +264,22 @@ public static void robotocize() throws Exception {
     <p>Can Java <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html">strings</a> actually be mutable? I will award 10 points for the first person to give me an implementation of robotocize that makes the println on line 2 of the main method print &ldquo;Jonathan Kelly is a robot!&rdquo; instead of &ldquo;Jonathan Kelly is a human.&rdquo;.</p>
 <blockquote>
 <p>class WantToBet {<br>
-    static public void main(String[] args) throws Exception {<br>
-        robotocize();<br>
-        System.out.println(&ldquo;Jonathan Kelly is a human.&rdquo;);<br>
-    }</p>
-<p>    public static void robotocize() throws Exception {<br>
-        &hellip;<br>
-    }<br>
-}</p></blockquote>
+static public void main(String[] args) throws Exception {<br>
+robotocize();<br>
+System.out.println(&ldquo;Jonathan Kelly is a human.&rdquo;);<br>
+}</p>
+<pre><code>public static void robotocize() throws Exception {  
+    ...  
+}  
+</code></pre>
+<p>}</p></blockquote>
+<p><strong>Related Java quiz posts:</strong></p>
+<ul>
+<li><a href="/posts/quiz-results/">Quiz Results</a> - Results and solutions for this mutability quiz</li>
+<li><a href="/posts/integer-boxing/">Integer Boxing Quiz</a> - Test your knowledge of Java autoboxing</li>
+<li><a href="/posts/threading-quiz/">Threading Quiz</a> - Challenge about threading and volatile keywords</li>
+<li><a href="/posts/garbage-collector-quiz/">Garbage Collector Quiz</a> - Advanced quiz on garbage collection</li>
+</ul>
 
     
   </article>

@@ -13,11 +13,11 @@
   <meta name="description" content="Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of the_black_box will the statement on line 11 print &ldquo;Jonathan Kelly is really a robot!&rdquo;? The only import allowed is java.lang.reflect.Field. 15 points will be awarded for the first correct answer.
 import java.lang.reflect.Field;
 class IntegerBoxing {
-    static public void main(String[] args) throws Exception {
-        the_black_box();
-        char data[] = {&lsquo;1&rsquo;, &lsquo;3&rsquo;, &lsquo;0&rsquo;};
-        Integer radix = 10;
-        Integer x = Integer.parseInt(new String(data), radix);">
+static public void main(String[] args) throws Exception {
+the_black_box();
+char data[] = {&lsquo;1&rsquo;, &lsquo;3&rsquo;, &lsquo;0&rsquo;};
+Integer radix = 10;
+Integer x = Integer.parseInt(new String(data), radix);">
   
 
   
@@ -69,7 +69,7 @@ Integer x = Integer.parseInt(new String(data), radix);">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2008-05-08T19:35:45+00:00">
-    <meta property="article:modified_time" content="2025-07-15T21:51:57-07:00">
+    <meta property="article:modified_time" content="2025-07-16T09:31:34-07:00">
     <meta property="article:tag" content="Java">
     <meta property="article:tag" content="Autoboxing">
     <meta property="article:tag" content="Quiz">
@@ -91,8 +91,8 @@ char data[] = {‘1’, ‘3’, ‘0’};
 Integer radix = 10;
 Integer x = Integer.parseInt(new String(data), radix);">
   <meta itemprop="datePublished" content="2008-05-08T19:35:45+00:00">
-  <meta itemprop="dateModified" content="2025-07-15T21:51:57-07:00">
-  <meta itemprop="wordCount" content="105">
+  <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
+  <meta itemprop="wordCount" content="149">
   <meta itemprop="keywords" content="Java,Autoboxing,Quiz">
 
   
@@ -224,7 +224,7 @@ Integer x = Integer.parseInt(new String(data), radix);">
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          105 words
+          149 words
         </span>
       
       
@@ -263,19 +263,28 @@ Integer x = Integer.parseInt(new String(data), radix);">
     <p>Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of the_black_box will the statement on line 11 print &ldquo;Jonathan Kelly is really a robot!&rdquo;? The only import allowed is java.lang.reflect.Field. 15 points will be awarded for the first correct answer.</p>
 <p>import java.lang.reflect.Field;</p>
 <p>class IntegerBoxing {<br>
-    static public void main(String[] args) throws Exception {<br>
-        the_black_box();<br>
-        char data[] = {&lsquo;1&rsquo;, &lsquo;3&rsquo;, &lsquo;0&rsquo;};<br>
-        Integer radix = 10;<br>
-        Integer x = Integer.parseInt(new String(data), radix);</p>
-<p>        if (2 == x) {<br>
-            System.out.println(&ldquo;Jonathan Kelly is really a robot!&rdquo;);<br>
-        }<br>
-    }</p>
-<p>    public static void the_black_box() throws Exception {<br>
-       &hellip;<br>
-    }<br>
-}</p>
+static public void main(String[] args) throws Exception {<br>
+the_black_box();<br>
+char data[] = {&lsquo;1&rsquo;, &lsquo;3&rsquo;, &lsquo;0&rsquo;};<br>
+Integer radix = 10;<br>
+Integer x = Integer.parseInt(new String(data), radix);</p>
+<pre><code>    if (2 == x) {  
+        System.out.println(&quot;Jonathan Kelly is really a robot!&quot;);  
+    }  
+}
+
+public static void the\_black\_box() throws Exception {  
+   ...  
+}  
+</code></pre>
+<p>}</p>
+<p><strong>Related Java quiz posts:</strong></p>
+<ul>
+<li><a href="/posts/integer-boxin-1/">Integer Boxing Quiz Results</a> - Results and solutions for this autoboxing quiz</li>
+<li><a href="/posts/java-mutability/">Java Mutability Pop Quiz</a> - Challenge about Java string mutability</li>
+<li><a href="/posts/threading-quiz/">Threading Quiz</a> - Challenge about threading and volatile keywords</li>
+<li><a href="/posts/garbage-collector-quiz/">Garbage Collector Quiz</a> - Advanced quiz on garbage collection</li>
+</ul>
 
     
   </article>

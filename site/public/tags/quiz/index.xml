@@ -6,7 +6,148 @@
     <description>Recent content in Quiz on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 May 2008 16:49:31 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/quiz/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jul 2008 19:28:30 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/quiz/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Threading Quiz Results</title>
+      <link>http://localhost:1313/posts/threading-quiz-results/</link>
+      <pubDate>Sun, 13 Jul 2008 19:28:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/threading-quiz-results/</guid>
+      <description>&lt;p&gt;Congratulations to Peter and Michael for together coming up with the correct answer. They have both been awarded 5 points.&lt;/p&gt;
+&lt;p&gt;The target &amp;ldquo;-server&amp;rdquo; is an instruction to use the server JVM. The reason this can affect the behavior of the program in the quiz is that the server JVM does more aggressive optimizations than the standard client JVM. Without setting foo to volatile, the compiler optimizes out foo in the first loop because it never changes and it can never possibly change in that loop.&lt;/p&gt;
+&lt;p&gt;When you set a variable as volatile, it instructs the JVM that the variable can be modified/read from multiple threads. This prevents the server JVM from optimizing out foo because it now knows it can be modified by some other thread even though this thread doesn&amp;rsquo;t touch foo.&lt;/p&gt;
+&lt;p&gt;Volatile has more implications than what I have just mentioned, but I will save that for when I start talking about the java memory model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Threading Quiz</title>
+      <link>http://localhost:1313/posts/threading-quiz/</link>
+      <pubDate>Mon, 30 Jun 2008 21:37:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/threading-quiz/</guid>
+      <description>&lt;p&gt;This is a little baby quiz on threading. The program below works&amp;hellip; kind of. Looking to award points to the first person who can come up with the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Without modifying the program on a Java 1.5 SDK, what VM argument will make the program never terminate.&lt;/li&gt;
+&lt;li&gt;You can add a single keyword that will make the program terminate even with the mysterious VM argument. Name the keyword and show where it should be placed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Good luck!&lt;/p&gt;
+&lt;p&gt;public class GuessTheVMArg {&lt;br&gt;
+    static boolean foo = true;&lt;/p&gt;
+&lt;p&gt;    public static void main(String[] args) throws InterruptedException {&lt;br&gt;
+        new Thread(new Runnable() {&lt;br&gt;
+            public void run() {&lt;br&gt;
+                while (foo) { }&lt;br&gt;
+                System.err.println(&amp;ldquo;Done!&amp;rdquo;);&lt;br&gt;
+            }&lt;br&gt;
+        }).start();&lt;br&gt;
+        Thread.sleep(1000);&lt;br&gt;
+        new Thread(new Runnable() {&lt;br&gt;
+            public void run() {&lt;br&gt;
+                foo = false;&lt;br&gt;
+            }&lt;br&gt;
+        }).start();&lt;br&gt;
+    }&lt;br&gt;
+}&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Winner of Garbage Collection Quiz</title>
+      <link>http://localhost:1313/posts/winner-of-garbage-collection-quiz/</link>
+      <pubDate>Sat, 31 May 2008 16:19:27 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/winner-of-garbage-collection-quiz/</guid>
+      <description>&lt;p&gt;Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan&amp;rsquo;s is that I didn&amp;rsquo;t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of ReferenceQueue.remove(). I also didn&amp;rsquo;t use ReferenceQueue.poll in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;import java.lang.ref.*;&lt;br&gt;
+import java.util.*;&lt;/p&gt;
+&lt;p&gt;class WarmupQuestion {&lt;br&gt;
+    private static ArrayList list = track(new ArrayList());&lt;br&gt;
+    static public void main(String[] args) throws Exception {&lt;br&gt;
+        track(new WarmupQuestion());&lt;br&gt;
+        System.gc();&lt;br&gt;
+        Integer i = track(150);&lt;br&gt;
+        track(new int[1024 * 1024]);&lt;br&gt;
+        System.gc();&lt;br&gt;
+        track(&amp;ldquo;Hello&amp;rdquo;);&lt;br&gt;
+        i = null;&lt;br&gt;
+        System.gc();&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    public void finalize() {&lt;br&gt;
+        list.add(this);&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    public static &lt;T&gt; T track(T o) {&lt;br&gt;
+        return ObjectTracker.track(o);&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    static class TrackedObject {&lt;br&gt;
+        private StackTraceElement[] mStack = new Exception().getStackTrace();&lt;br&gt;
+        private Reference mPhantomRef;&lt;br&gt;
+        private Reference mWeakRef;&lt;br&gt;
+        private Class&lt;?&gt; mCls;&lt;br&gt;
+        private Date mCreated = new Date();&lt;/p&gt;
+&lt;p&gt;        public TrackedObject(Object obj, ReferenceQueue allrefs) {&lt;br&gt;
+            mPhantomRef = new PhantomReference(obj, allrefs);&lt;br&gt;
+            mWeakRef = new WeakReference(obj);&lt;br&gt;
+            mCls = obj.getClass();&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public Reference getRef() {&lt;br&gt;
+            return mPhantomRef;&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        private void trace() {&lt;br&gt;
+            for (int i = 3; i &amp;lt; mStack.length; i++)&lt;br&gt;
+                System.out.println(mStack[i].toString());&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public void die(Date killed) {&lt;br&gt;
+            System.out.println(String.format(&lt;br&gt;
+                    &amp;ldquo;object of type %s lived for %d ms&amp;rdquo;, mCls, killed.getTime()&lt;br&gt;
+                            - mCreated.getTime()));&lt;br&gt;
+            trace();&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public void die() {&lt;br&gt;
+            String format = (mWeakRef.get() == null)&lt;br&gt;
+                ? &amp;ldquo;object of type %s has a finalize that raises the dead.&amp;rdquo;&lt;br&gt;
+                : &amp;ldquo;object of type %s lived until program exit.&amp;rdquo;;&lt;br&gt;
+            System.out.println(String.format(format, mCls));&lt;br&gt;
+            trace();&lt;br&gt;
+        }&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    static class ObjectTracker extends Thread {&lt;br&gt;
+        private static ReferenceQueue mRefs = new ReferenceQueue();&lt;br&gt;
+        private static Map&amp;lt;Reference, TrackedObject&amp;gt; mTracked =&lt;br&gt;
+            new HashMap&amp;lt;Reference, TrackedObject&amp;gt;();&lt;br&gt;
+        private Thread mMain;&lt;/p&gt;
+&lt;p&gt;        public ObjectTracker(Thread thread) {&lt;br&gt;
+            mMain = thread;&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public static &lt;T&gt; T track(T o) {&lt;br&gt;
+            TrackedObject tracked = new TrackedObject(o, mRefs);&lt;br&gt;
+            mTracked.put(tracked.getRef(), tracked);&lt;br&gt;
+            return o;&lt;br&gt;
+        }&lt;/p&gt;
+&lt;p&gt;        public void run() {&lt;br&gt;
+            try {&lt;br&gt;
+                Reference o = null;&lt;br&gt;
+                while (mMain.isAlive() || null != (o = mRefs.remove(1000))) {&lt;br&gt;
+                    if (o != null) {&lt;br&gt;
+                        mTracked.remove(o).die(new Date());&lt;br&gt;
+                    }&lt;br&gt;
+                }&lt;br&gt;
+                for (TrackedObject tracked : mTracked.values()) {&lt;br&gt;
+                    tracked.die();&lt;br&gt;
+                }&lt;br&gt;
+            } catch (InterruptedException e) {&lt;br&gt;
+                throw new RuntimeException(e);&lt;br&gt;
+            }&lt;br&gt;
+        }&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    static {&lt;br&gt;
+        new ObjectTracker(Thread.currentThread()).start();&lt;br&gt;
+    }&lt;br&gt;
+}&lt;/p&gt;&lt;/blockquote&gt;
+</description>
+    </item>
+    
     <item>
       <title>Garbage Collector Quiz</title>
       <link>http://localhost:1313/posts/garbage-collector-quiz/</link>
@@ -34,7 +175,7 @@ import java.util.*;&lt;/p&gt;
         list.add(this);&lt;br&gt;
     }&lt;br&gt;
    &lt;br&gt;
-    public static&lt;!-- raw HTML omitted --&gt; T track(T o) {&lt;br&gt;
+    public static&lt;T&gt; T track(T o) {&lt;br&gt;
         return ObjectTracker.track(o);&lt;br&gt;
     }&lt;/p&gt;
 &lt;p&gt;    &amp;hellip;   &lt;br&gt;
@@ -46,13 +187,79 @@ import java.util.*;&lt;/p&gt;
 object of type java.lang.Integer lived for 19 milliseconds&lt;br&gt;
  WarmupQuestion.main(WarmupQuestion.java:9)&lt;br&gt;
 object of type java.util.ArrayList lived until program exit.&lt;br&gt;
- WarmupQuestion.&lt;!-- raw HTML omitted --&gt;(WarmupQuestion.java:5)&lt;br&gt;
+ WarmupQuestion.&lt;clinit&gt;(WarmupQuestion.java:5)&lt;br&gt;
 object of type WarmupQuestion has a finalize that raises the dead.&lt;br&gt;
  WarmupQuestion.main(WarmupQuestion.java:7)&lt;br&gt;
 object of type java.lang.String lived until program exit.&lt;br&gt;
  WarmupQuestion.main(WarmupQuestion.java:12)&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.&lt;/p&gt;
 &lt;p&gt;Good luck!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Integer Boxing Quiz Results</title>
+      <link>http://localhost:1313/posts/integer-boxin-1/</link>
+      <pubDate>Mon, 12 May 2008 08:59:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/integer-boxin-1/</guid>
+      <description>&lt;p&gt;Brent Hill came in with the first correct answer and has been awarded 15 points. I plan on the next quiz being something to do with the generational garbage collection so study up if you don&amp;rsquo;t have any idea what that is.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Integer Boxing Quiz</title>
+      <link>http://localhost:1313/posts/integer-boxing/</link>
+      <pubDate>Thu, 08 May 2008 19:35:45 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/integer-boxing/</guid>
+      <description>&lt;p&gt;Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of the_black_box will the statement on line 11 print &amp;ldquo;Jonathan Kelly is really a robot!&amp;rdquo;? The only import allowed is java.lang.reflect.Field. 15 points will be awarded for the first correct answer.&lt;/p&gt;
+&lt;p&gt;import java.lang.reflect.Field;&lt;/p&gt;
+&lt;p&gt;class IntegerBoxing {&lt;br&gt;
+    static public void main(String[] args) throws Exception {&lt;br&gt;
+        the_black_box();&lt;br&gt;
+        char data[] = {&amp;lsquo;1&amp;rsquo;, &amp;lsquo;3&amp;rsquo;, &amp;lsquo;0&amp;rsquo;};&lt;br&gt;
+        Integer radix = 10;&lt;br&gt;
+        Integer x = Integer.parseInt(new String(data), radix);&lt;/p&gt;
+&lt;p&gt;        if (2 == x) {&lt;br&gt;
+            System.out.println(&amp;ldquo;Jonathan Kelly is really a robot!&amp;rdquo;);&lt;br&gt;
+        }&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    public static void the_black_box() throws Exception {&lt;br&gt;
+       &amp;hellip;&lt;br&gt;
+    }&lt;br&gt;
+}&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quiz Results</title>
+      <link>http://localhost:1313/posts/quiz-results/</link>
+      <pubDate>Mon, 14 Apr 2008 19:11:26 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/quiz-results/</guid>
+      <description>&lt;p&gt;The winner of the &lt;a href=&#34;http://localhost:1313/posts/java-mutability/&#34;&gt;Java Mutabiity Pop Quiz&lt;/a&gt; was Casey Klein. Casey has been awarded 10 points for his answer (see the &lt;a href=&#34;http://localhost:1313/posts/points-ranking/&#34;&gt;Points Ranking&lt;/a&gt;). Jonathan Kelly submitted his answer after Casey, but I want to stay on the good side of our robot overlords so I am awarding Jonathan 10 points as well. Jonathan&amp;rsquo;s answer was also interesting in that he also dealt with a string of a different length, which meant he needed to override the count method as well. Finally, Dan Ford is awarded 10 points for his clever alternate solution which involved redefining the behavior of System.out to replace all humans with robots.&lt;/p&gt;
+&lt;p&gt;Congratulations everyone!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Java Mutability Pop Quiz</title>
+      <link>http://localhost:1313/posts/java-mutability/</link>
+      <pubDate>Sat, 12 Apr 2008 19:57:26 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/java-mutability/</guid>
+      <description>&lt;p&gt;Can Java &lt;a href=&#34;http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html&#34;&gt;strings&lt;/a&gt; actually be mutable? I will award 10 points for the first person to give me an implementation of robotocize that makes the println on line 2 of the main method print &amp;ldquo;Jonathan Kelly is a robot!&amp;rdquo; instead of &amp;ldquo;Jonathan Kelly is a human.&amp;rdquo;.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;class WantToBet {&lt;br&gt;
+    static public void main(String[] args) throws Exception {&lt;br&gt;
+        robotocize();&lt;br&gt;
+        System.out.println(&amp;ldquo;Jonathan Kelly is a human.&amp;rdquo;);&lt;br&gt;
+    }&lt;/p&gt;
+&lt;p&gt;    public static void robotocize() throws Exception {&lt;br&gt;
+        &amp;hellip;&lt;br&gt;
+    }&lt;br&gt;
+}&lt;/p&gt;&lt;/blockquote&gt;
 </description>
     </item>
     

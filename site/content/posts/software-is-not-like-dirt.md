@@ -6,7 +6,7 @@ categories: ["Software Philosophy"]
 tags: ["metaphors", "software-development", "design"]
 ---
 
-Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with [good King DRY](http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html) by throwing more metaphors in the mix.
+Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with [good King DRY](/posts/in-defense-of-duplicated-code/) by throwing more metaphors in the mix.
 
 Instead, I wish to cast away the most evil of metaphors: that software is like dirt and that software is like trying to make the biggest pile of dirt you possibly can. Now I can tell you as someone who has experience both in software development and who has created big piles of dirt on beaches, in backyards and in wooded areas that they are nothing alike.
 

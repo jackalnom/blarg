@@ -12,7 +12,7 @@ But they, while their companions slept,
 Were toiling upward in the night.  
 *-- Henry Wadsworth Longfellow*
 
-You're working on a difficult bug. A strange log message showing that your program fails every once in a while. Looking at your watch you see you've already been working on it for half an hour. You put the bug back on the router thinking to yourself maybe someone else will have better luck. And then a man from the future appears behind you... oh never mind I won't subject you to that torture [again](http://www.bonnycode.com/guide/2008/11/do-not-fix-what-you-dont-understand.html).
+You're working on a difficult bug. A strange log message showing that your program fails every once in a while. Looking at your watch you see you've already been working on it for half an hour. You put the bug back on the router thinking to yourself maybe someone else will have better luck. And then a man from the future appears behind you... oh never mind I won't subject you to that torture [again](/posts/do-not-fix-what-you-dont-understand/).
 
 [![Developer_bug_conversation](/bug2hard.png)
 
@@ -36,3 +36,6 @@ The trade off is really this, you can either spend 2 days going deep, really und
 Persistence does not equal stupidity. Banging your head against a problem and making no progress is not persistence anymore than running on a treadmill is a form of transportation. Well... [not normally at least](http://www.heavy.com/video/61095). I see lack of persistence as the biggest thing that holds people back, but many people don't even know how to go about fixing the hard problems. It is a skill and I could go on about divide and conquer, how to actually use google and a million other tidbits. As an honest to goodness skill though, my best advice is to pair up with the best, most knowledgeable bug fixer you know. Who is the developer that ends up actually fixing the really hard problems when they come up? Tackle a really hard problem with them. When you get stuck on a really hard bug, don't give up, but do ask for advice explaining your progress so far. Don't ask them to do the work for you, but do ask for pointers on where to look next. Often times you'll find the act of just explaining what you've discovered will lead you to the solution on your own.
 
 Remember this. Any script kiddie can copy and paste some code, tweak some values and get a system they barely understand to kinda work. If you want to distinguish yourself as a software developer, work to truly understand the system you are building, don't shy away from the difficult problems and don't stop until you really know what is going on.
+
+**Related posts on debugging:**
+- [Do not fix what you don't understand](/posts/do-not-fix-what-you-dont-understand/) - Why understanding the root cause is essential before making any bug fix

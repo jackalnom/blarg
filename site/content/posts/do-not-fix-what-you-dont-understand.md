@@ -43,3 +43,6 @@ As you sit in the carnage of your computer equipment, slanted to one side in you
 "You have no idea what will happen when you make this change. You didn't reproduce the problem. You didn't find the root cause. You didn't talk to someone knowledgeable in this part of the code. You didn't find the person who caused the bug and ask them about the fix. You didn't even test your fix."
 
 Your left to ponder what future your simple bug fix had unintentionally caused that it would induce man to invent time travel to send someone back to stop you. Truly horrible it must have been and with that you promise in the name of the future man with the big gun to never make another bug fix on a problem that you don't understand.
+
+**Related posts on debugging:**
+- [Persistence: The long lost virtue of fixing a bug](/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/) - How to develop the persistence needed to truly fix difficult bugs
