@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Best-Practices on BonnyCode</title>
-    <link>http://localhost:1313/tags/best-practices/</link>
+    <link>http://localhost:1314/tags/best-practices/</link>
     <description>Recent content in Best-Practices on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 07 Sep 2008 13:21:40 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Sep 2008 13:21:40 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/best-practices/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Banned: Implementation Inheritance</title>
-      <link>http://localhost:1313/posts/banned-implementation-inheritance/</link>
+      <link>http://localhost:1314/posts/banned-implementation-inheritance/</link>
       <pubDate>Sun, 07 Sep 2008 13:21:40 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/banned-implementation-inheritance/</guid>
-      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://localhost:1313/posts/tactical-polymo/&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
+      <guid>http://localhost:1314/posts/banned-implementation-inheritance/</guid>
+      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://localhost:1314/posts/tactical-polymo/&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
 &lt;p&gt;I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren&amp;rsquo;t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don&amp;rsquo;t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is &lt;a href=&#34;http://en.wikipedia.org/wiki/Technical_debt&#34;&gt;technical debt&lt;/a&gt;. And while it has done wonders for certain aging C++ programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.&lt;/p&gt;
 &lt;p&gt;So what does this mean for you? Next time you try to do any implementation inheritance in your design, stop and say to yourself:&lt;/p&gt;
 &lt;ol&gt;
@@ -27,10 +27,10 @@
     
     <item>
       <title>Exceptions are part of the Method Signature</title>
-      <link>http://localhost:1313/posts/exceptions-are/</link>
+      <link>http://localhost:1314/posts/exceptions-are/</link>
       <pubDate>Sun, 20 Apr 2008 17:32:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptions-are/</guid>
+      <guid>http://localhost:1314/posts/exceptions-are/</guid>
       <description>&lt;p&gt;The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException&lt;/p&gt;&lt;/blockquote&gt;
@@ -43,19 +43,19 @@
 &lt;p&gt;I will follow up next week on how to properly catch exceptions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exceptions vs. Status Codes vs. Assertions</title>
-      <link>http://localhost:1313/posts/exceptions-vs-s/</link>
+      <link>http://localhost:1314/posts/exceptions-vs-s/</link>
       <pubDate>Mon, 14 Apr 2008 19:57:57 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptions-vs-s/</guid>
+      <guid>http://localhost:1314/posts/exceptions-vs-s/</guid>
       <description>&lt;p&gt;Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this &lt;a href=&#34;http://www.joelonsoftware.com/items/2003/10/13.html&#34;&gt;siren&lt;/a&gt;) and her false promises.&lt;/p&gt;
 &lt;p&gt;A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.&lt;/p&gt;
 &lt;p&gt;Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&amp;rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.&lt;/p&gt;
@@ -104,19 +104,19 @@
 &lt;p&gt;And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method&amp;rsquo;s signature.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exceptional Programming</title>
-      <link>http://localhost:1313/posts/exceptional-pro/</link>
+      <link>http://localhost:1314/posts/exceptional-pro/</link>
       <pubDate>Sun, 13 Apr 2008 20:14:29 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptional-pro/</guid>
+      <guid>http://localhost:1314/posts/exceptional-pro/</guid>
       <description>&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;br&gt;
 &amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;
 &lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
@@ -124,19 +124,19 @@
 &lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>The Joy of Immutability</title>
-      <link>http://localhost:1313/posts/the-joy-of-immu/</link>
+      <link>http://localhost:1314/posts/the-joy-of-immu/</link>
       <pubDate>Sun, 06 Apr 2008 21:57:15 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/the-joy-of-immu/</guid>
+      <guid>http://localhost:1314/posts/the-joy-of-immu/</guid>
       <description>&lt;p&gt;No man ever steps in the same river twice, for it&amp;rsquo;s not the same river and he&amp;rsquo;s not the same man.&lt;br&gt;
 &amp;ndash; Heraclitus&lt;/p&gt;
 &lt;p&gt;The relation between identity and change is a basic philosophical problem. How can one define anything when everything is always changing? For example, your tax return includes basic information about yourself such as marital status. When you get married, this doesn&amp;rsquo;t make all previous years tax returns invalid. They are still true, but refer to your self at that point in time.&lt;/p&gt;
@@ -178,18 +178,18 @@
     
     <item>
       <title>Register Style Programming</title>
-      <link>http://localhost:1313/posts/register-style/</link>
+      <link>http://localhost:1314/posts/register-style/</link>
       <pubDate>Sun, 09 Mar 2008 09:23:37 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/register-style/</guid>
+      <guid>http://localhost:1314/posts/register-style/</guid>
       <description>&lt;p&gt;Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;room = RoomDAO.findLivingRoom&lt;br&gt;
 &lt;strong&gt;if&lt;/strong&gt; (room &amp;lt;&amp;gt; nil)&lt;br&gt;
-  house.add(room)&lt;br&gt;
+house.add(room)&lt;br&gt;
 room = RoomDAO.findKitchen&lt;br&gt;
 &lt;strong&gt;if&lt;/strong&gt; (room &amp;lt;&amp;gt; nil)&lt;br&gt;
-  house.add(room)&lt;/p&gt;&lt;/blockquote&gt;
+house.add(room)&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Reusing variables with register style programming has several problems:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.&lt;/li&gt;
@@ -199,10 +199,10 @@ room = RoomDAO.findKitchen&lt;br&gt;
 &lt;blockquote&gt;
 &lt;p&gt;livingRoom = RoomDAO.findLivingRoom&lt;br&gt;
 &lt;strong&gt;if&lt;/strong&gt; (livingRoom &amp;lt;&amp;gt; nil)&lt;br&gt;
-  house.add(livingRoom)&lt;br&gt;
+house.add(livingRoom)&lt;br&gt;
 kitchen = RoomDAO.findKitchen&lt;br&gt;
 &lt;strong&gt;if&lt;/strong&gt; (kitchen &amp;lt;&amp;gt; nil)&lt;br&gt;
-  house.add(kitchen)&lt;/p&gt;&lt;/blockquote&gt;
+house.add(kitchen)&lt;/p&gt;&lt;/blockquote&gt;
 </description>
     </item>
     

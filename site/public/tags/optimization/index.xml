@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Optimization on BonnyCode</title>
-    <link>http://localhost:1313/tags/optimization/</link>
+    <link>http://localhost:1314/tags/optimization/</link>
     <description>Recent content in Optimization on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Jun 2008 20:50:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jun 2008 20:50:50 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Depressing, All Too Common Tale of OO Programmer meets Database</title>
-      <link>http://localhost:1313/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</link>
+      <link>http://localhost:1314/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</link>
       <pubDate>Sun, 22 Jun 2008 20:50:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</guid>
+      <guid>http://localhost:1314/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</guid>
       <description>&lt;p&gt;You&amp;rsquo;ve just been hired for your first job as an astronomical programmer. You have a graduate degree from CalTech in computer science and you regularly check your horoscope so you feel imminently qualified. Your first assignment is to write a method to count all the red giants in the universe. They use an object relational mapping framework so that you can put all your object oriented design skills to work and not need to worry anything about databases which is awesome because you know nothing about databases.&lt;/p&gt;
 &lt;p&gt;You feel well trained in the arts of test driven development so you start out by writing a little test:&lt;/p&gt;
 &lt;blockquote&gt;

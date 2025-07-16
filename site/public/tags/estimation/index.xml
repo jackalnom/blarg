@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Estimation on BonnyCode</title>
-    <link>http://localhost:1313/tags/estimation/</link>
+    <link>http://localhost:1314/tags/estimation/</link>
     <description>Recent content in Estimation on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Aug 2013 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/estimation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Aug 2013 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/estimation/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cost benefit analysis for bear lovers</title>
-      <link>http://localhost:1313/posts/cost-benefit-analysis/</link>
+      <link>http://localhost:1314/posts/cost-benefit-analysis/</link>
       <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/cost-benefit-analysis/</guid>
+      <guid>http://localhost:1314/posts/cost-benefit-analysis/</guid>
       <description>&lt;p&gt;Feature estimates are often blindly used for cost benefit analysis. This was no more apparent than when I once worked with a product manager named Bethany. She was responsible for what, in hindsight, was always a doomed social network for lovers of the North American Brown Bear. Bethany would routinely ask her developers to provide implementation costs for a long list of features. The developers would grumble and complain they need more detailed requirements before they can put together detailed estimates (because they had been burned in the past on being held to commitments based on changing scope). Bethany retorts that she just needs “T-shirt sizes”, which is code for wild ass guesses, so she can do cost benefit analysis. Logically, this makes sense. Like any savvy businesswoman, the product manager wants to get a return on her investment. You wouldn&amp;rsquo;t buy a piano without first knowing the price, right?&lt;/p&gt;
 &lt;p&gt;The developer would always eventually relent and give her the feature estimates she asked for. The feature to let people upload pictures of their favorite bear for example would take 2 weeks to build. The feature to translate English into Bearease was estimated to take between 1 month and 2 years. The bear picture upload feature was a clear customer win and a frequent ask from the sites three customers, but the English to Bearease language translation was a real opportunity to differentiate their site from the other bear lover social networks. If the bearease translation feature cost only 1 month it made more sense to prioritize that feature, but not if it took 2 years.&lt;/p&gt;
 &lt;p&gt;Bethany went back to the developers and asked why there was such a wide estimate in the translation feature and if there was a way to bring it down to the 1 month side. The developers came back with a bunch of mumbo jumbo about corpuses and having to maintain the translator by hand. They could develop a version of the feature in 1 month, but they wanted to do something fancier. Bethany heard that it could be done in 1 month if they really wanted to and said “go forth and develop my Bearease translator.” (she literally said that, it was weird then and it is weird now)&lt;/p&gt;
@@ -21,16 +21,16 @@
 &lt;p&gt;Bethany and the developers took away opposite lessons from the whole experience. Bethany said working with developers is lame because they are lazy and don&amp;rsquo;t understand business. She started her own hedge fund and now has a net worth measured in billions of dollars. The lesson the developers pulled from the experience was to never again do a feature quick and dirty, and the next time a product manager asks them to build a Bearease translator, they will say it takes 2 years, end of story.&lt;/p&gt;
 &lt;p&gt;While Bethany can now afford to send several teams of highly trained ninja assassins my way for saying this, I put forth the contention that both Bethany and the developers pulled away the wrong lesson. Bethany&amp;rsquo;s real mistake was equating implementation cost with the true cost of a feature for cost benefit analysis. Software features, like most business investments, have operating costs associated with them. Those operating costs can vary wildly and there is frequently a trade off between initial investment cost and operating cost. If Bethany had taken into account the full cost of the features, she may have decided that uploading bear pictures was actually the wiser investment (something Facebook was smart enough to pick up on). Or at least she would have come in with the right expectation on what she was getting with her initial Bearease translator, and budgeted for followup work to make the feature more operationally maintainable if it was a success.&lt;/p&gt;
 &lt;p&gt;The developers on the other hand learned too simplistic a lesson on technical debt. Technical debt, like any form of debt, is not evil. Without the ability to go into debt (i.e., taking out a loan), most new businesses couldn&amp;rsquo;t even get off the ground in the first place. If the demand for a Bearease translator was uncertain or if the immediate rush to market of being the first to have a Bearease translator justified it, the one month implementation with high technical debt could absolutely be the correct decision. For example, if they launched the Bearease translator and it completely tanked, they at least would have only lost out on 1 month of work rather than 2 years worth of work. Requirements and customer adoption are so subtly variable and changing in software development that this is often in fact the best approach to take. As long as ongoing operational cost is measured and time is continuously budgeted to reduce it, everyone can benefit from such a rapid iteration methodology.&lt;/p&gt;
-&lt;p&gt;This post is also available in spoken &lt;a href=&#34;http://www.youtube.com/watch?v=vAx6WqymurM&#34; title=&#34;Cost benefit analysis for bear lovers [Bearease]&#34;&gt;Bearease&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post is also available in spoken &lt;a href=&#34;http://localhost:1314/posts/rawr/&#34;&gt;Bearease&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>How feature estimates killed Bobo</title>
-      <link>http://localhost:1313/posts/feature-estimates/</link>
+      <link>http://localhost:1314/posts/feature-estimates/</link>
       <pubDate>Sun, 24 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/feature-estimates/</guid>
+      <guid>http://localhost:1314/posts/feature-estimates/</guid>
       <description>&lt;p&gt;Software development lacks a single meaningful, objective productivity metric. This is not for lack of trying. A productivity metric would make the life of a software development manager dramatically easier. Performance reviews? Just see who has the highest number. Need to find out how to boost productivity? Find the developer with the best process and have your other developers adopt it as a best practice. And so, managers grasp for measurement. Lines of code is so obviously wrong as a measurement that I&amp;rsquo;ve mostly heard it brought up for its comedic value. I&amp;rsquo;m not saying that in the history of software there hasn&amp;rsquo;t been some misguided manager who actually reviewed their developers by lines of code, but it is certainly more myth than reality in the modern era.&lt;/p&gt;
 &lt;p&gt;I can&amp;rsquo;t say the same for effort estimation accuracy. Many otherwise intelligent managers have embraced the accuracy of their developers estimates as a defining measure of their developers worth. There are varying degrees of vigor attached  to this review. The energetic manager maintains a spreadsheet (or enlists a task tracking tool) to calculate every estimate given by their developer and then what the task actually came in at. At its most simplistic they might just divide the two numbers at that point and shoot see who deviates the most from 1 and apply the appropriate corrective action.&lt;/p&gt;
 &lt;p&gt;Most managers aren&amp;rsquo;t quite so vigorous though. The belief in holding developers accountable to effort estimate accuracy is frequently enforced more subjectively.&lt;/p&gt;
@@ -43,28 +43,40 @@
 &lt;p&gt;In the end, Bobo makes his employer over 40 times as much money as Jobo does. Now let&amp;rsquo;s bring in the traditional software manager that uses estimate accuracy as their primary means of driving accountability. Jobo delivers to his estimates 100% of the time and is the model employee. Bobo though is a problem case. He is unreliable and is off on his estimates from 2x to 4x. After sending Bobo to an estimation training for 2 weeks, Bobo now estimates that he makes 37 shoes per day. And while on average this is correct, Bobo still sometimes makes as low as 25 clogs some days and as high as 50 clogs other days. The days he makes 50 clogs he is accused of sandbagging and the days he makes 25 he is just being lazy. This is still much too unreliable. Jobo is still the model employee and is given a raise. Bobo is on a performance improvement plan and asked why he can&amp;rsquo;t be more like Jobo. Bobo eventually gets smart and starts estimating that he can make 25 a day. As soon as he gets to 25 in a day he whips out the hammock and martini and enjoys the rest of his day. Now his estimate accuracy is 100% but his boss is angry that he sees Bobo in a hammock for a significant portion of every day. This is obviously unacceptable. Jobo on the other hand has been given several raises and is given a company luxury car to ensure his retention. Bobo finally realizes his boss doesn&amp;rsquo;t even care how many clogs he makes and just wants estimate accuracy. So he starts making 5 shoes a day like Jobo. He staggers the creation of each shoe slowly through the day and makes sure to always look like he is working. His boss is ecstatic, he is finally reliably hitting his estimates and working hard.&lt;/p&gt;
 &lt;p&gt;Bobo quits a week later because he realizes all he ever loved was making clogs and it is mind numbing to work at a place where estimates matter more than the clogs. Bobo&amp;rsquo;s manager is lauded for his top-grading efforts. Bobo starts his own clog shop across the street and starts selling his clogs for $150, still making a healthy profit. Bobo&amp;rsquo;s old clog shop can&amp;rsquo;t meet this new price without losing money per clog sold. Jobo&amp;rsquo;s manager, realizing the error of his ways and that there is no way he can compete with Bobo&amp;rsquo;s clog shop, murders Bobo and burns down his new shop. Jobo&amp;rsquo;s clog shop continues on for many years with a small but steady profit.&lt;/p&gt;
 &lt;p&gt;It all seems so obvious in the world of clogs. But is software really much different or is it just harder to quantify the unit of production than in a world of widgets? It is often said that it is better to have an imperfect measure than no measure at all. But estimate accuracy isn&amp;rsquo;t an imperfect measure for software productivity, it is a completely orthogonal measure that actually drives down productivity. The only reason we are left with holding developers accountable to feature estimates is that their accuracy is necessary for some other purpose, such as the creation of project launch timelines or for cost-benefit analysis. I&amp;rsquo;ll tackle the flaws of these uses in my future posts.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>I&#39;m back and I hate your estimates</title>
-      <link>http://localhost:1313/posts/i-hate-your-estimates/</link>
+      <link>http://localhost:1314/posts/i-hate-your-estimates/</link>
       <pubDate>Mon, 11 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/i-hate-your-estimates/</guid>
+      <guid>http://localhost:1314/posts/i-hate-your-estimates/</guid>
       <description>&lt;p&gt;For 2,000 years, ever since the Ancient Greeks got it into their heads that disease was caused by excess fluids, most disease in the western world was treated through bloodletting. Your back hurts? Let&amp;rsquo;s drain a quart of blood and see how you feel! Need to amputate your foot? Better drain some blood first. Was the practice scientifically baseless and actually harmful? Hell yes! There are today some cases where bloodletting is validly practiced, but it is no longer the panacea it once was. Effort estimation is software development&amp;rsquo;s version of bloodletting. Developers use effort estimates to drive accountability, to conduct cost-benefit analysis, to pack sprints, create launch timelines and, I believe in some circles, to summon the nine dark lords of hell.&lt;/p&gt;
 &lt;p&gt;But why do we think effort estimates are the solution to all of these problems? Everything about effort estimates in software really is silly. Look at the homegrown rules we&amp;rsquo;ve come up with for estimates. I&amp;rsquo;ve heard more than one grizzled veteran tell me their preferred method is to take their initial estimate, double the number and up the unit of time (e.g., hour becomes day, day becomes week, etc.). This is always said in a semi-joking &amp;ldquo;but, no really, it works&amp;rdquo; tone.  In the 90s highly complicated methods of estimation became popular that involved lots of acronyms and I&amp;rsquo;m sure consultants. Now that agile has taken over the software industry we estimate using planning poker and Fibonacci numbers. The latest estimation technique is to sacrifice a goat and spread its entrails over a large area. Maybe that will finally be the trick that works, but I doubt it because as an industry, despite all these new techniques, we are still no better at estimating.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve invested quite a bit of time at getting better at estimation. And I got a little better. But one day, while knee deep in goat entrails, I stepped back and looked at the whole mess and asked why am I doing this? To what end do we estimate and then re-estimate, pack a schedule just to pack it differently in a month. And at the end of this introspection I determined my life of software estimation had all been a fraud. I&amp;rsquo;d been wasting my time. I moved to Nepal and joined a small temple. And now the secret of why I haven&amp;rsquo;t been working on my blog is out. But after years of meditation I&amp;rsquo;ve decided to come back to the material world and spread my gospel.&lt;/p&gt;
 &lt;p&gt;And so, to demonstrate that effort estimates are not only useless but also harmful, I shall attack each motivation on its own. I will start next week with my least favorite reason of all&amp;hellip; accountability!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Ninety Percent Confident</title>
-      <link>http://localhost:1313/posts/ninety-percent-confident/</link>
+      <link>http://localhost:1314/posts/ninety-percent-confident/</link>
       <pubDate>Sun, 24 Aug 2008 21:38:25 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/ninety-percent-confident/</guid>
+      <guid>http://localhost:1314/posts/ninety-percent-confident/</guid>
       <description>&lt;p&gt;I know nothing except the fact of my ignorance.&lt;/p&gt;
 &lt;p&gt;&amp;ndash; Socrates&lt;/p&gt;
 &lt;p&gt;Too many good software developers are limited by their poor estimation abilities. Take the story of Bert &amp;amp; Ernie. Bert &amp;amp; Ernie are pretty much identical in terms of programming ability. Put them in a programming contest and they are neck and neck. Bert regularly underestimates the amount of time his software projects will take while Ernie always beats his estimates with a slight bit of room to spare. Management sees Bert as either slow or just unfocused. Ernie on the other hand is a speedy professional programmer that can be trusted with the mission critical projects. I can think of few technical skills a software developer could learn that would better help their career than becoming a proficient estimator. The really amazing thing is, compared to most of what we do, the estimation asked of individual software developers is mostly about knowing your own limits.&lt;/p&gt;
@@ -74,15 +86,21 @@
 &lt;p&gt;There is some truth to our natural reaction about giving too wide of a range though. Telling your boss that your software feature will take you sometime between 1 day and 3 years will probably make your boss start to question why they hired you. This is natural considering that an estimate that wide is fairly useless when doing a cost benefit analysis on a feature or in attempting to create a schedule. You absolutely must resist the urge to provide a guess that goes beyond the limits of your knowledge though. Instead, ask for time to create a prototype or to do research and say that you can give a useful estimate once it is complete.&lt;/p&gt;
 &lt;p&gt;This doesn&amp;rsquo;t mean you should ask to research every single estimate you give either. If you are 90% confident you can deliver a feature in 1 to 2 weeks, just say 2 weeks and call it done. The key is make sure that the estimate is actually something you are 90% confident in. If the last time you had a similar feature you ran into a multitude of problems, provide an estimate assuming that similar problems occur this time. Don&amp;rsquo;t listen to the Optimism Angel on your shoulder that tells you that everything is going to go smooth and that you are finally going to be the super fast programmer you always dreamed of being. Always look at past features you have written and compare the feature being estimated with those.&lt;/p&gt;
 &lt;p&gt;There is a lot more to software estimation than what I have covered here. One of my favorite new estimation techniques is &lt;a href=&#34;http://en.wikipedia.org/wiki/Planning_poker&#34;&gt;Planning Poker&lt;/a&gt;. For the individual software developer doing feature estimation though, most of what you need is just figuring out 90% confident estimates.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Points Ranking</title>
-      <link>http://localhost:1313/posts/points-ranking/</link>
+      <link>http://localhost:1314/posts/points-ranking/</link>
       <pubDate>Mon, 14 Apr 2008 19:03:41 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/points-ranking/</guid>
+      <guid>http://localhost:1314/posts/points-ranking/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Evan Rosson - 25 Points&lt;/li&gt;
 &lt;li&gt;Brent Hill - 15 Points&lt;/li&gt;

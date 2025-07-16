@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Database &amp; Performance on BonnyCode</title>
-    <link>http://localhost:1313/categories/database--performance/</link>
+    <link>http://localhost:1314/categories/database--performance/</link>
     <description>Recent content in Database &amp; Performance on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Jun 2008 20:50:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/database--performance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jun 2008 20:50:50 +0000</lastBuildDate><atom:link href="http://localhost:1314/categories/database--performance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Depressing, All Too Common Tale of OO Programmer meets Database</title>
-      <link>http://localhost:1313/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</link>
+      <link>http://localhost:1314/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</link>
       <pubDate>Sun, 22 Jun 2008 20:50:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</guid>
+      <guid>http://localhost:1314/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</guid>
       <description>&lt;p&gt;You&amp;rsquo;ve just been hired for your first job as an astronomical programmer. You have a graduate degree from CalTech in computer science and you regularly check your horoscope so you feel imminently qualified. Your first assignment is to write a method to count all the red giants in the universe. They use an object relational mapping framework so that you can put all your object oriented design skills to work and not need to worry anything about databases which is awesome because you know nothing about databases.&lt;/p&gt;
 &lt;p&gt;You feel well trained in the arts of test driven development so you start out by writing a little test:&lt;/p&gt;
 &lt;blockquote&gt;
@@ -64,10 +64,10 @@ end&lt;/p&gt;&lt;/blockquote&gt;
     
     <item>
       <title>N&#43;1 Select</title>
-      <link>http://localhost:1313/posts/n1-select/</link>
+      <link>http://localhost:1314/posts/n1-select/</link>
       <pubDate>Tue, 17 Jun 2008 21:42:16 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/n1-select/</guid>
+      <guid>http://localhost:1314/posts/n1-select/</guid>
       <description>&lt;p&gt;You can forget about the performance of synchronized vs. unsynchronized, when you write code hitting your database that looks like this:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;peeps = Database.findMyPeeps&lt;br&gt;
@@ -88,10 +88,10 @@ for (each peep in peeps)&lt;br&gt;
     
     <item>
       <title>Databases from the Battlefield</title>
-      <link>http://localhost:1313/posts/databases-from-the-battlefield/</link>
+      <link>http://localhost:1314/posts/databases-from-the-battlefield/</link>
       <pubDate>Sun, 15 Jun 2008 23:15:07 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/databases-from-the-battlefield/</guid>
+      <guid>http://localhost:1314/posts/databases-from-the-battlefield/</guid>
       <description>&lt;p&gt;There is a ladder of knowledge in learning about databases. Step one is learning the basic commands SELECT, INSERT, UPDATE and DELETE. After that you learn about Subselects and the various JOINs. Eventually you learn about creating your own schema, many to many relationships and database indexes. Eventually you might even learn about &lt;a href=&#34;http://en.wikipedia.org/wiki/Database_normalization&#34;&gt;database normal forms&lt;/a&gt; which are similar to the Ten Commandments: people think they know what they are but when pressed can normally only name one or two (killing and stealing are bad right?).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m going to assume you already know all of this or if you don&amp;rsquo;t that you can easily learn it on your own. At the very least you should learn the database normal forms so you can impress in a job interview some day.&lt;/p&gt;
 &lt;p&gt;Instead, I&amp;rsquo;m going to teach you the zen secrets of databases that they don&amp;rsquo;t teach you in school. My next post will start with the infamous N+1 Select.&lt;/p&gt;
@@ -100,10 +100,10 @@ for (each peep in peeps)&lt;br&gt;
     
     <item>
       <title>Synchronized Performance</title>
-      <link>http://localhost:1313/posts/synchronized-performance/</link>
+      <link>http://localhost:1314/posts/synchronized-performance/</link>
       <pubDate>Tue, 10 Jun 2008 00:39:10 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/synchronized-performance/</guid>
+      <guid>http://localhost:1314/posts/synchronized-performance/</guid>
       <description>&lt;p&gt;In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;class SynchronizedTest {&lt;br&gt;
@@ -200,7 +200,7 @@ class Unsynchronized extends java.lang.Object{&lt;br&gt;
 Unsynchronized();&lt;br&gt;
   Code:&lt;br&gt;
    0:    aload_0&lt;br&gt;
-   1:    invokespecial    #1; //Method java/lang/Object.&amp;quot;&lt;init&gt;&amp;rdquo;:()V&lt;br&gt;
+   1:    invokespecial    #1; //Method java/lang/Object.&amp;quot;&lt;!-- raw HTML omitted --&gt;&amp;rdquo;:()V&lt;br&gt;
    4:    return&lt;/p&gt;
 &lt;p&gt;public static void main(java.lang.String[]);&lt;br&gt;
   Code:&lt;br&gt;
@@ -218,7 +218,7 @@ Unsynchronized();&lt;br&gt;
    22:    getstatic    #5; //Field java/lang/System.err:Ljava/io/PrintStream;&lt;br&gt;
    25:    new    #6; //class java/lang/StringBuilder&lt;br&gt;
    28:    dup&lt;br&gt;
-   29:    invokespecial    #7; //Method java/lang/StringBuilder.&amp;quot;&lt;init&gt;&amp;rdquo;:()V&lt;br&gt;
+   29:    invokespecial    #7; //Method java/lang/StringBuilder.&amp;quot;&lt;!-- raw HTML omitted --&gt;&amp;rdquo;:()V&lt;br&gt;
    32:    ldc    #8; //String Unsynchronized:&lt;br&gt;
    34:    invokevirtual    #9; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;&lt;br&gt;
    37:    invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J&lt;br&gt;

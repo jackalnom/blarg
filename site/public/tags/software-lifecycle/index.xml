@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Software-Lifecycle on BonnyCode</title>
-    <link>http://localhost:1313/tags/software-lifecycle/</link>
+    <link>http://localhost:1314/tags/software-lifecycle/</link>
     <description>Recent content in Software-Lifecycle on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Feb 2009 00:36:46 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/software-lifecycle/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 Feb 2009 00:36:46 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/software-lifecycle/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building Software Over Time</title>
-      <link>http://localhost:1313/posts/building-software-over-time/</link>
+      <link>http://localhost:1314/posts/building-software-over-time/</link>
       <pubDate>Mon, 09 Feb 2009 00:36:46 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/building-software-over-time/</guid>
+      <guid>http://localhost:1314/posts/building-software-over-time/</guid>
       <description>&lt;p&gt;When choosing a sorting algorithm, we typically don&amp;rsquo;t look at how fast it performs on collections of 10 items. What matters is how it scales with the size of the input data. It is very easy to get sidetracked by success on toy problems or to concentrate on optimizing the wrong thing. Sure you can spend days optimizing the inner loop of your sort, but if you&amp;rsquo;re using an n squared algorithm you&amp;rsquo;re not using your time efficiently.&lt;/p&gt;
 &lt;p&gt;The same lessons apply in software design. Programmers most often optimize around initial construction time. If you have a fixed set of requirements for the lifetime of the software than that is indeed a suitable area to optimize and in that case you are probably working for a government contractor of some sort. For the rest of us, you are almost certainly working in an area with changing requirements and code that will be read and reworked many times through its life. Much more time will be spent on the maintenance side, an often cited number is greater than 90% of time is spent on maintenance. People&amp;rsquo;s first response to this is that it is a code quality issue, but that is largely untrue from my experience. The reason maintenance absorbs so much time is that requirements are constantly in flux. The code must be changed to meet new demands as those demands stream in.&lt;/p&gt;
 &lt;p&gt;Sounds good so far, so this means build in lots of flexibility to your code right? Not quite as most software developers are amazingly bad at predicting where they will need the flexibility. Some use their own creative imaginations to dream up ways in which new requirements may come in, this leads to the really horribly bad architectures. The more experienced developers draw from previous experience from previous projects which is sometimes useful, more often misleading. This leads to the principle the agilistas refer to as YAGNI aka you aren&amp;rsquo;t gonna need it. Basically they revoke your flexible architecture card on the premise that you are going to screw it up.&lt;/p&gt;

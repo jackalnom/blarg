@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exception-Handling on BonnyCode</title>
-    <link>http://localhost:1313/tags/exception-handling/</link>
+    <link>http://localhost:1314/tags/exception-handling/</link>
     <description>Recent content in Exception-Handling on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 May 2008 22:07:32 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/exception-handling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 May 2008 22:07:32 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/exception-handling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Catching Exceptions</title>
-      <link>http://localhost:1313/posts/catching-except/</link>
+      <link>http://localhost:1314/posts/catching-except/</link>
       <pubDate>Sun, 04 May 2008 22:07:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/catching-except/</guid>
+      <guid>http://localhost:1314/posts/catching-except/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“It’s 3 am and your children are safe and asleep.
 But there’s a phone in the White House and it is ringing.
@@ -60,21 +60,15 @@ Who do you want answering that phone?”
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Exception handling isn&amp;rsquo;t a glamorous topic, but it is still important. Be the humble programmer that looks for ways to make their program cool and confident in the face of adversity and unexpected situations.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exceptions are part of the Method Signature</title>
-      <link>http://localhost:1313/posts/exceptions-are/</link>
+      <link>http://localhost:1314/posts/exceptions-are/</link>
       <pubDate>Sun, 20 Apr 2008 17:32:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptions-are/</guid>
+      <guid>http://localhost:1314/posts/exceptions-are/</guid>
       <description>&lt;p&gt;The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException&lt;/p&gt;&lt;/blockquote&gt;
@@ -87,19 +81,19 @@ Who do you want answering that phone?”
 &lt;p&gt;I will follow up next week on how to properly catch exceptions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exceptions vs. Status Codes vs. Assertions</title>
-      <link>http://localhost:1313/posts/exceptions-vs-s/</link>
+      <link>http://localhost:1314/posts/exceptions-vs-s/</link>
       <pubDate>Mon, 14 Apr 2008 19:57:57 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptions-vs-s/</guid>
+      <guid>http://localhost:1314/posts/exceptions-vs-s/</guid>
       <description>&lt;p&gt;Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this &lt;a href=&#34;http://www.joelonsoftware.com/items/2003/10/13.html&#34;&gt;siren&lt;/a&gt;) and her false promises.&lt;/p&gt;
 &lt;p&gt;A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.&lt;/p&gt;
 &lt;p&gt;Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&amp;rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.&lt;/p&gt;
@@ -148,19 +142,19 @@ Who do you want answering that phone?”
 &lt;p&gt;And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method&amp;rsquo;s signature.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exceptional Programming</title>
-      <link>http://localhost:1313/posts/exceptional-pro/</link>
+      <link>http://localhost:1314/posts/exceptional-pro/</link>
       <pubDate>Sun, 13 Apr 2008 20:14:29 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptional-pro/</guid>
+      <guid>http://localhost:1314/posts/exceptional-pro/</guid>
       <description>&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;br&gt;
 &amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;
 &lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
@@ -168,9 +162,9 @@ Who do you want answering that phone?”
 &lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

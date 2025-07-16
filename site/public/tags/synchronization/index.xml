@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Synchronization on BonnyCode</title>
-    <link>http://localhost:1313/tags/synchronization/</link>
+    <link>http://localhost:1314/tags/synchronization/</link>
     <description>Recent content in Synchronization on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 10 Jun 2008 00:39:10 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/synchronization/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Jun 2008 00:39:10 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/synchronization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Synchronized Performance</title>
-      <link>http://localhost:1313/posts/synchronized-performance/</link>
+      <link>http://localhost:1314/posts/synchronized-performance/</link>
       <pubDate>Tue, 10 Jun 2008 00:39:10 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/synchronized-performance/</guid>
+      <guid>http://localhost:1314/posts/synchronized-performance/</guid>
       <description>&lt;p&gt;In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;class SynchronizedTest {&lt;br&gt;
@@ -109,7 +109,7 @@ class Unsynchronized extends java.lang.Object{&lt;br&gt;
 Unsynchronized();&lt;br&gt;
   Code:&lt;br&gt;
    0:    aload_0&lt;br&gt;
-   1:    invokespecial    #1; //Method java/lang/Object.&amp;quot;&lt;init&gt;&amp;rdquo;:()V&lt;br&gt;
+   1:    invokespecial    #1; //Method java/lang/Object.&amp;quot;&lt;!-- raw HTML omitted --&gt;&amp;rdquo;:()V&lt;br&gt;
    4:    return&lt;/p&gt;
 &lt;p&gt;public static void main(java.lang.String[]);&lt;br&gt;
   Code:&lt;br&gt;
@@ -127,7 +127,7 @@ Unsynchronized();&lt;br&gt;
    22:    getstatic    #5; //Field java/lang/System.err:Ljava/io/PrintStream;&lt;br&gt;
    25:    new    #6; //class java/lang/StringBuilder&lt;br&gt;
    28:    dup&lt;br&gt;
-   29:    invokespecial    #7; //Method java/lang/StringBuilder.&amp;quot;&lt;init&gt;&amp;rdquo;:()V&lt;br&gt;
+   29:    invokespecial    #7; //Method java/lang/StringBuilder.&amp;quot;&lt;!-- raw HTML omitted --&gt;&amp;rdquo;:()V&lt;br&gt;
    32:    ldc    #8; //String Unsynchronized:&lt;br&gt;
    34:    invokevirtual    #9; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;&lt;br&gt;
    37:    invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J&lt;br&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Polymorphism on BonnyCode</title>
-    <link>http://localhost:1313/tags/polymorphism/</link>
+    <link>http://localhost:1314/tags/polymorphism/</link>
     <description>Recent content in Polymorphism on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Mar 2008 13:26:43 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/polymorphism/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Mar 2008 13:26:43 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/polymorphism/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Continued Slander against the Noble If</title>
-      <link>http://localhost:1313/posts/continued-sland/</link>
+      <link>http://localhost:1314/posts/continued-sland/</link>
       <pubDate>Sun, 16 Mar 2008 13:26:43 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/continued-sland/</guid>
+      <guid>http://localhost:1314/posts/continued-sland/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve often said that &lt;strong&gt;if&lt;/strong&gt; statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm&lt;a href=&#34;#disclaimer&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;def&lt;/strong&gt; Money calculateAutoInsurance&lt;br&gt;
@@ -66,10 +66,10 @@
     
     <item>
       <title>Tactical Polymorphism</title>
-      <link>http://localhost:1313/posts/tactical-polymo/</link>
+      <link>http://localhost:1314/posts/tactical-polymo/</link>
       <pubDate>Sun, 02 Mar 2008 00:46:46 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/tactical-polymo/</guid>
+      <guid>http://localhost:1314/posts/tactical-polymo/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;class&lt;/strong&gt; Room&lt;br&gt;
   String roomType()&lt;br&gt;
