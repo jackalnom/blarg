@@ -1,1 +1,1 @@
-# Bonny code
+A silly little blog for silly little thoughts. This mostly has quite old blog posts from a prior life. I've revived them for fun. I may or may not endorse them anymore.

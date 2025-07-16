@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General on BonnyCode</title>
+    <link>http://localhost:1313/categories/general/</link>
+    <description>Recent content in General on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 01 Mar 2009 22:37:49 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software is not like Dirt</title>
+      <link>http://localhost:1313/posts/software-is-not-like-dirt/</link>
+      <pubDate>Sun, 01 Mar 2009 22:37:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/software-is-not-like-dirt/</guid>
+      <description>&lt;p&gt;Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with &lt;a href=&#34;http://www.bonnycode.com/guide/2008/11/in-defense-of-duplicated-code.html&#34;&gt;good King DRY&lt;/a&gt; by throwing more metaphors in the mix.&lt;/p&gt;
+&lt;p&gt;Instead, I wish to cast away the most evil of metaphors: that software is like dirt and that software is like trying to make the biggest pile of dirt you possibly can. Now I can tell you as someone who has experience both in software development and who has created big piles of dirt on beaches, in backyards and in wooded areas that they are nothing alike.&lt;/p&gt;
+&lt;p&gt;The first difference is you can easily estimate with some precision how long it will take to make your pile of dirt. Imagine having 10 years experience making piles of dirt and you still have some dirt piling projects that you misestimate by a factor of 2. It just doesn&amp;rsquo;t happen. Or imagine you are managing a team of dirt pilers and it looks like they are 90% done piling their dirt but then it turns out they are only half done. Or even worse, in your team of dirt pilers, there is this one guy that is unknowingly working against the rest of the team and accidently putting the dirt back in the hole without even knowing it. Or the more people you put piling up the dirt, the slower and slower everyone seems to go. These things don&amp;rsquo;t happen when making piles of dirt, but they all happen when making software.&lt;/p&gt;
+&lt;p&gt;The second difference is that when you make a pile of dirt you have a clear understanding of your goal as you work, but when making software the entire process is about understanding what you are trying to build. I make piles of dirt mostly because it is fun, that is my goal. With software though, you only understand what you are trying to build when you have finished building it. When I make a pile of dirt I come up with a plan, I will take either a shovel, a spoon, or my hands and start digging out dirt and put it in a pile. If dirt were like software, the ground would be magically turning into marshmallows, dingoes and molten lava every time the shovel hit the ground, requiring you to come up with new plans of attack at every step.&lt;/p&gt;
+&lt;p&gt;Creating software isn&amp;rsquo;t like piling dirt. It isn&amp;rsquo;t like building a house, a bridge, a baby or any other physical thing. And that is because there is no construction phase to software development. All of software development is design. That is the fundamental problem with all of these metaphors and why they can lead to the wrong conclusions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Banned: Implementation Inheritance</title>
+      <link>http://localhost:1313/posts/banned-implementation-inheritance/</link>
+      <pubDate>Sun, 07 Sep 2008 13:21:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/banned-implementation-inheritance/</guid>
+      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://www.bonnycode.com/guide/2008/03/tactical-polymo.html&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
+&lt;p&gt;I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren&amp;rsquo;t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don&amp;rsquo;t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is &lt;a href=&#34;http://en.wikipedia.org/wiki/Technical_debt&#34;&gt;technical debt&lt;/a&gt;. And while it has done wonders for certain aging C++ programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.&lt;/p&gt;
+&lt;p&gt;So what does this mean for you? Next time you try to do any implementation inheritance in your design, stop and say to yourself:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Am I possessed by some evil demon lord of bad design?&lt;/li&gt;
+&lt;li&gt;Do I love this code so much that I want it to work on for the rest of my life and want no one else to ever understand it?&lt;/li&gt;
+&lt;li&gt;Do I have a really really good reason why this limited use of implementation inheritance won&amp;rsquo;t end the universe as we know it?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;If you can&amp;rsquo;t answer yes to one of the above, please please &amp;ldquo;favor object composition over class inheritance&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Threading Quiz Results</title>
+      <link>http://localhost:1313/posts/threading-quiz-results/</link>
+      <pubDate>Sun, 13 Jul 2008 19:28:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/threading-quiz-results/</guid>
+      <description>&lt;p&gt;Congratulations to Peter and Michael for together coming up with the correct answer. They have both been awarded 5 points.&lt;/p&gt;
+&lt;p&gt;The target &amp;ldquo;-server&amp;rdquo; is an instruction to use the server JVM. The reason this can affect the behavior of the program in the quiz is that the server JVM does more aggressive optimizations than the standard client JVM. Without setting foo to volatile, the compiler optimizes out foo in the first loop because it never changes and it can never possibly change in that loop.&lt;/p&gt;
+&lt;p&gt;When you set a variable as volatile, it instructs the JVM that the variable can be modified/read from multiple threads. This prevents the server JVM from optimizing out foo because it now knows it can be modified by some other thread even though this thread doesn&amp;rsquo;t touch foo.&lt;/p&gt;
+&lt;p&gt;Volatile has more implications than what I have just mentioned, but I will save that for when I start talking about the java memory model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Integer Boxing Quiz Results</title>
+      <link>http://localhost:1313/posts/integer-boxin-1/</link>
+      <pubDate>Mon, 12 May 2008 08:59:35 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/integer-boxin-1/</guid>
+      <description>&lt;p&gt;Brent Hill came in with the first correct answer and has been awarded 15 points. I plan on the next quiz being something to do with the generational garbage collection so study up if you don&amp;rsquo;t have any idea what that is. If you want to be notified when a new quiz comes up, you can sign up for my RSS feed here: &lt;a href=&#34;http://www.bonnycode.com/guide/index.rdf&#34;&gt;http://www.bonnycode.com/guide/index.rdf&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exceptions are part of the Method Signature</title>
+      <link>http://localhost:1313/posts/exceptions-are/</link>
+      <pubDate>Sun, 20 Apr 2008 17:32:03 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/exceptions-are/</guid>
+      <description>&lt;p&gt;The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;OR this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;def bar throws Exception&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.&lt;/p&gt;
+&lt;p&gt;The bar method is called shit happens exception throwing. It tells other programmers that the designer of this method has no idea what could possibly go wrong so you better just be prepared to catch it all.&lt;/p&gt;
+&lt;p&gt;Much preferred is to design the exceptions your method throws as part of the signature for the method. Not just what can go wrong, but what error cases do we want to differentiate from. When parsing an Integer, most users probably don&amp;rsquo;t care whether it failed because the string was null vs. the string containing non-digits vs. the string containing an integer that was bigger than max int. So the designers of the method just bundled it all up in a NumberFormatException. If there were a strong use case for differentiating between all other errors and the Integer being too large, then the method would instead throw NumberFormatException and IntegerOverflowException.&lt;/p&gt;
+&lt;p&gt;I will follow up next week on how to properly catch exceptions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exceptions vs. Status Codes vs. Assertions</title>
+      <link>http://localhost:1313/posts/exceptions-vs-s/</link>
+      <pubDate>Mon, 14 Apr 2008 19:57:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/exceptions-vs-s/</guid>
+      <description>&lt;p&gt;Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this &lt;a href=&#34;http://www.joelonsoftware.com/items/2003/10/13.html&#34;&gt;siren&lt;/a&gt;) and her false promises.&lt;/p&gt;
+&lt;p&gt;A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.&lt;/p&gt;
+&lt;p&gt;Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&amp;rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.&lt;/p&gt;
+&lt;p&gt;Philosophically, the methodology I use with any of these error techniques is based on the beauty of a program driven by its linear proportions. I like code that looks like this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   expression2,&lt;br&gt;
+   expression3,&lt;br&gt;
+   expression4,&lt;br&gt;
+   &amp;hellip;&lt;/p&gt;
+&lt;p&gt;instead of like this:&lt;/p&gt;
+&lt;p&gt;   if (conditional)&lt;br&gt;
+      expression1,&lt;br&gt;
+   if (conditional2)&lt;br&gt;
+      if (conditional3)&lt;br&gt;
+         expression2,&lt;br&gt;
+      else&lt;br&gt;
+         expression3,&lt;br&gt;
+   else if (conditional4)&lt;br&gt;
+      expression4,&lt;/p&gt;
+&lt;p&gt;I could consume an entire post (and I shall!) on all the reasons I prefer the linear rather than the jagged program. The way I use exceptions, status codes and assertions can be roughly guided by this preference though. Exceptions are good when they promote code that is linear. When you need to check the status code on every line, that destroys the linear nature of the program. Many programmers get around this by then defining Macros that use gotos, but at that point you are really just crafting your own exception handling. When I do end up preferring status codes to exceptions is when using a status code leads me closer to a linear program. This is true of the validate method I mentioned above, I still prefer calling code that looks like this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   if (foo.isValid())&lt;br&gt;
+      expression2,&lt;br&gt;
+      expression3&lt;br&gt;
+   else&lt;br&gt;
+      expression4,&lt;br&gt;
+      expression5&lt;br&gt;
+   expression6&lt;/p&gt;
+&lt;p&gt;to this:&lt;/p&gt;
+&lt;p&gt;   expression1,&lt;br&gt;
+   try&lt;br&gt;
+      foo.validate(),&lt;br&gt;
+      expression2,&lt;br&gt;
+      expression3&lt;br&gt;
+   catch(&amp;hellip;)&lt;br&gt;
+      expression4,&lt;br&gt;
+      expression5&lt;br&gt;
+   expression6&lt;/p&gt;
+&lt;p&gt;The flow of the second program is more confusing in this case. It is not readily apparent that the conditional dispatch actually is based on just the first line in the try block, and that the rest of the expressions are only there for the purpose of being run when foo validates. The if blocks make this point blatantly clear.&lt;/p&gt;
+&lt;p&gt;I prefer assertions for the same linear flow reasons. When I want to sanity check for a value, it is cleaner to do this:&lt;/p&gt;
+&lt;p&gt;   assert conditional1&lt;/p&gt;
+&lt;p&gt;rather than this:&lt;/p&gt;
+&lt;p&gt;   if (conditional1)&lt;br&gt;
+      throw BadException&lt;/p&gt;
+&lt;p&gt;This is on top of the semantic meaning of assertion which tells other programmers that &amp;ldquo;no, this really shouldn&amp;rsquo;t happen, but I&amp;rsquo;m just making sure.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method&amp;rsquo;s signature.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Points Ranking</title>
+      <link>http://localhost:1313/posts/points-ranking/</link>
+      <pubDate>Mon, 14 Apr 2008 19:03:41 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/points-ranking/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;Evan Rosson - 25 Points&lt;/li&gt;
+&lt;li&gt;Brent Hill - 15 Points&lt;/li&gt;
+&lt;li&gt;Jonathan Kelly - 10 Points&lt;/li&gt;
+&lt;li&gt;Casey Klein - 10 Points&lt;/li&gt;
+&lt;li&gt;Dan Ford - 10 Points&lt;/li&gt;
+&lt;li&gt;Wayne Heaney - 10 Points&lt;/li&gt;
+&lt;li&gt;Michael Watts - 5 Points&lt;/li&gt;
+&lt;li&gt;Peter Youngs - 5 Points&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

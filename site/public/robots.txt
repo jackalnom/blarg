@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://www.bonnycode.com/sitemap.xml
+Sitemap: http://localhost:1313/sitemap.xml
