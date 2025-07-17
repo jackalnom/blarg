@@ -56,6 +56,3 @@ This is not an argument about aesthetics. Boring code is bad for precisely three
 
 The only thing worse than boring code is [magic code](/posts/in-defense-of-duplicated-code/). Stick to the exciting, elegant, simple code, believe me you'll sleep better at night if you do.
 
-**Related posts on code quality:**
-- [Code Comprehension](/posts/code-comprehens/) - Understanding code assumptions and avoiding mistakes
-- [Register Style Programming](/posts/register-style/) - Proper variable naming and scope management

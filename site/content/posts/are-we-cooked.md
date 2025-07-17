@@ -1,7 +1,7 @@
 ---
 author: Lucas Pierce
 title: Are we cooked?
-date: 2025-07-15
+date: 2025-07-16
 description: Are LLMs doom for new computer science graduates?
 categories: ["Career & Professional"]
 tags: ["llm", "student", "computer-science", "career-advice", "professional-development"]

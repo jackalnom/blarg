@@ -8,12 +8,14 @@ tags: ["code-style", "readability", "best-practices"]
 
 Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.
 
-> room = RoomDAO.findLivingRoom  
-> **if** (room <> nil)  
->   house.add(room)  
-> room = RoomDAO.findKitchen  
-> **if** (room <> nil)  
->   house.add(room)
+```java
+room = RoomDAO.findLivingRoom  
+if (room <> nil)  
+  house.add(room)  
+room = RoomDAO.findKitchen  
+if (room <> nil)  
+  house.add(room)
+```
 
 Reusing variables with register style programming has several problems:
 
@@ -22,9 +24,11 @@ Reusing variables with register style programming has several problems:
 
 Instead, variables should have only a single semantic meaning throughout their lifetime.
 
-> livingRoom = RoomDAO.findLivingRoom  
-> **if** (livingRoom <> nil)  
->   house.add(livingRoom)  
-> kitchen = RoomDAO.findKitchen  
-> **if** (kitchen <> nil)  
->   house.add(kitchen)
+```java
+livingRoom = RoomDAO.findLivingRoom  
+if (livingRoom <> nil)  
+  house.add(livingRoom)  
+kitchen = RoomDAO.findKitchen  
+if (kitchen <> nil)  
+  house.add(kitchen)
+```

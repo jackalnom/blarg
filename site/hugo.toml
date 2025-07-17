@@ -7,6 +7,11 @@ rssLimit = 10
 theme = "hugo-texify3"
 title = "BonnyCode"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [pagination]
 pagerSize = 5
 

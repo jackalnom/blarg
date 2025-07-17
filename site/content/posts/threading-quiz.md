@@ -13,6 +13,7 @@ This is a little baby quiz on threading. The program below works... kind of. Loo
 
 Good luck!
 
+```java
 public class GuessTheVMArg {  
     static boolean foo = true;
 
@@ -31,3 +32,4 @@ public class GuessTheVMArg {
         }).start();  
     }  
 }
+```

@@ -10,11 +10,11 @@ One of the bedrock principles in software engineering is information hiding. The
 
 If this was still 1972 then the discussion could end here and we could all go back to writing that  payroll program on the company's UNIVAC 1108 like these two developers.
 
-
+**imagine a black and white photo of two developers working on a payroll program. they look sad.**
 
 Today, in the year 2008, state of the art software development looks more like these two developers who are pair programming a new facebook app.
 
-
+**imagine a photo of two developers working on php. they are smiling for some reason, although they really shouldn't since they are working on php**
 
 One of the first things you should notice is that today's developers smile a lot more than developers from the 70s. This is because programming in the 70s was boring and lonely. Everybody (not just software developers) was all secretive and into hoarding information. Government agencies had strict need to know policies which prevented information from being shared and real intelligence from being synthesized. It is no surprise that this environment spawned a software methodology like waterfall based on the premise of cleanly separated departments with well established hand off points and restricted communication.
 

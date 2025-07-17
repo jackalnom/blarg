@@ -8,15 +8,19 @@ tags: ["n+1-problem", "orm", "database", "performance"]
 
 You can forget about the performance of synchronized vs. unsynchronized, when you write code hitting your database that looks like this:
 
-> peeps = Database.findMyPeeps  
-> for (each peep in peeps)  
->   address = Database.findAddressForPeep(peep)
+```
+peeps = Database.findMyPeeps  
+for (each peep in peeps)  
+  address = Database.findAddressForPeep(peep)
+```
 
 This is called an N+1 select, although honestly it is more like a 1 + N select. You first run a query to find what you are looking for, and then you proceed to iterate over those results to do N more queries for each row in your initial query. This is a all too common reason for slow applications because of the overhead of the frequent database queries. My example above is the obvious version of this, and if you use an [Object Relational Mapping](http://en.wikipedia.org/wiki/Object-relational_mapping) (ORM) such as [Hibernate](http://www.hibernate.org/hib_docs/v3/reference/en/html/) or [ActiveRecord](http://ar.rubyonrails.com/) there is a much more stealthy version of this anti-pattern:
 
-> peeps = PeepDAO.findMyPeeps  
-> for (each peep in peeps)  
->    address = peep.getAddress
+```
+peeps = PeepDAO.findMyPeeps  
+for (each peep in peeps)  
+   address = peep.getAddress
+```
 
 If Address is a table with a foreign key relationship to Peep, and the mapping is defined as a lazy load, then it will result in the same N + 1 Select problem. How do you solve this?
 

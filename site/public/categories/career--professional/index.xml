@@ -6,11 +6,11 @@
     <description>Recent content in Career &amp; Professional on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/categories/career--professional/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/categories/career--professional/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Are we cooked?</title>
       <link>https://www.bonnycode.com/posts/are-we-cooked/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       
       <guid>https://www.bonnycode.com/posts/are-we-cooked/</guid>
       <description>&lt;p&gt;My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of &amp;ldquo;low-key, are we cooked?&amp;rdquo;. The last one, if you are not one of my students, translates in millennial to &amp;ldquo;good esteemed professor, tell me true, are we f#@ked?&amp;rdquo; While I&amp;rsquo;ve given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.&lt;/p&gt;
@@ -89,10 +89,6 @@ Were toiling upward in the night.&lt;br&gt;
 [&lt;img src=&#34;https://www.bonnycode.com/figure2.png&#34; alt=&#34;Figure2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Persistence does not equal stupidity. Banging your head against a problem and making no progress is not persistence anymore than running on a treadmill is a form of transportation. Well&amp;hellip; &lt;a href=&#34;http://www.heavy.com/video/61095&#34;&gt;not normally at least&lt;/a&gt;. I see lack of persistence as the biggest thing that holds people back, but many people don&amp;rsquo;t even know how to go about fixing the hard problems. It is a skill and I could go on about divide and conquer, how to actually use google and a million other tidbits. As an honest to goodness skill though, my best advice is to pair up with the best, most knowledgeable bug fixer you know. Who is the developer that ends up actually fixing the really hard problems when they come up? Tackle a really hard problem with them. When you get stuck on a really hard bug, don&amp;rsquo;t give up, but do ask for advice explaining your progress so far. Don&amp;rsquo;t ask them to do the work for you, but do ask for pointers on where to look next. Often times you&amp;rsquo;ll find the act of just explaining what you&amp;rsquo;ve discovered will lead you to the solution on your own.&lt;/p&gt;
 &lt;p&gt;Remember this. Any script kiddie can copy and paste some code, tweak some values and get a system they barely understand to kinda work. If you want to distinguish yourself as a software developer, work to truly understand the system you are building, don&amp;rsquo;t shy away from the difficult problems and don&amp;rsquo;t stop until you really know what is going on.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts on debugging:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/do-not-fix-what-you-dont-understand/&#34;&gt;Do not fix what you don&amp;rsquo;t understand&lt;/a&gt; - Why understanding the root cause is essential before making any bug fix&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
@@ -126,10 +122,6 @@ void upYourNoseWithARubberHose(RubberHose hose) {&lt;br&gt;
 &lt;p&gt;As you sit in the carnage of your computer equipment, slanted to one side in your broken chair, smelling the still fresh smoke you think over what you learned today. The future man&amp;rsquo;s words echo in your brain&amp;hellip;&lt;br&gt;
 &amp;ldquo;You have no idea what will happen when you make this change. You didn&amp;rsquo;t reproduce the problem. You didn&amp;rsquo;t find the root cause. You didn&amp;rsquo;t talk to someone knowledgeable in this part of the code. You didn&amp;rsquo;t find the person who caused the bug and ask them about the fix. You didn&amp;rsquo;t even test your fix.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Your left to ponder what future your simple bug fix had unintentionally caused that it would induce man to invent time travel to send someone back to stop you. Truly horrible it must have been and with that you promise in the name of the future man with the big gun to never make another bug fix on a problem that you don&amp;rsquo;t understand.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts on debugging:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/&#34;&gt;Persistence: The long lost virtue of fixing a bug&lt;/a&gt; - How to develop the persistence needed to truly fix difficult bugs&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
@@ -148,12 +140,6 @@ void upYourNoseWithARubberHose(RubberHose hose) {&lt;br&gt;
 &lt;p&gt;There is some truth to our natural reaction about giving too wide of a range though. Telling your boss that your software feature will take you sometime between 1 day and 3 years will probably make your boss start to question why they hired you. This is natural considering that an estimate that wide is fairly useless when doing a cost benefit analysis on a feature or in attempting to create a schedule. You absolutely must resist the urge to provide a guess that goes beyond the limits of your knowledge though. Instead, ask for time to create a prototype or to do research and say that you can give a useful estimate once it is complete.&lt;/p&gt;
 &lt;p&gt;This doesn&amp;rsquo;t mean you should ask to research every single estimate you give either. If you are 90% confident you can deliver a feature in 1 to 2 weeks, just say 2 weeks and call it done. The key is make sure that the estimate is actually something you are 90% confident in. If the last time you had a similar feature you ran into a multitude of problems, provide an estimate assuming that similar problems occur this time. Don&amp;rsquo;t listen to the Optimism Angel on your shoulder that tells you that everything is going to go smooth and that you are finally going to be the super fast programmer you always dreamed of being. Always look at past features you have written and compare the feature being estimated with those.&lt;/p&gt;
 &lt;p&gt;There is a lot more to software estimation than what I have covered here. One of my favorite new estimation techniques is &lt;a href=&#34;http://en.wikipedia.org/wiki/Planning_poker&#34;&gt;Planning Poker&lt;/a&gt;. For the individual software developer doing feature estimation though, most of what you need is just figuring out 90% confident estimates.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

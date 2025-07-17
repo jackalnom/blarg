@@ -24,7 +24,3 @@ This doesn't mean you should ask to research every single estimate you give eith
 
 There is a lot more to software estimation than what I have covered here. One of my favorite new estimation techniques is [Planning Poker](http://en.wikipedia.org/wiki/Planning_poker). For the individual software developer doing feature estimation though, most of what you need is just figuring out 90% confident estimates.
 
-**Related posts on estimation:**
-- [I'm back and I hate your estimates](/posts/i-hate-your-estimates/) - Introduction to the problems with software estimation
-- [How feature estimates killed Bobo](/posts/feature-estimates/) - How estimates destroy productivity through misguided accountability
-- [Cost benefit analysis for bear lovers](/posts/cost-benefit-analysis/) - Problems with using estimates for cost-benefit analysis

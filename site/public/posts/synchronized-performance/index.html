@@ -261,135 +261,143 @@
   <article class="content numbered-subtitles">
     
     <p>In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.</p>
-<blockquote>
-<p>class SynchronizedTest {<br>
-    static public void main(String[] args) {<br>
-        long startTime = System.currentTimeMillis();<br>
-        StringBuilder sb = new StringBuilder();<br>
-        for (int i = 0; i &lt; 1000000; i++) {<br>
-            sb.append(foo());<br>
-        }<br>
-        System.err.println(&ldquo;Synchronized: &quot; +<br>
-                (System.currentTimeMillis() - startTime));</p>
-<p>        startTime = System.currentTimeMillis();<br>
-        sb = new StringBuilder();<br>
-        for (int i = 0; i &lt; 1000000; i++) {<br>
-            sb.append(bar());<br>
-        }<br>
-        System.err.println(&ldquo;Unsynchronized: &quot; +<br>
-                (System.currentTimeMillis() - startTime));<br>
-    }</p>
-<p>    static synchronized String foo() {<br>
-        return &ldquo;Hi&rdquo;;<br>
-    }</p>
-<p>    static String bar() {<br>
-        return &ldquo;Hi&rdquo;;<br>
-    }<br>
-}</p>
-<p><strong>Output:</strong><br>
-Synchronized: 106<br>
-Unsynchronized: 46</p></blockquote>
-<p>I ran this test several times and it was very consistent in the numbers. Then I switched the order of the synchronized and the unsynchronized method to see if the order mattered at all.</p>
-<blockquote>
-<p>class SynchronizedTest {<br>
-    static public void main(String[] args) {<br>
-        long startTime = System.currentTimeMillis();<br>
-        StringBuilder sb = new StringBuilder();<br>
-        for (int i = 0; i &lt; 1000000; i++) {<br>
-            sb.append(bar());<br>
-        }<br>
-        System.err.println(&ldquo;Unsynchronized: &quot; +<br>
-                (System.currentTimeMillis() - startTime));</p>
-<p>        startTime = System.currentTimeMillis();<br>
-        sb = new StringBuilder();<br>
-        for (int i = 0; i &lt; 1000000; i++) {<br>
-            sb.append(foo());<br>
-        }<br>
-        System.err.println(&ldquo;Synchronized: &quot; +<br>
-                (System.currentTimeMillis() - startTime));<br>
-    }</p>
-<p>    static synchronized String foo() {<br>
-        return &ldquo;Hi&rdquo;;<br>
-    }</p>
-<p>    static String bar() {<br>
-        return &ldquo;Hi&rdquo;;<br>
-    }<br>
-}</p>
-<p><strong>Output:</strong><br>
-Unsynchronized: 72<br>
-Synchronized: 82</p></blockquote>
-<p>Very interesting. Switching the order made them nearly identical in timing, although the synchronized is still a bit slower. Then I tried removing the whole string append business and broke both out into their own executables.</p>
-<blockquote>
-<p>class Unsynchronized {<br>
-    static public void main(String[] args) {<br>
-        long startTime = System.currentTimeMillis();<br>
-        for (int i = 0; i &lt; 1000000; i++) {<br>
-            foo();<br>
-        }<br>
-        System.err.println(&ldquo;Unsynchronized: &quot; +<br>
-                (System.currentTimeMillis() - startTime));<br>
-    }</p>
-<p>    static String foo() {<br>
-        return &ldquo;Hi&rdquo;;<br>
-    }<br>
-}</p>
-<p>class Synchronized {<br>
-    static public void main(String[] args) {<br>
-        long startTime = System.currentTimeMillis();<br>
-        for (int i = 0; i &lt; 1000000; i++) {<br>
-            foo();<br>
-        }<br>
-        System.err.println(&ldquo;Synchronized: &quot; +<br>
-                (System.currentTimeMillis() - startTime));<br>
-    }</p>
-<p>    static synchronized String foo() {<br>
-        return &ldquo;Hi&rdquo;;<br>
-    }<br>
-}</p>
-<p><strong>Output:</strong><br>
-Unsynchronized: 3<br>
-Synchronized: 36</p></blockquote>
-<p>I tried running the method with synchronized or unsynchronized first and it made little difference in this case. I was amazed that the synchronized version was so much slower though, especially because Kyle had done a pretty good job of convincing me that synchronized shouldn&rsquo;t be slower. Just to make sure there was nothing else going on with the java compiler, I opened up the bytecode for both Synchronized and Unsynchronized using javap -c. Here is the bytecode for Unsychronized:</p>
-<blockquote>
-<p>Compiled from &ldquo;Unsynchronized.java&rdquo;<br>
-class Unsynchronized extends java.lang.Object{<br>
-Unsynchronized();<br>
-  Code:<br>
-   0:    aload_0<br>
-   1:    invokespecial    #1; //Method java/lang/Object.&quot;<!-- raw HTML omitted -->&rdquo;:()V<br>
-   4:    return</p>
-<p>public static void main(java.lang.String[]);<br>
-  Code:<br>
-   0:    invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J<br>
-   3:    lstore_1<br>
-   4:    iconst_0<br>
-   5:    istore_3<br>
-   6:    iload_3<br>
-   7:    ldc    #3; //int 1000000<br>
-   9:    if_icmpge    22<br>
-   12:    invokestatic    #4; //Method foo:()Ljava/lang/String;<br>
-   15:    pop<br>
-   16:    iinc    3, 1<br>
-   19:    goto    6<br>
-   22:    getstatic    #5; //Field java/lang/System.err:Ljava/io/PrintStream;<br>
-   25:    new    #6; //class java/lang/StringBuilder<br>
-   28:    dup<br>
-   29:    invokespecial    #7; //Method java/lang/StringBuilder.&quot;<!-- raw HTML omitted -->&rdquo;:()V<br>
-   32:    ldc    #8; //String Unsynchronized:<br>
-   34:    invokevirtual    #9; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;<br>
-   37:    invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J<br>
-   40:    lload_1<br>
-   41:    lsub<br>
-   42:    invokevirtual    #10; //Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;<br>
-   45:    invokevirtual    #11; //Method java/lang/StringBuilder.toString:()Ljava/lang/String;<br>
-   48:    invokevirtual    #12; //Method java/io/PrintStream.println:(Ljava/lang/String;)V<br>
-   51:    return</p>
-<p>static java.lang.String foo();<br>
-  Code:<br>
-   0:    ldc    #13; //String Hi<br>
-   2:    areturn</p>
-<p>}</p></blockquote>
-<p>The bytecode for synchronized is identical, except for the comments. This at least shows that there isn&rsquo;t some weird optimization going on at the bytecode level that is making the unsynchronized version go faster.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SynchronizedTest</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> startTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();  
+</span></span><span style="display:flex;"><span>        StringBuilder sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder();  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1000000; i<span style="color:#f92672">++</span>) {  
+</span></span><span style="display:flex;"><span>            sb.<span style="color:#a6e22e">append</span>(foo());  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Synchronized: &#34;</span> <span style="color:#f92672">+</span>   
+</span></span><span style="display:flex;"><span>                (System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> startTime));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        startTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();  
+</span></span><span style="display:flex;"><span>        sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder();  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1000000; i<span style="color:#f92672">++</span>) {  
+</span></span><span style="display:flex;"><span>            sb.<span style="color:#a6e22e">append</span>(bar());  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Unsynchronized: &#34;</span> <span style="color:#f92672">+</span>   
+</span></span><span style="display:flex;"><span>                (System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> startTime));  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> String <span style="color:#a6e22e">foo</span>() {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hi&#34;</span>;  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">bar</span>() {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hi&#34;</span>;  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Synchronized: 106  
+Unsynchronized: 46
+</code></pre><p>I ran this test several times and it was very consistent in the numbers. Then I switched the order of the synchronized and the unsynchronized method to see if the order mattered at all.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SynchronizedTest</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> startTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();  
+</span></span><span style="display:flex;"><span>        StringBuilder sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder();  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1000000; i<span style="color:#f92672">++</span>) {  
+</span></span><span style="display:flex;"><span>            sb.<span style="color:#a6e22e">append</span>(bar());  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Unsynchronized: &#34;</span> <span style="color:#f92672">+</span>   
+</span></span><span style="display:flex;"><span>                (System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> startTime));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        startTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();  
+</span></span><span style="display:flex;"><span>        sb <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> StringBuilder();  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1000000; i<span style="color:#f92672">++</span>) {  
+</span></span><span style="display:flex;"><span>            sb.<span style="color:#a6e22e">append</span>(foo());  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Synchronized: &#34;</span> <span style="color:#f92672">+</span>   
+</span></span><span style="display:flex;"><span>                (System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> startTime));  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> String <span style="color:#a6e22e">foo</span>() {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hi&#34;</span>;  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">bar</span>() {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hi&#34;</span>;  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Unsynchronized: 72  
+Synchronized: 82
+</code></pre><p>Very interesting. Switching the order made them nearly identical in timing, although the synchronized is still a bit slower. Then I tried removing the whole string append business and broke both out into their own executables.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Unsynchronized</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> startTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1000000; i<span style="color:#f92672">++</span>) {  
+</span></span><span style="display:flex;"><span>            foo();  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Unsynchronized: &#34;</span> <span style="color:#f92672">+</span>   
+</span></span><span style="display:flex;"><span>                (System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> startTime));  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> String <span style="color:#a6e22e">foo</span>() {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hi&#34;</span>;  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Synchronized</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">long</span> startTime <span style="color:#f92672">=</span> System.<span style="color:#a6e22e">currentTimeMillis</span>();  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 1000000; i<span style="color:#f92672">++</span>) {  
+</span></span><span style="display:flex;"><span>            foo();  
+</span></span><span style="display:flex;"><span>        }  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Synchronized: &#34;</span> <span style="color:#f92672">+</span>   
+</span></span><span style="display:flex;"><span>                (System.<span style="color:#a6e22e">currentTimeMillis</span>() <span style="color:#f92672">-</span> startTime));  
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> String <span style="color:#a6e22e">foo</span>() {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hi&#34;</span>;  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Unsynchronized: 3  
+Synchronized: 36
+</code></pre><p>I tried running the method with synchronized or unsynchronized first and it made little difference in this case. I was amazed that the synchronized version was so much slower though, especially because Kyle had done a pretty good job of convincing me that synchronized shouldn&rsquo;t be slower. Just to make sure there was nothing else going on with the java compiler, I opened up the bytecode for both Synchronized and Unsynchronized using javap -c. Here is the bytecode for Unsychronized:</p>
+<pre tabindex="0"><code>Compiled from &#34;Unsynchronized.java&#34;  
+class Unsynchronized extends java.lang.Object{  
+Unsynchronized();  
+  Code:  
+   0:    aload_0  
+   1:    invokespecial    #1; //Method java/lang/Object.&#34;&lt;init&gt;&#34;:()V  
+   4:    return
+
+public static void main(java.lang.String[]);  
+  Code:  
+   0:    invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J  
+   3:    lstore_1  
+   4:    iconst_0  
+   5:    istore_3  
+   6:    iload_3  
+   7:    ldc    #3; //int 1000000  
+   9:    if_icmpge    22  
+   12:    invokestatic    #4; //Method foo:()Ljava/lang/String;  
+   15:    pop  
+   16:    iinc    3, 1  
+   19:    goto    6  
+   22:    getstatic    #5; //Field java/lang/System.err:Ljava/io/PrintStream;  
+   25:    new    #6; //class java/lang/StringBuilder  
+   28:    dup  
+   29:    invokespecial    #7; //Method java/lang/StringBuilder.&#34;&lt;init&gt;&#34;:()V  
+   32:    ldc    #8; //String Unsynchronized:   
+   34:    invokevirtual    #9; //Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;  
+   37:    invokestatic    #2; //Method java/lang/System.currentTimeMillis:()J  
+   40:    lload_1  
+   41:    lsub  
+   42:    invokevirtual    #10; //Method java/lang/StringBuilder.append:(J)Ljava/lang/StringBuilder;  
+   45:    invokevirtual    #11; //Method java/lang/StringBuilder.toString:()Ljava/lang/String;  
+   48:    invokevirtual    #12; //Method java/io/PrintStream.println:(Ljava/lang/String;)V  
+   51:    return
+
+static java.lang.String foo();  
+  Code:  
+   0:    ldc    #13; //String Hi  
+   2:    areturn
+
+}
+</code></pre><p>The bytecode for synchronized is identical, except for the comments. This at least shows that there isn&rsquo;t some weird optimization going on at the bytecode level that is making the unsynchronized version go faster.</p>
 <p>At any level, it is pretty clear that on my mac book pro, in trivial examples, an uncontested synchronized does not add a 100 times overhead to a method call. It is also clear that these numbers fluctuate signicantly, so it is very important to actually profile your own code in as real an environment as possible when making any optimizations.</p>
 <p>If you want a more clear cut optimization win, replace the StringBuilder append calls in SynchronizedTest with straight string concatention, i.e. s += foo() and try running the program.</p>
 

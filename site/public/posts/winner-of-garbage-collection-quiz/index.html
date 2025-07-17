@@ -258,106 +258,106 @@
   <article class="content numbered-subtitles">
     
     <p>Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan&rsquo;s is that I didn&rsquo;t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of ReferenceQueue.remove(). I also didn&rsquo;t use ReferenceQueue.poll in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.</p>
-<blockquote>
-<p>import java.lang.ref.*;<br>
-import java.util.*;</p>
-<p>class WarmupQuestion {<br>
-private static ArrayList list = track(new ArrayList());<br>
-static public void main(String[] args) throws Exception {<br>
-track(new WarmupQuestion());<br>
-System.gc();<br>
-Integer i = track(150);<br>
-track(new int[1024 * 1024]);<br>
-System.gc();<br>
-track(&ldquo;Hello&rdquo;);<br>
-i = null;<br>
-System.gc();<br>
-}</p>
-<pre><code>public void finalize() {  
-    list.add(this);  
-}  
-
-public static &lt;T&gt; T track(T o) {  
-    return ObjectTracker.track(o);  
-}  
-
-static class TrackedObject {  
-    private StackTraceElement[] mStack = new Exception().getStackTrace();  
-    private Reference mPhantomRef;  
-    private Reference mWeakRef;  
-    private Class&lt;?&gt; mCls;  
-    private Date mCreated = new Date();  
-
-    public TrackedObject(Object obj, ReferenceQueue allrefs) {  
-        mPhantomRef = new PhantomReference(obj, allrefs);  
-        mWeakRef = new WeakReference(obj);  
-        mCls = obj.getClass();  
-    }  
-
-    public Reference getRef() {  
-        return mPhantomRef;  
-    }  
-
-    private void trace() {  
-        for (int i = 3; i &lt; mStack.length; i++)  
-            System.out.println(mStack[i].toString());  
-    }  
-
-    public void die(Date killed) {  
-        System.out.println(String.format(  
-                &quot;object of type %s lived for %d ms&quot;, mCls, killed.getTime()  
-                        - mCreated.getTime()));  
-        trace();  
-    }  
-
-    public void die() {  
-        String format = (mWeakRef.get() == null)   
-            ? &quot;object of type %s has a finalize that raises the dead.&quot;  
-            : &quot;object of type %s lived until program exit.&quot;;  
-        System.out.println(String.format(format, mCls));  
-        trace();  
-    }  
-}  
-
-static class ObjectTracker extends Thread {  
-    private static ReferenceQueue mRefs = new ReferenceQueue();  
-    private static Map&lt;Reference, TrackedObject&gt; mTracked =   
-        new HashMap&lt;Reference, TrackedObject&gt;();  
-    private Thread mMain;  
-
-    public ObjectTracker(Thread thread) {  
-        mMain = thread;  
-    }  
-
-    public static &lt;T&gt; T track(T o) {  
-        TrackedObject tracked = new TrackedObject(o, mRefs);  
-        mTracked.put(tracked.getRef(), tracked);  
-        return o;  
-    }  
-
-    public void run() {  
-        try {  
-            Reference o = null;  
-            while (mMain.isAlive() || null != (o = mRefs.remove(1000))) {  
-                if (o != null) {  
-                    mTracked.remove(o).die(new Date());  
-                }  
-            }  
-            for (TrackedObject tracked : mTracked.values()) {  
-                tracked.die();  
-            }  
-        } catch (InterruptedException e) {  
-            throw new RuntimeException(e);  
-        }  
-    }  
-}  
-
-static {  
-    new ObjectTracker(Thread.currentThread()).start();  
-}  
-</code></pre>
-<p>}</p></blockquote>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.ref.*;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WarmupQuestion</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> ArrayList list <span style="color:#f92672">=</span> track(<span style="color:#66d9ef">new</span> ArrayList());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        track(<span style="color:#66d9ef">new</span> WarmupQuestion());
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();
+</span></span><span style="display:flex;"><span>        Integer i <span style="color:#f92672">=</span> track(150);
+</span></span><span style="display:flex;"><span>        track(<span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>1024 <span style="color:#f92672">*</span> 1024<span style="color:#f92672">]</span>);
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();
+</span></span><span style="display:flex;"><span>        track(<span style="color:#e6db74">&#34;Hello&#34;</span>);
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finalize</span>() {
+</span></span><span style="display:flex;"><span>        list.<span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">this</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">track</span>(T o) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ObjectTracker.<span style="color:#a6e22e">track</span>(o);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TrackedObject</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> StackTraceElement<span style="color:#f92672">[]</span> mStack <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Exception().<span style="color:#a6e22e">getStackTrace</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> Reference mPhantomRef;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> Reference mWeakRef;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> Class<span style="color:#f92672">&lt;?&gt;</span> mCls;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> Date mCreated <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">TrackedObject</span>(Object obj, ReferenceQueue allrefs) {
+</span></span><span style="display:flex;"><span>            mPhantomRef <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> PhantomReference(obj, allrefs);
+</span></span><span style="display:flex;"><span>            mWeakRef <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> WeakReference(obj);
+</span></span><span style="display:flex;"><span>            mCls <span style="color:#f92672">=</span> obj.<span style="color:#a6e22e">getClass</span>();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> Reference <span style="color:#a6e22e">getRef</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> mPhantomRef;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">trace</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 3; i <span style="color:#f92672">&lt;</span> mStack.<span style="color:#a6e22e">length</span>; i<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(mStack<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span>.<span style="color:#a6e22e">toString</span>());
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">die</span>(Date killed) {
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(String.<span style="color:#a6e22e">format</span>(
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;object of type %s lived for %d ms&#34;</span>, mCls, killed.<span style="color:#a6e22e">getTime</span>()
+</span></span><span style="display:flex;"><span>                            <span style="color:#f92672">-</span> mCreated.<span style="color:#a6e22e">getTime</span>()));
+</span></span><span style="display:flex;"><span>            trace();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">die</span>() {
+</span></span><span style="display:flex;"><span>            String format <span style="color:#f92672">=</span> (mWeakRef.<span style="color:#a6e22e">get</span>() <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;object of type %s has a finalize that raises the dead.&#34;</span>
+</span></span><span style="display:flex;"><span>                : <span style="color:#e6db74">&#34;object of type %s lived until program exit.&#34;</span>;
+</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(String.<span style="color:#a6e22e">format</span>(format, mCls));
+</span></span><span style="display:flex;"><span>            trace();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ObjectTracker</span> <span style="color:#66d9ef">extends</span> Thread {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> ReferenceQueue mRefs <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ReferenceQueue();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> Map<span style="color:#f92672">&lt;</span>Reference, TrackedObject<span style="color:#f92672">&gt;</span> mTracked <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">&lt;</span>Reference, TrackedObject<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> Thread mMain;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ObjectTracker</span>(Thread thread) {
+</span></span><span style="display:flex;"><span>            mMain <span style="color:#f92672">=</span> thread;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">track</span>(T o) {
+</span></span><span style="display:flex;"><span>            TrackedObject tracked <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TrackedObject(o, mRefs);
+</span></span><span style="display:flex;"><span>            mTracked.<span style="color:#a6e22e">put</span>(tracked.<span style="color:#a6e22e">getRef</span>(), tracked);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> o;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>                Reference o <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">while</span> (mMain.<span style="color:#a6e22e">isAlive</span>() <span style="color:#f92672">||</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">!=</span> (o <span style="color:#f92672">=</span> mRefs.<span style="color:#a6e22e">remove</span>(1000))) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">if</span> (o <span style="color:#f92672">!=</span> <span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>                        mTracked.<span style="color:#a6e22e">remove</span>(o).<span style="color:#a6e22e">die</span>(<span style="color:#66d9ef">new</span> Date());
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (TrackedObject tracked : mTracked.<span style="color:#a6e22e">values</span>()) {
+</span></span><span style="display:flex;"><span>                    tracked.<span style="color:#a6e22e">die</span>();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException(e);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">new</span> ObjectTracker(Thread.<span style="color:#a6e22e">currentThread</span>()).<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
     
   </article>
 

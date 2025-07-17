@@ -11,10 +11,9 @@
   
   
   <meta name="description" content="Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.
-
-System.out.println(&ldquo;How old are you?&rdquo;);
-Integer age = Integer.getInteger(System.console().readLine());
-System.out.println(String.format(&ldquo;Congratulations! You are %d years old.&rdquo;, age));
+System.out.println(&#34;How old are you?&#34;);  
+Integer age = Integer.getInteger(System.console().readLine());  
+System.out.println(String.format(&#34;Congratulations! You are %d years old.&#34;, age));
 As cool as this program looks, it doesn&rsquo;t actually work. At the risk of offending a developer from Sun Microsystems, Integer.getInteger is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don&rsquo;t make assumptions about a method&rsquo;s behavior or what a variable stores purely by its name and take the time to do the research.">
   
 
@@ -56,10 +55,7 @@ As cool as this program looks, it doesn&rsquo;t actually work. At the risk of of
   <meta property="og:site_name" content="BonnyCode">
   <meta property="og:title" content="Code Comprehension">
   <meta property="og:description" content="Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.
-System.out.println(“How old are you?”);
-Integer age = Integer.getInteger(System.console().readLine());
-System.out.println(String.format(“Congratulations! You are %d years old.”, age));
-As cool as this program looks, it doesn’t actually work. At the risk of offending a developer from Sun Microsystems, Integer.getInteger is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don’t make assumptions about a method’s behavior or what a variable stores purely by its name and take the time to do the research.">
+System.out.println(&#34;How old are you?&#34;); Integer age = Integer.getInteger(System.console().readLine()); System.out.println(String.format(&#34;Congratulations! You are %d years old.&#34;, age)); As cool as this program looks, it doesn’t actually work. At the risk of offending a developer from Sun Microsystems, Integer.getInteger is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don’t make assumptions about a method’s behavior or what a variable stores purely by its name and take the time to do the research.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -78,10 +74,7 @@ As cool as this program looks, it doesn’t actually work. At the risk of offend
   
   <meta itemprop="name" content="Code Comprehension">
   <meta itemprop="description" content="Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.
-System.out.println(“How old are you?”);
-Integer age = Integer.getInteger(System.console().readLine());
-System.out.println(String.format(“Congratulations! You are %d years old.”, age));
-As cool as this program looks, it doesn’t actually work. At the risk of offending a developer from Sun Microsystems, Integer.getInteger is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don’t make assumptions about a method’s behavior or what a variable stores purely by its name and take the time to do the research.">
+System.out.println(&#34;How old are you?&#34;); Integer age = Integer.getInteger(System.console().readLine()); System.out.println(String.format(&#34;Congratulations! You are %d years old.&#34;, age)); As cool as this program looks, it doesn’t actually work. At the risk of offending a developer from Sun Microsystems, Integer.getInteger is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don’t make assumptions about a method’s behavior or what a variable stores purely by its name and take the time to do the research.">
   <meta itemprop="datePublished" content="2008-03-24T00:08:53+00:00">
   <meta itemprop="dateModified" content="2025-07-16T10:53:03-07:00">
   <meta itemprop="wordCount" content="158">
@@ -108,10 +101,7 @@ As cool as this program looks, it doesn’t actually work. At the risk of offend
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Code Comprehension">
   <meta name="twitter:description" content="Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.
-System.out.println(“How old are you?”);
-Integer age = Integer.getInteger(System.console().readLine());
-System.out.println(String.format(“Congratulations! You are %d years old.”, age));
-As cool as this program looks, it doesn’t actually work. At the risk of offending a developer from Sun Microsystems, Integer.getInteger is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don’t make assumptions about a method’s behavior or what a variable stores purely by its name and take the time to do the research.">
+System.out.println(&#34;How old are you?&#34;); Integer age = Integer.getInteger(System.console().readLine()); System.out.println(String.format(&#34;Congratulations! You are %d years old.&#34;, age)); As cool as this program looks, it doesn’t actually work. At the risk of offending a developer from Sun Microsystems, Integer.getInteger is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don’t make assumptions about a method’s behavior or what a variable stores purely by its name and take the time to do the research.">
 
 
   
@@ -275,11 +265,10 @@ As cool as this program looks, it doesn’t actually work. At the risk of offend
   <article class="content numbered-subtitles">
     
     <p>Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.</p>
-<blockquote>
-<p>System.out.println(&ldquo;How old are you?&rdquo;);<br>
-Integer age = Integer.getInteger(System.console().readLine());<br>
-System.out.println(String.format(&ldquo;Congratulations! You are %d years old.&rdquo;, age));</p></blockquote>
-<p>As cool as this program looks, it doesn&rsquo;t actually work. At the risk of offending a developer from Sun Microsystems, <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#getInteger(java.lang.String)">Integer.getInteger</a> is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don&rsquo;t make assumptions about a method&rsquo;s behavior or what a variable stores purely by its name and take the time to do the research.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;How old are you?&#34;</span>);  
+</span></span><span style="display:flex;"><span>Integer age <span style="color:#f92672">=</span> Integer.<span style="color:#a6e22e">getInteger</span>(System.<span style="color:#a6e22e">console</span>().<span style="color:#a6e22e">readLine</span>());  
+</span></span><span style="display:flex;"><span>System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(String.<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;Congratulations! You are %d years old.&#34;</span>, age));
+</span></span></code></pre></div><p>As cool as this program looks, it doesn&rsquo;t actually work. At the risk of offending a developer from Sun Microsystems, <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Integer.html#getInteger(java.lang.String)">Integer.getInteger</a> is both badly misplaced (low cohesion) and deceptively named. The lesson here is not to berate the poor developer who designed getInteger but to avoid programs like what is shown above. Don&rsquo;t make assumptions about a method&rsquo;s behavior or what a variable stores purely by its name and take the time to do the research.</p>
 <p>Code comprehension is always important. Be especially cautious when dealing with third party code or your company&rsquo;s legacy code. The code was likely developed using different coding standards, conventions, and best practices than you would assume.</p>
 
     

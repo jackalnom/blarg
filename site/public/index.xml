@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Welcome on BonnyCode</title>
+    <title>Home on BonnyCode</title>
     <link>https://www.bonnycode.com/</link>
-    <description>Recent content in Welcome on BonnyCode</description>
+    <description>Recent content in Home on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language><atom:link href="https://www.bonnycode.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Are we cooked?</title>
       <link>https://www.bonnycode.com/posts/are-we-cooked/</link>
-      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       
       <guid>https://www.bonnycode.com/posts/are-we-cooked/</guid>
       <description>&lt;p&gt;My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of &amp;ldquo;low-key, are we cooked?&amp;rdquo;. The last one, if you are not one of my students, translates in millennial to &amp;ldquo;good esteemed professor, tell me true, are we f#@ked?&amp;rdquo; While I&amp;rsquo;ve given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.&lt;/p&gt;
@@ -165,12 +165,6 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;In the end, Bobo makes his employer over 40 times as much money as Jobo does. Now let&amp;rsquo;s bring in the traditional software manager that uses estimate accuracy as their primary means of driving accountability. Jobo delivers to his estimates 100% of the time and is the model employee. Bobo though is a problem case. He is unreliable and is off on his estimates from 2x to 4x. After sending Bobo to an estimation training for 2 weeks, Bobo now estimates that he makes 37 shoes per day. And while on average this is correct, Bobo still sometimes makes as low as 25 clogs some days and as high as 50 clogs other days. The days he makes 50 clogs he is accused of sandbagging and the days he makes 25 he is just being lazy. This is still much too unreliable. Jobo is still the model employee and is given a raise. Bobo is on a performance improvement plan and asked why he can&amp;rsquo;t be more like Jobo. Bobo eventually gets smart and starts estimating that he can make 25 a day. As soon as he gets to 25 in a day he whips out the hammock and martini and enjoys the rest of his day. Now his estimate accuracy is 100% but his boss is angry that he sees Bobo in a hammock for a significant portion of every day. This is obviously unacceptable. Jobo on the other hand has been given several raises and is given a company luxury car to ensure his retention. Bobo finally realizes his boss doesn&amp;rsquo;t even care how many clogs he makes and just wants estimate accuracy. So he starts making 5 shoes a day like Jobo. He staggers the creation of each shoe slowly through the day and makes sure to always look like he is working. His boss is ecstatic, he is finally reliably hitting his estimates and working hard.&lt;/p&gt;
 &lt;p&gt;Bobo quits a week later because he realizes all he ever loved was making clogs and it is mind numbing to work at a place where estimates matter more than the clogs. Bobo&amp;rsquo;s manager is lauded for his top-grading efforts. Bobo starts his own clog shop across the street and starts selling his clogs for $150, still making a healthy profit. Bobo&amp;rsquo;s old clog shop can&amp;rsquo;t meet this new price without losing money per clog sold. Jobo&amp;rsquo;s manager, realizing the error of his ways and that there is no way he can compete with Bobo&amp;rsquo;s clog shop, murders Bobo and burns down his new shop. Jobo&amp;rsquo;s clog shop continues on for many years with a small but steady profit.&lt;/p&gt;
 &lt;p&gt;It all seems so obvious in the world of clogs. But is software really much different or is it just harder to quantify the unit of production than in a world of widgets? It is often said that it is better to have an imperfect measure than no measure at all. But estimate accuracy isn&amp;rsquo;t an imperfect measure for software productivity, it is a completely orthogonal measure that actually drives down productivity. The only reason we are left with holding developers accountable to feature estimates is that their accuracy is necessary for some other purpose, such as the creation of project launch timelines or for cost-benefit analysis. I&amp;rsquo;ll tackle the flaws of these uses in my future posts.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
@@ -184,12 +178,6 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;But why do we think effort estimates are the solution to all of these problems? Everything about effort estimates in software really is silly. Look at the homegrown rules we&amp;rsquo;ve come up with for estimates. I&amp;rsquo;ve heard more than one grizzled veteran tell me their preferred method is to take their initial estimate, double the number and up the unit of time (e.g., hour becomes day, day becomes week, etc.). This is always said in a semi-joking &amp;ldquo;but, no really, it works&amp;rdquo; tone.  In the 90s highly complicated methods of estimation became popular that involved lots of acronyms and I&amp;rsquo;m sure consultants. Now that agile has taken over the software industry we estimate using planning poker and Fibonacci numbers. The latest estimation technique is to sacrifice a goat and spread its entrails over a large area. Maybe that will finally be the trick that works, but I doubt it because as an industry, despite all these new techniques, we are still no better at estimating.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve invested quite a bit of time at getting better at estimation. And I got a little better. But one day, while knee deep in goat entrails, I stepped back and looked at the whole mess and asked why am I doing this? To what end do we estimate and then re-estimate, pack a schedule just to pack it differently in a month. And at the end of this introspection I determined my life of software estimation had all been a fraud. I&amp;rsquo;d been wasting my time. I moved to Nepal and joined a small temple. And now the secret of why I haven&amp;rsquo;t been working on my blog is out. But after years of meditation I&amp;rsquo;ve decided to come back to the material world and spread my gospel.&lt;/p&gt;
 &lt;p&gt;And so, to demonstrate that effort estimates are not only useless but also harmful, I shall attack each motivation on its own. I will start next week with my least favorite reason of all&amp;hellip; accountability!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
@@ -235,11 +223,6 @@ class HelloWorldApp {&lt;br&gt;
 &lt;li&gt;Boring code is boring. Come on, do you really want to be boring?&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts on code quality:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/code-comprehens/&#34;&gt;Code Comprehension&lt;/a&gt; - Understanding code assumptions and avoiding mistakes&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/register-style/&#34;&gt;Register Style Programming&lt;/a&gt; - Proper variable naming and scope management&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

@@ -37,10 +37,6 @@ void upYourNoseWithARubberHose(RubberHose hose) {&lt;br&gt;
 &lt;p&gt;As you sit in the carnage of your computer equipment, slanted to one side in your broken chair, smelling the still fresh smoke you think over what you learned today. The future man&amp;rsquo;s words echo in your brain&amp;hellip;&lt;br&gt;
 &amp;ldquo;You have no idea what will happen when you make this change. You didn&amp;rsquo;t reproduce the problem. You didn&amp;rsquo;t find the root cause. You didn&amp;rsquo;t talk to someone knowledgeable in this part of the code. You didn&amp;rsquo;t find the person who caused the bug and ask them about the fix. You didn&amp;rsquo;t even test your fix.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;Your left to ponder what future your simple bug fix had unintentionally caused that it would induce man to invent time travel to send someone back to stop you. Truly horrible it must have been and with that you promise in the name of the future man with the big gun to never make another bug fix on a problem that you don&amp;rsquo;t understand.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related posts on debugging:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/&#34;&gt;Persistence: The long lost virtue of fixing a bug&lt;/a&gt; - How to develop the persistence needed to truly fix difficult bugs&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

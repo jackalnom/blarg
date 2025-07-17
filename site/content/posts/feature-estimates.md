@@ -30,7 +30,3 @@ Bobo quits a week later because he realizes all he ever loved was making clogs a
 
 It all seems so obvious in the world of clogs. But is software really much different or is it just harder to quantify the unit of production than in a world of widgets? It is often said that it is better to have an imperfect measure than no measure at all. But estimate accuracy isn't an imperfect measure for software productivity, it is a completely orthogonal measure that actually drives down productivity. The only reason we are left with holding developers accountable to feature estimates is that their accuracy is necessary for some other purpose, such as the creation of project launch timelines or for cost-benefit analysis. I'll tackle the flaws of these uses in my future posts.
 
-**Related posts on estimation:**
-- [I'm back and I hate your estimates](/posts/i-hate-your-estimates/) - Introduction to the problems with software estimation
-- [Cost benefit analysis for bear lovers](/posts/cost-benefit-analysis/) - Problems with using estimates for cost-benefit analysis
-- [Ninety Percent Confident](/posts/ninety-percent-confident/) - How to estimate better by understanding your limits

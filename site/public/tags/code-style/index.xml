@@ -14,27 +14,25 @@
       
       <guid>https://www.bonnycode.com/posts/register-style/</guid>
       <description>&lt;p&gt;Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;room = RoomDAO.findLivingRoom&lt;br&gt;
-&lt;strong&gt;if&lt;/strong&gt; (room &amp;lt;&amp;gt; nil)&lt;br&gt;
-house.add(room)&lt;br&gt;
-room = RoomDAO.findKitchen&lt;br&gt;
-&lt;strong&gt;if&lt;/strong&gt; (room &amp;lt;&amp;gt; nil)&lt;br&gt;
-house.add(room)&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;Reusing variables with register style programming has several problems:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;room &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RoomDAO.&lt;span style=&#34;color:#a6e22e&#34;&gt;findLivingRoom&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;if&lt;/span&gt; (room &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; nil)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  house.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(room)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;room &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RoomDAO.&lt;span style=&#34;color:#a6e22e&#34;&gt;findKitchen&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;if&lt;/span&gt; (room &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; nil)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  house.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(room)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Reusing variables with register style programming has several problems:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.&lt;/li&gt;
 &lt;li&gt;It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Instead, variables should have only a single semantic meaning throughout their lifetime.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;livingRoom = RoomDAO.findLivingRoom&lt;br&gt;
-&lt;strong&gt;if&lt;/strong&gt; (livingRoom &amp;lt;&amp;gt; nil)&lt;br&gt;
-house.add(livingRoom)&lt;br&gt;
-kitchen = RoomDAO.findKitchen&lt;br&gt;
-&lt;strong&gt;if&lt;/strong&gt; (kitchen &amp;lt;&amp;gt; nil)&lt;br&gt;
-house.add(kitchen)&lt;/p&gt;&lt;/blockquote&gt;
-</description>
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;livingRoom &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RoomDAO.&lt;span style=&#34;color:#a6e22e&#34;&gt;findLivingRoom&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;if&lt;/span&gt; (livingRoom &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; nil)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  house.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(livingRoom)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kitchen &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; RoomDAO.&lt;span style=&#34;color:#a6e22e&#34;&gt;findKitchen&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;if&lt;/span&gt; (kitchen &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt; nil)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  house.&lt;span style=&#34;color:#a6e22e&#34;&gt;add&lt;/span&gt;(kitchen)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
   </channel>

@@ -6,10 +6,12 @@ categories: ["Software Philosophy"]
 tags: ["education", "programming-concepts", "learning"]
 ---
 
-> if (paintColor == null)  
->   print "Room is wall papered."  
-> else  
->   print "Room is painted %s.", paintColor
+```java
+if (paintColor == null)  
+  print "Room is wall papered."  
+else  
+  print "Room is painted %s.", paintColor
+```
 
 null represents a void reference, but programmers often want to overload it to have other meanings. In the above example, a null paintColor means that the room is wall papered. Overloading null like this has two problems:
 
@@ -18,4 +20,6 @@ null represents a void reference, but programmers often want to overload it to h
 
 A better solution is to rename the object paintColor to something more representative such as wallDecoration and then encapsulate the logic inside the object being called:
 
-> print wallDecoration.description
+```java
+print wallDecoration.description
+```

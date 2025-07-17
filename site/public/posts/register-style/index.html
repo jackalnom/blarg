@@ -11,13 +11,12 @@
   
   
   <meta name="description" content="Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.
-
-room = RoomDAO.findLivingRoom
-if (room &lt;&gt; nil)
-house.add(room)
-room = RoomDAO.findKitchen
-if (room &lt;&gt; nil)
-house.add(room)
+room = RoomDAO.findLivingRoom  
+if (room &lt;&gt; nil)  
+  house.add(room)  
+room = RoomDAO.findKitchen  
+if (room &lt;&gt; nil)  
+  house.add(room)
 Reusing variables with register style programming has several problems:
 
 It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.
@@ -64,13 +63,7 @@ Instead, variables should have only a single semantic meaning throughout their l
   <meta property="og:site_name" content="BonnyCode">
   <meta property="og:title" content="Register Style Programming">
   <meta property="og:description" content="Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.
-room = RoomDAO.findLivingRoom
-if (room &lt;&gt; nil)
-house.add(room)
-room = RoomDAO.findKitchen
-if (room &lt;&gt; nil)
-house.add(room)
-Reusing variables with register style programming has several problems:
+room = RoomDAO.findLivingRoom if (room &lt;&gt; nil) house.add(room) room = RoomDAO.findKitchen if (room &lt;&gt; nil) house.add(room) Reusing variables with register style programming has several problems:
 It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state. It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time. Instead, variables should have only a single semantic meaning throughout their lifetime.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
@@ -90,13 +83,7 @@ It unnecessarily increases the lifetime of a variable thus making it harder for 
   
   <meta itemprop="name" content="Register Style Programming">
   <meta itemprop="description" content="Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.
-room = RoomDAO.findLivingRoom
-if (room &lt;&gt; nil)
-house.add(room)
-room = RoomDAO.findKitchen
-if (room &lt;&gt; nil)
-house.add(room)
-Reusing variables with register style programming has several problems:
+room = RoomDAO.findLivingRoom if (room &lt;&gt; nil) house.add(room) room = RoomDAO.findKitchen if (room &lt;&gt; nil) house.add(room) Reusing variables with register style programming has several problems:
 It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state. It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time. Instead, variables should have only a single semantic meaning throughout their lifetime.">
   <meta itemprop="datePublished" content="2008-03-09T09:23:37+00:00">
   <meta itemprop="dateModified" content="2025-07-16T10:53:03-07:00">
@@ -124,13 +111,7 @@ It unnecessarily increases the lifetime of a variable thus making it harder for 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Register Style Programming">
   <meta name="twitter:description" content="Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.
-room = RoomDAO.findLivingRoom
-if (room &lt;&gt; nil)
-house.add(room)
-room = RoomDAO.findKitchen
-if (room &lt;&gt; nil)
-house.add(room)
-Reusing variables with register style programming has several problems:
+room = RoomDAO.findLivingRoom if (room &lt;&gt; nil) house.add(room) room = RoomDAO.findKitchen if (room &lt;&gt; nil) house.add(room) Reusing variables with register style programming has several problems:
 It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state. It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time. Instead, variables should have only a single semantic meaning throughout their lifetime.">
 
 
@@ -295,27 +276,25 @@ It unnecessarily increases the lifetime of a variable thus making it harder for 
   <article class="content numbered-subtitles">
     
     <p>Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.</p>
-<blockquote>
-<p>room = RoomDAO.findLivingRoom<br>
-<strong>if</strong> (room &lt;&gt; nil)<br>
-house.add(room)<br>
-room = RoomDAO.findKitchen<br>
-<strong>if</strong> (room &lt;&gt; nil)<br>
-house.add(room)</p></blockquote>
-<p>Reusing variables with register style programming has several problems:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>room <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findLivingRoom</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (room <span style="color:#f92672">&lt;&gt;</span> nil)  
+</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(room)  
+</span></span><span style="display:flex;"><span>room <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findKitchen</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (room <span style="color:#f92672">&lt;&gt;</span> nil)  
+</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(room)
+</span></span></code></pre></div><p>Reusing variables with register style programming has several problems:</p>
 <ol>
 <li>It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.</li>
 <li>It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time.</li>
 </ol>
 <p>Instead, variables should have only a single semantic meaning throughout their lifetime.</p>
-<blockquote>
-<p>livingRoom = RoomDAO.findLivingRoom<br>
-<strong>if</strong> (livingRoom &lt;&gt; nil)<br>
-house.add(livingRoom)<br>
-kitchen = RoomDAO.findKitchen<br>
-<strong>if</strong> (kitchen &lt;&gt; nil)<br>
-house.add(kitchen)</p></blockquote>
-
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>livingRoom <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findLivingRoom</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (livingRoom <span style="color:#f92672">&lt;&gt;</span> nil)  
+</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(livingRoom)  
+</span></span><span style="display:flex;"><span>kitchen <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findKitchen</span>  
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (kitchen <span style="color:#f92672">&lt;&gt;</span> nil)  
+</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(kitchen)
+</span></span></code></pre></div>
     
   </article>
 

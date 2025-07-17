@@ -31,13 +31,6 @@ public static void the\_black\_box() throws Exception {
 }  
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Related Java quiz posts:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/integer-boxin-1/&#34;&gt;Integer Boxing Quiz Results&lt;/a&gt; - Results and solutions for this autoboxing quiz&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/java-mutability/&#34;&gt;Java Mutability Pop Quiz&lt;/a&gt; - Challenge about Java string mutability&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/threading-quiz/&#34;&gt;Threading Quiz&lt;/a&gt; - Challenge about threading and volatile keywords&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/garbage-collector-quiz/&#34;&gt;Garbage Collector Quiz&lt;/a&gt; - Advanced quiz on garbage collection&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     

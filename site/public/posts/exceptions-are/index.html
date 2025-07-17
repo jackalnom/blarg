@@ -11,10 +11,8 @@
   
   
   <meta name="description" content="The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:
-
 def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException
 OR this:
-
 def bar throws Exception
 The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.">
   
@@ -57,10 +55,8 @@ The foo method is called implementation driven exception throwing. It is most of
   <meta property="og:site_name" content="BonnyCode">
   <meta property="og:title" content="Exceptions are part of the Method Signature">
   <meta property="og:description" content="The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:
-def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException
-OR this:
-def bar throws Exception
-The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.">
+def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException OR this:
+def bar throws Exception The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -79,13 +75,11 @@ The foo method is called implementation driven exception throwing. It is most of
   
   <meta itemprop="name" content="Exceptions are part of the Method Signature">
   <meta itemprop="description" content="The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:
-def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException
-OR this:
-def bar throws Exception
-The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.">
+def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException OR this:
+def bar throws Exception The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.">
   <meta itemprop="datePublished" content="2008-04-20T17:32:03+00:00">
   <meta itemprop="dateModified" content="2025-07-16T10:53:03-07:00">
-  <meta itemprop="wordCount" content="305">
+  <meta itemprop="wordCount" content="268">
   <meta itemprop="keywords" content="Exception-Handling,Error-Handling,Best-Practices">
 
   
@@ -109,10 +103,8 @@ The foo method is called implementation driven exception throwing. It is most of
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Exceptions are part of the Method Signature">
   <meta name="twitter:description" content="The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:
-def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException
-OR this:
-def bar throws Exception
-The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.">
+def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException OR this:
+def bar throws Exception The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.">
 
 
   
@@ -239,7 +231,7 @@ The foo method is called implementation driven exception throwing. It is most of
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          305 words
+          268 words
         </span>
       
       
@@ -276,21 +268,13 @@ The foo method is called implementation driven exception throwing. It is most of
   <article class="content numbered-subtitles">
     
     <p>The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:</p>
-<blockquote>
-<p>def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException</p></blockquote>
-<p>OR this:</p>
-<blockquote>
-<p>def bar throws Exception</p></blockquote>
-<p>The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>def foo <span style="color:#66d9ef">throws</span> SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException
+</span></span></code></pre></div><p>OR this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>def bar <span style="color:#66d9ef">throws</span> Exception
+</span></span></code></pre></div><p>The foo method is called implementation driven exception throwing. It is most often seen when people let their IDE (such as Eclipse), design their method signatures for them by just throwing any old exception that comes along in implementation. If the implementation changes, one can assume that the exceptions will change.</p>
 <p>The bar method is called shit happens exception throwing. It tells other programmers that the designer of this method has no idea what could possibly go wrong so you better just be prepared to catch it all.</p>
 <p>Much preferred is to design the exceptions your method throws as part of the signature for the method. Not just what can go wrong, but what error cases do we want to differentiate from. When parsing an Integer, most users probably don&rsquo;t care whether it failed because the string was null vs. the string containing non-digits vs. the string containing an integer that was bigger than max int. So the designers of the method just bundled it all up in a NumberFormatException. If there were a strong use case for differentiating between all other errors and the Integer being too large, then the method would instead throw NumberFormatException and IntegerOverflowException.</p>
 <p>I will follow up next week on how to properly catch exceptions.</p>
-<p><strong>Related posts in this series:</strong></p>
-<ul>
-<li><a href="/posts/exceptional-pro/">Exceptional Programming</a> - Introduction to exception handling best practices</li>
-<li><a href="/posts/exceptions-vs-s/">Exceptions vs. Status Codes vs. Assertions</a> - Understanding the differences between error handling techniques</li>
-<li><a href="/posts/catching-except/">Catching Exceptions</a> - Comprehensive guide to error handling techniques</li>
-</ul>
 
     
   </article>

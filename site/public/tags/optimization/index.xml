@@ -15,48 +15,45 @@
       <guid>https://www.bonnycode.com/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</guid>
       <description>&lt;p&gt;You&amp;rsquo;ve just been hired for your first job as an astronomical programmer. You have a graduate degree from CalTech in computer science and you regularly check your horoscope so you feel imminently qualified. Your first assignment is to write a method to count all the red giants in the universe. They use an object relational mapping framework so that you can put all your object oriented design skills to work and not need to worry anything about databases which is awesome because you know nothing about databases.&lt;/p&gt;
 &lt;p&gt;You feel well trained in the arts of test driven development so you start out by writing a little test:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;test_count_red_giants&lt;br&gt;
-  DB.clear&lt;br&gt;
-  assert 0 == count_red_giants&lt;br&gt;
-  DB.add_red_giant&lt;br&gt;
-  assert 1 == count_red_giants&lt;br&gt;
-  DB.add_white_dwarf&lt;br&gt;
-  assert 1 == count_red_giants&lt;br&gt;
-end&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;You run the test and it fails as it should because you haven&amp;rsquo;t written your method yet. Being a good citizen you then write your new method:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;int count_red_giants&lt;br&gt;
-  number_of_red_giants = 0&lt;br&gt;
-  stars = DB.get_all_stars&lt;br&gt;
-  for each star in stars&lt;br&gt;
-    if (star.type == red_giant)&lt;br&gt;
-      number_of_red_giants += 1&lt;br&gt;
-    end&lt;br&gt;
-  end  return number_of_red_giants;&lt;br&gt;
-end&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;You run your test now and EUREKA, you have just completed your first assignment. Ticker tape parades arrive, statues erected and you take a week vacation on Catalina island sipping on midori sours secure in the fact that you are one sweet modern programmer.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;test_count_red_giants  
+  DB.clear  
+  assert 0 == count_red_giants  
+  DB.add_red_giant  
+  assert 1 == count_red_giants  
+  DB.add_white_dwarf  
+  assert 1 == count_red_giants  
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You run the test and it fails as it should because you haven&amp;rsquo;t written your method yet. Being a good citizen you then write your new method:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int count_red_giants  
+  number_of_red_giants = 0  
+  stars = DB.get_all_stars  
+  for each star in stars  
+    if (star.type == red_giant)  
+      number_of_red_giants += 1  
+    end  
+  end  return number_of_red_giants;  
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You run your test now and EUREKA, you have just completed your first assignment. Ticker tape parades arrive, statues erected and you take a week vacation on Catalina island sipping on midori sours secure in the fact that you are one sweet modern programmer.&lt;/p&gt;
 &lt;p&gt;This is the life, except when you get an urgent call from your boss two days into your vacation. Your code is now live and it doesn&amp;rsquo;t work. Everytime they try to count the red giants it times out. A helicopter arrives to take you back to the office so you can get to debugging the problem.&lt;/p&gt;
 &lt;p&gt;You run your unit test again just to make sure some foolio didn&amp;rsquo;t mess with your code while you were gone but nope it still passes. You connect a debugger to your program and start stepping through your method while it is running live. You reach the line DB.get_all_stars and it cheerfully tells you &amp;ldquo;Returning 70 Sextillion Results&amp;rdquo;. Oh crap.&lt;/p&gt;
 &lt;p&gt;You look back over the DB object and find another method called DB.find_stars_by_type. Bingo. You change your method to be the new awesome:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;int count_red_giants&lt;br&gt;
-  number_of_red_giants = 0&lt;br&gt;
-  stars = DB.find_stars_by_type(red_giant)&lt;br&gt;
-  for each star in stars&lt;br&gt;
-    number_of_red_giants += 1&lt;br&gt;
-  end&lt;/p&gt;
-&lt;p&gt;  return number_of_red_giants&lt;br&gt;
-end&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;You run your unit test and it passes. You congratulate yourself on your job well done, tell your boss that you have saved the day and take the helicopter back to Catalina to resume drinking neon colored drinks from martini glasses.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;int count_red_giants  
+  number_of_red_giants = 0  
+  stars = DB.find_stars_by_type(red_giant)  
+  for each star in stars  
+    number_of_red_giants += 1  
+  end
+
+  return number_of_red_giants  
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You run your unit test and it passes. You congratulate yourself on your job well done, tell your boss that you have saved the day and take the helicopter back to Catalina to resume drinking neon colored drinks from martini glasses.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;*cue hula music*&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;While laying in your hammock, drinking a fuzzy naval you get another call from the boss. Your program still runs too slowly. Back to the office we go again.&lt;/p&gt;
 &lt;p&gt;Now you are stuck. Your program is so optimized now. Why does it still run so slow? In shame you eventually instant message your cousin who runs a PHP/MySql site from his basement that allows him to track his extensive collection of Warez. When you finish explaining your problem, your cousin calls you a total &amp;ldquo;n00b&amp;rdquo; and explains that you can do the count directly in SQL. Disgruntled by the fact that you have to dirty yourself with breaking out of your object abstraction, you eventually concede and after reading some documentation arrive at the following:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;int count_red_giants&lt;br&gt;
-  return DB.query(&amp;lsquo;select count(*) from stars where type = red_giant&amp;rsquo;)&lt;br&gt;
-end&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;You run the unit test and it passes. You feel like you are an amazing ninja hax0r like those engineers that wrote the &lt;a href=&#34;http://www-03.ibm.com/ibm/history/exhibits/space/space_gemini.html&#34;&gt;Gemini Computer Guidance&lt;/a&gt; system in the 1960s. You tell the boss about your amazing discovery, your groundbreaking fix for the problem and it is back to Catalina for you.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;int count_red_giants  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; DB.query(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;select count(*) from stars where type = red_giant&amp;#39;&lt;/span&gt;)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You run the unit test and it passes. You feel like you are an amazing ninja hax0r like those engineers that wrote the &lt;a href=&#34;http://www-03.ibm.com/ibm/history/exhibits/space/space_gemini.html&#34;&gt;Gemini Computer Guidance&lt;/a&gt; system in the 1960s. You tell the boss about your amazing discovery, your groundbreaking fix for the problem and it is back to Catalina for you.&lt;/p&gt;
 &lt;p&gt;Finally, vacation without have to worry about programming or databases. Just sipping on your Miami Beach Ice Tea pondering over whether Obama or Lincoln will be remembered as the better president 50 years from now. And then you get a call from the boss&amp;hellip; it still doesn&amp;rsquo;t work.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;*sigh*&lt;/strong&gt;&lt;/p&gt;
 </description>

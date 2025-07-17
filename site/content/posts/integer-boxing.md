@@ -27,8 +27,3 @@ class IntegerBoxing {
     }  
 }
 
-**Related Java quiz posts:**
-- [Integer Boxing Quiz Results](/posts/integer-boxin-1/) - Results and solutions for this autoboxing quiz
-- [Java Mutability Pop Quiz](/posts/java-mutability/) - Challenge about Java string mutability
-- [Threading Quiz](/posts/threading-quiz/) - Challenge about threading and volatile keywords
-- [Garbage Collector Quiz](/posts/garbage-collector-quiz/) - Advanced quiz on garbage collection

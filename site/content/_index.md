@@ -1,5 +1,6 @@
 ---
-title: Welcome
+title: "Home"
+description: "Bonnycode is a blog focused on software development, leadership, and philosophy."
 ---
 
 A little blog of questionable wisdom written by a builder of little games. I do a lot of little things these days. I hope some of them do a little good.

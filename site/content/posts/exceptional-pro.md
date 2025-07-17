@@ -14,8 +14,3 @@ No discussion of handling exceptions in programming should begin without quoting
 I will imbue onto you the knowledge necessary to write such graceful programs. As part of a multi-part series, I will go into all the wonderful things that good developers should know when dealing with exceptional cases. I'm assuming that anyone reading this already understands the technical aspects of exceptions. If you don't and you are programming in Java, you can start out by reading [Sun's tutorial](http://java.sun.com/docs/books/tutorial/essential/exceptions/index.html).
 
 First up, I will go into the differences between exceptions, status codes, and assertions.
-
-**Related posts in this series:**
-- [Exceptions vs. Status Codes vs. Assertions](/posts/exceptions-vs-s/) - Understanding the differences between error handling techniques
-- [Exceptions are part of the Method Signature](/posts/exceptions-are/) - How exceptions form part of your method's contract
-- [Catching Exceptions](/posts/catching-except/) - Comprehensive guide to error handling techniques

@@ -16,6 +16,3 @@ Fred Brooks described this problem as the [second system effect](http://en.wikip
 
 I probably will never teach this class, despite the desperate need for it. In the end though, I say to anyone that wishes to be a great software developer, the surest way is to write lots and lots of code, and to read even more.
 
-**Related posts on education and learning:**
-- [The Syllabus](/posts/the-syllabus/) - Detailed curriculum for the programology course
-- [The Ambiguous Null](/posts/the-ambiguous-n/) - Teaching example about proper null handling

@@ -37,5 +37,3 @@ Persistence does not equal stupidity. Banging your head against a problem and ma
 
 Remember this. Any script kiddie can copy and paste some code, tweak some values and get a system they barely understand to kinda work. If you want to distinguish yourself as a software developer, work to truly understand the system you are building, don't shy away from the difficult problems and don't stop until you really know what is going on.
 
-**Related posts on debugging:**
-- [Do not fix what you don't understand](/posts/do-not-fix-what-you-dont-understand/) - Why understanding the root cause is essential before making any bug fix

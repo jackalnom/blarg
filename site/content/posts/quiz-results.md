@@ -10,8 +10,3 @@ The winner of the [Java Mutabiity Pop Quiz](/posts/java-mutability/) was Casey K
 
 Congratulations everyone!
 
-**Related Java quiz posts:**
-- [Java Mutability Pop Quiz](/posts/java-mutability/) - The original challenge about Java string mutability
-- [Integer Boxing Quiz](/posts/integer-boxing/) - Test your knowledge of Java autoboxing
-- [Threading Quiz](/posts/threading-quiz/) - Challenge about threading and volatile keywords
-- [Garbage Collector Quiz](/posts/garbage-collector-quiz/) - Advanced quiz on garbage collection

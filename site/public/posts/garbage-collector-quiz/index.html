@@ -11,29 +11,33 @@
   
   
   <meta name="description" content="As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I&rsquo;ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.
-
-import java.lang.ref.*;
+import java.lang.ref.*;  
 import java.util.*;
-class WarmupQuestion {
-    private static ArrayList list = track(new ArrayList());
-    static public void main(String[] args) throws Exception {
-        track(new WarmupQuestion());
-        System.gc();
-        Integer i = track(150);
-        track(new int[1024*1024]);
-        System.gc();
-        track(&ldquo;Hello&rdquo;);
-        i = null;
-        System.gc();
-    }
-   
-    public void finalize() {
-        list.add(this);
-    }
-   
-    public static T track(T o) {
-        return ObjectTracker.track(o);
-    }">
+
+class WarmupQuestion {  
+    private static ArrayList list = track(new ArrayList());  
+    static public void main(String[] args) throws Exception {  
+        track(new WarmupQuestion());  
+        System.gc();  
+        Integer i = track(150);  
+        track(new int[1024*1024]);  
+        System.gc();  
+        track(&#34;Hello&#34;);  
+        i = null;  
+        System.gc();  
+    }  
+      
+    public void finalize() {  
+        list.add(this);  
+    }  
+      
+    public static&lt;T&gt; T track(T o) {  
+        return ObjectTracker.track(o);  
+    }  
+  
+    ...      
+}
+To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.">
   
 
   
@@ -74,26 +78,7 @@ class WarmupQuestion {
   <meta property="og:site_name" content="BonnyCode">
   <meta property="og:title" content="Garbage Collector Quiz">
   <meta property="og:description" content="As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I’ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.
-import java.lang.ref.*;
-import java.util.*;
-class WarmupQuestion {
-private static ArrayList list = track(new ArrayList());
-static public void main(String[] args) throws Exception {
-track(new WarmupQuestion());
-System.gc();
-Integer i = track(150);
-track(new int[1024*1024]);
-System.gc();
-track(“Hello”);
-i = null;
-System.gc();
-}
-public void finalize() {
-list.add(this);
-}
-public static T track(T o) {
-return ObjectTracker.track(o);
-}">
+import java.lang.ref.*; import java.util.*; class WarmupQuestion { private static ArrayList list = track(new ArrayList()); static public void main(String[] args) throws Exception { track(new WarmupQuestion()); System.gc(); Integer i = track(150); track(new int[1024*1024]); System.gc(); track(&#34;Hello&#34;); i = null; System.gc(); } public void finalize() { list.add(this); } public static&lt;T&gt; T track(T o) { return ObjectTracker.track(o); } ... } To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -113,29 +98,10 @@ return ObjectTracker.track(o);
   
   <meta itemprop="name" content="Garbage Collector Quiz">
   <meta itemprop="description" content="As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I’ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.
-import java.lang.ref.*;
-import java.util.*;
-class WarmupQuestion {
-private static ArrayList list = track(new ArrayList());
-static public void main(String[] args) throws Exception {
-track(new WarmupQuestion());
-System.gc();
-Integer i = track(150);
-track(new int[1024*1024]);
-System.gc();
-track(“Hello”);
-i = null;
-System.gc();
-}
-public void finalize() {
-list.add(this);
-}
-public static T track(T o) {
-return ObjectTracker.track(o);
-}">
+import java.lang.ref.*; import java.util.*; class WarmupQuestion { private static ArrayList list = track(new ArrayList()); static public void main(String[] args) throws Exception { track(new WarmupQuestion()); System.gc(); Integer i = track(150); track(new int[1024*1024]); System.gc(); track(&#34;Hello&#34;); i = null; System.gc(); } public void finalize() { list.add(this); } public static&lt;T&gt; T track(T o) { return ObjectTracker.track(o); } ... } To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.">
   <meta itemprop="datePublished" content="2008-05-24T16:49:31+00:00">
   <meta itemprop="dateModified" content="2025-07-16T10:53:03-07:00">
-  <meta itemprop="wordCount" content="325">
+  <meta itemprop="wordCount" content="278">
   <meta itemprop="keywords" content="Java,Garbage-Collection,Quiz,Memory-Management">
 
   
@@ -159,26 +125,7 @@ return ObjectTracker.track(o);
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Garbage Collector Quiz">
   <meta name="twitter:description" content="As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I’ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.
-import java.lang.ref.*;
-import java.util.*;
-class WarmupQuestion {
-private static ArrayList list = track(new ArrayList());
-static public void main(String[] args) throws Exception {
-track(new WarmupQuestion());
-System.gc();
-Integer i = track(150);
-track(new int[1024*1024]);
-System.gc();
-track(“Hello”);
-i = null;
-System.gc();
-}
-public void finalize() {
-list.add(this);
-}
-public static T track(T o) {
-return ObjectTracker.track(o);
-}">
+import java.lang.ref.*; import java.util.*; class WarmupQuestion { private static ArrayList list = track(new ArrayList()); static public void main(String[] args) throws Exception { track(new WarmupQuestion()); System.gc(); Integer i = track(150); track(new int[1024*1024]); System.gc(); track(&#34;Hello&#34;); i = null; System.gc(); } public void finalize() { list.add(this); } public static&lt;T&gt; T track(T o) { return ObjectTracker.track(o); } ... } To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.">
 
 
   
@@ -305,7 +252,7 @@ return ObjectTracker.track(o);
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          325 words
+          278 words
         </span>
       
       
@@ -344,52 +291,45 @@ return ObjectTracker.track(o);
   <article class="content numbered-subtitles">
     
     <p>As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I&rsquo;ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.</p>
-<blockquote>
-<p>import java.lang.ref.*;<br>
-import java.util.*;</p>
-<p>class WarmupQuestion {<br>
-    private static ArrayList list = track(new ArrayList());<br>
-    static public void main(String[] args) throws Exception {<br>
-        track(new WarmupQuestion());<br>
-        System.gc();<br>
-        Integer i = track(150);<br>
-        track(new int[1024*1024]);<br>
-        System.gc();<br>
-        track(&ldquo;Hello&rdquo;);<br>
-        i = null;<br>
-        System.gc();<br>
-    }<br>
-   <br>
-    public void finalize() {<br>
-        list.add(this);<br>
-    }<br>
-   <br>
-    public static<!-- raw HTML omitted --> T track(T o) {<br>
-        return ObjectTracker.track(o);<br>
-    }</p>
-<p>    &hellip;   <br>
-}</p></blockquote>
-<p>To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.</p>
-<blockquote>
-<p>object of type [I lived for 12 milliseconds<br>
- WarmupQuestion.main(WarmupQuestion.java:10)<br>
-object of type java.lang.Integer lived for 19 milliseconds<br>
- WarmupQuestion.main(WarmupQuestion.java:9)<br>
-object of type java.util.ArrayList lived until program exit.<br>
- WarmupQuestion.<!-- raw HTML omitted -->(WarmupQuestion.java:5)<br>
-object of type WarmupQuestion has a finalize that raises the dead.<br>
- WarmupQuestion.main(WarmupQuestion.java:7)<br>
-object of type java.lang.String lived until program exit.<br>
- WarmupQuestion.main(WarmupQuestion.java:12)</p></blockquote>
-<p>The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.ref.*;  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.*;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WarmupQuestion</span> {  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> ArrayList list <span style="color:#f92672">=</span> track(<span style="color:#66d9ef">new</span> ArrayList());  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {  
+</span></span><span style="display:flex;"><span>        track(<span style="color:#66d9ef">new</span> WarmupQuestion());  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();  
+</span></span><span style="display:flex;"><span>        Integer i <span style="color:#f92672">=</span> track(150);  
+</span></span><span style="display:flex;"><span>        track(<span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>1024<span style="color:#f92672">*</span>1024<span style="color:#f92672">]</span>);  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();  
+</span></span><span style="display:flex;"><span>        track(<span style="color:#e6db74">&#34;Hello&#34;</span>);  
+</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;  
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finalize</span>() {  
+</span></span><span style="display:flex;"><span>        list.<span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">this</span>);  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">track</span>(T o) {  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ObjectTracker.<span style="color:#a6e22e">track</span>(o);  
+</span></span><span style="display:flex;"><span>    }  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    ...      
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.</p>
+<pre tabindex="0"><code>object of type [I lived for 12 milliseconds  
+ WarmupQuestion.main(WarmupQuestion.java:10)  
+object of type java.lang.Integer lived for 19 milliseconds  
+ WarmupQuestion.main(WarmupQuestion.java:9)  
+object of type java.util.ArrayList lived until program exit.  
+ WarmupQuestion.&lt;clinit&gt;(WarmupQuestion.java:5)  
+object of type WarmupQuestion has a finalize that raises the dead.  
+ WarmupQuestion.main(WarmupQuestion.java:7)  
+object of type java.lang.String lived until program exit.  
+ WarmupQuestion.main(WarmupQuestion.java:12)
+</code></pre><p>The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.</p>
 <p>Good luck!</p>
-<p><strong>Related Java quiz posts:</strong></p>
-<ul>
-<li><a href="/posts/winner-of-garbage-collection-quiz/">Winner of Garbage Collection Quiz</a> - Results and solutions for this garbage collection quiz</li>
-<li><a href="/posts/java-mutability/">Java Mutability Pop Quiz</a> - Challenge about Java string mutability</li>
-<li><a href="/posts/integer-boxing/">Integer Boxing Quiz</a> - Test your knowledge of Java autoboxing</li>
-<li><a href="/posts/threading-quiz/">Threading Quiz</a> - Challenge about threading and volatile keywords</li>
-</ul>
 
     
   </article>
