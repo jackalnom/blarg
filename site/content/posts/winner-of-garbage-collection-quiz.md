@@ -6,7 +6,7 @@ categories: ["Programming Languages"]
 tags: ["java", "garbage-collection", "quiz"]
 ---
 
-Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan's is that I didn't pass in the current thread to the Object Tracker thread and I only used the non-timeout version of ReferenceQueue.remove(). I also didn't use ReferenceQueue.poll in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.  
+Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan's is that I didn't pass in the current thread to the Object Tracker thread and I only used the non-timeout version of `ReferenceQueue.remove()`. I also didn't use `ReferenceQueue.poll` in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.  
   
 ```java
 import java.lang.ref.*;

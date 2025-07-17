@@ -13,7 +13,7 @@
       <pubDate>Sat, 31 May 2008 16:19:27 +0000</pubDate>
       
       <guid>https://www.bonnycode.com/posts/winner-of-garbage-collection-quiz/</guid>
-      <description>&lt;p&gt;Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan&amp;rsquo;s is that I didn&amp;rsquo;t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of ReferenceQueue.remove(). I also didn&amp;rsquo;t use ReferenceQueue.poll in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.&lt;/p&gt;
+      <description>&lt;p&gt;Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan&amp;rsquo;s is that I didn&amp;rsquo;t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of &lt;code&gt;ReferenceQueue.remove()&lt;/code&gt;. I also didn&amp;rsquo;t use &lt;code&gt;ReferenceQueue.poll&lt;/code&gt; in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.lang.ref.*;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; java.util.*;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -150,17 +150,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ...      
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;object of type [I lived for 12 milliseconds  
- WarmupQuestion.main(WarmupQuestion.java:10)  
-object of type java.lang.Integer lived for 19 milliseconds  
- WarmupQuestion.main(WarmupQuestion.java:9)  
-object of type java.util.ArrayList lived until program exit.  
- WarmupQuestion.&amp;lt;clinit&amp;gt;(WarmupQuestion.java:5)  
-object of type WarmupQuestion has a finalize that raises the dead.  
- WarmupQuestion.main(WarmupQuestion.java:7)  
-object of type java.lang.String lived until program exit.  
- WarmupQuestion.main(WarmupQuestion.java:12)
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;object of type &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;I lived &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;12&lt;/span&gt; milliseconds  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; WarmupQuestion.main&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;WarmupQuestion.java:10&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;object of type java.lang.Integer lived &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;19&lt;/span&gt; milliseconds  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; WarmupQuestion.main&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;WarmupQuestion.java:9&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;object of type java.util.ArrayList lived &lt;span style=&#34;color:#66d9ef&#34;&gt;until&lt;/span&gt; program exit.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; WarmupQuestion.&amp;lt;clinit&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;WarmupQuestion.java:5&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;object of type WarmupQuestion has a finalize that raises the dead.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; WarmupQuestion.main&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;WarmupQuestion.java:7&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;object of type java.lang.String lived &lt;span style=&#34;color:#66d9ef&#34;&gt;until&lt;/span&gt; program exit.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; WarmupQuestion.main&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;WarmupQuestion.java:12&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.&lt;/p&gt;
 &lt;p&gt;Good luck!&lt;/p&gt;
 </description>
     </item>

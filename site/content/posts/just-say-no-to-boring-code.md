@@ -10,6 +10,7 @@ tags: ["code-quality", "readability", "maintainability"]
 
 I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:
 
+```java
 int getBlah() {  
    return blah;  
 }  
@@ -25,26 +26,33 @@ String getSoBored() {
 void setSoBored(String soBored) {  
   this.soBored = soBored;  
 }
+```
 
 In Ruby, this looks like:
 
-attr\_accessor :blah, :soBored
+```ruby
+attr_accessor :blah, :soBored
+```
 
 If you are using Java, a certain amount of this type of verbose code is just necessary. The far more insidious problem is that it trains developers into believing this type of pattern is a good thing. The best thing about Ruby and the functional programming communities is that the first point emphasized is that code should be concise and full of meat and if it isn't you aren't thinking hard enough. For instance, the Hello World program in Ruby:
 
+```ruby
 puts "Hello, World!"
+```
 
 Straight to the point. In Java, you are already entering the world of boilerplate thinking (from http://java.sun.com/docs/books/tutorial/getStarted/application/index.html):
 
-/\*\*   
- \* The HelloWorldApp class implements an application that  
- \* simply displays "Hello World!" to the standard output.  
- \*/  
+```java
+/**   
+ * The HelloWorldApp class implements an application that  
+ * simply displays "Hello World!" to the standard output.  
+ */  
 class HelloWorldApp {  
     public static void main(String[] args) {  
         System.out.println("Hello World!"); //Display the string.  
     }  
 }
+```
 
 My knock here is not actually that Ruby or functional languages magically eliminate all boilerplate code, or that this extra overhead in these cases is really that painful. You can easily use a code generator for both of these situations and if this is the only boilerplate in your code you are doing pretty good. The problem is the Java community teaches its developers that all of their code should be at about this level of signal to noise.
 

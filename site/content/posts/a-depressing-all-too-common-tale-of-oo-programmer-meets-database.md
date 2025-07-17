@@ -10,7 +10,7 @@ You've just been hired for your first job as an astronomical programmer. You hav
 
 You feel well trained in the arts of test driven development so you start out by writing a little test:
 
-```
+```ruby
 test_count_red_giants  
   DB.clear  
   assert 0 == count_red_giants  
@@ -23,7 +23,7 @@ end
 
 You run the test and it fails as it should because you haven't written your method yet. Being a good citizen you then write your new method:
 
-```
+```ruby
 int count_red_giants  
   number_of_red_giants = 0  
   stars = DB.get_all_stars  
@@ -43,7 +43,7 @@ You run your unit test again just to make sure some foolio didn't mess with your
 
 You look back over the DB object and find another method called DB.find_stars_by_type. Bingo. You change your method to be the new awesome:
 
-```
+```ruby
 int count_red_giants  
   number_of_red_giants = 0  
   stars = DB.find_stars_by_type(red_giant)  
@@ -63,13 +63,13 @@ While laying in your hammock, drinking a fuzzy naval you get another call from t
 
 Now you are stuck. Your program is so optimized now. Why does it still run so slow? In shame you eventually instant message your cousin who runs a PHP/MySql site from his basement that allows him to track his extensive collection of Warez. When you finish explaining your problem, your cousin calls you a total "n00b" and explains that you can do the count directly in SQL. Disgruntled by the fact that you have to dirty yourself with breaking out of your object abstraction, you eventually concede and after reading some documentation arrive at the following:
 
-```sql
+```ruby
 int count_red_giants  
   return DB.query('select count(*) from stars where type = red_giant')  
 end
 ```
 
-You run the unit test and it passes. You feel like you are an amazing ninja hax0r like those engineers that wrote the [Gemini Computer Guidance](http://www-03.ibm.com/ibm/history/exhibits/space/space_gemini.html) system in the 1960s. You tell the boss about your amazing discovery, your groundbreaking fix for the problem and it is back to Catalina for you.
+You run the unit test and it passes. You feel like you are an amazing ninja hax0r like those engineers that wrote the [Gemini Computer Guidance](https://en.wikipedia.org/wiki/Gemini_Guidance_Computer) system in the 1960s. You tell the boss about your amazing discovery, your groundbreaking fix for the problem and it is back to Catalina for you.
 
 Finally, vacation without have to worry about programming or databases. Just sipping on your Miami Beach Ice Tea pondering over whether Obama or Lincoln will be remembered as the better president 50 years from now. And then you get a call from the boss... it still doesn't work.
 

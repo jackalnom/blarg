@@ -6,9 +6,9 @@ categories: ["Career & Professional"]
 tags: ["estimation", "confidence", "professional-skills"]
 ---
 
-I know nothing except the fact of my ignorance.
-
--- Socrates
+> I know nothing except the fact of my ignorance.
+> 
+> -- Socrates
 
 Too many good software developers are limited by their poor estimation abilities. Take the story of Bert & Ernie. Bert & Ernie are pretty much identical in terms of programming ability. Put them in a programming contest and they are neck and neck. Bert regularly underestimates the amount of time his software projects will take while Ernie always beats his estimates with a slight bit of room to spare. Management sees Bert as either slow or just unfocused. Ernie on the other hand is a speedy professional programmer that can be trusted with the mission critical projects. I can think of few technical skills a software developer could learn that would better help their career than becoming a proficient estimator. The really amazing thing is, compared to most of what we do, the estimation asked of individual software developers is mostly about knowing your own limits.
 

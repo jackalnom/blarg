@@ -6,8 +6,9 @@ categories: ["Software Engineering"]
 tags: ["immutability", "functional-programming", "best-practices"]
 ---
 
-No man ever steps in the same river twice, for it's not the same river and he's not the same man.  
--- Heraclitus
+> No man ever steps in the same river twice, for it's not the same river and he's not the same man.  
+> 
+> -- Heraclitus
 
 The relation between identity and change is a basic philosophical problem. How can one define anything when everything is always changing? For example, your tax return includes basic information about yourself such as marital status. When you get married, this doesn't make all previous years tax returns invalid. They are still true, but refer to your self at that point in time.
 

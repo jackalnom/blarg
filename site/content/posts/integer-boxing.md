@@ -6,13 +6,14 @@ categories: ["Programming Languages"]
 tags: ["java", "autoboxing", "quiz"]
 ---
 
-Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of the\_black\_box will the statement on line 11 print "Jonathan Kelly is really a robot!"? The only import allowed is java.lang.reflect.Field. 15 points will be awarded for the first correct answer.
+Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of `the_black_box` will the statement on line 11 print "Jonathan Kelly is really a robot!"? The only import allowed is `java.lang.reflect.Field`. 15 points will be awarded for the first correct answer.
 
+```java
 import java.lang.reflect.Field;
 
 class IntegerBoxing {  
     static public void main(String[] args) throws Exception {  
-        the\_black\_box();  
+        the_black_box();  
         char data[] = {'1', '3', '0'};  
         Integer radix = 10;  
         Integer x = Integer.parseInt(new String(data), radix);
@@ -22,8 +23,8 @@ class IntegerBoxing {
         }  
     }
 
-    public static void the\_black\_box() throws Exception {  
+    public static void the_black_box() throws Exception {  
        ...  
     }  
 }
-
+```

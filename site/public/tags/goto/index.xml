@@ -15,46 +15,49 @@
       <guid>https://www.bonnycode.com/posts/in-defense-of-go-to/</guid>
       <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;That said, let&amp;rsquo;s say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.&lt;/p&gt;
-&lt;p&gt;main&lt;br&gt;
-  integer n = console.getInt()&lt;br&gt;
-  integer first = 0&lt;br&gt;
-  integer second = 1&lt;br&gt;
-  integer next&lt;/p&gt;
-&lt;p&gt;  fib_loop:&lt;br&gt;
-    print first&lt;br&gt;
-    next = first + second&lt;br&gt;
-    first = second&lt;br&gt;
-    second = next&lt;br&gt;
-    n = n - 1&lt;br&gt;
-  if (n &amp;gt; 0) goto fib_loop&lt;br&gt;
-end&lt;/p&gt;
-&lt;p&gt;&amp;lt;sarcasm_tags_for_the_clueless&amp;gt;Egads! That program is totally obtuse! Here let me write a version without &lt;strong&gt;go to&lt;/strong&gt; so that it makes more sense&amp;lt;/sarcasm_tags_for_the_clueless&amp;gt;:&lt;/p&gt;
-&lt;p&gt;main&lt;br&gt;
-  integer n = console.getInt()&lt;br&gt;
-  integer first = 0&lt;br&gt;
-  integer second = 1&lt;br&gt;
-  integer next&lt;/p&gt;
-&lt;p&gt;  do&lt;br&gt;
-    print first&lt;br&gt;
-    next = first + second&lt;br&gt;
-    first = second&lt;br&gt;
-    second = next&lt;br&gt;
-    n = n - 1&lt;br&gt;
-  while (n &amp;gt; 0)&lt;br&gt;
-end&lt;/p&gt;
-&lt;p&gt;Now it makes sense! Although we could use a for loop to make it even better:&lt;/p&gt;
-&lt;p&gt;main&lt;br&gt;
-  integer first = 0&lt;br&gt;
-  integer second = 1&lt;br&gt;
-  integer next&lt;/p&gt;
-&lt;p&gt;  for (integer n = console.getInt(); n &amp;gt; 0; n = n - 1)&lt;br&gt;
-    print first&lt;br&gt;
-    next = first + second&lt;br&gt;
-    first = second&lt;br&gt;
-    second = next&lt;br&gt;
-  end&lt;br&gt;
-end&lt;/p&gt;
-&lt;p&gt;Why is this version so much better than the &lt;a href=&#34;http://xkcd.com/292/&#34;&gt;go to&lt;/a&gt; version though? We&amp;rsquo;ve all been taught &lt;strong&gt;go to&lt;/strong&gt; is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why &lt;strong&gt;go to&lt;/strong&gt; is wrong.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;main  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; console.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInt&lt;/span&gt;()  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer next
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  fib_loop:  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print first  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    next &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; first &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; next  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;goto&lt;/span&gt; fib_loop  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;lt;sarcasm_tags_for_the_clueless&amp;gt;Egads! That program is totally obtuse! Here let me write a version without &lt;strong&gt;go to&lt;/strong&gt; so that it makes more sense&amp;lt;/sarcasm_tags_for_the_clueless&amp;gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;main  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; console.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInt&lt;/span&gt;()  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer next
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print first  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    next &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; first &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; next  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now it makes sense! Although we could use a for loop to make it even better:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;main  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer next
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (integer n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; console.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInt&lt;/span&gt;(); n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print first  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    next &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; first &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; next  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  end  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Why is this version so much better than the &lt;a href=&#34;http://xkcd.com/292/&#34;&gt;go to&lt;/a&gt; version though? We&amp;rsquo;ve all been taught &lt;strong&gt;go to&lt;/strong&gt; is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why &lt;strong&gt;go to&lt;/strong&gt; is wrong.&lt;/p&gt;
 </description>
     </item>
     

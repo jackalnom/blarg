@@ -8,6 +8,7 @@ tags: ["debugging", "problem-solving", "root-cause-analysis"]
 
 It's monday at 2pm and you are working on another bug report. It is a null pointer exception in a class you aren't familiar with.
 
+```java
 class Nose  
 ...  
 void upYourNoseWithARubberHose(RubberHose hose) {  
@@ -18,12 +19,15 @@ void upYourNoseWithARubberHose(RubberHose hose) {
 }  
 ....  
 }
+```
 
 \*yawn\*
 
 hose is null and a null pointer exception is thrown when accessing its diameter. At least this is an easy fix you think to yourself.
 
+```java
 if (hose == null || hose.diameter() < 1 inch)
+```
 
 Awesome... bug fixed... just need to commit. "Fixed NPE in upYourNoseWithARubberHose" you type into the comment box.
 

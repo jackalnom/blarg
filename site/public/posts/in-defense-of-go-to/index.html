@@ -263,46 +263,49 @@ That said, let’s say we have been contracted to write a program to generate Fi
     
     <p>I continue this entry from my <a href="/posts/in-defense-of-duplicated-code/">defense of duplicated code</a>. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &ldquo;Lucas Pierce supports the use of go to! Heresy!&rdquo;.</p>
 <p>That said, let&rsquo;s say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.</p>
-<p>main<br>
-  integer n = console.getInt()<br>
-  integer first = 0<br>
-  integer second = 1<br>
-  integer next</p>
-<p>  fib_loop:<br>
-    print first<br>
-    next = first + second<br>
-    first = second<br>
-    second = next<br>
-    n = n - 1<br>
-  if (n &gt; 0) goto fib_loop<br>
-end</p>
-<p>&lt;sarcasm_tags_for_the_clueless&gt;Egads! That program is totally obtuse! Here let me write a version without <strong>go to</strong> so that it makes more sense&lt;/sarcasm_tags_for_the_clueless&gt;:</p>
-<p>main<br>
-  integer n = console.getInt()<br>
-  integer first = 0<br>
-  integer second = 1<br>
-  integer next</p>
-<p>  do<br>
-    print first<br>
-    next = first + second<br>
-    first = second<br>
-    second = next<br>
-    n = n - 1<br>
-  while (n &gt; 0)<br>
-end</p>
-<p>Now it makes sense! Although we could use a for loop to make it even better:</p>
-<p>main<br>
-  integer first = 0<br>
-  integer second = 1<br>
-  integer next</p>
-<p>  for (integer n = console.getInt(); n &gt; 0; n = n - 1)<br>
-    print first<br>
-    next = first + second<br>
-    first = second<br>
-    second = next<br>
-  end<br>
-end</p>
-<p>Why is this version so much better than the <a href="http://xkcd.com/292/">go to</a> version though? We&rsquo;ve all been taught <strong>go to</strong> is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why <strong>go to</strong> is wrong.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>main  
+</span></span><span style="display:flex;"><span>  integer n <span style="color:#f92672">=</span> console.<span style="color:#a6e22e">getInt</span>()  
+</span></span><span style="display:flex;"><span>  integer first <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
+</span></span><span style="display:flex;"><span>  integer second <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  
+</span></span><span style="display:flex;"><span>  integer next
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  fib_loop:  
+</span></span><span style="display:flex;"><span>    print first  
+</span></span><span style="display:flex;"><span>    next <span style="color:#f92672">=</span> first <span style="color:#f92672">+</span> second  
+</span></span><span style="display:flex;"><span>    first <span style="color:#f92672">=</span> second  
+</span></span><span style="display:flex;"><span>    second <span style="color:#f92672">=</span> next  
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">goto</span> fib_loop  
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><p>&lt;sarcasm_tags_for_the_clueless&gt;Egads! That program is totally obtuse! Here let me write a version without <strong>go to</strong> so that it makes more sense&lt;/sarcasm_tags_for_the_clueless&gt;:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>main  
+</span></span><span style="display:flex;"><span>  integer n <span style="color:#f92672">=</span> console.<span style="color:#a6e22e">getInt</span>()  
+</span></span><span style="display:flex;"><span>  integer first <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
+</span></span><span style="display:flex;"><span>  integer second <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  
+</span></span><span style="display:flex;"><span>  integer next
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">do</span>  
+</span></span><span style="display:flex;"><span>    print first  
+</span></span><span style="display:flex;"><span>    next <span style="color:#f92672">=</span> first <span style="color:#f92672">+</span> second  
+</span></span><span style="display:flex;"><span>    first <span style="color:#f92672">=</span> second  
+</span></span><span style="display:flex;"><span>    second <span style="color:#f92672">=</span> next  
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)  
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><p>Now it makes sense! Although we could use a for loop to make it even better:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>main  
+</span></span><span style="display:flex;"><span>  integer first <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
+</span></span><span style="display:flex;"><span>  integer second <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  
+</span></span><span style="display:flex;"><span>  integer next
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (integer n <span style="color:#f92672">=</span> console.<span style="color:#a6e22e">getInt</span>(); n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; n <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)  
+</span></span><span style="display:flex;"><span>    print first  
+</span></span><span style="display:flex;"><span>    next <span style="color:#f92672">=</span> first <span style="color:#f92672">+</span> second  
+</span></span><span style="display:flex;"><span>    first <span style="color:#f92672">=</span> second  
+</span></span><span style="display:flex;"><span>    second <span style="color:#f92672">=</span> next  
+</span></span><span style="display:flex;"><span>  end  
+</span></span><span style="display:flex;"><span>end
+</span></span></code></pre></div><p>Why is this version so much better than the <a href="http://xkcd.com/292/">go to</a> version though? We&rsquo;ve all been taught <strong>go to</strong> is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why <strong>go to</strong> is wrong.</p>
 
     
   </article>

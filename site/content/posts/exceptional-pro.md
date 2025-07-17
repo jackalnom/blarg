@@ -6,8 +6,9 @@ categories: ["Software Engineering"]
 tags: ["exception-handling", "error-handling", "best-practices"]
 ---
 
-No battle plan ever survives contact with the enemy.  
--- Helmuth von Moltke the Elder
+> No battle plan ever survives contact with the enemy.  
+> 
+> -- Helmuth von Moltke the Elder
 
 No discussion of handling exceptions in programming should begin without quoting the great Prussian [Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke](http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder). In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.
 

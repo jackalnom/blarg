@@ -15,33 +15,36 @@
       <guid>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</guid>
       <description>&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;http://www.cs.uchicago.edu/people/clklein&#34;&gt;Casey&lt;/a&gt; for inspiring this entry and for fighting the good fight against boring code.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:&lt;/p&gt;
-&lt;p&gt;int getBlah() {&lt;br&gt;
-   return blah;&lt;br&gt;
-}&lt;/p&gt;
-&lt;p&gt;void setBlah(int blah) {&lt;br&gt;
-   this.blah = blah;&lt;br&gt;
-}&lt;/p&gt;
-&lt;p&gt;String getSoBored() {&lt;br&gt;
-   return soBored;&lt;br&gt;
-}&lt;/p&gt;
-&lt;p&gt;void setSoBored(String soBored) {&lt;br&gt;
-  this.soBored = soBored;&lt;br&gt;
-}&lt;/p&gt;
-&lt;p&gt;In Ruby, this looks like:&lt;/p&gt;
-&lt;p&gt;attr_accessor :blah, :soBored&lt;/p&gt;
-&lt;p&gt;If you are using Java, a certain amount of this type of verbose code is just necessary. The far more insidious problem is that it trains developers into believing this type of pattern is a good thing. The best thing about Ruby and the functional programming communities is that the first point emphasized is that code should be concise and full of meat and if it isn&amp;rsquo;t you aren&amp;rsquo;t thinking hard enough. For instance, the Hello World program in Ruby:&lt;/p&gt;
-&lt;p&gt;puts &amp;ldquo;Hello, World!&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Straight to the point. In Java, you are already entering the world of boilerplate thinking (from &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)&#34;&gt;http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;/**&lt;br&gt;
- * The HelloWorldApp class implements an application that&lt;br&gt;
- * simply displays &amp;ldquo;Hello World!&amp;rdquo; to the standard output.&lt;br&gt;
- */&lt;br&gt;
-class HelloWorldApp {&lt;br&gt;
-    public static void main(String[] args) {&lt;br&gt;
-        System.out.println(&amp;ldquo;Hello World!&amp;rdquo;); //Display the string.&lt;br&gt;
-    }&lt;br&gt;
-}&lt;/p&gt;
-&lt;p&gt;My knock here is not actually that Ruby or functional languages magically eliminate all boilerplate code, or that this extra overhead in these cases is really that painful. You can easily use a code generator for both of these situations and if this is the only boilerplate in your code you are doing pretty good. The problem is the Java community teaches its developers that all of their code should be at about this level of signal to noise.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;getBlah&lt;/span&gt;() {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; blah;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setBlah&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; blah) {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;blah&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; blah;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;String &lt;span style=&#34;color:#a6e22e&#34;&gt;getSoBored&lt;/span&gt;() {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; soBored;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;setSoBored&lt;/span&gt;(String soBored) {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;soBored&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; soBored;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In Ruby, this looks like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;attr_accessor&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;:blah&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;:soBored&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you are using Java, a certain amount of this type of verbose code is just necessary. The far more insidious problem is that it trains developers into believing this type of pattern is a good thing. The best thing about Ruby and the functional programming communities is that the first point emphasized is that code should be concise and full of meat and if it isn&amp;rsquo;t you aren&amp;rsquo;t thinking hard enough. For instance, the Hello World program in Ruby:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;puts &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Straight to the point. In Java, you are already entering the world of boilerplate thinking (from &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)&#34;&gt;http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;/**   
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * The HelloWorldApp class implements an application that  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; * simply displays &amp;#34;Hello World!&amp;#34; to the standard output.  
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt; */&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;HelloWorldApp&lt;/span&gt; {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Hello World!&amp;#34;&lt;/span&gt;); &lt;span style=&#34;color:#75715e&#34;&gt;//Display the string.  &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;My knock here is not actually that Ruby or functional languages magically eliminate all boilerplate code, or that this extra overhead in these cases is really that painful. You can easily use a code generator for both of these situations and if this is the only boilerplate in your code you are doing pretty good. The problem is the Java community teaches its developers that all of their code should be at about this level of signal to noise.&lt;/p&gt;
 &lt;p&gt;This is not an argument about aesthetics. Boring code is bad for precisely three reasons:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Boring code is boring to read. Code is read far more than it is written. This means programmers coming in to modify your code are more likely to miss something and then make the wrong code change.&lt;/li&gt;
@@ -74,46 +77,49 @@ class HelloWorldApp {&lt;br&gt;
       <guid>https://www.bonnycode.com/posts/in-defense-of-go-to/</guid>
       <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;That said, let&amp;rsquo;s say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.&lt;/p&gt;
-&lt;p&gt;main&lt;br&gt;
-  integer n = console.getInt()&lt;br&gt;
-  integer first = 0&lt;br&gt;
-  integer second = 1&lt;br&gt;
-  integer next&lt;/p&gt;
-&lt;p&gt;  fib_loop:&lt;br&gt;
-    print first&lt;br&gt;
-    next = first + second&lt;br&gt;
-    first = second&lt;br&gt;
-    second = next&lt;br&gt;
-    n = n - 1&lt;br&gt;
-  if (n &amp;gt; 0) goto fib_loop&lt;br&gt;
-end&lt;/p&gt;
-&lt;p&gt;&amp;lt;sarcasm_tags_for_the_clueless&amp;gt;Egads! That program is totally obtuse! Here let me write a version without &lt;strong&gt;go to&lt;/strong&gt; so that it makes more sense&amp;lt;/sarcasm_tags_for_the_clueless&amp;gt;:&lt;/p&gt;
-&lt;p&gt;main&lt;br&gt;
-  integer n = console.getInt()&lt;br&gt;
-  integer first = 0&lt;br&gt;
-  integer second = 1&lt;br&gt;
-  integer next&lt;/p&gt;
-&lt;p&gt;  do&lt;br&gt;
-    print first&lt;br&gt;
-    next = first + second&lt;br&gt;
-    first = second&lt;br&gt;
-    second = next&lt;br&gt;
-    n = n - 1&lt;br&gt;
-  while (n &amp;gt; 0)&lt;br&gt;
-end&lt;/p&gt;
-&lt;p&gt;Now it makes sense! Although we could use a for loop to make it even better:&lt;/p&gt;
-&lt;p&gt;main&lt;br&gt;
-  integer first = 0&lt;br&gt;
-  integer second = 1&lt;br&gt;
-  integer next&lt;/p&gt;
-&lt;p&gt;  for (integer n = console.getInt(); n &amp;gt; 0; n = n - 1)&lt;br&gt;
-    print first&lt;br&gt;
-    next = first + second&lt;br&gt;
-    first = second&lt;br&gt;
-    second = next&lt;br&gt;
-  end&lt;br&gt;
-end&lt;/p&gt;
-&lt;p&gt;Why is this version so much better than the &lt;a href=&#34;http://xkcd.com/292/&#34;&gt;go to&lt;/a&gt; version though? We&amp;rsquo;ve all been taught &lt;strong&gt;go to&lt;/strong&gt; is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why &lt;strong&gt;go to&lt;/strong&gt; is wrong.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;main  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; console.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInt&lt;/span&gt;()  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer next
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  fib_loop:  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print first  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    next &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; first &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; next  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;) &lt;span style=&#34;color:#66d9ef&#34;&gt;goto&lt;/span&gt; fib_loop  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;lt;sarcasm_tags_for_the_clueless&amp;gt;Egads! That program is totally obtuse! Here let me write a version without &lt;strong&gt;go to&lt;/strong&gt; so that it makes more sense&amp;lt;/sarcasm_tags_for_the_clueless&amp;gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;main  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; console.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInt&lt;/span&gt;()  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer next
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print first  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    next &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; first &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; next  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; (n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now it makes sense! Although we could use a for loop to make it even better:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;main  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  integer next
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (integer n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; console.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInt&lt;/span&gt;(); n &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; n &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; n &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;)  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    print first  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    next &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; first &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    first &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; second  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    second &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; next  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  end  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Why is this version so much better than the &lt;a href=&#34;http://xkcd.com/292/&#34;&gt;go to&lt;/a&gt; version though? We&amp;rsquo;ve all been taught &lt;strong&gt;go to&lt;/strong&gt; is evil but I find all three equally readable. This is me throwing down the gauntlet, I challenge you to tell me why &lt;strong&gt;go to&lt;/strong&gt; is wrong.&lt;/p&gt;
 </description>
     </item>
     
@@ -198,37 +204,22 @@ Who do you want answering that phone?”
 &lt;p&gt;I believe the absolutely most important thing about being a great professional software developer is being prepared for when things go wrong. The naive developer will claim that nothing can go wrong and so fails to prepare. The battle hardened but cynical developer throws up their hands and says there is nothing they can do about it. I will try to walk you somewhere between these two extremes and combine the pessimism that tells us what can go wrong and the optimism that tells us how we can recover from it.&lt;/p&gt;
 &lt;p&gt;These are the error handling techniques that software developers should be aware of:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;The hard fail.&lt;/strong&gt; This is the easiest and normally the least useful way to handle an error. Just kill your program when something goes wrong. I once worked with a programmer that handled every catch statement with:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;} catch(Exception) {
-  System.exit(1);
-}&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;As a user, this was a bizarre experience to say the least. You would select a menu option and it would suddenly and unexpectedly quit, losing all of your work and giving you no indication of what you actually did wrong. It is a good way to make your user base fearful, neurotic and afraid to color outside the lines though.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;The hard fail with a heartbeat.&lt;/strong&gt; This is similar to the hard fail, but with a separate process whose sole job is to detect the death of your program and to restart it when it dies. This can actually be an amazingly simple and powerful way to handle errors for always up, non-user facing programs. It spares you from writing unnecessary and potentially buggy error recovery code. For highly fault tolerant programs, this approach is used across multiple machines with automatic failover when errors occur. Erlang is built with this style of error handling and was used to write the 1.7 million line &lt;a href=&#34;http://wadler.blogspot.com/2005/05/concurrency-oriented-programming-in.html&#34;&gt;AXD301&lt;/a&gt; which has a measured reliability of 99.9999999% (9 nines).&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Keep on trying.&lt;/strong&gt; Sometimes persistence is all it takes. This type of error handling is useful in situations where it is reasonable to assume that you will eventually succeed. This is especially useful when building resilient applications that work across a network. Be careful to differentiate between errors that can reasonably expected to eventually work when retried. For example if you receive an HTTP 403 Forbidden error it makes no sense to continue to retry the request, an HTTP 503 Service Unavailable error on the other hand is a good candidate for a retry. As Albert Einstein warned &amp;ldquo;The definition of insanity is doing the same thing over and over again and expecting different results.&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;Lastly, be a good citizen and use an &lt;a href=&#34;http://en.wikipedia.org/wiki/Exponential_backoff&#34;&gt;exponential back off&lt;/a&gt; when retrying. The last thing that will help an overburdened server is to have all of its clients hitting it repeatedly every half second when they encounter an error.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Fix it and move on.&lt;/strong&gt; Some errors are just plain correctable. A good example is if a directory you are expecting doesn&amp;rsquo;t exist. If the directory is just going to be used to output some files, consider just creating the directory and then moving on.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Tell me about all about it.&lt;/strong&gt; This is the style of error handling most often encountered by non-technical users. A ominous dialog box appears to slap the user across the face saying &amp;ldquo;Error Encountered 0xDEADBEEF I/O unknown Result Code 42&amp;rdquo;. There are several things commonly wrong with this style of error.&lt;/p&gt;
+&lt;li&gt;&lt;strong&gt;The hard fail.&lt;/strong&gt; This is the easiest and normally the least useful way to handle an error. Just kill your program when something goes wrong. I once worked with a programmer that handled every catch statement with:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   } &lt;span style=&#34;color:#66d9ef&#34;&gt;catch&lt;/span&gt;(Exception) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     System.&lt;span style=&#34;color:#a6e22e&#34;&gt;exit&lt;/span&gt;(1);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As a user, this was a bizarre experience to say the least. You would select a menu option and it would suddenly and unexpectedly quit, losing all of your work and giving you no indication of what you actually did wrong. It is a good way to make your user base fearful, neurotic and afraid to color outside the lines though.
+2. &lt;strong&gt;The hard fail with a heartbeat.&lt;/strong&gt; This is similar to the hard fail, but with a separate process whose sole job is to detect the death of your program and to restart it when it dies. This can actually be an amazingly simple and powerful way to handle errors for always up, non-user facing programs. It spares you from writing unnecessary and potentially buggy error recovery code. For highly fault tolerant programs, this approach is used across multiple machines with automatic failover when errors occur. Erlang is built with this style of error handling and was used to write the 1.7 million line &lt;a href=&#34;http://wadler.blogspot.com/2005/05/concurrency-oriented-programming-in.html&#34;&gt;AXD301&lt;/a&gt; which has a measured reliability of 99.9999999% (9 nines).
+3. &lt;strong&gt;Keep on trying.&lt;/strong&gt; Sometimes persistence is all it takes. This type of error handling is useful in situations where it is reasonable to assume that you will eventually succeed. This is especially useful when building resilient applications that work across a network. Be careful to differentiate between errors that can reasonably expected to eventually work when retried. For example if you receive an HTTP 403 Forbidden error it makes no sense to continue to retry the request, an HTTP 503 Service Unavailable error on the other hand is a good candidate for a retry. As Albert Einstein warned &amp;ldquo;The definition of insanity is doing the same thing over and over again and expecting different results.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Lastly, be a good citizen and use an &lt;a href=&#34;http://en.wikipedia.org/wiki/Exponential_backoff&#34;&gt;exponential back off&lt;/a&gt; when retrying. The last thing that will help an overburdened server is to have all of its clients hitting it repeatedly every half second when they encounter an error.
+4. &lt;strong&gt;Fix it and move on.&lt;/strong&gt; Some errors are just plain correctable. A good example is if a directory you are expecting doesn&amp;rsquo;t exist. If the directory is just going to be used to output some files, consider just creating the directory and then moving on.
+5. &lt;strong&gt;Tell me about all about it.&lt;/strong&gt; This is the style of error handling most often encountered by non-technical users. A ominous dialog box appears to slap the user across the face saying &amp;ldquo;Error Encountered 0xDEADBEEF I/O unknown Result Code 42&amp;rdquo;. There are several things commonly wrong with this style of error.&lt;/p&gt;
 &lt;p&gt;The first is that programmers write non-understandable error messages. It is bad enough when programmers write error messages that only they understand, worse I see error messages that even the programmer who wrote the program doesn&amp;rsquo;t understand because it provides no context for what the error actually is. Don&amp;rsquo;t just say, &amp;ldquo;error encountered&amp;rdquo;, you need to tell the user why the error occurred and what they can do to correct it if it isn&amp;rsquo;t obvious.&lt;/p&gt;
 &lt;p&gt;The second thing wrong with this type of error is that it is used in cases where the program is making the user do something manually that the program could have done automatically. If you need a temp directory created before you start, don&amp;rsquo;t tell the user and make them create it when the program could more easily create the directory itself and keep on working. If you encounter a network error, try auto-retrying with a cancel button, and don&amp;rsquo;t make the user sit there manually clicking retry.&lt;/p&gt;
-&lt;p&gt;The third thing wrong with this type of error is that it can be a potential security hole. If you expose programmatic details in your error message such as a Java stack trace, this can be valuable information to those trying to hack your program. Sometimes you can be too helpful in your error message as well. If someone is prohibited from accessing a piece of information, telling them that it exists but that they can&amp;rsquo;t get it can be valuable to the would be hacker in itself. In this case, you might want to make forbidden return the same error as not found.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Phone home.&lt;/strong&gt; Too many programmers never anticipate what it will be like to debug a problem when the program is out in the wild and not sitting in debug mode on their own box. If you think it is hard reproducing problems on your machine, imagine what you will do when a user calls up and says &amp;ldquo;I hit the blue button on the right and then it told me &amp;lsquo;unexpected error&amp;rsquo;&amp;rdquo; when there is no blue button in your program and unexpected error is the error message you use for a gazillion different possible error cases. If possible, collect and even automatically send as much information as you can gather about errors back to yourself when an error occurs. There are numerous caveats to this such as being careful to not send sensitive information (credit card numbers, classified material, yadda yadda) and letting users know before sending the debug info if it is an externally distributed software. The lesson is the same though. When handling an error that indicates a bug in the program, collect the information you will need to reproduce and fix the bug back on your own machine.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Rollback.&lt;/strong&gt; This type of error handling is useful normally in combination with one of the methods mentioned above. Its a travesty that most programmers only encounter rollbacks when dealing with database transactions. Being able to rollback the state of your program is an extremely useful concept when writing explorable user friendly applications. Your transactional rollback mechanism can be tied into an undo mechanism that allows your user to to undo undesirable behavior. This type of program would be the opposite of the fear driven program described in the &amp;lsquo;fail hard&amp;rsquo; error handling I first described. A word of caution though, writing rollback features is notoriously difficult. If at all humanly (computerly?) possible, it is far easier to snapshot the state and just revert back then to actually try to rewind an operation. This isn&amp;rsquo;t always possible but it should always be the first option you consider.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;The third thing wrong with this type of error is that it can be a potential security hole. If you expose programmatic details in your error message such as a Java stack trace, this can be valuable information to those trying to hack your program. Sometimes you can be too helpful in your error message as well. If someone is prohibited from accessing a piece of information, telling them that it exists but that they can&amp;rsquo;t get it can be valuable to the would be hacker in itself. In this case, you might want to make forbidden return the same error as not found.
+6. &lt;strong&gt;Phone home.&lt;/strong&gt; Too many programmers never anticipate what it will be like to debug a problem when the program is out in the wild and not sitting in debug mode on their own box. If you think it is hard reproducing problems on your machine, imagine what you will do when a user calls up and says &amp;ldquo;I hit the blue button on the right and then it told me &amp;lsquo;unexpected error&amp;rsquo;&amp;rdquo; when there is no blue button in your program and unexpected error is the error message you use for a gazillion different possible error cases. If possible, collect and even automatically send as much information as you can gather about errors back to yourself when an error occurs. There are numerous caveats to this such as being careful to not send sensitive information (credit card numbers, classified material, yadda yadda) and letting users know before sending the debug info if it is an externally distributed software. The lesson is the same though. When handling an error that indicates a bug in the program, collect the information you will need to reproduce and fix the bug back on your own machine.
+7. &lt;strong&gt;Rollback.&lt;/strong&gt; This type of error handling is useful normally in combination with one of the methods mentioned above. Its a travesty that most programmers only encounter rollbacks when dealing with database transactions. Being able to rollback the state of your program is an extremely useful concept when writing explorable user friendly applications. Your transactional rollback mechanism can be tied into an undo mechanism that allows your user to to undo undesirable behavior. This type of program would be the opposite of the fear driven program described in the &amp;lsquo;fail hard&amp;rsquo; error handling I first described. A word of caution though, writing rollback features is notoriously difficult. If at all humanly (computerly?) possible, it is far easier to snapshot the state and just revert back then to actually try to rewind an operation. This isn&amp;rsquo;t always possible but it should always be the first option you consider.&lt;/p&gt;
 &lt;p&gt;Exception handling isn&amp;rsquo;t a glamorous topic, but it is still important. Be the humble programmer that looks for ways to make their program cool and confident in the face of adversity and unexpected situations.&lt;/p&gt;
 </description>
     </item>
@@ -311,8 +302,9 @@ Who do you want answering that phone?”
       <pubDate>Sun, 13 Apr 2008 20:14:29 +0000</pubDate>
       
       <guid>https://www.bonnycode.com/posts/exceptional-pro/</guid>
-      <description>&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;br&gt;
-&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;/p&gt;
+&lt;p&gt;&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
 &lt;p&gt;I will imbue onto you the knowledge necessary to write such graceful programs. As part of a multi-part series, I will go into all the wonderful things that good developers should know when dealing with exceptional cases. I&amp;rsquo;m assuming that anyone reading this already understands the technical aspects of exceptions. If you don&amp;rsquo;t and you are programming in Java, you can start out by reading &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/essential/exceptions/index.html&#34;&gt;Sun&amp;rsquo;s tutorial&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;

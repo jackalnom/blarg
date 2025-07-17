@@ -11,22 +11,20 @@
   
   
   <meta name="description" content="I&rsquo;ve often said that if statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm1:
-
-def Money calculateAutoInsurance
-  if (person is-a Man)
-    Man man = (Man)person
-    if (man.canGrowBeard)
-      return $50
-    else
-      return $2000
-    end
-  else if (person is-a Woman)
-    return $10
-  else
-    kaboom!
-  end
-end
- 
+def Money calculateAutoInsurance  
+  if (person is-a Man)  
+    Man man = (Man)person  
+      if (man.canGrowBeard)  
+        return $50  
+      else   
+        return $2000  
+      end  
+    else if (person is-a Woman)  
+      return $10  
+    else  
+      kaboom!  
+    end
+end  
 When casting or using any is-a operator such as instanceof in Java or kind_of?/is_a? in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.">
   
 
@@ -68,21 +66,7 @@ When casting or using any is-a operator such as instanceof in Java or kind_of?/i
   <meta property="og:site_name" content="BonnyCode">
   <meta property="og:title" content="Continued Slander against the Noble If">
   <meta property="og:description" content="I’ve often said that if statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm1:
-def Money calculateAutoInsurance
-if (person is-a Man)
-Man man = (Man)person
-if (man.canGrowBeard)
-return $50
-else
-return $2000
-end
-else if (person is-a Woman)
-return $10
-else
-kaboom!
-end
-end
-When casting or using any is-a operator such as instanceof in Java or kind_of?/is_a? in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.">
+def Money calculateAutoInsurance if (person is-a Man) Man man = (Man)person if (man.canGrowBeard) return $50 else return $2000 end else if (person is-a Woman) return $10 else kaboom! end end When casting or using any is-a operator such as instanceof in Java or kind_of?/is_a? in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -101,21 +85,7 @@ When casting or using any is-a operator such as instanceof in Java or kind_of?/i
   
   <meta itemprop="name" content="Continued Slander against the Noble If">
   <meta itemprop="description" content="I’ve often said that if statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm1:
-def Money calculateAutoInsurance
-if (person is-a Man)
-Man man = (Man)person
-if (man.canGrowBeard)
-return $50
-else
-return $2000
-end
-else if (person is-a Woman)
-return $10
-else
-kaboom!
-end
-end
-When casting or using any is-a operator such as instanceof in Java or kind_of?/is_a? in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.">
+def Money calculateAutoInsurance if (person is-a Man) Man man = (Man)person if (man.canGrowBeard) return $50 else return $2000 end else if (person is-a Woman) return $10 else kaboom! end end When casting or using any is-a operator such as instanceof in Java or kind_of?/is_a? in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.">
   <meta itemprop="datePublished" content="2008-03-16T13:26:43+00:00">
   <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
   <meta itemprop="wordCount" content="387">
@@ -142,21 +112,7 @@ When casting or using any is-a operator such as instanceof in Java or kind_of?/i
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Continued Slander against the Noble If">
   <meta name="twitter:description" content="I’ve often said that if statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm1:
-def Money calculateAutoInsurance
-if (person is-a Man)
-Man man = (Man)person
-if (man.canGrowBeard)
-return $50
-else
-return $2000
-end
-else if (person is-a Woman)
-return $10
-else
-kaboom!
-end
-end
-When casting or using any is-a operator such as instanceof in Java or kind_of?/is_a? in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.">
+def Money calculateAutoInsurance if (person is-a Man) Man man = (Man)person if (man.canGrowBeard) return $50 else return $2000 end else if (person is-a Woman) return $10 else kaboom! end end When casting or using any is-a operator such as instanceof in Java or kind_of?/is_a? in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.">
 
 
   
@@ -320,23 +276,21 @@ When casting or using any is-a operator such as instanceof in Java or kind_of?/i
   <article class="content numbered-subtitles">
     
     <p>I&rsquo;ve often said that <strong>if</strong> statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm<a href="#disclaimer">1</a>:</p>
-<blockquote>
-<p><strong>def</strong> Money calculateAutoInsurance<br>
-  <strong>if</strong> (person <strong>is-a</strong> Man)<br>
-    Man man = (Man)person<br>
-    <strong>if</strong> (man.canGrowBeard)<br>
-      <strong>return</strong> $50<br>
-    <strong>else</strong><br>
-      <strong>return</strong> $2000<br>
-    <strong>end</strong><br>
-  <strong>else if</strong> (person <strong>is-a</strong> Woman)<br>
-    <strong>return</strong> $10<br>
-  <strong>else</strong><br>
-    kaboom!<br>
-  <strong>end</strong><br>
-<strong>end</strong><br>
- </p></blockquote>
-<p>When casting or using any <strong>is-a</strong> operator such as <strong>instanceof</strong> in Java or <strong>kind_of?</strong>/<strong>is_a?</strong> in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Money</span> calculateAutoInsurance  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (person is<span style="color:#f92672">-</span>a <span style="color:#66d9ef">Man</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">Man</span> man <span style="color:#f92672">=</span> (<span style="color:#66d9ef">Man</span>)person  
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (man<span style="color:#f92672">.</span>canGrowBeard)  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $50  
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>   
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> $2000  
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">end</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (person is<span style="color:#f92672">-</span>a <span style="color:#66d9ef">Woman</span>)  
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> $10  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>  
+</span></span><span style="display:flex;"><span>      kaboom!  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>  
+</span></span></code></pre></div><p>When casting or using any <code>is-a</code> operator such as <code>instanceof</code> in Java or <code>kind_of?</code>/<code>is_a?</code> in Ruby, you should stop to think about whether this is really the best solution. Sometimes it is necessary such as in Java when implementing the equals method or when hacking around a poorly designed third party library. If you are able to modify the classes you are calling though, a simpler solution is to push the conditional logic into the derived classes.</p>
 <p>The <a href="http://en.wikipedia.org/wiki/Liskov_substitution_principle">Liskov Substitution Principle</a> and <a href="http://en.wikipedia.org/wiki/Substitutability">substitutability</a> are helpful in understanding how to design proper polymorphic classes. When a caller is acting upon an interface, one should be able to substitute any type that implements that interface. In this case, the caller is breaking substitutability by casting to a specific derived type and basing logic on what the derived type is.</p>
 <p>Code that follows the substitutability principle is better for several reasons:</p>
 <ol>
@@ -344,26 +298,26 @@ When casting or using any is-a operator such as instanceof in Java or kind_of?/i
 <li><em><strong>Better encapsulation</strong></em>. If canGrowBeard was only exposed for auto insurance calculations, it can be rehidden when we push the auto insurance calculation into the derived Persons.</li>
 <li><em><strong>Safer/Easier to extend</strong></em>. For example, it will be easier to add a <a href="http://en.wikipedia.org/wiki/Third_gender">third gender</a> for Person if we know the caller always follows the substitutability principle. I would not advocate removing simplicity to add this extensibility, but given that it is simpler, the extra extensibility is a nice bonus.</li>
 </ol>
-<blockquote>
-<p><strong>class</strong> Man <strong>extends</strong> Person<br>
-&hellip;<br>
-  <strong>def</strong> Money autoInsurance<br>
-    <strong>if</strong> (canGrowBeard)<br>
-      <strong>return</strong> $50<br>
-    <strong>else</strong><br>
-      <strong>return</strong> $2000<br>
-    <strong>end</strong><br>
-  <strong>end</strong><br>
-&hellip;<br>
-<strong>end</strong></p>
-<p><strong>class</strong> Woman <strong>extends</strong> Person<br>
-&hellip;<br>
-  <strong>def</strong> Money autoInsurance<br>
-    <strong>return</strong> $10<br>
-  <strong>end</strong><br>
-&hellip;<br>
-<strong>end</strong></p></blockquote>
-<p><strong>BONUS POINTS</strong> for anyone that can tell me what is still highly suspicious about the design for the final solution.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Man</span> extends <span style="color:#66d9ef">Person</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Money</span> autoInsurance  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (canGrowBeard)  
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> $50  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>   
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> $2000  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Woman</span> extends <span style="color:#66d9ef">Person</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Money</span> autoInsurance  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> $10  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p><strong>BONUS POINTS</strong> for anyone that can tell me what is still highly suspicious about the design for the final solution.</p>
 <ol>
 <li>Any illegal activity presented here is fictional and any resemblance to illegal activity past, present, or fictional is purely and completely coincidental.</li>
 </ol>

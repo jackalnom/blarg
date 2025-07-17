@@ -38,7 +38,7 @@ class WarmupQuestion {
 
 To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.
 
-```
+```shell
 object of type [I lived for 12 milliseconds  
  WarmupQuestion.main(WarmupQuestion.java:10)  
 object of type java.lang.Integer lived for 19 milliseconds  

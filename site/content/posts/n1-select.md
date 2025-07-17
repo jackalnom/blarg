@@ -8,7 +8,7 @@ tags: ["n+1-problem", "orm", "database", "performance"]
 
 You can forget about the performance of synchronized vs. unsynchronized, when you write code hitting your database that looks like this:
 
-```
+```java
 peeps = Database.findMyPeeps  
 for (each peep in peeps)  
   address = Database.findAddressForPeep(peep)
@@ -16,7 +16,7 @@ for (each peep in peeps)
 
 This is called an N+1 select, although honestly it is more like a 1 + N select. You first run a query to find what you are looking for, and then you proceed to iterate over those results to do N more queries for each row in your initial query. This is a all too common reason for slow applications because of the overhead of the frequent database queries. My example above is the obvious version of this, and if you use an [Object Relational Mapping](http://en.wikipedia.org/wiki/Object-relational_mapping) (ORM) such as [Hibernate](http://www.hibernate.org/hib_docs/v3/reference/en/html/) or [ActiveRecord](http://ar.rubyonrails.com/) there is a much more stealthy version of this anti-pattern:
 
-```
+```java
 peeps = PeepDAO.findMyPeeps  
 for (each peep in peeps)  
    address = peep.getAddress

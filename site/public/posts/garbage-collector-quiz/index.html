@@ -318,17 +318,17 @@ import java.lang.ref.*; import java.util.*; class WarmupQuestion { private stati
 </span></span><span style="display:flex;"><span>    ...      
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.</p>
-<pre tabindex="0"><code>object of type [I lived for 12 milliseconds  
- WarmupQuestion.main(WarmupQuestion.java:10)  
-object of type java.lang.Integer lived for 19 milliseconds  
- WarmupQuestion.main(WarmupQuestion.java:9)  
-object of type java.util.ArrayList lived until program exit.  
- WarmupQuestion.&lt;clinit&gt;(WarmupQuestion.java:5)  
-object of type WarmupQuestion has a finalize that raises the dead.  
- WarmupQuestion.main(WarmupQuestion.java:7)  
-object of type java.lang.String lived until program exit.  
- WarmupQuestion.main(WarmupQuestion.java:12)
-</code></pre><p>The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>object of type <span style="color:#f92672">[</span>I lived <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">12</span> milliseconds  
+</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:10<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>object of type java.lang.Integer lived <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">19</span> milliseconds  
+</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:9<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>object of type java.util.ArrayList lived <span style="color:#66d9ef">until</span> program exit.  
+</span></span><span style="display:flex;"><span> WarmupQuestion.&lt;clinit&gt;<span style="color:#f92672">(</span>WarmupQuestion.java:5<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>object of type WarmupQuestion has a finalize that raises the dead.  
+</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:7<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>object of type java.lang.String lived <span style="color:#66d9ef">until</span> program exit.  
+</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:12<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.</p>
 <p>Good luck!</p>
 
     

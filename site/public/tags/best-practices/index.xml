@@ -103,8 +103,9 @@
       <pubDate>Sun, 13 Apr 2008 20:14:29 +0000</pubDate>
       
       <guid>https://www.bonnycode.com/posts/exceptional-pro/</guid>
-      <description>&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;br&gt;
-&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;/p&gt;
+&lt;p&gt;&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
 &lt;p&gt;I will imbue onto you the knowledge necessary to write such graceful programs. As part of a multi-part series, I will go into all the wonderful things that good developers should know when dealing with exceptional cases. I&amp;rsquo;m assuming that anyone reading this already understands the technical aspects of exceptions. If you don&amp;rsquo;t and you are programming in Java, you can start out by reading &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/essential/exceptions/index.html&#34;&gt;Sun&amp;rsquo;s tutorial&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;
@@ -117,8 +118,9 @@
       <pubDate>Sun, 06 Apr 2008 21:57:15 +0000</pubDate>
       
       <guid>https://www.bonnycode.com/posts/the-joy-of-immu/</guid>
-      <description>&lt;p&gt;No man ever steps in the same river twice, for it&amp;rsquo;s not the same river and he&amp;rsquo;s not the same man.&lt;br&gt;
-&amp;ndash; Heraclitus&lt;/p&gt;
+      <description>&lt;blockquote&gt;
+&lt;p&gt;No man ever steps in the same river twice, for it&amp;rsquo;s not the same river and he&amp;rsquo;s not the same man.&lt;/p&gt;
+&lt;p&gt;&amp;ndash; Heraclitus&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;The relation between identity and change is a basic philosophical problem. How can one define anything when everything is always changing? For example, your tax return includes basic information about yourself such as marital status. When you get married, this doesn&amp;rsquo;t make all previous years tax returns invalid. They are still true, but refer to your self at that point in time.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Person&lt;/span&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  ...  

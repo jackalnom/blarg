@@ -6,11 +6,12 @@ categories: ["Career & Professional"]
 tags: ["debugging", "persistence", "skill-development"]
 ---
 
-The heights by great men reached and kept  
-Were not attained by sudden flight,   
-But they, while their companions slept,   
-Were toiling upward in the night.  
-*-- Henry Wadsworth Longfellow*
+> The heights by great men reached and kept  
+> Were not attained by sudden flight,   
+> But they, while their companions slept,   
+> Were toiling upward in the night.  
+> 
+> -- Henry Wadsworth Longfellow
 
 You're working on a difficult bug. A strange log message showing that your program fails every once in a while. Looking at your watch you see you've already been working on it for half an hour. You put the bug back on the router thinking to yourself maybe someone else will have better luck. And then a man from the future appears behind you... oh never mind I won't subject you to that torture [again](/posts/do-not-fix-what-you-dont-understand/).
 

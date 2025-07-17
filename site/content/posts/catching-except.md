@@ -24,9 +24,11 @@ I believe the absolutely most important thing about being a great professional s
 These are the error handling techniques that software developers should be aware of:
 
 1. **The hard fail.** This is the easiest and normally the least useful way to handle an error. Just kill your program when something goes wrong. I once worked with a programmer that handled every catch statement with:
-   > } catch(Exception) {
-   >   System.exit(1);
-   > }
+```java
+   } catch(Exception) {
+     System.exit(1);
+   }
+```
 
    As a user, this was a bizarre experience to say the least. You would select a menu option and it would suddenly and unexpectedly quit, losing all of your work and giving you no indication of what you actually did wrong. It is a good way to make your user base fearful, neurotic and afraid to color outside the lines though.
 2. **The hard fail with a heartbeat.** This is similar to the hard fail, but with a separate process whose sole job is to detect the death of your program and to restart it when it dies. This can actually be an amazingly simple and powerful way to handle errors for always up, non-user facing programs. It spares you from writing unnecessary and potentially buggy error recovery code. For highly fault tolerant programs, this approach is used across multiple machines with automatic failover when errors occur. Erlang is built with this style of error handling and was used to write the 1.7 million line [AXD301](http://wadler.blogspot.com/2005/05/concurrency-oriented-programming-in.html) which has a measured reliability of 99.9999999% (9 nines).
