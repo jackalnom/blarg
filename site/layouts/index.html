@@ -15,9 +15,9 @@
               {{ range . }}
                 <article class="post-preview">
                     <h3>
-                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                    </h3>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                     <time>{{ .Date.Format "January 2, 2006" }}</time>
+                    </h3>
                     <p>
                         {{ .Summary }} 
                         <a href="{{ .RelPermalink }}">Continue reading →</a>

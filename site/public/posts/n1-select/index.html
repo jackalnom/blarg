@@ -60,7 +60,7 @@ peeps = Database.findMyPeeps for (each peep in peeps) address = Database.findAdd
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2008-06-17T21:42:16+00:00">
-    <meta property="article:modified_time" content="2025-07-16T09:31:34-07:00">
+    <meta property="article:modified_time" content="2025-07-16T21:14:13-07:00">
     <meta property="article:tag" content="N&#43;1-Problem">
     <meta property="article:tag" content="Orm">
     <meta property="article:tag" content="Database">
@@ -77,7 +77,7 @@ peeps = Database.findMyPeeps for (each peep in peeps) address = Database.findAdd
   <meta itemprop="description" content="You can forget about the performance of synchronized vs. unsynchronized, when you write code hitting your database that looks like this:
 peeps = Database.findMyPeeps for (each peep in peeps) address = Database.findAddressForPeep(peep) This is called an N&#43;1 select, although honestly it is more like a 1 &#43; N select. You first run a query to find what you are looking for, and then you proceed to iterate over those results to do N more queries for each row in your initial query. This is a all too common reason for slow applications because of the overhead of the frequent database queries. My example above is the obvious version of this, and if you use an Object Relational Mapping (ORM) such as Hibernate or ActiveRecord there is a much more stealthy version of this anti-pattern:">
   <meta itemprop="datePublished" content="2008-06-17T21:42:16+00:00">
-  <meta itemprop="dateModified" content="2025-07-16T09:31:34-07:00">
+  <meta itemprop="dateModified" content="2025-07-16T21:14:13-07:00">
   <meta itemprop="wordCount" content="374">
   <meta itemprop="keywords" content="N&#43;1-Problem,Orm,Database,Performance">
 
