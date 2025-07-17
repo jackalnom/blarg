@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Software Engineering on BonnyCode</title>
-    <link>http://localhost:1313/categories/software-engineering/</link>
+    <link>https://www.bonnycode.com/categories/software-engineering/</link>
     <description>Recent content in Software Engineering on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Apr 2009 22:51:32 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/software-engineering/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2009 22:51:32 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/categories/software-engineering/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Just Say &#39;No&#39; To Boring Code</title>
-      <link>http://localhost:1313/posts/just-say-no-to-boring-code/</link>
+      <link>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</link>
       <pubDate>Sun, 12 Apr 2009 22:51:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/just-say-no-to-boring-code/</guid>
+      <guid>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</guid>
       <description>&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;http://www.cs.uchicago.edu/people/clklein&#34;&gt;Casey&lt;/a&gt; for inspiring this entry and for fighting the good fight against boring code.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:&lt;/p&gt;
 &lt;p&gt;int getBlah() {&lt;br&gt;
@@ -48,36 +48,36 @@ class HelloWorldApp {&lt;br&gt;
 &lt;li&gt;Boring code is boring to review. A critical quality insurance practice in professional software development is code reviews. But boring code is boring to review. If you write boring code, it is far more likely the reviewer will just go &amp;lsquo;yadda yadda yadda looks good to me&amp;rsquo; and gloss over mistakes.&lt;/li&gt;
 &lt;li&gt;Boring code is boring. Come on, do you really want to be boring?&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
+&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on code quality:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/code-comprehens/&#34;&gt;Code Comprehension&lt;/a&gt; - Understanding code assumptions and avoiding mistakes&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/register-style/&#34;&gt;Register Style Programming&lt;/a&gt; - Proper variable naming and scope management&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/code-comprehens/&#34;&gt;Code Comprehension&lt;/a&gt; - Understanding code assumptions and avoiding mistakes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/register-style/&#34;&gt;Register Style Programming&lt;/a&gt; - Proper variable naming and scope management&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>A Timeless Way of Coding</title>
-      <link>http://localhost:1313/posts/a-timeless-way-of-coding/</link>
+      <link>https://www.bonnycode.com/posts/a-timeless-way-of-coding/</link>
       <pubDate>Sun, 22 Feb 2009 22:51:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/a-timeless-way-of-coding/</guid>
+      <guid>https://www.bonnycode.com/posts/a-timeless-way-of-coding/</guid>
       <description>&lt;p&gt;What do the Macarena and the GoF&amp;rsquo;s &lt;a href=&#34;http://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional/dp/0201633612/&#34;&gt;Design Patterns&lt;/a&gt; have in common? They all became wildly popular in 1995 but in the following years experienced a large backlash from overexposure. There have been many arguments against Design Patterns as practiced in software development, chiefly that they promote over complicated code and that they really just paper over what should be seen as core deficiencies in mainstream object oriented languages.&lt;/p&gt;
 &lt;p&gt;The original inspiration for the design patterns movement in software was Christopher Alexander&amp;rsquo;s &lt;a href=&#34;http://www.amazon.com/Timeless-Way-Building-Christopher-Alexander/dp/0195024028/&#34;&gt;The Timeless Way of Building&lt;/a&gt;. Somewhere from Christopher Alexander&amp;rsquo;s original text to the software industries adoption of design patterns, the very soul of his meaning was left behind. Envision for a moment the stereotype of a hard core believer in software design patterns. Their code is designed all up front using UML and every class is named after one design pattern or another. Often times even multiple of them, such as the FooBarStrategyAbstractFactorySingleton. They create big inorganic design, suitable to distinct job roles where one can be an architect that doesn&amp;rsquo;t design, a designer who doesn&amp;rsquo;t code and a coder who does as they are told.&lt;/p&gt;
 &lt;p&gt;The spirit of the timeless way of building is to evoke that quality without a name. Some buildings are just lifeless, cold and somehow wrong. Others have a cozy liveliness that just feels comfortable and right. To obtain the quality without a name, one has to look at how such designs organically arose and the micro principles and patterns they applied. The centrally planned cities, strip malls and cookie cutter suburban homes all lack this organically grown life.&lt;/p&gt;
 &lt;p&gt;This is the central problem with how design patterns are applied. They are used to dictate design as if it is something that can be rigorously planned rather than something that is adapted to. This is why so much enterprise code feels so bloated and lifeless, it lacks the natural flow and elegance of code that is designed to fit a specific problem rather than trying to fit into a wholly consistent uber architecture.&lt;/p&gt;
-&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;http://localhost:1313/posts/the-bad-programmer/&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
+&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;https://www.bonnycode.com/posts/the-bad-programmer/&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>In Defense of Go To</title>
-      <link>http://localhost:1313/posts/in-defense-of-go-to/</link>
+      <link>https://www.bonnycode.com/posts/in-defense-of-go-to/</link>
       <pubDate>Sun, 07 Dec 2008 13:36:48 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/in-defense-of-go-to/</guid>
-      <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
+      <guid>https://www.bonnycode.com/posts/in-defense-of-go-to/</guid>
+      <description>&lt;p&gt;I continue this entry from my &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;defense of duplicated code&lt;/a&gt;. If programmers were politicians, writing an article like this would surely prevent me from ever running for Programmer President. Twenty years from now someone would dig it up and say &amp;ldquo;Lucas Pierce supports the use of go to! Heresy!&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;That said, let&amp;rsquo;s say we have been contracted to write a program to generate Fibonacci numbers. Believe me, Fibonacci generators are a hot commodity these days so this is a totally realistic example. In this case you run the program and then type in a number (n) and it gives the first n Fibonacci numbers and then exits.&lt;/p&gt;
 &lt;p&gt;main&lt;br&gt;
   integer n = console.getInt()&lt;br&gt;
@@ -124,14 +124,14 @@ end&lt;/p&gt;
     
     <item>
       <title>In Defense of Duplicated Code</title>
-      <link>http://localhost:1313/posts/in-defense-of-duplicated-code/</link>
+      <link>https://www.bonnycode.com/posts/in-defense-of-duplicated-code/</link>
       <pubDate>Sun, 30 Nov 2008 22:08:07 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/in-defense-of-duplicated-code/</guid>
+      <guid>https://www.bonnycode.com/posts/in-defense-of-duplicated-code/</guid>
       <description>&lt;p&gt;One of the first principles you will hear from anyone hoping to impart software development wisdom on young disciples is &lt;a href=&#34;http://en.wikipedia.org/wiki/Don%27t_repeat_yourself&#34;&gt;DRY&lt;/a&gt;. Don&amp;rsquo;t Repeat Yourself. If software best practices all lived in a little nation, the Honourable Commonwealth of Softwaria, its king would be DRY. A good king he was too.&lt;/p&gt;
 &lt;p&gt;Since ages long since past, DRY has helped to keep javascripters from copy and pasting themselves into another rathole. At first, King DRY used methods to remove duplicate code. Formatting integers to currency a bajillion different places? No problem make a method to do the formating. The code is better because it is more readable (formatAsCurrency) and if you ever need to change or extend the logic you can do so in one place. Huzzah!&lt;/p&gt;
 &lt;p&gt;Over the years, DRY took on further battles for the people of Softwaria. In the Thirty Year War against Visual Basic programmers, DRY brought forth the mighty powers of &lt;a href=&#34;http://en.wikipedia.org/wiki/Object_composition&#34;&gt;composition&lt;/a&gt;. Now large segments of functionality and data, not just individual methods, could be transported and duplicated to be used anywhere. A method to format an integer into currency? How about a currency class instead that can not only format itself to a string but also do any other logic you want to on currency all bundled nicely in a little package. Besides removing duplicate code, composition also provided encapsulation, higher cohesion and lowered coupling (the bad kind not the good kind!).&lt;/p&gt;
-&lt;p&gt;As Lord Action once said though, power tends to corrupt, and absolute power corrupts absolutely. For in his zealous fervor to ban any duplicate code or logic he was tempted into delving into powerful and dark arts. DRY called upon his most powerful sorcerers who gave him the power of &lt;a href=&#34;http://localhost:1313/posts/banned-implementation-inheritance/&#34;&gt;implementation inheritance&lt;/a&gt;. Yes he did eke out yet more removal of duplicated code. But in the process he sacrificed most of the benefits that encapsulation had provided.&lt;/p&gt;
+&lt;p&gt;As Lord Action once said though, power tends to corrupt, and absolute power corrupts absolutely. For in his zealous fervor to ban any duplicate code or logic he was tempted into delving into powerful and dark arts. DRY called upon his most powerful sorcerers who gave him the power of &lt;a href=&#34;https://www.bonnycode.com/posts/banned-implementation-inheritance/&#34;&gt;implementation inheritance&lt;/a&gt;. Yes he did eke out yet more removal of duplicated code. But in the process he sacrificed most of the benefits that encapsulation had provided.&lt;/p&gt;
 &lt;p&gt;Yet more dissidents were found in the kingdom of Softwaria though and DRY delved into yet darker arts to combat them. This time he tapped into the power of &lt;a href=&#34;http://en.wikipedia.org/wiki/Reflection_%28computer_science%29&#34;&gt;reflection&lt;/a&gt;. With this power he could make mountains move (even if they were declared private!). Giddy with power, the king annihilated the duplicated code. Yes he had to sacrifice readability, but it seemed a small price to pay to eliminate those treasonous and heretical duplicate code bastards.&lt;/p&gt;
 &lt;p&gt;Finally, in the dark recesses of the kingdom, DRY found the last remaining resistance movements of duplicated code. They didn&amp;rsquo;t bother people much, they were largely just simple workers tilling away at their small plot of program. By this time the good king had become fanatical though. ALL DUPLICATED CODE MUST DIE! He called on his sorcerers one final time and asked for the power to remove the remaining resistance. He offered anything in his kingdom just for this one final grant of power. And the sorcerers delivered for they offered the power of &lt;a href=&#34;http://en.wikipedia.org/wiki/Metaprogramming&#34;&gt;metaprogramming&lt;/a&gt;. Now the King was no longer bound by the traditional physics of the land, instead he could reshape it in whatever likeness he desired. In the land of Java the king created code generators that created wide areas of forbidden code, code never to be touched or even looked at. XML spread like a disease, soon used to store the most important program logic. In the land of Ruby, programs created other programs and whole new languages sprang forth from nowhere to solve the most trivial of problems. Ruby on Rails came riding high with &lt;a href=&#34;http://www.rubyonrails.org/screencasts&#34;&gt;instant magical scaffolds&lt;/a&gt;. And the last of the duplicated code died&amp;hellip;&lt;/p&gt;
 &lt;p&gt;The king was satisfied with himself for he had finally fulfilled his ultimate goal. Old King DRY stepped out to view his wondrous kingdom and no longer recognized what he saw. It was incomprehensible. Nothing made sense anymore, nothing was predictable and nothing worked as it seemed. Nobody, not even King DRY who created this world, understood it anymore. The sorcerers laughed knowing the land was now ruled by magic and the good king wept.&lt;/p&gt;
@@ -140,11 +140,11 @@ end&lt;/p&gt;
     
     <item>
       <title>Banned: Implementation Inheritance</title>
-      <link>http://localhost:1313/posts/banned-implementation-inheritance/</link>
+      <link>https://www.bonnycode.com/posts/banned-implementation-inheritance/</link>
       <pubDate>Sun, 07 Sep 2008 13:21:40 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/banned-implementation-inheritance/</guid>
-      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;http://localhost:1313/posts/tactical-polymo/&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
+      <guid>https://www.bonnycode.com/posts/banned-implementation-inheritance/</guid>
+      <description>&lt;p&gt;Most software developers are aware of the principle &amp;ldquo;favor object composition over class inheritance&amp;rdquo;. I&amp;rsquo;ve written before about &lt;a href=&#34;https://www.bonnycode.com/posts/tactical-polymo/&#34;&gt;tactical polymorphism&lt;/a&gt;, and if you reread the example all I was really doing was following this principle. I substituted an implementation that used implementation inheritance for one that used composition plus interface inheritance.&lt;/p&gt;
 &lt;p&gt;I still see people that are aware of all the above and yet they still persist in creating designs centered around implementation inheritance. Horribly complicated designs that are a pain in the ass to code review. In the wall paper example I gave things aren&amp;rsquo;t yet so bad. Because implementation inheritance destroys modularity and tightly couples a whole swath of code, they organically grow into 5,000 line monstrosities, derived from another 8,000 line monstrosity. And because the classes are so complicated and so fragile, newcomers don&amp;rsquo;t dare refactor when making a small change or even always understand the correct place to put their change and thus the monstrosity continues to grow in odd and nonuniform ways. This sad disease is known as code rot although the scientific name for it is &lt;a href=&#34;http://en.wikipedia.org/wiki/Technical_debt&#34;&gt;technical debt&lt;/a&gt;. And while it has done wonders for certain aging C++ programmers job security, unless you wish to be maintaining the same lousy code 5 years from now because no one else can possibly understand it you should avoid it whenever possible.&lt;/p&gt;
 &lt;p&gt;So what does this mean for you? Next time you try to do any implementation inheritance in your design, stop and say to yourself:&lt;/p&gt;
 &lt;ol&gt;
@@ -158,10 +158,10 @@ end&lt;/p&gt;
     
     <item>
       <title>Strictly Need to Know</title>
-      <link>http://localhost:1313/posts/strictly-need-t/</link>
+      <link>https://www.bonnycode.com/posts/strictly-need-t/</link>
       <pubDate>Sun, 18 May 2008 17:05:29 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/strictly-need-t/</guid>
+      <guid>https://www.bonnycode.com/posts/strictly-need-t/</guid>
       <description>&lt;p&gt;One of the bedrock principles in software engineering is information hiding. The traditional idea behind information hiding is imagined in the context of a group of software developers. Each of these software developers is working on their module that will use and be used by the modules made by other software developers. Given that software development is messy, we want to be able to make changes/fixes/upgrades to our module even after our module is in use by other modules. A module developer thus applies the principle of information hiding to separate the more stable interface of their module from the less stable implementation details. Other modules can only see the interface and not the implementation details, which gives the module developer the freedom to change the implementation details after it has begun to be used by other module developers.&lt;/p&gt;
 &lt;p&gt;If this was still 1972 then the discussion could end here and we could all go back to writing that  payroll program on the company&amp;rsquo;s UNIVAC 1108 like these two developers.&lt;/p&gt;
 &lt;p&gt;Today, in the year 2008, state of the art software development looks more like these two developers who are pair programming a new facebook app.&lt;/p&gt;
@@ -182,10 +182,10 @@ But the security concerns need to be weighed against the costs. Current security
     
     <item>
       <title>Catching Exceptions</title>
-      <link>http://localhost:1313/posts/catching-except/</link>
+      <link>https://www.bonnycode.com/posts/catching-except/</link>
       <pubDate>Sun, 04 May 2008 22:07:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/catching-except/</guid>
+      <guid>https://www.bonnycode.com/posts/catching-except/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“It’s 3 am and your children are safe and asleep.
 But there’s a phone in the White House and it is ringing.
@@ -238,10 +238,10 @@ Who do you want answering that phone?”
     
     <item>
       <title>Exceptions are part of the Method Signature</title>
-      <link>http://localhost:1313/posts/exceptions-are/</link>
+      <link>https://www.bonnycode.com/posts/exceptions-are/</link>
       <pubDate>Sun, 20 Apr 2008 17:32:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptions-are/</guid>
+      <guid>https://www.bonnycode.com/posts/exceptions-are/</guid>
       <description>&lt;p&gt;The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;def foo throws SomeRandomException, SomeOtherException, YetAnotherUselessException, ImNotDoneThrowingExceptions, ILetEclipseDesignMyMethodsException, TheUserWillNeverCareAboutThisException&lt;/p&gt;&lt;/blockquote&gt;
@@ -254,19 +254,19 @@ Who do you want answering that phone?”
 &lt;p&gt;I will follow up next week on how to properly catch exceptions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exceptions vs. Status Codes vs. Assertions</title>
-      <link>http://localhost:1313/posts/exceptions-vs-s/</link>
+      <link>https://www.bonnycode.com/posts/exceptions-vs-s/</link>
       <pubDate>Mon, 14 Apr 2008 19:57:57 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptions-vs-s/</guid>
+      <guid>https://www.bonnycode.com/posts/exceptions-vs-s/</guid>
       <description>&lt;p&gt;Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this &lt;a href=&#34;http://www.joelonsoftware.com/items/2003/10/13.html&#34;&gt;siren&lt;/a&gt;) and her false promises.&lt;/p&gt;
 &lt;p&gt;A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.&lt;/p&gt;
 &lt;p&gt;Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&amp;rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.&lt;/p&gt;
@@ -315,19 +315,19 @@ Who do you want answering that phone?”
 &lt;p&gt;And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method&amp;rsquo;s signature.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/exceptional-pro/&#34;&gt;Exceptional Programming&lt;/a&gt; - Introduction to exception handling best practices&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Exceptional Programming</title>
-      <link>http://localhost:1313/posts/exceptional-pro/</link>
+      <link>https://www.bonnycode.com/posts/exceptional-pro/</link>
       <pubDate>Sun, 13 Apr 2008 20:14:29 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/exceptional-pro/</guid>
+      <guid>https://www.bonnycode.com/posts/exceptional-pro/</guid>
       <description>&lt;p&gt;No battle plan ever survives contact with the enemy.&lt;br&gt;
 &amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;
 &lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
@@ -335,9 +335,9 @@ Who do you want answering that phone?”
 &lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts in this series:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/exceptions-vs-s/&#34;&gt;Exceptions vs. Status Codes vs. Assertions&lt;/a&gt; - Understanding the differences between error handling techniques&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/exceptions-are/&#34;&gt;Exceptions are part of the Method Signature&lt;/a&gt; - How exceptions form part of your method&amp;rsquo;s contract&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/catching-except/&#34;&gt;Catching Exceptions&lt;/a&gt; - Comprehensive guide to error handling techniques&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

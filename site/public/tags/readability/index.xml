@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Readability on BonnyCode</title>
-    <link>http://localhost:1313/tags/readability/</link>
+    <link>https://www.bonnycode.com/tags/readability/</link>
     <description>Recent content in Readability on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Apr 2009 22:51:32 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/readability/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2009 22:51:32 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/readability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Just Say &#39;No&#39; To Boring Code</title>
-      <link>http://localhost:1313/posts/just-say-no-to-boring-code/</link>
+      <link>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</link>
       <pubDate>Sun, 12 Apr 2009 22:51:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/just-say-no-to-boring-code/</guid>
+      <guid>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</guid>
       <description>&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;http://www.cs.uchicago.edu/people/clklein&#34;&gt;Casey&lt;/a&gt; for inspiring this entry and for fighting the good fight against boring code.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:&lt;/p&gt;
 &lt;p&gt;int getBlah() {&lt;br&gt;
@@ -48,21 +48,21 @@ class HelloWorldApp {&lt;br&gt;
 &lt;li&gt;Boring code is boring to review. A critical quality insurance practice in professional software development is code reviews. But boring code is boring to review. If you write boring code, it is far more likely the reviewer will just go &amp;lsquo;yadda yadda yadda looks good to me&amp;rsquo; and gloss over mistakes.&lt;/li&gt;
 &lt;li&gt;Boring code is boring. Come on, do you really want to be boring?&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
+&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on code quality:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/code-comprehens/&#34;&gt;Code Comprehension&lt;/a&gt; - Understanding code assumptions and avoiding mistakes&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/register-style/&#34;&gt;Register Style Programming&lt;/a&gt; - Proper variable naming and scope management&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/code-comprehens/&#34;&gt;Code Comprehension&lt;/a&gt; - Understanding code assumptions and avoiding mistakes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/register-style/&#34;&gt;Register Style Programming&lt;/a&gt; - Proper variable naming and scope management&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Register Style Programming</title>
-      <link>http://localhost:1313/posts/register-style/</link>
+      <link>https://www.bonnycode.com/posts/register-style/</link>
       <pubDate>Sun, 09 Mar 2008 09:23:37 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/register-style/</guid>
+      <guid>https://www.bonnycode.com/posts/register-style/</guid>
       <description>&lt;p&gt;Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;room = RoomDAO.findLivingRoom&lt;br&gt;

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Welcome on BonnyCode</title>
-    <link>http://localhost:1313/</link>
+    <link>https://www.bonnycode.com/</link>
     <description>Recent content in Welcome on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://www.bonnycode.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Are we cooked?</title>
-      <link>http://localhost:1313/posts/are-we-cooked/</link>
+      <link>https://www.bonnycode.com/posts/are-we-cooked/</link>
       <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/are-we-cooked/</guid>
+      <guid>https://www.bonnycode.com/posts/are-we-cooked/</guid>
       <description>&lt;p&gt;My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of &amp;ldquo;low-key, are we cooked?&amp;rdquo;. The last one, if you are not one of my students, translates in millennial to &amp;ldquo;good esteemed professor, tell me true, are we f#@ked?&amp;rdquo; While I&amp;rsquo;ve given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.&lt;/p&gt;
 &lt;h1 id=&#34;some-personal-background&#34;&gt;Some personal background&lt;/h1&gt;
 &lt;p&gt;I want to start by giving a little personal history and just saying I understand the anxiety. I started my freshman year at CalPoly San Luis Obispo in Computer Science in September 1999. Like many of us older millennials that got into tech, I had been programming since elementary school (QBasic!) and computer science seemed a natural path. I always loved reading philosophy though and I seriously considered getting a philosophy degree instead. It was a choice between something I figured I was pretty decent at and could make money doing (computer science) and something that I was personally invested in but probably couldn&amp;rsquo;t make money with (philosophy). Earning a living won out over passion. I stuck with computer science, but I took as many philosophy classes as I could get into. To the extent that I was put on academic probation, not because my grades were too low, but because in the words of the admin &amp;ldquo;stop taking so many philosophy classes and just graduate!&amp;rdquo;. Good times…&lt;/p&gt;
@@ -36,10 +36,10 @@
     
     <item>
       <title>How to be a better software manager</title>
-      <link>http://localhost:1313/posts/how-to-be-a-better-software-manager/</link>
+      <link>https://www.bonnycode.com/posts/how-to-be-a-better-software-manager/</link>
       <pubDate>Sun, 16 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/how-to-be-a-better-software-manager/</guid>
+      <guid>https://www.bonnycode.com/posts/how-to-be-a-better-software-manager/</guid>
       <description>&lt;p&gt;“My dev team is failing, what software process should we use to be more successful?”&lt;br&gt;
 “My dev team keeps missing their deliverables, what task management software should I use so they hit their commitments?”&lt;br&gt;
 “I’m not a very fast runner, what shoes should I buy to make me faster?”&lt;br&gt;
@@ -61,10 +61,10 @@
     
     <item>
       <title>A time to dream</title>
-      <link>http://localhost:1313/posts/a-time-to-dream/</link>
+      <link>https://www.bonnycode.com/posts/a-time-to-dream/</link>
       <pubDate>Sun, 27 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/a-time-to-dream/</guid>
+      <guid>https://www.bonnycode.com/posts/a-time-to-dream/</guid>
       <description>&lt;p&gt;My success in life is based on my love and respect for daydreaming. I&amp;rsquo;ve always been a daydreamer. At the age of seven, I envisioned a space opera of powerful Lizians, Heart Monkeys and Star People who fought against the tyrannical Lizard Men. I loved this world and I visited every chance I got. I spent so much time fleshing out my world rather than school work that by the end of high school I had a written a truly intricate science fiction novel and I had the poor grades to show it. It was also an amazingly horrible novel. When I showed it to a girl I liked in high school, because high school chicks dig sci-fi authors, I couldn&amp;rsquo;t have anticipated the reaction, “I can&amp;rsquo;t believe you waste your time dreaming about stupid stuff like this.”&lt;/p&gt;
 &lt;p&gt;To this day, I still waste most of my time “dreaming about stupid stuff.” Most of those dreams now involve my work rather than fantastical worlds, but the love is still there. I set aside several hours every week to dream about what could be. I sprawl out in these dreams, I linger, and I set no goals for myself in what I hope to accomplish. I ask myself, what would make this amazing? Why would that be amazing? What is the essence of amazingness? I go down every corridor, until I get to the essence of the problem and the solution. This isn&amp;rsquo;t work that can measured; this is my time to enjoy myself and untangle life&amp;rsquo;s truly difficult puzzles. It is during these times that I get excited about the potential of what could be.&lt;/p&gt;
 &lt;p&gt;Without this time to dream, my work would have no direction. I would be subject to the whims of whomever is yelling the most at a particular moment or whatever crisis of the week has sprung up. Dreaming builds a vision and a vision creates purpose. When something urgent comes up, I can keep it in the context of whether it is truly more important than the great things I&amp;rsquo;ve envisioned.&lt;/p&gt;
@@ -74,10 +74,10 @@
     
     <item>
       <title>Throwaway Code: A Love Story</title>
-      <link>http://localhost:1313/posts/throwaway-code/</link>
+      <link>https://www.bonnycode.com/posts/throwaway-code/</link>
       <pubDate>Sat, 28 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/throwaway-code/</guid>
+      <guid>https://www.bonnycode.com/posts/throwaway-code/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Throwaway Code&lt;/strong&gt;&lt;br&gt;
 THrōəwā kōd&lt;br&gt;
@@ -121,10 +121,10 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
     
     <item>
       <title>Cost benefit analysis for bear lovers</title>
-      <link>http://localhost:1313/posts/cost-benefit-analysis/</link>
+      <link>https://www.bonnycode.com/posts/cost-benefit-analysis/</link>
       <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/cost-benefit-analysis/</guid>
+      <guid>https://www.bonnycode.com/posts/cost-benefit-analysis/</guid>
       <description>&lt;p&gt;Feature estimates are often blindly used for cost benefit analysis. This was no more apparent than when I once worked with a product manager named Bethany. She was responsible for what, in hindsight, was always a doomed social network for lovers of the North American Brown Bear. Bethany would routinely ask her developers to provide implementation costs for a long list of features. The developers would grumble and complain they need more detailed requirements before they can put together detailed estimates (because they had been burned in the past on being held to commitments based on changing scope). Bethany retorts that she just needs “T-shirt sizes”, which is code for wild ass guesses, so she can do cost benefit analysis. Logically, this makes sense. Like any savvy businesswoman, the product manager wants to get a return on her investment. You wouldn&amp;rsquo;t buy a piano without first knowing the price, right?&lt;/p&gt;
 &lt;p&gt;The developer would always eventually relent and give her the feature estimates she asked for. The feature to let people upload pictures of their favorite bear for example would take 2 weeks to build. The feature to translate English into Bearease was estimated to take between 1 month and 2 years. The bear picture upload feature was a clear customer win and a frequent ask from the sites three customers, but the English to Bearease language translation was a real opportunity to differentiate their site from the other bear lover social networks. If the bearease translation feature cost only 1 month it made more sense to prioritize that feature, but not if it took 2 years.&lt;/p&gt;
 &lt;p&gt;Bethany went back to the developers and asked why there was such a wide estimate in the translation feature and if there was a way to bring it down to the 1 month side. The developers came back with a bunch of mumbo jumbo about corpuses and having to maintain the translator by hand. They could develop a version of the feature in 1 month, but they wanted to do something fancier. Bethany heard that it could be done in 1 month if they really wanted to and said “go forth and develop my Bearease translator.” (she literally said that, it was weird then and it is weird now)&lt;/p&gt;
@@ -133,26 +133,26 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Bethany and the developers took away opposite lessons from the whole experience. Bethany said working with developers is lame because they are lazy and don&amp;rsquo;t understand business. She started her own hedge fund and now has a net worth measured in billions of dollars. The lesson the developers pulled from the experience was to never again do a feature quick and dirty, and the next time a product manager asks them to build a Bearease translator, they will say it takes 2 years, end of story.&lt;/p&gt;
 &lt;p&gt;While Bethany can now afford to send several teams of highly trained ninja assassins my way for saying this, I put forth the contention that both Bethany and the developers pulled away the wrong lesson. Bethany&amp;rsquo;s real mistake was equating implementation cost with the true cost of a feature for cost benefit analysis. Software features, like most business investments, have operating costs associated with them. Those operating costs can vary wildly and there is frequently a trade off between initial investment cost and operating cost. If Bethany had taken into account the full cost of the features, she may have decided that uploading bear pictures was actually the wiser investment (something Facebook was smart enough to pick up on). Or at least she would have come in with the right expectation on what she was getting with her initial Bearease translator, and budgeted for followup work to make the feature more operationally maintainable if it was a success.&lt;/p&gt;
 &lt;p&gt;The developers on the other hand learned too simplistic a lesson on technical debt. Technical debt, like any form of debt, is not evil. Without the ability to go into debt (i.e., taking out a loan), most new businesses couldn&amp;rsquo;t even get off the ground in the first place. If the demand for a Bearease translator was uncertain or if the immediate rush to market of being the first to have a Bearease translator justified it, the one month implementation with high technical debt could absolutely be the correct decision. For example, if they launched the Bearease translator and it completely tanked, they at least would have only lost out on 1 month of work rather than 2 years worth of work. Requirements and customer adoption are so subtly variable and changing in software development that this is often in fact the best approach to take. As long as ongoing operational cost is measured and time is continuously budgeted to reduce it, everyone can benefit from such a rapid iteration methodology.&lt;/p&gt;
-&lt;p&gt;This post is also available in spoken &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Bearease&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post is also available in spoken &lt;a href=&#34;https://www.bonnycode.com/posts/rawr/&#34;&gt;Bearease&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Grr</title>
-      <link>http://localhost:1313/posts/rawr/</link>
+      <link>https://www.bonnycode.com/posts/rawr/</link>
       <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/rawr/</guid>
+      <guid>https://www.bonnycode.com/posts/rawr/</guid>
       <description>&lt;p&gt;RAWWR!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>How feature estimates killed Bobo</title>
-      <link>http://localhost:1313/posts/feature-estimates/</link>
+      <link>https://www.bonnycode.com/posts/feature-estimates/</link>
       <pubDate>Sun, 24 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/feature-estimates/</guid>
+      <guid>https://www.bonnycode.com/posts/feature-estimates/</guid>
       <description>&lt;p&gt;Software development lacks a single meaningful, objective productivity metric. This is not for lack of trying. A productivity metric would make the life of a software development manager dramatically easier. Performance reviews? Just see who has the highest number. Need to find out how to boost productivity? Find the developer with the best process and have your other developers adopt it as a best practice. And so, managers grasp for measurement. Lines of code is so obviously wrong as a measurement that I&amp;rsquo;ve mostly heard it brought up for its comedic value. I&amp;rsquo;m not saying that in the history of software there hasn&amp;rsquo;t been some misguided manager who actually reviewed their developers by lines of code, but it is certainly more myth than reality in the modern era.&lt;/p&gt;
 &lt;p&gt;I can&amp;rsquo;t say the same for effort estimation accuracy. Many otherwise intelligent managers have embraced the accuracy of their developers estimates as a defining measure of their developers worth. There are varying degrees of vigor attached  to this review. The energetic manager maintains a spreadsheet (or enlists a task tracking tool) to calculate every estimate given by their developer and then what the task actually came in at. At its most simplistic they might just divide the two numbers at that point and shoot see who deviates the most from 1 and apply the appropriate corrective action.&lt;/p&gt;
 &lt;p&gt;Most managers aren&amp;rsquo;t quite so vigorous though. The belief in holding developers accountable to effort estimate accuracy is frequently enforced more subjectively.&lt;/p&gt;
@@ -167,38 +167,38 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;It all seems so obvious in the world of clogs. But is software really much different or is it just harder to quantify the unit of production than in a world of widgets? It is often said that it is better to have an imperfect measure than no measure at all. But estimate accuracy isn&amp;rsquo;t an imperfect measure for software productivity, it is a completely orthogonal measure that actually drives down productivity. The only reason we are left with holding developers accountable to feature estimates is that their accuracy is necessary for some other purpose, such as the creation of project launch timelines or for cost-benefit analysis. I&amp;rsquo;ll tackle the flaws of these uses in my future posts.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>I&#39;m back and I hate your estimates</title>
-      <link>http://localhost:1313/posts/i-hate-your-estimates/</link>
+      <link>https://www.bonnycode.com/posts/i-hate-your-estimates/</link>
       <pubDate>Mon, 11 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/i-hate-your-estimates/</guid>
+      <guid>https://www.bonnycode.com/posts/i-hate-your-estimates/</guid>
       <description>&lt;p&gt;For 2,000 years, ever since the Ancient Greeks got it into their heads that disease was caused by excess fluids, most disease in the western world was treated through bloodletting. Your back hurts? Let&amp;rsquo;s drain a quart of blood and see how you feel! Need to amputate your foot? Better drain some blood first. Was the practice scientifically baseless and actually harmful? Hell yes! There are today some cases where bloodletting is validly practiced, but it is no longer the panacea it once was. Effort estimation is software development&amp;rsquo;s version of bloodletting. Developers use effort estimates to drive accountability, to conduct cost-benefit analysis, to pack sprints, create launch timelines and, I believe in some circles, to summon the nine dark lords of hell.&lt;/p&gt;
 &lt;p&gt;But why do we think effort estimates are the solution to all of these problems? Everything about effort estimates in software really is silly. Look at the homegrown rules we&amp;rsquo;ve come up with for estimates. I&amp;rsquo;ve heard more than one grizzled veteran tell me their preferred method is to take their initial estimate, double the number and up the unit of time (e.g., hour becomes day, day becomes week, etc.). This is always said in a semi-joking &amp;ldquo;but, no really, it works&amp;rdquo; tone.  In the 90s highly complicated methods of estimation became popular that involved lots of acronyms and I&amp;rsquo;m sure consultants. Now that agile has taken over the software industry we estimate using planning poker and Fibonacci numbers. The latest estimation technique is to sacrifice a goat and spread its entrails over a large area. Maybe that will finally be the trick that works, but I doubt it because as an industry, despite all these new techniques, we are still no better at estimating.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve invested quite a bit of time at getting better at estimation. And I got a little better. But one day, while knee deep in goat entrails, I stepped back and looked at the whole mess and asked why am I doing this? To what end do we estimate and then re-estimate, pack a schedule just to pack it differently in a month. And at the end of this introspection I determined my life of software estimation had all been a fraud. I&amp;rsquo;d been wasting my time. I moved to Nepal and joined a small temple. And now the secret of why I haven&amp;rsquo;t been working on my blog is out. But after years of meditation I&amp;rsquo;ve decided to come back to the material world and spread my gospel.&lt;/p&gt;
 &lt;p&gt;And so, to demonstrate that effort estimates are not only useless but also harmful, I shall attack each motivation on its own. I will start next week with my least favorite reason of all&amp;hellip; accountability!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/ninety-percent-confident/&#34;&gt;Ninety Percent Confident&lt;/a&gt; - How to estimate better by understanding your limits&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Just Say &#39;No&#39; To Boring Code</title>
-      <link>http://localhost:1313/posts/just-say-no-to-boring-code/</link>
+      <link>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</link>
       <pubDate>Sun, 12 Apr 2009 22:51:32 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/just-say-no-to-boring-code/</guid>
+      <guid>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</guid>
       <description>&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;http://www.cs.uchicago.edu/people/clklein&#34;&gt;Casey&lt;/a&gt; for inspiring this entry and for fighting the good fight against boring code.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:&lt;/p&gt;
 &lt;p&gt;int getBlah() {&lt;br&gt;
@@ -234,22 +234,22 @@ class HelloWorldApp {&lt;br&gt;
 &lt;li&gt;Boring code is boring to review. A critical quality insurance practice in professional software development is code reviews. But boring code is boring to review. If you write boring code, it is far more likely the reviewer will just go &amp;lsquo;yadda yadda yadda looks good to me&amp;rsquo; and gloss over mistakes.&lt;/li&gt;
 &lt;li&gt;Boring code is boring. Come on, do you really want to be boring?&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
+&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on code quality:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/code-comprehens/&#34;&gt;Code Comprehension&lt;/a&gt; - Understanding code assumptions and avoiding mistakes&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/register-style/&#34;&gt;Register Style Programming&lt;/a&gt; - Proper variable naming and scope management&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/code-comprehens/&#34;&gt;Code Comprehension&lt;/a&gt; - Understanding code assumptions and avoiding mistakes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/register-style/&#34;&gt;Register Style Programming&lt;/a&gt; - Proper variable naming and scope management&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>Software is not like Dirt</title>
-      <link>http://localhost:1313/posts/software-is-not-like-dirt/</link>
+      <link>https://www.bonnycode.com/posts/software-is-not-like-dirt/</link>
       <pubDate>Sun, 01 Mar 2009 22:37:49 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/software-is-not-like-dirt/</guid>
-      <description>&lt;p&gt;Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;good King DRY&lt;/a&gt; by throwing more metaphors in the mix.&lt;/p&gt;
+      <guid>https://www.bonnycode.com/posts/software-is-not-like-dirt/</guid>
+      <description>&lt;p&gt;Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-duplicated-code/&#34;&gt;good King DRY&lt;/a&gt; by throwing more metaphors in the mix.&lt;/p&gt;
 &lt;p&gt;Instead, I wish to cast away the most evil of metaphors: that software is like dirt and that software is like trying to make the biggest pile of dirt you possibly can. Now I can tell you as someone who has experience both in software development and who has created big piles of dirt on beaches, in backyards and in wooded areas that they are nothing alike.&lt;/p&gt;
 &lt;p&gt;The first difference is you can easily estimate with some precision how long it will take to make your pile of dirt. Imagine having 10 years experience making piles of dirt and you still have some dirt piling projects that you misestimate by a factor of 2. It just doesn&amp;rsquo;t happen. Or imagine you are managing a team of dirt pilers and it looks like they are 90% done piling their dirt but then it turns out they are only half done. Or even worse, in your team of dirt pilers, there is this one guy that is unknowingly working against the rest of the team and accidently putting the dirt back in the hole without even knowing it. Or the more people you put piling up the dirt, the slower and slower everyone seems to go. These things don&amp;rsquo;t happen when making piles of dirt, but they all happen when making software.&lt;/p&gt;
 &lt;p&gt;The second difference is that when you make a pile of dirt you have a clear understanding of your goal as you work, but when making software the entire process is about understanding what you are trying to build. I make piles of dirt mostly because it is fun, that is my goal. With software though, you only understand what you are trying to build when you have finished building it. When I make a pile of dirt I come up with a plan, I will take either a shovel, a spoon, or my hands and start digging out dirt and put it in a pile. If dirt were like software, the ground would be magically turning into marshmallows, dingoes and molten lava every time the shovel hit the ground, requiring you to come up with new plans of attack at every step.&lt;/p&gt;

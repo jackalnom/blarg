@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Root-Cause-Analysis on BonnyCode</title>
-    <link>http://localhost:1313/tags/root-cause-analysis/</link>
+    <link>https://www.bonnycode.com/tags/root-cause-analysis/</link>
     <description>Recent content in Root-Cause-Analysis on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Nov 2008 23:31:44 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/root-cause-analysis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Nov 2008 23:31:44 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/root-cause-analysis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Do not fix what you don&#39;t understand</title>
-      <link>http://localhost:1313/posts/do-not-fix-what-you-dont-understand/</link>
+      <link>https://www.bonnycode.com/posts/do-not-fix-what-you-dont-understand/</link>
       <pubDate>Sun, 16 Nov 2008 23:31:44 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/do-not-fix-what-you-dont-understand/</guid>
+      <guid>https://www.bonnycode.com/posts/do-not-fix-what-you-dont-understand/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s monday at 2pm and you are working on another bug report. It is a null pointer exception in a class you aren&amp;rsquo;t familiar with.&lt;/p&gt;
 &lt;p&gt;class Nose&lt;br&gt;
 &amp;hellip;&lt;br&gt;
@@ -29,7 +29,7 @@ void upYourNoseWithARubberHose(RubberHose hose) {&lt;br&gt;
 &lt;p&gt;if (hose == null || hose.diameter() &amp;lt; 1 inch)&lt;/p&gt;
 &lt;p&gt;Awesome&amp;hellip; bug fixed&amp;hellip; just need to commit. &amp;ldquo;Fixed NPE in upYourNoseWithARubberHose&amp;rdquo; you type into the comment box.&lt;/p&gt;
 &lt;p&gt;Just before clicking the commit button a whooshing sound comes from behind you. Whirling around you see a huge man with a large gun.&lt;/p&gt;
-&lt;p&gt;[&lt;img src=&#34;http://localhost:1313/terminator.jpg&#34; alt=&#34;Arnold-schwarzenegger-the-terminator&#34;&gt;]&lt;/p&gt;
+&lt;p&gt;[&lt;img src=&#34;https://www.bonnycode.com/terminator.jpg&#34; alt=&#34;Arnold-schwarzenegger-the-terminator&#34;&gt;]&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;I&amp;rsquo;ve come from the future and I must stop your bug fix. You have no idea what will happen when you make this change. You didn&amp;rsquo;t reproduce the problem. You didn&amp;rsquo;t find the &lt;a href=&#34;http://en.wikipedia.org/wiki/Root_cause_analysis&#34;&gt;root cause&lt;/a&gt;. You didn&amp;rsquo;t talk to someone knowledgeable in this part of the code. You didn&amp;rsquo;t find the person who caused the bug and ask them about the fix. You didn&amp;rsquo;t even test your fix. I&amp;rsquo;m sorry but for the sake of the future I can&amp;rsquo;t let you commit that change.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;The man lowers the gun and fires.&lt;/p&gt;
 &lt;p&gt;Your monitor disintegrates into a thousand shards of glass and plastic. Next he shoots your keyboard, the letter q smacks you in the forehead as it flies away from the carnage. Your brand new laser mouse is next. You begin to move your hand to shield it from the oversized rounds this future man is shooting but thinking again you pull it back just before he fires. Finally, he takes aim at your computer. At this point you&amp;rsquo;ve resigned yourself. This man has travelled back in time to stop you from checking in this horribly stupid bug fix and he means to finish the job. He fires and the hard drives spins for its last time.&lt;/p&gt;
@@ -39,7 +39,7 @@ void upYourNoseWithARubberHose(RubberHose hose) {&lt;br&gt;
 &lt;p&gt;Your left to ponder what future your simple bug fix had unintentionally caused that it would induce man to invent time travel to send someone back to stop you. Truly horrible it must have been and with that you promise in the name of the future man with the big gun to never make another bug fix on a problem that you don&amp;rsquo;t understand.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on debugging:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/&#34;&gt;Persistence: The long lost virtue of fixing a bug&lt;/a&gt; - How to develop the persistence needed to truly fix difficult bugs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.bonnycode.com/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/&#34;&gt;Persistence: The long lost virtue of fixing a bug&lt;/a&gt; - How to develop the persistence needed to truly fix difficult bugs&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

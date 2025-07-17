@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming-Concepts on BonnyCode</title>
-    <link>http://localhost:1313/tags/programming-concepts/</link>
+    <link>https://www.bonnycode.com/tags/programming-concepts/</link>
     <description>Recent content in Programming-Concepts on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Feb 2008 22:50:54 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/programming-concepts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Feb 2008 22:50:54 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/programming-concepts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Ambiguous Null</title>
-      <link>http://localhost:1313/posts/the-ambiguous-n/</link>
+      <link>https://www.bonnycode.com/posts/the-ambiguous-n/</link>
       <pubDate>Sun, 24 Feb 2008 22:50:54 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/the-ambiguous-n/</guid>
+      <guid>https://www.bonnycode.com/posts/the-ambiguous-n/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;if (paintColor == null)&lt;br&gt;
   print &amp;ldquo;Room is wall papered.&amp;rdquo;&lt;br&gt;

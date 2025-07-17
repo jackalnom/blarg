@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Leadership on BonnyCode</title>
-    <link>http://localhost:1313/tags/leadership/</link>
+    <link>https://www.bonnycode.com/tags/leadership/</link>
     <description>Recent content in Leadership on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Mar 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to be a better software manager</title>
-      <link>http://localhost:1313/posts/how-to-be-a-better-software-manager/</link>
+      <link>https://www.bonnycode.com/posts/how-to-be-a-better-software-manager/</link>
       <pubDate>Sun, 16 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/how-to-be-a-better-software-manager/</guid>
+      <guid>https://www.bonnycode.com/posts/how-to-be-a-better-software-manager/</guid>
       <description>&lt;p&gt;“My dev team is failing, what software process should we use to be more successful?”&lt;br&gt;
 “My dev team keeps missing their deliverables, what task management software should I use so they hit their commitments?”&lt;br&gt;
 “I’m not a very fast runner, what shoes should I buy to make me faster?”&lt;br&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Comprehension on BonnyCode</title>
-    <link>http://localhost:1313/tags/comprehension/</link>
+    <link>https://www.bonnycode.com/tags/comprehension/</link>
     <description>Recent content in Comprehension on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Mar 2008 00:08:53 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/comprehension/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Mar 2008 00:08:53 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/comprehension/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code Comprehension</title>
-      <link>http://localhost:1313/posts/code-comprehens/</link>
+      <link>https://www.bonnycode.com/posts/code-comprehens/</link>
       <pubDate>Mon, 24 Mar 2008 00:08:53 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/code-comprehens/</guid>
+      <guid>https://www.bonnycode.com/posts/code-comprehens/</guid>
       <description>&lt;p&gt;Being a good software developer has as much to do with understanding code as it does with writing new code. When writing new code be sure you understand the existing assumptions.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;System.out.println(&amp;ldquo;How old are you?&amp;rdquo;);&lt;br&gt;
