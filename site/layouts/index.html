@@ -9,6 +9,23 @@
 <main class="grid-container">
     <div id="content" class="index content">
         {{ .Content }}
+        <section class="latest-post">
+        <h2>Latest...</h2>
+{{ with first 1 (where .Site.RegularPages "Section" "posts") }}
+  {{ range . }}
+    <h3 style="margin-bottom: 0.2rem;">
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span style="color: gray; font-size: 0.9em; margin-left: 1em;">
+        {{ .Date.Format "January 2, 2006" }}
+      </span>
+    </h3>
+    <p>
+      {{ .Summary }} <a href="{{ .RelPermalink }}">continue reading</a>
+    </p>
+  {{ end }}
+{{ end }}
+
+        </section>
     </div>
 
     <div class="sidebar">
