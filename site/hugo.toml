@@ -25,7 +25,7 @@ description = ""
 disableComments = true
 footnote = """
 """
-customCSS = []
+customCSS = ["css/styles.css"]
 customJS = []
 dateFormat = "2 January 2006"
 emphasisWithDots = true

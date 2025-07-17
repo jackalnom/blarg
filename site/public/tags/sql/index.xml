@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sql on BonnyCode</title>
-    <link>http://localhost:1314/tags/sql/</link>
+    <link>http://localhost:1313/tags/sql/</link>
     <description>Recent content in Sql on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Jun 2008 23:15:07 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 15 Jun 2008 23:15:07 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/sql/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Databases from the Battlefield</title>
-      <link>http://localhost:1314/posts/databases-from-the-battlefield/</link>
+      <link>http://localhost:1313/posts/databases-from-the-battlefield/</link>
       <pubDate>Sun, 15 Jun 2008 23:15:07 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/databases-from-the-battlefield/</guid>
+      <guid>http://localhost:1313/posts/databases-from-the-battlefield/</guid>
       <description>&lt;p&gt;There is a ladder of knowledge in learning about databases. Step one is learning the basic commands SELECT, INSERT, UPDATE and DELETE. After that you learn about Subselects and the various JOINs. Eventually you learn about creating your own schema, many to many relationships and database indexes. Eventually you might even learn about &lt;a href=&#34;http://en.wikipedia.org/wiki/Database_normalization&#34;&gt;database normal forms&lt;/a&gt; which are similar to the Ten Commandments: people think they know what they are but when pressed can normally only name one or two (killing and stealing are bad right?).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m going to assume you already know all of this or if you don&amp;rsquo;t that you can easily learn it on your own. At the very least you should learn the database normal forms so you can impress in a job interview some day.&lt;/p&gt;
 &lt;p&gt;Instead, I&amp;rsquo;m going to teach you the zen secrets of databases that they don&amp;rsquo;t teach you in school. My next post will start with the infamous N+1 Select.&lt;/p&gt;

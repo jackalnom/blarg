@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Garbage-Collection on BonnyCode</title>
-    <link>http://localhost:1314/tags/garbage-collection/</link>
+    <link>http://localhost:1313/tags/garbage-collection/</link>
     <description>Recent content in Garbage-Collection on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 31 May 2008 16:19:27 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/garbage-collection/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 May 2008 16:19:27 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/garbage-collection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Winner of Garbage Collection Quiz</title>
-      <link>http://localhost:1314/posts/winner-of-garbage-collection-quiz/</link>
+      <link>http://localhost:1313/posts/winner-of-garbage-collection-quiz/</link>
       <pubDate>Sat, 31 May 2008 16:19:27 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/winner-of-garbage-collection-quiz/</guid>
+      <guid>http://localhost:1313/posts/winner-of-garbage-collection-quiz/</guid>
       <description>&lt;p&gt;Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan&amp;rsquo;s is that I didn&amp;rsquo;t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of ReferenceQueue.remove(). I also didn&amp;rsquo;t use ReferenceQueue.poll in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;import java.lang.ref.*;&lt;br&gt;
@@ -118,10 +118,10 @@ static {
     
     <item>
       <title>Garbage Collector Quiz</title>
-      <link>http://localhost:1314/posts/garbage-collector-quiz/</link>
+      <link>http://localhost:1313/posts/garbage-collector-quiz/</link>
       <pubDate>Sat, 24 May 2008 16:49:31 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/garbage-collector-quiz/</guid>
+      <guid>http://localhost:1313/posts/garbage-collector-quiz/</guid>
       <description>&lt;p&gt;As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I&amp;rsquo;ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;import java.lang.ref.*;&lt;br&gt;
@@ -164,10 +164,10 @@ object of type java.lang.String lived until program exit.&lt;br&gt;
 &lt;p&gt;Good luck!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related Java quiz posts:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/winner-of-garbage-collection-quiz/&#34;&gt;Winner of Garbage Collection Quiz&lt;/a&gt; - Results and solutions for this garbage collection quiz&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/java-mutability/&#34;&gt;Java Mutability Pop Quiz&lt;/a&gt; - Challenge about Java string mutability&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/integer-boxing/&#34;&gt;Integer Boxing Quiz&lt;/a&gt; - Test your knowledge of Java autoboxing&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/threading-quiz/&#34;&gt;Threading Quiz&lt;/a&gt; - Challenge about threading and volatile keywords&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/winner-of-garbage-collection-quiz/&#34;&gt;Winner of Garbage Collection Quiz&lt;/a&gt; - Results and solutions for this garbage collection quiz&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/java-mutability/&#34;&gt;Java Mutability Pop Quiz&lt;/a&gt; - Challenge about Java string mutability&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/integer-boxing/&#34;&gt;Integer Boxing Quiz&lt;/a&gt; - Test your knowledge of Java autoboxing&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/threading-quiz/&#34;&gt;Threading Quiz&lt;/a&gt; - Challenge about threading and volatile keywords&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

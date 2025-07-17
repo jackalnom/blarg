@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Education on BonnyCode</title>
-    <link>http://localhost:1314/tags/education/</link>
+    <link>http://localhost:1313/tags/education/</link>
     <description>Recent content in Education on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Nov 2008 22:42:11 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Nov 2008 22:42:11 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/education/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Syllabus</title>
-      <link>http://localhost:1314/posts/the-syllabus/</link>
+      <link>http://localhost:1313/posts/the-syllabus/</link>
       <pubDate>Sun, 02 Nov 2008 22:42:11 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/the-syllabus/</guid>
+      <guid>http://localhost:1313/posts/the-syllabus/</guid>
       <description>&lt;p&gt;I explained before why I thought &amp;ldquo;programology&amp;rdquo; should be taught, but I didn&amp;rsquo;t go into detail on what I would teach.&lt;/p&gt;
 &lt;p&gt;To start, there would need to be at least a cursory mention of &lt;a href=&#34;http://en.wikipedia.org/wiki/Literate_Programming&#34;&gt;Literate Programming&lt;/a&gt;. Just like many English Literature classes start with Beowulf, we could start with a reading of &lt;a href=&#34;ftp://tug.ctan.org/pub/tex-archive/systems/knuth/dist/tex/tex.web&#34;&gt;TeX&lt;/a&gt;. Donald Knuth has a little sensor implanted in his brain that tells him every time someone reads his code; make the professor happy and at least try to read some of it.&lt;/p&gt;
 &lt;p&gt;I wouldn&amp;rsquo;t dwell very long on Literate Programming. To do so would, sadly, lead to a place where we focus on finding the best source code and studying that. Instead the point is to find the best programs and study their source code. Now given, there should be some correlation between quality of source code and quality of program, but I want that correlation to be discovered in its true form and not the usual manifestation of neophytes arguing over number of comments or spaces vs. tabs.&lt;/p&gt;
@@ -26,10 +26,10 @@
     
     <item>
       <title>Programology</title>
-      <link>http://localhost:1314/posts/programology/</link>
+      <link>http://localhost:1313/posts/programology/</link>
       <pubDate>Sun, 12 Oct 2008 13:03:39 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/programology/</guid>
+      <guid>http://localhost:1313/posts/programology/</guid>
       <description>&lt;p&gt;If I were to teach a course at the University level, I would teach programology. Not the study of programming, but the study of existing computer programs. In the entire course, we would only read source code. Not small snippets of algorithms, and not trivialized polished examples of code created just for class. I&amp;rsquo;m talking about the industrial gritty always evolving code that actually runs a good part of the industrialized world now. Just as in cultural anthropology you study tribes from New Guinea to understand the various ways in which human society has evolved, we would study old programs, new programs, large programs, and small programs. We would study programs developed under a variety of different paradigms.&lt;/p&gt;
 &lt;p&gt;It would be a weeder class. Writing code is hard; reading code is harder. But that is the point, being able to take an existing code base and quickly conceptualize the architecture and its design elements is what separates the software developer who can make the trivial one line fix to a problem and the one who bolts on three hundred lines of monstrous code because they didn&amp;rsquo;t quite get it.&lt;/p&gt;
 &lt;p&gt;It will also help us not repeat the same mistakes that the majority of software developers have made before us. Most new software developers start out writing spaghetti code, code without known structure, features organically tacked on and general anarchy. Most developers eventually learn from their mistake, but when given the chance to rewrite their original software they swing too far the other way. They create a huge over-designed Frankenstein creation that is fully table driven, has an intricate inheritance tree and incorporates god knows how many design patterns. If we are lucky, the developer spends enough time in the field to eventually learn from this mistake as well and finds a happy medium.&lt;/p&gt;
@@ -37,18 +37,18 @@
 &lt;p&gt;I probably will never teach this class, despite the desperate need for it. In the end though, I say to anyone that wishes to be a great software developer, the surest way is to write lots and lots of code, and to read even more.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on education and learning:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/the-syllabus/&#34;&gt;The Syllabus&lt;/a&gt; - Detailed curriculum for the programology course&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/the-ambiguous-n/&#34;&gt;The Ambiguous Null&lt;/a&gt; - Teaching example about proper null handling&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/the-syllabus/&#34;&gt;The Syllabus&lt;/a&gt; - Detailed curriculum for the programology course&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/the-ambiguous-n/&#34;&gt;The Ambiguous Null&lt;/a&gt; - Teaching example about proper null handling&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
       <title>The Ambiguous Null</title>
-      <link>http://localhost:1314/posts/the-ambiguous-n/</link>
+      <link>http://localhost:1313/posts/the-ambiguous-n/</link>
       <pubDate>Sun, 24 Feb 2008 22:50:54 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/the-ambiguous-n/</guid>
+      <guid>http://localhost:1313/posts/the-ambiguous-n/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;if (paintColor == null)&lt;br&gt;
   print &amp;ldquo;Room is wall papered.&amp;rdquo;&lt;br&gt;

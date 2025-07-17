@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Information-Hiding on BonnyCode</title>
-    <link>http://localhost:1314/tags/information-hiding/</link>
+    <link>http://localhost:1313/tags/information-hiding/</link>
     <description>Recent content in Information-Hiding on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 May 2008 17:05:29 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/information-hiding/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 May 2008 17:05:29 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/information-hiding/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Strictly Need to Know</title>
-      <link>http://localhost:1314/posts/strictly-need-t/</link>
+      <link>http://localhost:1313/posts/strictly-need-t/</link>
       <pubDate>Sun, 18 May 2008 17:05:29 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/strictly-need-t/</guid>
+      <guid>http://localhost:1313/posts/strictly-need-t/</guid>
       <description>&lt;p&gt;One of the bedrock principles in software engineering is information hiding. The traditional idea behind information hiding is imagined in the context of a group of software developers. Each of these software developers is working on their module that will use and be used by the modules made by other software developers. Given that software development is messy, we want to be able to make changes/fixes/upgrades to our module even after our module is in use by other modules. A module developer thus applies the principle of information hiding to separate the more stable interface of their module from the less stable implementation details. Other modules can only see the interface and not the implementation details, which gives the module developer the freedom to change the implementation details after it has begun to be used by other module developers.&lt;/p&gt;
 &lt;p&gt;If this was still 1972 then the discussion could end here and we could all go back to writing that  payroll program on the company&amp;rsquo;s UNIVAC 1108 like these two developers.&lt;/p&gt;
 &lt;p&gt;Today, in the year 2008, state of the art software development looks more like these two developers who are pair programming a new facebook app.&lt;/p&gt;

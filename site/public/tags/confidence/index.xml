@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Confidence on BonnyCode</title>
-    <link>http://localhost:1314/tags/confidence/</link>
+    <link>http://localhost:1313/tags/confidence/</link>
     <description>Recent content in Confidence on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Aug 2008 21:38:25 +0000</lastBuildDate><atom:link href="http://localhost:1314/tags/confidence/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Aug 2008 21:38:25 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/confidence/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ninety Percent Confident</title>
-      <link>http://localhost:1314/posts/ninety-percent-confident/</link>
+      <link>http://localhost:1313/posts/ninety-percent-confident/</link>
       <pubDate>Sun, 24 Aug 2008 21:38:25 +0000</pubDate>
       
-      <guid>http://localhost:1314/posts/ninety-percent-confident/</guid>
+      <guid>http://localhost:1313/posts/ninety-percent-confident/</guid>
       <description>&lt;p&gt;I know nothing except the fact of my ignorance.&lt;/p&gt;
 &lt;p&gt;&amp;ndash; Socrates&lt;/p&gt;
 &lt;p&gt;Too many good software developers are limited by their poor estimation abilities. Take the story of Bert &amp;amp; Ernie. Bert &amp;amp; Ernie are pretty much identical in terms of programming ability. Put them in a programming contest and they are neck and neck. Bert regularly underestimates the amount of time his software projects will take while Ernie always beats his estimates with a slight bit of room to spare. Management sees Bert as either slow or just unfocused. Ernie on the other hand is a speedy professional programmer that can be trusted with the mission critical projects. I can think of few technical skills a software developer could learn that would better help their career than becoming a proficient estimator. The really amazing thing is, compared to most of what we do, the estimation asked of individual software developers is mostly about knowing your own limits.&lt;/p&gt;
@@ -24,9 +24,9 @@
 &lt;p&gt;There is a lot more to software estimation than what I have covered here. One of my favorite new estimation techniques is &lt;a href=&#34;http://en.wikipedia.org/wiki/Planning_poker&#34;&gt;Planning Poker&lt;/a&gt;. For the individual software developer doing feature estimation though, most of what you need is just figuring out 90% confident estimates.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Related posts on estimation:&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://localhost:1314/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/i-hate-your-estimates/&#34;&gt;I&amp;rsquo;m back and I hate your estimates&lt;/a&gt; - Introduction to the problems with software estimation&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/feature-estimates/&#34;&gt;How feature estimates killed Bobo&lt;/a&gt; - How estimates destroy productivity through misguided accountability&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://localhost:1313/posts/cost-benefit-analysis/&#34;&gt;Cost benefit analysis for bear lovers&lt;/a&gt; - Problems with using estimates for cost-benefit analysis&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
