@@ -2,34 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.bonnycode.com/tags/ethics/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/experimentation/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/llm/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/posts/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/root-cause-analysis/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/posts/short-term-metrics-long-term-harm/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/social-media/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/systems-thinking/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/</loc>
+    <lastmod>2025-07-30T12:27:25-07:00</lastmod>
+  </url><url>
     <loc>https://www.bonnycode.com/posts/are-we-cooked/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/categories/career--professional/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/career-advice/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/categories/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/computer-science/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
-  </url><url>
-    <loc>https://www.bonnycode.com/tags/llm/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
-  </url><url>
-    <loc>https://www.bonnycode.com/posts/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/professional-development/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/student/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
-  </url><url>
-    <loc>https://www.bonnycode.com/tags/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/how-to-be-a-better-software-manager/</loc>
@@ -39,10 +57,10 @@
     <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/management/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/categories/management--process/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/team-building/</loc>
     <lastmod>2025-07-16T09:31:34-07:00</lastmod>
@@ -81,7 +99,7 @@
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/estimation/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/rawr/</loc>
     <lastmod>2025-07-16T13:05:46-07:00</lastmod>
@@ -93,10 +111,10 @@
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/feature-estimates/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/productivity/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/critique/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
@@ -105,19 +123,19 @@
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/code-quality/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/just-say-no-to-boring-code/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/maintainability/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/readability/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/categories/software-engineering/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/design/</loc>
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
@@ -141,7 +159,7 @@
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/design-patterns/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/philosophy/</loc>
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
@@ -174,16 +192,16 @@
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/control-flow/</loc>
-    <lastmod>2025-07-16T10:53:03-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/goto/</loc>
-    <lastmod>2025-07-16T10:53:03-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/in-defense-of-go-to/</loc>
-    <lastmod>2025-07-16T10:53:03-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/programming-constructs/</loc>
-    <lastmod>2025-07-16T10:53:03-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/code-duplication/</loc>
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
@@ -198,25 +216,22 @@
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/debugging/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/persistence/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/skill-development/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/do-not-fix-what-you-dont-understand/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/problem-solving/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
-  </url><url>
-    <loc>https://www.bonnycode.com/tags/root-cause-analysis/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/code-reading/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
@@ -240,37 +255,37 @@
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/best-practices/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/composition/</loc>
     <lastmod>2025-07-16T10:53:03-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/inheritance/</loc>
-    <lastmod>2025-07-16T10:53:03-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/oop/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/confidence/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/ninety-percent-confident/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/professional-skills/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/concurrency/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/java/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/categories/programming-languages/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/quiz/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/threading/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
@@ -282,28 +297,28 @@
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/database/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/categories/database--performance/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/optimization/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/orm/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/performance/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/n1-select/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/n&#43;1-problem/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/databases-from-the-battlefield/</loc>
     <lastmod>2025-07-16T09:31:34-07:00</lastmod>
@@ -318,16 +333,16 @@
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/garbage-collection/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/winner-of-garbage-collection-quiz/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/garbage-collector-quiz/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/memory-management/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/encapsulation/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
@@ -348,22 +363,22 @@
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/autoboxing/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/integer-boxing/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/catching-except/</loc>
-    <lastmod>2025-07-16T10:53:03-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/error-handling/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/exception-handling/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/resilience/</loc>
-    <lastmod>2025-07-16T10:53:03-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/exceptions-are/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
@@ -378,7 +393,7 @@
     <lastmod>2025-07-16T09:31:34-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/exceptional-pro/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/java-mutability/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
@@ -387,13 +402,13 @@
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/functional-programming/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/immutability/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/the-joy-of-immu/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/code-comprehens/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
@@ -402,10 +417,10 @@
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/continued-sland/</loc>
-    <lastmod>2025-07-16T09:31:34-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/polymorphism/</loc>
-    <lastmod>2025-07-16T21:14:13-07:00</lastmod>
+    <lastmod>2025-07-17T11:22:45-07:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/code-style/</loc>
     <lastmod>2025-07-16T21:14:13-07:00</lastmod>
