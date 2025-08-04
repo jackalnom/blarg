@@ -1,6 +1,6 @@
 ---
 author: 'Lucas Pierce'
-date: '2025-07-30T12:27:25-07:00'
+date: '2025-08-04T12:27:25-07:00'
 title: 'Short-term metrics, long-term harm'
 description: 'How experimenting based on the wrong short-term metrics can lead to addictive tech products'
 tags: ["experimentation", "social-media", "ethics", "root-cause-analysis", "llm", "systems-thinking"]
