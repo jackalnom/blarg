@@ -277,18 +277,18 @@ The caller becomes responsible for the special null case, rather than encapsulat
   
   <article class="content numbered-subtitles">
     
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (paintColor <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>)  
-</span></span><span style="display:flex;"><span>  print <span style="color:#e6db74">&#34;Room is wall papered.&#34;</span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>  
-</span></span><span style="display:flex;"><span>  print <span style="color:#e6db74">&#34;Room is painted %s.&#34;</span>, paintColor
-</span></span></code></pre></div><p>null represents a void reference, but programmers often want to overload it to have other meanings. In the above example, a null paintColor means that the room is wall papered. Overloading null like this has two problems:</p>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">paintColor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is wall papered.&#34;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">else</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is painted %s.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">paintColor</span><span class="w">
+</span></span></span></code></pre></div><p>null represents a void reference, but programmers often want to overload it to have other meanings. In the above example, a null paintColor means that the room is wall papered. Overloading null like this has two problems:</p>
 <ol>
 <li>The caller becomes responsible for the special null case, rather than encapsulating this logic in one place.</li>
 <li>The code is not self documenting and thus should require comments. In the above example, outside of the immediate context, another programmer might assume that a null paintColor means a wall with no paint or wall paper on it at all.</li>
 </ol>
 <p>A better solution is to rename the object paintColor to something more representative such as wallDecoration and then encapsulate the logic inside the object being called:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>print wallDecoration.<span style="color:#a6e22e">description</span>
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">print</span><span class="w"> </span><span class="n">wallDecoration</span><span class="p">.</span><span class="na">description</span><span class="w">
+</span></span></span></code></pre></div>
     
   </article>
 

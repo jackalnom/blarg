@@ -304,117 +304,117 @@ Object oriented designers seeing this class will see an opportunity to refactor 
   
   <article class="content numbered-subtitles">
     
-    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Room</span>  
-</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">roomType</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> roomType  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isCarpetted</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> isCarpetted  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isPainted</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> isPainted  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  Color <span style="color:#a6e22e">paintColor</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> paintColor  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isWallpapered</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> isWallpapered  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">wallpaperDesign</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> wallpaperDesign  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isVenetianPlastered</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> isVenetianPlastered  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describeWall</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (isWallpapered)  
-</span></span><span style="display:flex;"><span>      print <span style="color:#e6db74">&#34;Room is wall papered %s.&#34;</span>, wallpaperDesign  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (isPainted)  
-</span></span><span style="display:flex;"><span>      print <span style="color:#e6db74">&#34;Room is painted %s.&#34;</span>, paintColor  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#a6e22e">if</span> (isVenetianPlastered)  
-</span></span><span style="display:flex;"><span>      print <span style="color:#e6db74">&#34;Room is venetian plastered&#34;</span>  
-</span></span><span style="display:flex;"><span>    end  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div><p>Object oriented designers seeing this class will see an opportunity to refactor this class to take advantage of polymorphism.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Room</span>  
-</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">roomType</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> roomType  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isCarpetted</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> isCarpetted  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">abstract</span> <span style="color:#a6e22e">describeWall</span>()  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WallpaperedRoom</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describeWall</span>()  
-</span></span><span style="display:flex;"><span>    print <span style="color:#e6db74">&#34;Room is wall papered %s.&#34;</span>, wallpaperDesign  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaintedRoom</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describeWall</span>()  
-</span></span><span style="display:flex;"><span>    print <span style="color:#e6db74">&#34;Room is painted %s.&#34;</span>, paintColor  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VenetianPlasteredRoom</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describeWall</span>()  
-</span></span><span style="display:flex;"><span>    print <span style="color:#e6db74">&#34;Room is venetian plastered&#34;</span>  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div><p>There are several problems with this refactor:</p>
+    <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Room</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">roomType</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">roomType</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isCarpetted</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isCarpetted</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isPainted</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isPainted</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">Color</span><span class="w"> </span><span class="nf">paintColor</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">paintColor</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isWallpapered</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isWallpapered</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">wallpaperDesign</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">wallpaperDesign</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isVenetianPlastered</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isVenetianPlastered</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describeWall</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isWallpapered</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is wall papered %s.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">wallpaperDesign</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">isPainted</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is painted %s.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">paintColor</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">isVenetianPlastered</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is venetian plastered&#34;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span></code></pre></div><p>Object oriented designers seeing this class will see an opportunity to refactor this class to take advantage of polymorphism.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">abstract</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Room</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">roomType</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">roomType</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isCarpetted</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isCarpetted</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">abstract</span><span class="w"> </span><span class="nf">describeWall</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">WallpaperedRoom</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describeWall</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is wall papered %s.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">wallpaperDesign</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">PaintedRoom</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describeWall</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is painted %s.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">paintColor</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">VenetianPlasteredRoom</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describeWall</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is venetian plastered&#34;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span></code></pre></div><p>There are several problems with this refactor:</p>
 <ol>
 <li>It isn&rsquo;t modular. To add a new type of wall, one must understand the whole room class. This isn&rsquo;t difficult in this case, but as the class gets larger this is intellectual overhead that is unnecessary.</li>
 <li>It isn&rsquo;t flexible. It artificially favors one axis of variance. For example, there could be multiple types of floors in the future (carpet, hardwood, and tile) each with their own sets of data. We need a room that allows us to mix and match every combination of wall and floor.</li>
 </ol>
 <p>A better design is to apply what I refer to as tactical polymorphism to distinguish it from all the abusive usages of polymorphism. Tactical polymorphism is limiting polymorphism to only what is logically varying and nothing else. Instead of making the entire room polymorphic, we make just the part of the room that is varying polymorphic and have the room contain this polymorphic object.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Room</span>  
-</span></span><span style="display:flex;"><span>  String <span style="color:#a6e22e">roomType</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> roomType  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">isCarpetted</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> isCarpetted  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  Wall <span style="color:#a6e22e">wall</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> wall  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Wall</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describe</span>()  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WallpaperedWall</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describe</span>()  
-</span></span><span style="display:flex;"><span>    print <span style="color:#e6db74">&#34;Room is wall papered %s.&#34;</span>, wallpaperDesign  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PaintedWall</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describe</span>()  
-</span></span><span style="display:flex;"><span>    print <span style="color:#e6db74">&#34;Room is painted %s.&#34;</span>, paintColor  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VenetianPlasteredWall</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">describe</span>()  
-</span></span><span style="display:flex;"><span>    print <span style="color:#e6db74">&#34;Room is venetian plastered&#34;</span>  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Room</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">String</span><span class="w"> </span><span class="nf">roomType</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">roomType</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isCarpetted</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">isCarpetted</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">Wall</span><span class="w"> </span><span class="nf">wall</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">wall</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">interface</span> <span class="nc">Wall</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describe</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">WallpaperedWall</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describe</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is wall papered %s.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">wallpaperDesign</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">PaintedWall</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describe</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is painted %s.&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">paintColor</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">VenetianPlasteredWall</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">describe</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">print</span><span class="w"> </span><span class="s">&#34;Room is venetian plastered&#34;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span></code></pre></div>
     
   </article>
 

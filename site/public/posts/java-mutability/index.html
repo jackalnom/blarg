@@ -280,17 +280,17 @@ class WantToBet { static public void main(String[] args) throws Exception { robo
   <article class="content numbered-subtitles">
     
     <p>Can Java <a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html">strings</a> actually be mutable? I will award 10 points for the first person to give me an implementation of robotocize that makes the println on line 2 of the main method print &ldquo;Jonathan Kelly is a robot!&rdquo; instead of &ldquo;Jonathan Kelly is a human.&rdquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WantToBet</span> {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {  
-</span></span><span style="display:flex;"><span>        robotocize();  
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Jonathan Kelly is a human.&#34;</span>);  
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">robotocize</span>() <span style="color:#66d9ef">throws</span> Exception {  
-</span></span><span style="display:flex;"><span>        ...  
-</span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">WantToBet</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">robotocize</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Jonathan Kelly is a human.&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">robotocize</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     
   </article>
 

@@ -270,44 +270,44 @@
     
     <p>You&rsquo;ve just been hired for your first job as an astronomical programmer. You have a graduate degree from CalTech in computer science and you regularly check your horoscope so you feel imminently qualified. Your first assignment is to write a method to count all the red giants in the universe. They use an object relational mapping framework so that you can put all your object oriented design skills to work and not need to worry anything about databases which is awesome because you know nothing about databases.</p>
 <p>You feel well trained in the arts of test driven development so you start out by writing a little test:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>test_count_red_giants  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">DB</span><span style="color:#f92672">.</span>clear  
-</span></span><span style="display:flex;"><span>  assert <span style="color:#ae81ff">0</span> <span style="color:#f92672">==</span> count_red_giants  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">DB</span><span style="color:#f92672">.</span>add_red_giant  
-</span></span><span style="display:flex;"><span>  assert <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> count_red_giants  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">DB</span><span style="color:#f92672">.</span>add_white_dwarf  
-</span></span><span style="display:flex;"><span>  assert <span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> count_red_giants  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">test_count_red_giants</span>  
+</span></span><span class="line"><span class="cl">  <span class="no">DB</span><span class="o">.</span><span class="n">clear</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">assert</span> <span class="mi">0</span> <span class="o">==</span> <span class="n">count_red_giants</span>  
+</span></span><span class="line"><span class="cl">  <span class="no">DB</span><span class="o">.</span><span class="n">add_red_giant</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">count_red_giants</span>  
+</span></span><span class="line"><span class="cl">  <span class="no">DB</span><span class="o">.</span><span class="n">add_white_dwarf</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">assert</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">count_red_giants</span>  
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span></code></pre></div><p>You run the test and it fails as it should because you haven&rsquo;t written your method yet. Being a good citizen you then write your new method:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>int count_red_giants  
-</span></span><span style="display:flex;"><span>  number_of_red_giants <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-</span></span><span style="display:flex;"><span>  stars <span style="color:#f92672">=</span> <span style="color:#66d9ef">DB</span><span style="color:#f92672">.</span>get_all_stars  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> each star <span style="color:#66d9ef">in</span> stars  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (star<span style="color:#f92672">.</span>type <span style="color:#f92672">==</span> red_giant)  
-</span></span><span style="display:flex;"><span>      number_of_red_giants <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>  <span style="color:#66d9ef">return</span> number_of_red_giants;  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">int</span> <span class="n">count_red_giants</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">number_of_red_giants</span> <span class="o">=</span> <span class="mi">0</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">stars</span> <span class="o">=</span> <span class="no">DB</span><span class="o">.</span><span class="n">get_all_stars</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="n">each</span> <span class="n">star</span> <span class="k">in</span> <span class="n">stars</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">star</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">red_giant</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">      <span class="n">number_of_red_giants</span> <span class="o">+=</span> <span class="mi">1</span>  
+</span></span><span class="line"><span class="cl">    <span class="k">end</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>  <span class="k">return</span> <span class="n">number_of_red_giants</span><span class="p">;</span>  
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span></code></pre></div><p>You run your test now and EUREKA, you have just completed your first assignment. Ticker tape parades arrive, statues erected and you take a week vacation on Catalina island sipping on midori sours secure in the fact that you are one sweet modern programmer.</p>
 <p>This is the life, except when you get an urgent call from your boss two days into your vacation. Your code is now live and it doesn&rsquo;t work. Everytime they try to count the red giants it times out. A helicopter arrives to take you back to the office so you can get to debugging the problem.</p>
 <p>You run your unit test again just to make sure some foolio didn&rsquo;t mess with your code while you were gone but nope it still passes. You connect a debugger to your program and start stepping through your method while it is running live. You reach the line DB.get_all_stars and it cheerfully tells you &ldquo;Returning 70 Sextillion Results&rdquo;. Oh crap.</p>
 <p>You look back over the DB object and find another method called DB.find_stars_by_type. Bingo. You change your method to be the new awesome:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>int count_red_giants  
-</span></span><span style="display:flex;"><span>  number_of_red_giants <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-</span></span><span style="display:flex;"><span>  stars <span style="color:#f92672">=</span> <span style="color:#66d9ef">DB</span><span style="color:#f92672">.</span>find_stars_by_type(red_giant)  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> each star <span style="color:#66d9ef">in</span> stars  
-</span></span><span style="display:flex;"><span>    number_of_red_giants <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">end</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> number_of_red_giants  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">int</span> <span class="n">count_red_giants</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">number_of_red_giants</span> <span class="o">=</span> <span class="mi">0</span>  
+</span></span><span class="line"><span class="cl">  <span class="n">stars</span> <span class="o">=</span> <span class="no">DB</span><span class="o">.</span><span class="n">find_stars_by_type</span><span class="p">(</span><span class="n">red_giant</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="n">each</span> <span class="n">star</span> <span class="k">in</span> <span class="n">stars</span>  
+</span></span><span class="line"><span class="cl">    <span class="n">number_of_red_giants</span> <span class="o">+=</span> <span class="mi">1</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">end</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">number_of_red_giants</span>  
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span></code></pre></div><p>You run your unit test and it passes. You congratulate yourself on your job well done, tell your boss that you have saved the day and take the helicopter back to Catalina to resume drinking neon colored drinks from martini glasses.</p>
 <p><strong>*cue hula music*</strong></p>
 <p>While laying in your hammock, drinking a fuzzy naval you get another call from the boss. Your program still runs too slowly. Back to the office we go again.</p>
 <p>Now you are stuck. Your program is so optimized now. Why does it still run so slow? In shame you eventually instant message your cousin who runs a PHP/MySql site from his basement that allows him to track his extensive collection of Warez. When you finish explaining your problem, your cousin calls you a total &ldquo;n00b&rdquo; and explains that you can do the count directly in SQL. Disgruntled by the fact that you have to dirty yourself with breaking out of your object abstraction, you eventually concede and after reading some documentation arrive at the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>int count_red_giants  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">DB</span><span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#39;select count(*) from stars where type = red_giant&#39;</span>)  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="n">int</span> <span class="n">count_red_giants</span>  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="no">DB</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;select count(*) from stars where type = red_giant&#39;</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl"><span class="k">end</span>
 </span></span></code></pre></div><p>You run the unit test and it passes. You feel like you are an amazing ninja hax0r like those engineers that wrote the <a href="https://en.wikipedia.org/wiki/Gemini_Guidance_Computer">Gemini Computer Guidance</a> system in the 1960s. You tell the boss about your amazing discovery, your groundbreaking fix for the problem and it is back to Catalina for you.</p>
 <p>Finally, vacation without have to worry about programming or databases. Just sipping on your Miami Beach Ice Tea pondering over whether Obama or Lincoln will be remembered as the better president 50 years from now. And then you get a call from the boss&hellip; it still doesn&rsquo;t work.</p>
 <p><strong>*sigh*</strong></p>

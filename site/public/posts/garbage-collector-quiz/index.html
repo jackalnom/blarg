@@ -299,43 +299,43 @@ import java.lang.ref.*; import java.util.*; class WarmupQuestion { private stati
   <article class="content numbered-subtitles">
     
     <p>As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I&rsquo;ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.ref.*;  
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> java.util.*;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WarmupQuestion</span> {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> ArrayList list <span style="color:#f92672">=</span> track(<span style="color:#66d9ef">new</span> ArrayList());  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {  
-</span></span><span style="display:flex;"><span>        track(<span style="color:#66d9ef">new</span> WarmupQuestion());  
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();  
-</span></span><span style="display:flex;"><span>        Integer i <span style="color:#f92672">=</span> track(150);  
-</span></span><span style="display:flex;"><span>        track(<span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span>1024<span style="color:#f92672">*</span>1024<span style="color:#f92672">]</span>);  
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();  
-</span></span><span style="display:flex;"><span>        track(<span style="color:#e6db74">&#34;Hello&#34;</span>);  
-</span></span><span style="display:flex;"><span>        i <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;  
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">gc</span>();  
-</span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>      
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">finalize</span>() {  
-</span></span><span style="display:flex;"><span>        list.<span style="color:#a6e22e">add</span>(<span style="color:#66d9ef">this</span>);  
-</span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>      
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> T <span style="color:#a6e22e">track</span>(T o) {  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ObjectTracker.<span style="color:#a6e22e">track</span>(o);  
-</span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>    ...      
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>object of type <span style="color:#f92672">[</span>I lived <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">12</span> milliseconds  
-</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:10<span style="color:#f92672">)</span>  
-</span></span><span style="display:flex;"><span>object of type java.lang.Integer lived <span style="color:#66d9ef">for</span> <span style="color:#ae81ff">19</span> milliseconds  
-</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:9<span style="color:#f92672">)</span>  
-</span></span><span style="display:flex;"><span>object of type java.util.ArrayList lived <span style="color:#66d9ef">until</span> program exit.  
-</span></span><span style="display:flex;"><span> WarmupQuestion.&lt;clinit&gt;<span style="color:#f92672">(</span>WarmupQuestion.java:5<span style="color:#f92672">)</span>  
-</span></span><span style="display:flex;"><span>object of type WarmupQuestion has a finalize that raises the dead.  
-</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:7<span style="color:#f92672">)</span>  
-</span></span><span style="display:flex;"><span>object of type java.lang.String lived <span style="color:#66d9ef">until</span> program exit.  
-</span></span><span style="display:flex;"><span> WarmupQuestion.main<span style="color:#f92672">(</span>WarmupQuestion.java:12<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.ref.*</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.*</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">WarmupQuestion</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ArrayList</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">track</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">());</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">track</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">WarmupQuestion</span><span class="p">());</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">gc</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">track</span><span class="p">(</span><span class="n">150</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">track</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">1024</span><span class="o">*</span><span class="n">1024</span><span class="o">]</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">gc</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">track</span><span class="p">(</span><span class="s">&#34;Hello&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">gc</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">finalize</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">list</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">this</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">o</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ObjectTracker</span><span class="p">.</span><span class="na">track</span><span class="p">(</span><span class="n">o</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">...</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>To complete the quiz you must fill in the ellipses with code that has this output when run. Milliseconds and ordering can be different but everything else should be exactly the same.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">object of <span class="nb">type</span> <span class="o">[</span>I lived <span class="k">for</span> <span class="m">12</span> milliseconds  
+</span></span><span class="line"><span class="cl"> WarmupQuestion.main<span class="o">(</span>WarmupQuestion.java:10<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">object of <span class="nb">type</span> java.lang.Integer lived <span class="k">for</span> <span class="m">19</span> milliseconds  
+</span></span><span class="line"><span class="cl"> WarmupQuestion.main<span class="o">(</span>WarmupQuestion.java:9<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">object of <span class="nb">type</span> java.util.ArrayList lived <span class="k">until</span> program exit.  
+</span></span><span class="line"><span class="cl"> WarmupQuestion.&lt;clinit&gt;<span class="o">(</span>WarmupQuestion.java:5<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">object of <span class="nb">type</span> WarmupQuestion has a finalize that raises the dead.  
+</span></span><span class="line"><span class="cl"> WarmupQuestion.main<span class="o">(</span>WarmupQuestion.java:7<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">object of <span class="nb">type</span> java.lang.String lived <span class="k">until</span> program exit.  
+</span></span><span class="line"><span class="cl"> WarmupQuestion.main<span class="o">(</span>WarmupQuestion.java:12<span class="o">)</span>
 </span></span></code></pre></div><p>The program needs to actually track the lifetime of references, just printing out the output does not count. Whenever an object is garbage collected, the ObjecTracker should show how long the object lived and the stack trace for where it was created. If the object was attempted to be garbage collected, but the finalize method brought the object back to life than the ObjectTracker should print the message shown in the example. Other objects that live until the program finally exits should be printed to the screen on program exit with the message shown in the example.</p>
 <p>Good luck!</p>
 

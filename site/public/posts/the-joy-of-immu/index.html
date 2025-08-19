@@ -278,40 +278,40 @@ The relation between identity and change is a basic philosophical problem. How c
 <p>No man ever steps in the same river twice, for it&rsquo;s not the same river and he&rsquo;s not the same man.</p>
 <p>&ndash; Heraclitus</p></blockquote>
 <p>The relation between identity and change is a basic philosophical problem. How can one define anything when everything is always changing? For example, your tax return includes basic information about yourself such as marital status. When you get married, this doesn&rsquo;t make all previous years tax returns invalid. They are still true, but refer to your self at that point in time.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>  
-</span></span><span style="display:flex;"><span>  ...  
-</span></span><span style="display:flex;"><span>  def <span style="color:#a6e22e">setMaritalStatus</span>(MaritalStatus newStatus)  
-</span></span><span style="display:flex;"><span>    maritalStatus <span style="color:#f92672">=</span> newStatus  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>def MaritalStatus <span style="color:#a6e22e">getMaritalStatus</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> maritalStatus  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>  ...  
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TaxReturn</span>  
-</span></span><span style="display:flex;"><span>  ...  
-</span></span><span style="display:flex;"><span>  def Person <span style="color:#a6e22e">getPerson</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> person  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>  ...  
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div><p>This is the code the IRS used to use to store people&rsquo;s tax returns. This caused innumerable problems for the IRS especially with divorce rates on the rise. At first, the IRS tried to solve the problem by pushing for the No Divorce Act of 1983 (which they intended to follow up with No New Marriage act), but when this failed to pass they were faced with a huge dilemma. How could they ever go back to audit previous year&rsquo;s tax returns when a person&rsquo;s marital status was allowed to fluctuate? Here is what I changed the code to when I was eventually called in as a consultant.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>  
-</span></span><span style="display:flex;"><span>  ...  
-</span></span><span style="display:flex;"><span>  def Person <span style="color:#a6e22e">setMaritalStatus</span>(MaritalStatus newStatus)  
-</span></span><span style="display:flex;"><span>    newPerson <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">clone</span>  
-</span></span><span style="display:flex;"><span>    newPerson.<span style="color:#a6e22e">maritalStatus</span> <span style="color:#f92672">=</span> newStatus  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> newPerson  
-</span></span><span style="display:flex;"><span>  end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>def MaritalStatus <span style="color:#a6e22e">getMaritalStatus</span>()  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> maritalStatus  
-</span></span><span style="display:flex;"><span>  end  
-</span></span><span style="display:flex;"><span>  ...  
-</span></span><span style="display:flex;"><span>end
-</span></span></code></pre></div><p>Keep in mind this was the 80s and I was only 3 years old, so this was not my most beautiful code. This solved the IRS&rsquo;s problem though by making Person immutable, when one attempts to change a Person it makes a copy of the Person with the new attribute and hands that back instead. This meant that the old tax returns could still refer to the original Person and no longer needed to worry about changing marital status.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Person</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">def</span><span class="w"> </span><span class="nf">setMaritalStatus</span><span class="p">(</span><span class="n">MaritalStatus</span><span class="w"> </span><span class="n">newStatus</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">maritalStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newStatus</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">def</span><span class="w"> </span><span class="n">MaritalStatus</span><span class="w"> </span><span class="nf">getMaritalStatus</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maritalStatus</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">TaxReturn</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">def</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="nf">getPerson</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">person</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span></code></pre></div><p>This is the code the IRS used to use to store people&rsquo;s tax returns. This caused innumerable problems for the IRS especially with divorce rates on the rise. At first, the IRS tried to solve the problem by pushing for the No Divorce Act of 1983 (which they intended to follow up with No New Marriage act), but when this failed to pass they were faced with a huge dilemma. How could they ever go back to audit previous year&rsquo;s tax returns when a person&rsquo;s marital status was allowed to fluctuate? Here is what I changed the code to when I was eventually called in as a consultant.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Person</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">def</span><span class="w"> </span><span class="n">Person</span><span class="w"> </span><span class="nf">setMaritalStatus</span><span class="p">(</span><span class="n">MaritalStatus</span><span class="w"> </span><span class="n">newStatus</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">newPerson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">clone</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">newPerson</span><span class="p">.</span><span class="na">maritalStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newStatus</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">newPerson</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">def</span><span class="w"> </span><span class="n">MaritalStatus</span><span class="w"> </span><span class="nf">getMaritalStatus</span><span class="p">()</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">maritalStatus</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">end</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">end</span><span class="w">
+</span></span></span></code></pre></div><p>Keep in mind this was the 80s and I was only 3 years old, so this was not my most beautiful code. This solved the IRS&rsquo;s problem though by making Person immutable, when one attempts to change a Person it makes a copy of the Person with the new attribute and hands that back instead. This meant that the old tax returns could still refer to the original Person and no longer needed to worry about changing marital status.</p>
 
     
   </article>

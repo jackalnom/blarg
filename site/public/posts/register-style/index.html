@@ -284,25 +284,25 @@ It unnecessarily increases the lifetime of a variable thus making it harder for 
   <article class="content numbered-subtitles">
     
     <p>Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>room <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findLivingRoom</span>  
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (room <span style="color:#f92672">&lt;&gt;</span> nil)  
-</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(room)  
-</span></span><span style="display:flex;"><span>room <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findKitchen</span>  
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (room <span style="color:#f92672">&lt;&gt;</span> nil)  
-</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(room)
-</span></span></code></pre></div><p>Reusing variables with register style programming has several problems:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">room</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoomDAO</span><span class="p">.</span><span class="na">findLivingRoom</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">room</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">nil</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">house</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">room</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">room</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoomDAO</span><span class="p">.</span><span class="na">findKitchen</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">room</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">nil</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">house</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">room</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>Reusing variables with register style programming has several problems:</p>
 <ol>
 <li>It unnecessarily increases the lifetime of a variable thus making it harder for code readers to track the variables state.</li>
 <li>It makes the code less self-documenting forcing the reader to track a variable through the program to determine which meaning the variable has at one time.</li>
 </ol>
 <p>Instead, variables should have only a single semantic meaning throughout their lifetime.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>livingRoom <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findLivingRoom</span>  
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (livingRoom <span style="color:#f92672">&lt;&gt;</span> nil)  
-</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(livingRoom)  
-</span></span><span style="display:flex;"><span>kitchen <span style="color:#f92672">=</span> RoomDAO.<span style="color:#a6e22e">findKitchen</span>  
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">if</span> (kitchen <span style="color:#f92672">&lt;&gt;</span> nil)  
-</span></span><span style="display:flex;"><span>  house.<span style="color:#a6e22e">add</span>(kitchen)
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="n">livingRoom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoomDAO</span><span class="p">.</span><span class="na">findLivingRoom</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">livingRoom</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">nil</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">house</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">livingRoom</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">kitchen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RoomDAO</span><span class="p">.</span><span class="na">findKitchen</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">kitchen</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="n">nil</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">house</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">kitchen</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div>
     
   </article>
 

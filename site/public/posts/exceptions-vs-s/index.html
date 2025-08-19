@@ -269,47 +269,47 @@
 <p>A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.</p>
 <p>Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.</p>
 <p>Philosophically, the methodology I use with any of these error techniques is based on the beauty of a program driven by its linear proportions. I like code that looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   expression1,  
-</span></span><span style="display:flex;"><span>   expression2,  
-</span></span><span style="display:flex;"><span>   expression3,  
-</span></span><span style="display:flex;"><span>   expression4,  
-</span></span><span style="display:flex;"><span>   ...
-</span></span></code></pre></div><p>instead of like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   <span style="color:#66d9ef">if</span> (conditional)  
-</span></span><span style="display:flex;"><span>      expression1,  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">if</span> (conditional2)  
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (conditional3)  
-</span></span><span style="display:flex;"><span>         expression2,  
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span>  
-</span></span><span style="display:flex;"><span>         expression3,  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (conditional4)  
-</span></span><span style="display:flex;"><span>      expression4,
-</span></span></code></pre></div><p>I could consume an entire post (and I shall!) on all the reasons I prefer the linear rather than the jagged program. The way I use exceptions, status codes and assertions can be roughly guided by this preference though. Exceptions are good when they promote code that is linear. When you need to check the status code on every line, that destroys the linear nature of the program. Many programmers get around this by then defining Macros that use gotos, but at that point you are really just crafting your own exception handling. When I do end up preferring status codes to exceptions is when using a status code leads me closer to a linear program. This is true of the validate method I mentioned above, I still prefer calling code that looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   expression1,  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">if</span> (foo.<span style="color:#a6e22e">isValid</span>())  
-</span></span><span style="display:flex;"><span>      expression2,  
-</span></span><span style="display:flex;"><span>      expression3  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">else</span>  
-</span></span><span style="display:flex;"><span>      expression4,  
-</span></span><span style="display:flex;"><span>      expression5  
-</span></span><span style="display:flex;"><span>   expression6
-</span></span></code></pre></div><p>to this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   expression1,  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">try</span>  
-</span></span><span style="display:flex;"><span>      foo.<span style="color:#a6e22e">validate</span>(),  
-</span></span><span style="display:flex;"><span>      expression2,  
-</span></span><span style="display:flex;"><span>      expression3  
-</span></span><span style="display:flex;"><span>   <span style="color:#a6e22e">catch</span>(...)  
-</span></span><span style="display:flex;"><span>      expression4,  
-</span></span><span style="display:flex;"><span>      expression5  
-</span></span><span style="display:flex;"><span>   expression6
-</span></span></code></pre></div><p>The flow of the second program is more confusing in this case. It is not readily apparent that the conditional dispatch actually is based on just the first line in the try block, and that the rest of the expressions are only there for the purpose of being run when foo validates. The if blocks make this point blatantly clear.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression1</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression2</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression3</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression4</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></div><p>instead of like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">conditional</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression1</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">conditional2</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">conditional3</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">expression2</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">else</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="n">expression3</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">conditional4</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression4</span><span class="p">,</span><span class="w">
+</span></span></span></code></pre></div><p>I could consume an entire post (and I shall!) on all the reasons I prefer the linear rather than the jagged program. The way I use exceptions, status codes and assertions can be roughly guided by this preference though. Exceptions are good when they promote code that is linear. When you need to check the status code on every line, that destroys the linear nature of the program. Many programmers get around this by then defining Macros that use gotos, but at that point you are really just crafting your own exception handling. When I do end up preferring status codes to exceptions is when using a status code leads me closer to a linear program. This is true of the validate method I mentioned above, I still prefer calling code that looks like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression1</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">foo</span><span class="p">.</span><span class="na">isValid</span><span class="p">())</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression2</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression3</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">else</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression4</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression5</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression6</span><span class="w">
+</span></span></span></code></pre></div><p>to this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression1</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">try</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">foo</span><span class="p">.</span><span class="na">validate</span><span class="p">(),</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression2</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression3</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nf">catch</span><span class="p">(...)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression4</span><span class="p">,</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="n">expression5</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="n">expression6</span><span class="w">
+</span></span></span></code></pre></div><p>The flow of the second program is more confusing in this case. It is not readily apparent that the conditional dispatch actually is based on just the first line in the try block, and that the rest of the expressions are only there for the purpose of being run when foo validates. The if blocks make this point blatantly clear.</p>
 <p>I prefer assertions for the same linear flow reasons. When I want to sanity check for a value, it is cleaner to do this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   <span style="color:#66d9ef">assert</span> conditional1
-</span></span></code></pre></div><p>rather than this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>   <span style="color:#66d9ef">if</span> (conditional1)  
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> BadException
-</span></span></code></pre></div><p>This is on top of the semantic meaning of assertion which tells other programmers that &ldquo;no, this really shouldn&rsquo;t happen, but I&rsquo;m just making sure.&rdquo;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">   </span><span class="k">assert</span><span class="w"> </span><span class="n">conditional1</span><span class="w">
+</span></span></span></code></pre></div><p>rather than this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">conditional1</span><span class="p">)</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="k">throw</span><span class="w"> </span><span class="n">BadException</span><span class="w">
+</span></span></span></code></pre></div><p>This is on top of the semantic meaning of assertion which tells other programmers that &ldquo;no, this really shouldn&rsquo;t happen, but I&rsquo;m just making sure.&rdquo;</p>
 <p>And now you know all you need to know when choosing whether to use an exception, a status code, or an assertion. Next in my series on exceptional code I shall dive into exceptions being part of a method&rsquo;s signature.</p>
 
     

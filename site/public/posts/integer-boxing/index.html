@@ -288,25 +288,25 @@ import java.lang.reflect.Field; class IntegerBoxing { static public void main(St
   <article class="content numbered-subtitles">
     
     <p>Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of <code>the_black_box</code> will the statement on line 11 print &ldquo;Jonathan Kelly is really a robot!&rdquo;? The only import allowed is <code>java.lang.reflect.Field</code>. 15 points will be awarded for the first correct answer.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">import</span> java.lang.reflect.Field;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IntegerBoxing</span> {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) <span style="color:#66d9ef">throws</span> Exception {  
-</span></span><span style="display:flex;"><span>        the_black_box();  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">char</span> data<span style="color:#f92672">[]</span> <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;3&#39;</span>, <span style="color:#e6db74">&#39;0&#39;</span>};  
-</span></span><span style="display:flex;"><span>        Integer radix <span style="color:#f92672">=</span> 10;  
-</span></span><span style="display:flex;"><span>        Integer x <span style="color:#f92672">=</span> Integer.<span style="color:#a6e22e">parseInt</span>(<span style="color:#66d9ef">new</span> String(data), radix);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (2 <span style="color:#f92672">==</span> x) {  
-</span></span><span style="display:flex;"><span>            System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Jonathan Kelly is really a robot!&#34;</span>);  
-</span></span><span style="display:flex;"><span>        }  
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">the_black_box</span>() <span style="color:#66d9ef">throws</span> Exception {  
-</span></span><span style="display:flex;"><span>       ...  
-</span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.lang.reflect.Field</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">IntegerBoxing</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">the_black_box</span><span class="p">();</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">data</span><span class="o">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="sc">&#39;1&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;3&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;0&#39;</span><span class="p">};</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">radix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">10</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Integer</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">parseInt</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="n">data</span><span class="p">),</span><span class="w"> </span><span class="n">radix</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Jonathan Kelly is really a robot!&#34;</span><span class="p">);</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">the_black_box</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">       </span><span class="p">...</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div>
     
   </article>
 

@@ -271,36 +271,36 @@ I have extreme feelings of dissatisfaction with boring code. Boring code is mono
     
     <p><em>Thanks to <a href="http://www.cs.uchicago.edu/people/clklein">Casey</a> for inspiring this entry and for fighting the good fight against boring code.</em></p>
 <p>I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getBlah</span>() {  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> blah;  
-</span></span><span style="display:flex;"><span>}  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setBlah</span>(<span style="color:#66d9ef">int</span> blah) {  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">blah</span> <span style="color:#f92672">=</span> blah;  
-</span></span><span style="display:flex;"><span>}  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>String <span style="color:#a6e22e">getSoBored</span>() {  
-</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> soBored;  
-</span></span><span style="display:flex;"><span>}  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setSoBored</span>(String soBored) {  
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">soBored</span> <span style="color:#f92672">=</span> soBored;  
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In Ruby, this looks like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">attr_accessor</span> <span style="color:#e6db74">:blah</span>, <span style="color:#e6db74">:soBored</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kt">int</span><span class="w"> </span><span class="nf">getBlah</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">blah</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">void</span><span class="w"> </span><span class="nf">setBlah</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">blah</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">this</span><span class="p">.</span><span class="na">blah</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">blah</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">String</span><span class="w"> </span><span class="nf">getSoBored</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">soBored</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kt">void</span><span class="w"> </span><span class="nf">setSoBored</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">soBored</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">this</span><span class="p">.</span><span class="na">soBored</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">soBored</span><span class="p">;</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>In Ruby, this looks like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="kp">attr_accessor</span> <span class="ss">:blah</span><span class="p">,</span> <span class="ss">:soBored</span>
 </span></span></code></pre></div><p>If you are using Java, a certain amount of this type of verbose code is just necessary. The far more insidious problem is that it trains developers into believing this type of pattern is a good thing. The best thing about Ruby and the functional programming communities is that the first point emphasized is that code should be concise and full of meat and if it isn&rsquo;t you aren&rsquo;t thinking hard enough. For instance, the Hello World program in Ruby:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>puts <span style="color:#e6db74">&#34;Hello, World!&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="nb">puts</span> <span class="s2">&#34;Hello, World!&#34;</span>
 </span></span></code></pre></div><p>Straight to the point. In Java, you are already entering the world of boilerplate thinking (from <a href="http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)">http://java.sun.com/docs/books/tutorial/getStarted/application/index.html)</a>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">/**   
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * The HelloWorldApp class implements an application that  
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * simply displays &#34;Hello World!&#34; to the standard output.  
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">HelloWorldApp</span> {  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {  
-</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(<span style="color:#e6db74">&#34;Hello World!&#34;</span>); <span style="color:#75715e">//Display the string.  </span>
-</span></span><span style="display:flex;"><span>    }  
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>My knock here is not actually that Ruby or functional languages magically eliminate all boilerplate code, or that this extra overhead in these cases is really that painful. You can easily use a code generator for both of these situations and if this is the only boilerplate in your code you are doing pretty good. The problem is the Java community teaches its developers that all of their code should be at about this level of signal to noise.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="cm">/**   
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * The HelloWorldApp class implements an application that  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * simply displays &#34;Hello World!&#34; to the standard output.  
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">HelloWorldApp</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">);</span><span class="w"> </span><span class="c1">//Display the string.  </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>My knock here is not actually that Ruby or functional languages magically eliminate all boilerplate code, or that this extra overhead in these cases is really that painful. You can easily use a code generator for both of these situations and if this is the only boilerplate in your code you are doing pretty good. The problem is the Java community teaches its developers that all of their code should be at about this level of signal to noise.</p>
 <p>This is not an argument about aesthetics. Boring code is bad for precisely three reasons:</p>
 <ol>
 <li>Boring code is boring to read. Code is read far more than it is written. This means programmers coming in to modify your code are more likely to miss something and then make the wrong code change.</li>
