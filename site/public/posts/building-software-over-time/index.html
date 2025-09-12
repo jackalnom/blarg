@@ -267,9 +267,7 @@
   </div>
   
   
-  
-  
-  <article class="content numbered-subtitles">
+  <article class="content ">
     
     <p>When choosing a sorting algorithm, we typically don&rsquo;t look at how fast it performs on collections of 10 items. What matters is how it scales with the size of the input data. It is very easy to get sidetracked by success on toy problems or to concentrate on optimizing the wrong thing. Sure you can spend days optimizing the inner loop of your sort, but if you&rsquo;re using an n squared algorithm you&rsquo;re not using your time efficiently.</p>
 <p>The same lessons apply in software design. Programmers most often optimize around initial construction time. If you have a fixed set of requirements for the lifetime of the software than that is indeed a suitable area to optimize and in that case you are probably working for a government contractor of some sort. For the rest of us, you are almost certainly working in an area with changing requirements and code that will be read and reworked many times through its life. Much more time will be spent on the maintenance side, an often cited number is greater than 90% of time is spent on maintenance. People&rsquo;s first response to this is that it is a code quality issue, but that is largely untrue from my experience. The reason maintenance absorbs so much time is that requirements are constantly in flux. The code must be changed to meet new demands as those demands stream in.</p>
