@@ -1,0 +1,45 @@
+{{- $base := .Get "id" | default "boids" -}}
+
+<div class="boids-controls">
+    <div class="boids-rule">
+        <label>Separation <small>(avoid crowding)</small></label>
+        <input type="range" id="{{ $base }}Separation" min="0" max="3" step="0.1" value="1.5" class="boids-slider">
+        <span id="{{ $base }}SeparationValue" class="boids-value">1.5</span>
+    </div>
+    <div class="boids-rule">
+        <label>Alignment <small>(match direction)</small></label>
+        <input type="range" id="{{ $base }}Alignment" min="0" max="3" step="0.1" value="1.0" class="boids-slider">
+        <span id="{{ $base }}AlignmentValue" class="boids-value">1.0</span>
+    </div>
+    <div class="boids-rule">
+        <label>Cohesion <small>(stay together)</small></label>
+        <input type="range" id="{{ $base }}Cohesion" min="0" max="3" step="0.1" value="1.0" class="boids-slider">
+        <span id="{{ $base }}CohesionValue" class="boids-value">1.0</span>
+    </div>
+</div>
+
+<div class="boids-secondary-controls">
+    <label>Boids: <span id="{{ $base }}CountValue">100</span></label>
+    <input type="range" id="{{ $base }}Count" min="10" max="300" step="10" value="100" class="boids-slider">
+    <button id="{{ $base }}Reset" class="btn-secondary sim-reset-btn">Reset</button>
+</div>
+
+<div class="boids-container">
+    <canvas id="{{ $base }}Canvas" class="boids-canvas"></canvas>
+</div>
+
+<script type="module">
+    import { initBoids } from "/js/teaching-visuals.js";
+    initBoids({
+        canvasId: "{{ $base }}Canvas",
+        separationId: "{{ $base }}Separation",
+        alignmentId: "{{ $base }}Alignment",
+        cohesionId: "{{ $base }}Cohesion",
+        separationValueId: "{{ $base }}SeparationValue",
+        alignmentValueId: "{{ $base }}AlignmentValue",
+        cohesionValueId: "{{ $base }}CohesionValue",
+        countId: "{{ $base }}Count",
+        countValueId: "{{ $base }}CountValue",
+        resetId: "{{ $base }}Reset"
+    });
+</script>

@@ -1,0 +1,16 @@
+{{- $id := .Get "id" | default "homevalues" -}}
+
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls">
+    <label>
+      <input type="checkbox" id="{{ $id }}-log"> Log scale
+    </label>
+  </div>
+  <div class="static-chart-container" id="{{ $id }}"></div>
+  <div class="static-chart-source">Source: City of Milwaukee Open Data Portal, Property Sales (2024)</div>
+</div>
+
+<script type="module">
+  import { initHomeValues } from "/js/teaching-visuals.js";
+  initHomeValues("{{ $id }}", "{{ $id }}-log");
+</script>

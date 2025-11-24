@@ -1,0 +1,8 @@
+{{- $id := .Get "id" | default "elec" -}}
+
+<div class="electricity-demand-container" id="{{ $id }}"></div>
+
+<script type="module">
+  import { initElectricityDemand } from "/js/teaching-visuals.js";
+  initElectricityDemand("{{ $id }}");
+</script>

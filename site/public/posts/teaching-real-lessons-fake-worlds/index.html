@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 105%">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta name="author" content="Lucas Pierce">
+
+  
+  
+  <meta name="description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.bonnycode.com//images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.bonnycode.com//images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.bonnycode.com//images/favicon-16x16.png">
+
+  
+  
+  <meta name="keywords" content='hugo latex theme blog texify texify2 texify3 michael neuper'>
+  
+
+  
+  
+  <link rel="stylesheet" href='/katex/katex.min.css'>
+<script defer defer src='/katex/katex.min.js'></script>
+<script defer src='/katex/contrib/auto-render.min.js'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+  
+
+  
+  
+
+  
+  <meta property="og:url" content="https://www.bonnycode.com/posts/teaching-real-lessons-fake-worlds/">
+  <meta property="og:site_name" content="BonnyCode">
+  <meta property="og:title" content="Teaching Real Lessons with Fake Worlds">
+  <meta property="og:description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-23T00:00:00+00:00">
+
+
+  
+  <link rel="canonical" href="https://www.bonnycode.com/posts/teaching-real-lessons-fake-worlds/">
+
+  
+  
+  
+  <meta itemprop="name" content="Teaching Real Lessons with Fake Worlds">
+  <meta itemprop="description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
+  <meta itemprop="datePublished" content="2025-11-23T00:00:00+00:00">
+  <meta itemprop="dateModified" content="2025-11-23T00:00:00+00:00">
+  <meta itemprop="wordCount" content="3218">
+  <meta itemprop="keywords" content="Career &amp; Professional">
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/common.min.e562d763c6d0825495eb17de8b2c1d9800cf7c08db1c36accedf77a5fccfc4b9.css" integrity="sha256-5WLXY8bQglSV6xfeiywdmADPfAjbHDaszt93pfzPxLk=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/content.min.8a4c3a2f54fd10a46d0842f76299f1c9c1bd690f3c8c6898e60f2dd3504cc173.css" integrity="sha256-ikw6L1T9EKRtCEL3YpnxycG9aQ88jGiY5g8t01BMwXM=" crossorigin="anonymous">
+  
+
+  
+  
+  <title>Teaching Real Lessons with Fake Worlds - BonnyCode</title>
+  
+
+  
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Teaching Real Lessons with Fake Worlds">
+  <meta name="twitter:description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
+
+
+  
+
+
+  <link rel="stylesheet" href="/css/single.min.be779f459ad7e3aaf8afd0f80c6a61ca6c50993f5f18512532100ac6d93f0fa9.css" integrity="sha256-vnefRZrX46r4r9D4DGphymxQmT9fGFElMhAKxtk/D6k=" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="/css/single.min.78a121b7d7a160420f9daab0ea13add66c37b9c44f27bba07b27207e2b0975d2.css" integrity="sha256-eKEht9ehYEIPnaqw6hOt1mw3ucRPJ7ugeycgfisJddI=" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <div id="wrapper">
+    
+
+
+
+<header id="header">
+  <h1>
+    <a href="https://www.bonnycode.com/">
+<svg width="40"
+  height="43" id="Layer_1" fill="currentColor" stroke="currentColor" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 422.89 448.32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: var(--random-color, #ed3293);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-miterlimit: 10;
+        stroke-width: 12px;
+      }
+    </style>
+  </defs>
+  <g id="potion-bottle-pattern-7">
+    <path class="cls-2" d="M337.62,91.46c-14.26,3.88-27.62,10.43-41.14,16.4-13.52,5.97-27.49,11.46-42.19,13.02-7.95.84-16.16.36-23.89-1.64v-30.32c4.86-1.56,8.4-6.06,8.4-11.44v-3.39c0-6.67-5.4-12.07-12.07-12.07h-12.27c1.53-12.25,2.86-24.52,3.86-36.82.32-3.93.52-8.19-1.66-11.48-2.61-3.91-7.71-5.13-12.34-5.96-20.22-3.6-35.89-.56-56.43-.75-4.53-.04-9.16.01-13.45,1.47-4.29,1.45-8.27,4.55-9.65,8.87-1.11,3.47-.45,7.23.22,10.81,2.22,11.8,3.76,22.91,5.14,33.86h-16.92c-6.67,0-12.07,5.4-12.07,12.07v3.39c0,5.38,3.54,9.88,8.4,11.44v84.54L8.89,246.62l53.95,166.04c4.52,13.92,17.49,23.34,32.13,23.34h150.05c14.63,0,27.6-9.42,32.13-23.34l53.95-166.04-100.68-73.15v-19.58c12.15,13.99,32.15,19.29,50.6,17.44,18.58-1.86,35.92-10.01,52.24-19.09,11.11-6.18,22.24-12.97,34.73-15.36,12.49-2.39,26.96.66,34.42,10.96,3.17-17.09,6.34-34.19,9.51-51.28-23.18-10.13-49.87-11.75-74.28-5.1Z"/>
+  </g>
+  <g id="potion-bottle-pattern-7-2" data-name="potion-bottle-pattern-7">
+    <path class="cls-1" d="M8.89,252.93l53.95,166.04c4.52,13.92,17.49,23.34,32.13,23.34h150.05c14.63,0,27.6-9.42,32.13-23.34l53.95-166.04-81.52,10.88c-24-3.79-48-7.59-72-11.39-17,2.13-34,4.26-51,6.39l-60,6-57.68-11.88Z"/>
+  </g>
+</svg>
+
+      
+      Bonnycode</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle theme">
+        <svg width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+        </svg>
+    </button>
+  </h1>
+
+  
+
+
+  <nav>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17,11H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm0,4H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2ZM11,9h6a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2ZM21,3H7A1,1,0,0,0,6,4V7H3A1,1,0,0,0,2,8V18a3,3,0,0,0,3,3H18a4,4,0,0,0,4-4V4A1,1,0,0,0,21,3ZM6,18a1,1,0,0,1-2,0V9H6Zm14-1a2,2,0,0,1-2,2H7.82A3,3,0,0,0,8,18V5H20Zm-9-4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Zm0,4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Z"/></svg>
+</span>
+      
+      <a class="link" href="/posts/">Blog</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.88,16.88a3,3,0,0,0,0,4.24,3,3,0,0,0,4.24,0,3,3,0,0,0-4.24-4.24Zm2.83,2.83a1,1,0,0,1-1.42-1.42,1,1,0,0,1,1.42,0A1,1,0,0,1,5.71,19.71ZM5,12a1,1,0,0,0,0,2,5,5,0,0,1,5,5,1,1,0,0,0,2,0,7,7,0,0,0-7-7ZM5,8a1,1,0,0,0,0,2,9,9,0,0,1,9,9,1,1,0,0,0,2,0,11.08,11.08,0,0,0-3.22-7.78A11.08,11.08,0,0,0,5,8Zm10.61.39A15.11,15.11,0,0,0,5,4,1,1,0,0,0,5,6,13,13,0,0,1,18,19a1,1,0,0,0,2,0A15.11,15.11,0,0,0,15.61,8.39Z"/></svg>
+</span>
+      
+      <a class="link" href="/index.xml">RSS</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">...</svg></span>
+      
+      <a class="link" href="https://github.com/jackalnom">GitHub</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">...</svg></span>
+      
+      <a class="link" href="https://www.linkedin.com/in/lucaspierce/">LinkedIn</a>
+    </span>
+    
+  </nav>
+</header>
+<hr class="head-rule"></hr>
+
+<script>
+  function generateRandomHueColor() {
+    const hue = Math.floor(Math.random() * 360); 
+    const saturation = 82; 
+    const lightness = 56; 
+
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const svg = document.getElementById('Layer_1');
+    svg.style.setProperty('--random-color', generateRandomHueColor());
+  });
+</script>
+    
+<main id="main" class="post">
+  
+  <div class="post-heading">
+    <h1 class="post-title">Teaching Real Lessons with Fake Worlds</h1>
+    <div class="publish-metadata">
+      
+      
+        <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Lucas Pierce
+        &nbsp;
+      
+      
+      <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      23 November 2025
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          3218 words
+        </span>
+      
+      
+      
+        
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          ~16 mins
+        </span>
+      
+    </div>
+  </div>
+
+  
+  <div>
+    
+    <br></br>
+  </div>
+  
+  
+  <article class="content ">
+    
+    <p>When I transitioned from industry to teaching, the biggest gap I sought to close was the disconnect between the problems students face in class and the actual challenges I saw in the real world.</p>
+<p>Too often, I saw new-grads who only had exposure to toy problems that bear only a passing resemblance to what makes technical work difficult. In the wild, solving a technical problem is a cycle:</p>
+<ol>
+<li><strong>Formulate:</strong> Translate an unbounded, ambiguous real-world situation into a technical problem.</li>
+<li><strong>Solve:</strong> Execute the technical solution.</li>
+<li><strong>Interpret:</strong> Evaluate whether your solution actually solved the problem.</li>
+</ol>
+<p>Even when toy problems attempt steps 1 and 3, it is often just a sort of thinly wrapped pseudo-context. There isn’t enough noise. There isn&rsquo;t enough mess. It is painfully obvious what technical thing needs to be done.</p>
+<p>LLMs have significantly exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. In the same way calculators solved the “how do I perform arithmetic on these numbers” problem, but didn’t solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren&rsquo;t just working on problems that don’t match the real world; they aren’t building any fundamental skills at all.</p>
+<p>My answer to this problem has been making the classroom look more like the real world through simulation.</p>
+<h2 id="why-simulation">Why Simulation?</h2>
+<p>I’ve always loved simulation-style games. Ever since playing the gold-cartridge <em>Legend of Zelda</em> on the NES, I’ve been fascinated by the idea that the little characters in those worlds might have lives of their own—that they might keep moving even when the player isn’t looking.</p>
+<p>That notion is the seed of my classroom simulations: worlds that run on their own, where students must reason about living systems rather than static puzzles.</p>
+<p>My first classroom simulation-game came out of a databases course. Early on, I realized students weren’t really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about. The kind of thing that breaks at 3 a.m.</p>
+<ul>
+<li>Teaching concurrency errors: Let students run into them naturally. As “customers” fire off parallel calls that collide in unpredictable ways, things break. Sorry your inventory is out of sync. You had a lost update. I bet you&rsquo;re excited next week we are lecturing on what a transaction is.</li>
+<li>Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, and systems designed for observability and debugging. That’s how many experienced developers come to care about those principles: not from theory, but from scars.</li>
+</ul>
+<p>Teaching SQL is one thing. Teaching the principles behind real systems is much harder without first letting students experience the pain, then walking them through how we solve it.</p>
+<p>This is even more critical when teaching data science. In my <em>Knowledge Discovery</em> class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it’s any good without knowing what would have happened if the person was shown one piece of content vs another?</p>
+<p>The reality, as I know all too well, is that offline evaluation metrics often fail to capture what only reveals itself in a live, online test. A simulation is the best way I can bring that messy complexity into the classroom.</p>
+<h2 id="how-i-build-simulations">How I Build Simulations</h2>
+<p>My goal when designing a simulation is for it to mimic the real-world in the ways that matter. It has to feel real, even when the subject matter of the simulation is obviously fantastical. For my purposes, I build worlds full of adventurers, potions, and dragons. But the data feels real otherwise.</p>
+<p>Fake data often looks fake to me.</p>
+<p>If I roll a fair hundred-sided die a million times and plot the results, I will get (if I stand back a bit) a nicely flat line: a uniform distribution. But if I ask a million people to give me a random number between 1 and 100, the shape will be very different. Some numbers—like 7, 37, and 77, which feels random—will peak. So will 42 (<em>thank you, Hitchhiker’s Guide fans</em>). And, sadly, so will 67, due to brainrot.</p>
+<p>You can tell, just by the shape in this case, that the “random” numbers weren’t truly random.</p>
+<p>There are three ways fake data tends to give itself away:</p>
+<ul>
+<li>
+<p>Correlation: Real data is a web of interesting, interconnected correlations of varying degrees. Fake data tends to be either completely independent or perfectly correlated, at best maintaining simple pairwise correlations without the complex conditional dependencies of real life.</p>
+</li>
+<li>
+<p>Shape: Real data has the right shape for its process. Fake data doesn’t.</p>
+</li>
+<li>
+<p>Time: Real data has rhythm—trends, seasonality, cycles. It’s influenced by the sun, the moon, and the messy patterns of human life.</p>
+</li>
+</ul>
+<h3 id="correlation">Correlation</h3>
+<p>Did you know that ice cream and violent crime are <a href="https://www.sciencedirect.com/science/article/abs/pii/S0095069613001289">correlate</a>? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.</p>
+<div class="static-chart-container" id="icecream"></div>
+
+<script type="module">
+  import { initIceCreamMurder } from "/js/teaching-visuals.js";
+  initIceCreamMurder("icecream");
+</script>
+
+<p>Why are they correlated though? We’ve all heard the phrase <em>correlation does not imply causation.</em> When we say that, we mostly mean <em>direct causation</em>. What’s happening here is that both violent crime and ice cream consumption rise during the summer months—the confounder is the season.</p>
+<p>If we accept that our highly correlated world results from a web of causes—“this causes this, which causes these two things, and then those in turn cause others”—we can use that fact as the foundation for natural-looking correlations.</p>
+<p>I draw upon <a href="https://www.jstor.org/stable/2337329">Judea Pearl’s causal directed acyclic graphs (DAGs)</a> to make this happen. I draw out my causal graph, giving each effect multiple causes, often layers-and-layers deep.</p>
+<p>For example, in the interaction below, we can see a classic case of confounding illustrated using a DAG. <strong>A</strong> could be ice-cream consumption, <strong>C</strong> could be violent crime, and <strong>B</strong> could be season (the confounder). You can see in the scatter plots how <strong>A</strong> and <strong>C</strong> become correlated even without any direct causal link.</p>
+<div id="dagWeights" class="dag-weights"></div>
+
+<div class="dag-sample-controls">
+    <button id="dagStep" class="btn-primary" style="padding:4px 12px;">Step</button>
+    <div class="sim-step-options">
+        <label><input type="radio" name="dagStepCount" value="1"> 1</label>
+        <label><input type="radio" name="dagStepCount" value="10" checked> 10</label>
+        <label><input type="radio" name="dagStepCount" value="50"> 50</label>
+    </div>
+    <button id="dagRun" class="btn-primary" style="padding:4px 12px;">Run (5s)</button>
+    <button id="dagReset" class="btn-secondary sim-reset-btn" title="Reset">↺</button>
+    <span id="dagSampleCount" class="dag-sample-count"></span>
+</div>
+
+<div id="dagCorrelation" class="dag-correlation"></div>
+<div class="dag-container">
+    <canvas id="dagCanvas" class="dag-canvas"></canvas>
+</div>
+<script type="module">
+    import { initDAG } from "/js/teaching-visuals.js";
+    initDAG({
+        canvasId: "dagCanvas",
+        structure: "confounded",
+        correlationId: "dagCorrelation",
+        weightsId: "dagWeights",
+        stepId: "dagStep",
+        runId: "dagRun",
+        resetId: "dagReset",
+        stepCountName: "dagStepCount",
+        sampleCountId: "dagSampleCount"
+    });
+</script>
+
+<p>This is all too neat though if we actually let students see all of this though. The real world is like <a href="https://en.wikipedia.org/wiki/Blind_men_and_an_elephant">the blind men and an elephant</a> from the <em>Tittha Sutta</em>. One blind man feels the trunk and says “It’s a snake!” Another feels a leg and says “It’s a tree!” Yet another feels the tusk and says “No, you fools, it’s a giant spear!” Each has only a partial view of the underlying truth.
+I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.</p>
+<p>Real data is not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, the first few inputs change everything, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your 100th friend matters a lot less than your first or your tenth&ndash;you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in learning, social networks, and even marketing spend. It’s what gives real data its characteristic bend—rising fast, then flattening as systems run into limits.</p>
+<div class="diminishing-param">
+    <label>Returns Exponent: <span id="diminishingExponentValue">0.50</span></label>
+    <input type="range" id="diminishingExponent" min="0.2" max="1.0" step="0.05" value="0.5" class="diminishing-slider">
+    <div style="font-size: 0.75em; color: var(--fg3); margin-top: 2px;">
+        Lower = stronger diminishing returns
+    </div>
+</div>
+
+<div class="sim-controls">
+    <button id="diminishingStep">Step</button>
+    <button id="diminishingRun">Run</button>
+    <button id="diminishingReset" class="sim-reset-btn">Reset</button>
+</div>
+
+<div class="diminishing-container">
+    <canvas id="diminishingCanvas" class="diminishing-canvas"></canvas>
+</div>
+
+<script type="module">
+    import { initDiminishingReturns } from "/js/teaching-visuals.js";
+    initDiminishingReturns({
+        canvasId: "diminishingCanvas",
+        stepId: "diminishingStep",
+        runId: "diminishingRun",
+        resetId: "diminishingReset",
+        exponentId: "diminishingExponent",
+        exponentValueId: "diminishingExponentValue"
+    });
+</script>
+
+<p>Real data is littered with selection biases; the data we have is not representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363">a hospital in Canada</a> noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson&rsquo;s paradox). The hospital isn&rsquo;t seeing all bike riders and all bike accidents. They don&rsquo;t see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.</p>
+<p>You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones you died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It’s a kind of selection echo: the world you see isn’t the world as it is, but the world that lasted.</p>
+<p>In the simulation below,</p>
+<div class="berkson-param">
+    <label>Survival Threshold: <span id="berksonThresholdValue">100</span></label>
+    <input type="range" id="berksonThreshold" min="50" max="150" step="5" value="100" class="berkson-slider">
+</div>
+
+<div class="sim-controls">
+    <button id="berksonStep">Step</button>
+    <button id="berksonRun">Run</button>
+    <button id="berksonReset" class="sim-reset-btn">Reset</button>
+</div>
+
+<div class="berkson-dag">
+    <canvas id="berksonDAG" class="berkson-dag-canvas"></canvas>
+</div>
+
+<div class="berkson-charts">
+    <div class="berkson-chart">
+        <canvas id="berksonFull" class="berkson-scatter-canvas"></canvas>
+    </div>
+    <div class="berkson-chart">
+        <canvas id="berksonSelected" class="berkson-scatter-canvas"></canvas>
+    </div>
+</div>
+
+<script type="module">
+    import { initBerksonParadox } from "/js/teaching-visuals.js";
+    initBerksonParadox({
+        dagCanvasId: "berksonDAG",
+        fullCanvasId: "berksonFull",
+        selectedCanvasId: "berksonSelected",
+        stepId: "berksonStep",
+        runId: "berksonRun",
+        resetId: "berksonReset",
+        thresholdId: "berksonThreshold",
+        thresholdValueId: "berksonThresholdValue"
+    });
+</script>
+
+<p>The end result is wonderfully correlated and messy data that feels real and is more fun to work with.</p>
+<h3 id="shape">Shape</h3>
+<p>I&rsquo;ve long been fascinated by the beautifully smooth shapes that data makes when generated at scale. Not just systems, but data that is based on human behavior. I had once assumed just because individual humans are so complicated, so individual, so hard to predict individually, that a bunch of humans should be exponentially more complicated to predict. But it is in fact the opposite. When you get lots of people, all the individual differences wash out, and what you are left with is the smooth underlying generative mechanisms that underlie their common behavior.</p>
+<p>Most people are familiar with the bell curve or normal distribution. Plot human height and you’ll get something roughly normal. Human height follows this pattern because it’s the sum of many small, independent effects: genes, nutrition, environment. But it’s not perfectly normal; the curve’s a bit too flat and wide. It’s multimodal, a blend of overlapping distributions. Split by gender, and each group looks much closer to a proper bell curve.</p>
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls">
+    <label>
+      <input type="checkbox" id="height-split"> Split by gender
+    </label>
+  </div>
+  <div class="static-chart-container" id="height"></div>
+</div>
+
+<script type="module">
+  import { initHeightDistribution } from "/js/teaching-visuals.js";
+  initHeightDistribution("height", "height-split");
+</script>
+
+<p>Roll a bunch of dice, <strong>add</strong> them up, and you’ll get the same shape; that’s the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.</p>
+<div class="sim-controls">
+    
+    <label class="sim-param-label">Dice per roll
+        <input id="cltCount" type="number" min="1" max="20" value="5">
+    </label>
+    
+
+    <div class="sim-step-group">
+        <span class="sim-step-label">Add</span>
+        <div class="sim-step-options">
+            <label><input type="radio" name="cltStepCount" value="1"> 1</label>
+            <label><input type="radio" name="cltStepCount" value="10" checked> 10</label>
+            <label><input type="radio" name="cltStepCount" value="50"> 50</label>
+        </div>
+        <button id="cltStep">Sample</button>
+    </div>
+
+    <button id="cltRun">Run</button>
+    <button id="cltReset" class="sim-reset-btn">Reset</button>
+</div>
+
+
+
+<div id="cltInfo" class="sim-info"></div>
+<div class="sim-container">
+    <canvas id="cltCanvas" class="sim-canvas"></canvas>
+</div>
+
+
+<script type="module">
+  import { initGenerateSamples } from "/js/teaching-visuals.js";
+  initGenerateSamples("clt", "normal");
+</script>
+
+<p>Most of the data I’ve worked with doesn’t follow a normal distribution. Systems and people rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.  <a href="https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf">Housing prices</a>
+are generally right-skewed, largely because each property’s value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because log turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is also common to look at these right-skewed distributions in log space, which you are free to try below.</p>
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls">
+    <label>
+      <input type="checkbox" id="homevalues-log"> Log scale
+    </label>
+  </div>
+  <div class="static-chart-container" id="homevalues"></div>
+  <div class="static-chart-source">Source: City of Milwaukee Open Data Portal, Property Sales (2024)</div>
+</div>
+
+<script type="module">
+  import { initHomeValues } from "/js/teaching-visuals.js";
+  initHomeValues("homevalues", "homevalues-log");
+</script>
+
+<p>We can get something similar using our same dice rolling example. But this time, rather than adding the dice, we will multiply them together.</p>
+<div class="sim-controls">
+    
+    <label class="sim-param-label">Dice per roll
+        <input id="logCount" type="number" min="1" max="20" value="5">
+    </label>
+    
+
+    <div class="sim-step-group">
+        <span class="sim-step-label">Add</span>
+        <div class="sim-step-options">
+            <label><input type="radio" name="logStepCount" value="1"> 1</label>
+            <label><input type="radio" name="logStepCount" value="10" checked> 10</label>
+            <label><input type="radio" name="logStepCount" value="50"> 50</label>
+        </div>
+        <button id="logStep">Sample</button>
+    </div>
+
+    <button id="logRun">Run</button>
+    <button id="logReset" class="sim-reset-btn">Reset</button>
+</div>
+
+
+<div class="sim-log-options">
+    <label><input type="checkbox" id="logLogX"> Log scale X</label>
+    <label><input type="checkbox" id="logLogY"> Log scale Y</label>
+</div>
+
+
+<div id="logInfo" class="sim-info"></div>
+<div class="sim-container">
+    <canvas id="logCanvas" class="sim-canvas"></canvas>
+</div>
+
+
+<script type="module">
+  import { initGenerateSamples } from "/js/teaching-visuals.js";
+  initGenerateSamples("log", "lognormal");
+</script>
+
+<p>Many human systems aren’t just multiplicative—they’re compounding. The rich get richer because their money earns more money; popular people attract more popularity simply because they’re already popular. Algorithms that surface trending videos, products, or songs amplify these dynamics even further. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.</p>
+<p>When I first started plotting data—any kind of data—on user engagement, I was struck by how often those power-law curves appeared. They looked like the chart below of city populations: a few giants, a long tail of small ones. Think about why cities would follow that same pattern based on the dynamic described above.</p>
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls">
+    <label>
+      <input type="checkbox" id="cities-log"> Log-log scale
+    </label>
+  </div>
+  <div class="static-chart-container" id="cities"></div>
+</div>
+
+<script type="module">
+  import { initCityPopulation } from "/js/teaching-visuals.js";
+  initCityPopulation("cities", "cities-log");
+</script>
+
+<p>It’s surprisingly easy to make preferential attachment appear in a simulation: you simply make prior success increase the odds of future success. Make customers more likely to pick the company that already has a lot of customers (maybe even just because they know someone who is already a customer of the company). Allow the wealthy to reinvest their money and get a return on their investment. And let them use that wealth to get preferential deals or achieve economies of scale.</p>
+<div class="sim-controls">
+    
+
+    <div class="sim-step-group">
+        <span class="sim-step-label">Add</span>
+        <div class="sim-step-options">
+            <label><input type="radio" name="paStepCount" value="1"> 1</label>
+            <label><input type="radio" name="paStepCount" value="10" checked> 10</label>
+            <label><input type="radio" name="paStepCount" value="50"> 50</label>
+        </div>
+        <button id="paStep">Sample</button>
+    </div>
+
+    <button id="paRun">Run</button>
+    <button id="paReset" class="sim-reset-btn">Reset</button>
+</div>
+
+
+<div class="sim-log-options">
+    <label><input type="checkbox" id="paLogX"> Log scale X</label>
+    <label><input type="checkbox" id="paLogY"> Log scale Y</label>
+</div>
+
+
+<div id="paInfo" class="sim-info"></div>
+<div class="sim-container">
+    <canvas id="paCanvas" class="sim-canvas"></canvas>
+</div>
+
+
+<script type="module">
+  import { initGenerateSamples } from "/js/teaching-visuals.js";
+  initGenerateSamples("pa", "preferential-attachment");
+</script>
+
+<p>The sigmoid, or S-curve, has a way of spontaneously appearing on its own. Start with exponential growth—your babies have babies, and theirs do too—and sooner or later a carrying capacity reins things in, bending the curve into a smooth logistic shape. A different route to the same S appears if your agents each have a normally distributed threshold: as the value rises, the cumulative number who cross that line climbs along a probit curve that looks much the same.</p>
+<div class="sim-controls">
+    
+    <label class="sim-param-label">Dice per roll
+        <input id="sigCount" type="number" min="1" max="20" value="5">
+    </label>
+    
+
+    <div class="sim-step-group">
+        <span class="sim-step-label">Add</span>
+        <div class="sim-step-options">
+            <label><input type="radio" name="sigStepCount" value="1"> 1</label>
+            <label><input type="radio" name="sigStepCount" value="10" checked> 10</label>
+            <label><input type="radio" name="sigStepCount" value="50"> 50</label>
+        </div>
+        <button id="sigStep">Sample</button>
+    </div>
+
+    <button id="sigRun">Run</button>
+    <button id="sigReset" class="sim-reset-btn">Reset</button>
+</div>
+
+
+
+<div id="sigInfo" class="sim-info"></div>
+<div class="sim-container">
+    <canvas id="sigCanvas" class="sim-canvas"></canvas>
+</div>
+
+
+<script type="module">
+  import { initGenerateSamples } from "/js/teaching-visuals.js";
+  initGenerateSamples("sig", "sigmoid");
+</script>
+
+<p>Getting these shapes to emerge naturally is key. When I’m building simulations, I never directly sample from these distributions. Instead, I code my agents so that, taken together, they arrive at those shapes honestly. I create the feedback loops that produce power-law distributions. I make processes multiplicative where they should be, and allow for multimodality by giving categories different generative properties.</p>
+<h3 id="time">Time</h3>
+<p>When I worked at Snapchat, I could tell when holidays were happening without ever doing something as prosaic as checking a calendar. I’d just look at time-series charts of user engagement, split by region. If people started taking pictures at six or seven in the morning, it was a work or school day. If usage didn’t spike until around 10 in the morning, it was a weekend or holiday.</p>
+<p>Anyone who has looked at these time-series is familiar with the rhythms of real-data. Below is <a href="https://www.eia.gov/electricity/gridmonitor/">hourly demand for electricity</a> in California in October 2023.</p>
+<div class="electricity-demand-container" id="elec"></div>
+
+<script type="module">
+  import { initElectricityDemand } from "/js/teaching-visuals.js";
+  initElectricityDemand("elec");
+</script>
+
+<p>Real data shows this rhythm and seasonality for several reasons:</p>
+<ul>
+<li>You see it across a day because we sleep, work, and live as the earth spins and brings day and night.</li>
+<li>You see it across a week, however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.</li>
+<li>And you see it across a year, driven by that same sun: the seasons, and the layers we’ve added on top—holidays, festivals, school breaks, and all the rituals that divide our time into meaning.</li>
+</ul>
+<p>In the visualization below, I layer these temporal components—daily, weekly, and yearly—on top of each other to approximate the kinds of cycles that appear in real time series. Conceptually, it’s similar to seasonal–trend decomposition (like STL), where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I’m composing those cycles from the ground up rather than decomposing observed data.</p>
+<div class="seasonality-grid">
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Daily</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="dailyCanvas" class="seasonality-canvas"></canvas>
+  </div>
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Weekly</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="weeklyCanvas" class="seasonality-canvas"></canvas>
+  </div>
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Annual</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="annualCanvas" class="seasonality-canvas"></canvas>
+  </div>
+</div>
+<div class="seasonality-combo">
+  <div class="seasonality-header">
+    <strong>Combined</strong>
+    <small class="seasonality-hint">daily × weekly × annual (normalized)</small>
+  </div>
+  <canvas id="comboCanvas" class="seasonality-combo-canvas"></canvas>
+</div>
+<script type="module">
+  import { initSeasonality } from "/js/teaching-visuals.js";
+  initSeasonality();
+</script>
+
+<p>I combine those cycles with holidays—which turn weekdays into weekends—and make them an integral part of the causal DAG that drives my agents. By giving the root nodes those rhythms and letting them propagate through the graph, the model naturally produces the kinds of correlated effects that trip people up—spurious patterns like, “Hey, I think ice cream causes murder!”</p>
+<h2 id="emergent-complexity">Emergent Complexity</h2>
+<p>Now that we know what our data should look like, how do we achieve that without manually faking every data point? That sounds so complex!</p>
+<p>It does. But we’re in luck; we don’t have to (and we shouldn’t) code the complexity directly. We rely on it emerging. When programming our simulations, we can focus on just the primary generative mechanisms (with some added individual-level truly random noise), and generate an overall more complex simulation with very simple individual-level rules.</p>
+<p>The fact that complexity can arise from simple rules is well established. Boids is the classic example: three simple rules—steer away from crowds, move with the flock, and head toward its center of mass—produce beautifully realistic flocking behavior. That’s always the goal: rich, organic behavior that feels real but emerges from simple, understandable rules. Try adjusting the relative strength of those three simple rules in the simulation below; you can see the mix of effects that emerge.</p>
+<div class="boids-controls">
+    <div class="boids-rule">
+        <label>Separation <small>(avoid crowding)</small></label>
+        <input type="range" id="boidsSeparation" min="0" max="3" step="0.1" value="1.5" class="boids-slider">
+        <span id="boidsSeparationValue" class="boids-value">1.5</span>
+    </div>
+    <div class="boids-rule">
+        <label>Alignment <small>(match direction)</small></label>
+        <input type="range" id="boidsAlignment" min="0" max="3" step="0.1" value="1.0" class="boids-slider">
+        <span id="boidsAlignmentValue" class="boids-value">1.0</span>
+    </div>
+    <div class="boids-rule">
+        <label>Cohesion <small>(stay together)</small></label>
+        <input type="range" id="boidsCohesion" min="0" max="3" step="0.1" value="1.0" class="boids-slider">
+        <span id="boidsCohesionValue" class="boids-value">1.0</span>
+    </div>
+</div>
+
+<div class="boids-secondary-controls">
+    <label>Boids: <span id="boidsCountValue">100</span></label>
+    <input type="range" id="boidsCount" min="10" max="300" step="10" value="100" class="boids-slider">
+    <button id="boidsReset" class="btn-secondary sim-reset-btn">Reset</button>
+</div>
+
+<div class="boids-container">
+    <canvas id="boidsCanvas" class="boids-canvas"></canvas>
+</div>
+
+<script type="module">
+    import { initBoids } from "/js/teaching-visuals.js";
+    initBoids({
+        canvasId: "boidsCanvas",
+        separationId: "boidsSeparation",
+        alignmentId: "boidsAlignment",
+        cohesionId: "boidsCohesion",
+        separationValueId: "boidsSeparationValue",
+        alignmentValueId: "boidsAlignmentValue",
+        cohesionValueId: "boidsCohesionValue",
+        countId: "boidsCount",
+        countValueId: "boidsCountValue",
+        resetId: "boidsReset"
+    });
+</script>
+
+<p>My agents are generally utility-driven. They have a utility function they’re trying to greedily maximize over time. They’re single-minded, simple, sometimes stupid, but consistently so. Stupid agents make for smart systems, as long as their stupidity is sufficiently diverse and independent. It is the same power you get from wisdom of the crowds; uncorrelated dumb guesses when aggregated together can create surprisingly accurate guesses.</p>
+<p>I create balance in the system without hard-coded limits by putting agents in tension with one another. Think of a predator–prey simulation: the prey eat grass, predators eat the prey. When there are too many prey, the grass thins and predators thrive; when there are too many predators, they starve. The system naturally ebbs and flows as everyone does their part to keep it in rhythmic balance.</p>
+<div class="ecosystem-params">
+    <div class="ecosystem-param">
+        <label>Cat Speed: <span id="ecosystemCatSpeedValue">1.5</span></label>
+        <input type="range" id="ecosystemCatSpeed" min="0" max="2" step="0.1" value="1.5" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Mouse Speed: <span id="ecosystemMouseSpeedValue">1.0</span></label>
+        <input type="range" id="ecosystemMouseSpeed" min="0" max="2" step="0.1" value="1.0" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Grass Growth: <span id="ecosystemGrassGrowthValue">1.0</span></label>
+        <input type="range" id="ecosystemGrassGrowth" min="0" max="3" step="0.1" value="1.0" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Cat Vision: <span id="ecosystemVisionValue">10</span> cells</label>
+        <input type="range" id="ecosystemVision" min="1" max="30" step="1" value="10" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Mouse Reproduce: <span id="ecosystemMouseReproduceValue">5</span> grass</label>
+        <input type="range" id="ecosystemMouseReproduce" min="1" max="30" step="1" value="5" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Cat Reproduce: <span id="ecosystemCatReproduceValue">15</span> mice</label>
+        <input type="range" id="ecosystemCatReproduce" min="1" max="30" step="1" value="15" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Starve After: <span id="ecosystemStarvationValue">50</span> turns</label>
+        <input type="range" id="ecosystemStarvation" min="10" max="200" step="10" value="50" class="ecosystem-slider">
+    </div>
+</div>
+
+<div class="ecosystem-controls">
+    <button id="ecosystemStep">Step</button>
+    <button id="ecosystemRun">Run</button>
+    <button id="ecosystemReset" class="sim-reset-btn">Reset</button>
+</div>
+
+<div class="ecosystem-container">
+    <div class="ecosystem-grid">
+        <canvas id="ecosystemCanvas" class="ecosystem-canvas"></canvas>
+    </div>
+    <div class="ecosystem-chart">
+        <div style="margin-bottom: 8px;">
+            <label>
+                <input type="checkbox" id="ecosystemLogScale">
+                Log scale
+            </label>
+        </div>
+        <canvas id="ecosystemChart" class="ecosystem-chart-canvas"></canvas>
+    </div>
+</div>
+
+<script type="module">
+    import { initEcosystem } from "/js/teaching-visuals.js";
+    initEcosystem({
+        canvasId: "ecosystemCanvas",
+        chartId: "ecosystemChart",
+        stepId: "ecosystemStep",
+        runId: "ecosystemRun",
+        resetId: "ecosystemReset",
+        logScaleId: "ecosystemLogScale",
+        catSpeedId: "ecosystemCatSpeed",
+        catSpeedValueId: "ecosystemCatSpeedValue",
+        mouseSpeedId: "ecosystemMouseSpeed",
+        mouseSpeedValueId: "ecosystemMouseSpeedValue",
+        grassGrowthId: "ecosystemGrassGrowth",
+        grassGrowthValueId: "ecosystemGrassGrowthValue",
+        visionId: "ecosystemVision",
+        visionValueId: "ecosystemVisionValue",
+        mouseReproduceId: "ecosystemMouseReproduce",
+        mouseReproduceValueId: "ecosystemMouseReproduceValue",
+        catReproduceId: "ecosystemCatReproduce",
+        catReproduceValueId: "ecosystemCatReproduceValue",
+        starvationId: "ecosystemStarvation",
+        starvationValueId: "ecosystemStarvationValue"
+    });
+</script>
+
+<p>I usually introduce some form of survival of the fittest to stabilize things. I’m not afraid to let agents die if they can’t achieve their utility, but I’m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.
+Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. It feels less like engineering and more like gardening, an organic process. I tend to my simulation as much as I build it.</p>
+<p>That’s it; mostly&hellip; I&rsquo;m showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.</p>
+<p>The core idea remains though, I keep the agents simple and let their interactions produce the messy, rhythmic complexity I’ve seen in the real world. When students realize data isn’t just numbers but traces of living systems, they stop treating it as homework (let me at least pretend) and start treating it as discovery. Sparking that curiosity is the most real lesson I can hope to teach.</p>
+
+    
+  </article>
+
+  <button onclick="topFunction()" id="back-to-top" title="Go to top">Back to Top</button>
+
+  
+
+<div id="sharingbuttons">
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fwww.bonnycode.com%2fposts%2fteaching-real-lessons-fake-worlds%2f" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=https%3a%2f%2fwww.bonnycode.com%2fposts%2fteaching-real-lessons-fake-worlds%2f&amp;resubmit=true&amp;title=Teaching%20Real%20Lessons%20with%20Fake%20Worlds" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+</div>
+  <div class="paginator">
+    
+    <a></a>
+    
+    
+    <a></a>
+    
+  </div>
+  <div class="comment">
+    
+    
+    
+    
+  </div>
+  
+  
+</main>
+
+    <footer id="footer">
+  <div>
+    <span></span>
+  </div>
+  <div>
+    <span>Copyright © 2025 </span>
+  </div>
+</footer>
+
+  </div>
+
+  
+  <script src='https://www.bonnycode.com/js/script.js' defer></script>
+
+  
+  
+  <link media="screen" rel="stylesheet" href="https://www.bonnycode.com/css/styles.css" />
+  
+
+  
+  
+
+  
+  
+
+</body>
+
+</html>

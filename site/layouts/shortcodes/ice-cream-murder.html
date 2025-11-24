@@ -1,0 +1,8 @@
+{{- $id := .Get "id" | default "icecream" -}}
+
+<div class="static-chart-container" id="{{ $id }}"></div>
+
+<script type="module">
+  import { initIceCreamMurder } from "/js/teaching-visuals.js";
+  initIceCreamMurder("{{ $id }}");
+</script>

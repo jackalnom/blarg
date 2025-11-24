@@ -1,0 +1,34 @@
+<div class="seasonality-grid">
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Daily</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="dailyCanvas" class="seasonality-canvas"></canvas>
+  </div>
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Weekly</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="weeklyCanvas" class="seasonality-canvas"></canvas>
+  </div>
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Annual</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="annualCanvas" class="seasonality-canvas"></canvas>
+  </div>
+</div>
+<div class="seasonality-combo">
+  <div class="seasonality-header">
+    <strong>Combined</strong>
+    <small class="seasonality-hint">daily × weekly × annual (normalized)</small>
+  </div>
+  <canvas id="comboCanvas" class="seasonality-combo-canvas"></canvas>
+</div>
+<script type="module">
+  import { initSeasonality } from "/js/teaching-visuals.js";
+  initSeasonality();
+</script>

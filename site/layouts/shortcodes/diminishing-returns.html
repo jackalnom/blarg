@@ -1,0 +1,31 @@
+{{- $id := .Get "id" | default "diminishing" -}}
+
+<div class="diminishing-param">
+    <label>Returns Exponent: <span id="{{ $id }}ExponentValue">0.50</span></label>
+    <input type="range" id="{{ $id }}Exponent" min="0.2" max="1.0" step="0.05" value="0.5" class="diminishing-slider">
+    <div style="font-size: 0.75em; color: var(--fg3); margin-top: 2px;">
+        Lower = stronger diminishing returns
+    </div>
+</div>
+
+<div class="sim-controls">
+    <button id="{{ $id }}Step">Step</button>
+    <button id="{{ $id }}Run">Run</button>
+    <button id="{{ $id }}Reset" class="sim-reset-btn">Reset</button>
+</div>
+
+<div class="diminishing-container">
+    <canvas id="{{ $id }}Canvas" class="diminishing-canvas"></canvas>
+</div>
+
+<script type="module">
+    import { initDiminishingReturns } from "/js/teaching-visuals.js";
+    initDiminishingReturns({
+        canvasId: "{{ $id }}Canvas",
+        stepId: "{{ $id }}Step",
+        runId: "{{ $id }}Run",
+        resetId: "{{ $id }}Reset",
+        exponentId: "{{ $id }}Exponent",
+        exponentValueId: "{{ $id }}ExponentValue"
+    });
+</script>

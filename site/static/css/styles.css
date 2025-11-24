@@ -65,3 +65,811 @@
   --gray-dim: #a89984;
   --orange-dim: #d65d0e;
 }
+
+/* Button styles */
+.sim-controls > button,
+.dag-controls button,
+.dag-sample-controls button,
+.boids-secondary-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg2);
+  color: var(--fg1);
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.sim-step-group button {
+  background: var(--bg2);
+  color: var(--fg1);
+  border: none;
+  border-left: 1px solid var(--bg3);
+  border-radius: 0 5px 5px 0;
+  padding: 0 14px;
+  height: 100%;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sim-controls > button:hover,
+.sim-step-group button:hover,
+.dag-controls button:hover,
+.dag-sample-controls button:hover,
+.boids-secondary-controls button:hover {
+  background: var(--bg3);
+  border-color: var(--bg4);
+}
+
+.sim-controls > button:active,
+.sim-step-group button:active,
+.dag-controls button:active,
+.dag-sample-controls button:active,
+.boids-secondary-controls button:active {
+  background: var(--bg4);
+}
+
+/* Slider/range input styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  height: 20px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--bg2);
+  height: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--bg3);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--fg3);
+  border-radius: 50%;
+  margin-top: -6px;
+  border: 2px solid var(--bg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: background 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--fg2);
+}
+
+input[type="range"]::-moz-range-track {
+  background: var(--bg2);
+  height: 6px;
+  border-radius: 3px;
+  border: 1px solid var(--bg3);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--fg3);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Radio button styles */
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--bg4);
+  border-radius: 50%;
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin: 0;
+}
+
+input[type="radio"]:checked {
+  border-color: var(--blue);
+  background: var(--blue);
+  box-shadow: inset 0 0 0 3px var(--bg);
+}
+
+input[type="radio"]:hover {
+  border-color: var(--fg4);
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--bg4);
+  border-radius: 4px;
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin: 0;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--blue);
+  background: var(--blue);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid var(--bg);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+input[type="checkbox"]:hover {
+  border-color: var(--fg4);
+}
+
+/* Simulation visualization styles */
+.sim-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.sim-canvas {
+  border: 1px solid var(--bg3);
+  display: block;
+  margin-top: 5px;
+  border-radius: 6px;
+  background: var(--bg_h);
+}
+
+.sim-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.sim-param-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9em;
+  color: var(--fg2);
+  height: 32px;
+}
+
+.sim-param-label input[type="number"] {
+  width: 50px;
+  padding: 4px 8px;
+  border: 1px solid var(--bg3);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 0.9em;
+  height: 28px;
+  box-sizing: border-box;
+}
+
+.sim-step-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 0 0 10px;
+  background: var(--bg1);
+  border-radius: 6px;
+  border: 1px solid var(--bg3);
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.sim-step-label {
+  font-size: 0.85em;
+  color: var(--fg3);
+  line-height: 32px;
+}
+
+.sim-step-options {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  height: 32px;
+}
+
+.sim-step-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  font-size: 0.85em;
+  color: var(--fg2);
+  height: 32px;
+}
+
+.sim-log-options {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.sim-log-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.9em;
+  color: var(--fg2);
+}
+
+.sim-info {
+  display: none;
+}
+
+.sim-reset-btn {
+  color: var(--fg3);
+}
+
+/* Static chart styles */
+.static-chart-wrapper {
+  max-width: 900px;
+  width: 100%;
+}
+
+.static-chart-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.static-chart-canvas {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+}
+
+.static-chart-controls {
+  margin-bottom: 8px;
+}
+
+.static-chart-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.9em;
+  color: var(--fg2);
+}
+
+.darkmode .static-chart-canvas {
+  background: var(--bg1);
+}
+
+/* Seasonality visualization specific styles */
+.seasonality-grid {
+  margin: 14px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.seasonality-panel {
+  min-width: 0; /* Allow shrinking below content size */
+}
+
+.seasonality-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.seasonality-hint {
+  color: var(--fg3);
+  font-size: small;
+}
+
+.seasonality-canvas {
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+}
+
+.seasonality-combo {
+  margin: 10px 0;
+}
+
+.seasonality-combo-canvas {
+  max-width: 100%;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+}
+
+/* Electricity demand visualization */
+.electricity-demand-container {
+  margin: 14px 0;
+}
+
+.elec-main-chart {
+  margin-bottom: 18px;
+}
+
+.elec-main-canvas {
+  width: 100%;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+}
+
+.elec-patterns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.elec-pattern-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.elec-pattern-title {
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--fg2);
+  margin-bottom: 4px;
+}
+
+.elec-pattern-canvas {
+  width: 100%;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+}
+
+.elec-source,
+.static-chart-source {
+  margin-top: 8px;
+  font-size: 0.75em;
+  color: var(--fg3);
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  .elec-patterns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ecosystem visualization */
+.ecosystem-params {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.ecosystem-param {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+  max-width: 250px;
+  flex: 1 1 180px;
+}
+
+.ecosystem-param label {
+  font-size: 0.85em;
+  color: var(--fg2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ecosystem-param label span {
+  font-weight: 600;
+  color: var(--fg1);
+}
+
+.ecosystem-slider {
+  width: 100%;
+}
+
+.ecosystem-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ecosystem-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg2);
+  color: var(--fg1);
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  padding: 0 14px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  height: 32px;
+  box-sizing: border-box;
+}
+
+.ecosystem-controls button:hover {
+  background: var(--bg3);
+  border-color: var(--bg4);
+}
+
+.ecosystem-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 14px;
+}
+
+.ecosystem-grid {
+  flex: 0 0 auto;
+}
+
+.ecosystem-canvas {
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: #f5f5dc;
+  display: block;
+}
+
+.ecosystem-chart {
+  flex: 0 0 auto;
+}
+
+.ecosystem-chart-canvas {
+  width: 100%;
+  height: 400px;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+}
+
+/* Diminishing Returns visualization */
+.diminishing-param {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 300px;
+  margin-bottom: 12px;
+}
+
+.diminishing-param label {
+  font-size: 0.85em;
+  color: var(--fg2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diminishing-param label span {
+  font-weight: 600;
+  color: var(--fg1);
+}
+
+.diminishing-slider {
+  width: 100%;
+}
+
+.diminishing-container {
+  margin-bottom: 14px;
+}
+
+.diminishing-canvas {
+  width: 100%;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+  display: block;
+}
+
+/* Berkson's Paradox visualization */
+.berkson-param {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 300px;
+  margin-bottom: 12px;
+}
+
+.berkson-param label {
+  font-size: 0.85em;
+  color: var(--fg2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.berkson-param label span {
+  font-weight: 600;
+  color: var(--fg1);
+}
+
+.berkson-slider {
+  width: 100%;
+}
+
+.berkson-dag {
+  margin-bottom: 20px;
+}
+
+.berkson-dag-canvas {
+  width: 100%;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+  display: block;
+}
+
+.berkson-charts {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.berkson-chart {
+  flex: 1;
+  min-width: 300px;
+}
+
+.berkson-scatter-canvas {
+  width: 100%;
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  background: var(--bg_h);
+  display: block;
+}
+
+/* DAG visualization styles */
+.dag-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.dag-correlation {
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  color: var(--fg3);
+}
+
+.dag-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.dag-canvas {
+  border: 1px solid var(--bg3);
+  display: block;
+  border-radius: 6px;
+  background: var(--bg_h);
+  width: 100%;
+}
+
+.dag-weights {
+  margin-bottom: 12px;
+  font-size: 0.9em;
+  color: var(--fg3);
+}
+
+.dag-weight-sliders {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.dag-weight-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  vertical-align: middle;
+}
+
+.dag-weight-control label {
+  font-weight: 500;
+  min-width: 50px;
+}
+
+.dag-weight-slider {
+  width: 100px;
+  cursor: pointer;
+}
+
+.dag-weight-value {
+  min-width: 32px;
+  text-align: right;
+  font-family: monospace;
+}
+
+.dag-sample-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.dag-sample-count {
+  font-size: 0.9em;
+  color: var(--fg3);
+  margin-left: 8px;
+}
+
+/* Boids visualization styles */
+.boids-controls {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.boids-rule {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 180px;
+}
+
+.boids-rule label {
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+.boids-rule small {
+  font-weight: normal;
+  color: var(--fg4);
+}
+
+.boids-rule .boids-slider {
+  width: 100%;
+}
+
+.boids-rule .boids-value {
+  font-family: monospace;
+  font-size: 0.9em;
+  color: var(--fg3);
+}
+
+.boids-secondary-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.9em;
+}
+
+.boids-secondary-controls .boids-slider {
+  width: 120px;
+}
+
+.boids-container {
+  max-width: 900px;
+  width: 100%;
+}
+
+.boids-canvas {
+  border: 1px solid var(--bg3);
+  display: block;
+  border-radius: 6px;
+  background: var(--bg_h);
+  width: 100%;
+}
+
+.boids-value {
+  min-width: 28px;
+  text-align: right;
+}
+
+/* Dark mode canvas backgrounds - slightly lighter for contrast */
+.darkmode .sim-canvas,
+.darkmode .dag-canvas,
+.darkmode .boids-canvas,
+.darkmode .seasonality-canvas,
+.darkmode .seasonality-combo-canvas {
+  background: var(--bg1);
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 600px) {
+  /* Simulation controls stack better */
+  .sim-controls {
+    gap: 8px;
+  }
+
+  .sim-param-label {
+    flex: 1 1 100%;
+  }
+
+  .sim-step-group {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+
+  .sim-step-options {
+    gap: 4px;
+    font-size: 0.85em;
+  }
+
+  /* DAG adjustments */
+  .dag-weight-sliders {
+    gap: 12px;
+  }
+
+  .dag-weight-control {
+    flex: 1 1 100%;
+  }
+
+  .dag-weight-slider {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  .dag-sample-controls {
+    gap: 6px;
+  }
+
+  /* Boids adjustments */
+  .boids-controls {
+    gap: 12px;
+  }
+
+  .boids-rule {
+    flex: 1 1 100%;
+    min-width: unset;
+  }
+
+  .boids-secondary-controls {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .boids-secondary-controls .boids-slider {
+    flex: 1;
+    min-width: 100px;
+  }
+
+  /* Seasonality adjustments */
+  .seasonality-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .seasonality-canvas {
+    width: 100%;
+    height: auto;
+  }
+}

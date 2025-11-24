@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default "height" -}}
+
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls">
+    <label>
+      <input type="checkbox" id="{{ $id }}-split"> Split by gender
+    </label>
+  </div>
+  <div class="static-chart-container" id="{{ $id }}"></div>
+</div>
+
+<script type="module">
+  import { initHeightDistribution } from "/js/teaching-visuals.js";
+  initHeightDistribution("{{ $id }}", "{{ $id }}-split");
+</script>

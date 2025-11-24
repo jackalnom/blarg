@@ -1,0 +1,11 @@
+{{- $base := .Get "id" | default "samples" -}}
+{{- $type := .Get "type" -}}
+{{- $hasCount := or (eq $type "normal") (eq $type "lognormal") (eq $type "sigmoid") -}}
+{{- $hasLog := or (eq $type "lognormal") (eq $type "preferential-attachment") -}}
+
+{{ partial "simulation-layout.html" (dict "base" $base "hasCount" $hasCount "hasLog" $hasLog) }}
+
+<script type="module">
+  import { initGenerateSamples } from "/js/teaching-visuals.js";
+  initGenerateSamples("{{ $base }}", "{{ $type }}");
+</script>

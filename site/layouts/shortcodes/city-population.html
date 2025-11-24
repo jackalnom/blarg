@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default "cities" -}}
+
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls">
+    <label>
+      <input type="checkbox" id="{{ $id }}-log"> Log-log scale
+    </label>
+  </div>
+  <div class="static-chart-container" id="{{ $id }}"></div>
+</div>
+
+<script type="module">
+  import { initCityPopulation } from "/js/teaching-visuals.js";
+  initCityPopulation("{{ $id }}", "{{ $id }}-log");
+</script>

@@ -1,0 +1,39 @@
+{{- $id := .Get "id" | default "berkson" -}}
+
+<div class="berkson-param">
+    <label>Survival Threshold: <span id="{{ $id }}ThresholdValue">100</span></label>
+    <input type="range" id="{{ $id }}Threshold" min="50" max="150" step="5" value="100" class="berkson-slider">
+</div>
+
+<div class="sim-controls">
+    <button id="{{ $id }}Step">Step</button>
+    <button id="{{ $id }}Run">Run</button>
+    <button id="{{ $id }}Reset" class="sim-reset-btn">Reset</button>
+</div>
+
+<div class="berkson-dag">
+    <canvas id="{{ $id }}DAG" class="berkson-dag-canvas"></canvas>
+</div>
+
+<div class="berkson-charts">
+    <div class="berkson-chart">
+        <canvas id="{{ $id }}Full" class="berkson-scatter-canvas"></canvas>
+    </div>
+    <div class="berkson-chart">
+        <canvas id="{{ $id }}Selected" class="berkson-scatter-canvas"></canvas>
+    </div>
+</div>
+
+<script type="module">
+    import { initBerksonParadox } from "/js/teaching-visuals.js";
+    initBerksonParadox({
+        dagCanvasId: "{{ $id }}DAG",
+        fullCanvasId: "{{ $id }}Full",
+        selectedCanvasId: "{{ $id }}Selected",
+        stepId: "{{ $id }}Step",
+        runId: "{{ $id }}Run",
+        resetId: "{{ $id }}Reset",
+        thresholdId: "{{ $id }}Threshold",
+        thresholdValueId: "{{ $id }}ThresholdValue"
+    });
+</script>

@@ -1,0 +1,35 @@
+{{- $base := .base -}}
+{{- $hasLog := .hasLog | default false -}}
+
+<div class="sim-controls">
+    {{ if .hasCount }}
+    <label class="sim-param-label">Dice per roll
+        <input id="{{ $base }}Count" type="number" min="1" max="20" value="5">
+    </label>
+    {{ end }}
+
+    <div class="sim-step-group">
+        <span class="sim-step-label">Add</span>
+        <div class="sim-step-options">
+            <label><input type="radio" name="{{ $base }}StepCount" value="1"> 1</label>
+            <label><input type="radio" name="{{ $base }}StepCount" value="10" checked> 10</label>
+            <label><input type="radio" name="{{ $base }}StepCount" value="50"> 50</label>
+        </div>
+        <button id="{{ $base }}Step">Sample</button>
+    </div>
+
+    <button id="{{ $base }}Run">Run</button>
+    <button id="{{ $base }}Reset" class="sim-reset-btn">Reset</button>
+</div>
+
+{{ if $hasLog }}
+<div class="sim-log-options">
+    <label><input type="checkbox" id="{{ $base }}LogX"> Log scale X</label>
+    <label><input type="checkbox" id="{{ $base }}LogY"> Log scale Y</label>
+</div>
+{{ end }}
+
+<div id="{{ $base }}Info" class="sim-info"></div>
+<div class="sim-container">
+    <canvas id="{{ $base }}Canvas" class="sim-canvas"></canvas>
+</div>

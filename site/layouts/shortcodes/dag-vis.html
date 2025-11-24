@@ -1,0 +1,35 @@
+{{- $base := .Get "id" | default "dag" -}}
+{{- $structure := .Get "structure" | default "chain" -}}
+
+<div id="{{ $base }}Weights" class="dag-weights"></div>
+
+<div class="dag-sample-controls">
+    <button id="{{ $base }}Step" class="btn-primary" style="padding:4px 12px;">Step</button>
+    <div class="sim-step-options">
+        <label><input type="radio" name="{{ $base }}StepCount" value="1"> 1</label>
+        <label><input type="radio" name="{{ $base }}StepCount" value="10" checked> 10</label>
+        <label><input type="radio" name="{{ $base }}StepCount" value="50"> 50</label>
+    </div>
+    <button id="{{ $base }}Run" class="btn-primary" style="padding:4px 12px;">Run (5s)</button>
+    <button id="{{ $base }}Reset" class="btn-secondary sim-reset-btn" title="Reset">↺</button>
+    <span id="{{ $base }}SampleCount" class="dag-sample-count"></span>
+</div>
+
+<div id="{{ $base }}Correlation" class="dag-correlation"></div>
+<div class="dag-container">
+    <canvas id="{{ $base }}Canvas" class="dag-canvas"></canvas>
+</div>
+<script type="module">
+    import { initDAG } from "/js/teaching-visuals.js";
+    initDAG({
+        canvasId: "{{ $base }}Canvas",
+        structure: "{{ $structure }}",
+        correlationId: "{{ $base }}Correlation",
+        weightsId: "{{ $base }}Weights",
+        stepId: "{{ $base }}Step",
+        runId: "{{ $base }}Run",
+        resetId: "{{ $base }}Reset",
+        stepCountName: "{{ $base }}StepCount",
+        sampleCountId: "{{ $base }}SampleCount"
+    });
+</script>

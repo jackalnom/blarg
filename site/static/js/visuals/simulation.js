@@ -1,0 +1,572 @@
+import { drawStackLineByOffsets, makeBarLayout, setInfo } from "./utils.js";
+import { LAYOUT, DEFAULTS } from "./constants.js";
+
+/**
+ * Setup canvas for responsive sizing with DPI support
+ * @param {HTMLCanvasElement} canvas - The canvas element
+ * @param {number} aspectRatio - Width/height ratio (default 2.5 for 900:360)
+ * @param {function} onResize - Callback with new logical {width, height}
+ */
+export function setupResponsiveCanvas(canvas, aspectRatio = LAYOUT.defaultAspectRatio, onResize) {
+    const container = canvas.parentElement;
+    const dpr = window.devicePixelRatio || 1;
+
+    function resize() {
+        // 1. Get the display width from the container
+        const displayWidth = container.clientWidth;
+        const displayHeight = displayWidth / aspectRatio;
+
+        // 2. Set the display size (CSS pixels)
+        canvas.style.width = `${displayWidth}px`;
+        canvas.style.height = `${displayHeight}px`;
+
+        // 3. Set the internal buffer size (Physical pixels)
+        canvas.width = Math.floor(displayWidth * dpr);
+        canvas.height = Math.floor(displayHeight * dpr);
+
+        // 4. Scale the context so drawing operations use Logical (CSS) pixels
+        const ctx = canvas.getContext('2d');
+        ctx.resetTransform(); // Reset before scaling to avoid compounding
+        ctx.scale(dpr, dpr);
+
+        // 5. Notify listener with Logical dimensions
+        if (onResize) {
+            onResize({ width: displayWidth, height: displayHeight });
+        }
+    }
+
+    // Initial resize
+    resize();
+
+    // Handle window resize with debounce
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(resize, 100);
+    });
+}
+
+
+export class SimulationRunner {
+    constructor(canvas, config = {}) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext("2d");
+
+        // Initialize with current logical dimensions (assuming setupResponsiveCanvas called first)
+        // If not, fall back to canvas attributes (which might be physical if dpr > 1, but we'll fix on resize)
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        this.width = rect.width || canvas.width / dpr;
+        this.height = rect.height || canvas.height / dpr;
+
+        // Default config
+        this.config = {
+            blockPx: DEFAULTS.blockPx,
+            blockValue: DEFAULTS.blockValue,
+            samplesPerFrame: DEFAULTS.samplesPerFrame,
+            maxSamples: Infinity,
+            baseHue: 200,
+            ...config
+        };
+
+        this.running = false;
+        this.stopSpawning = false;
+        this.total = 0;
+        this.counts = [];
+        this.stacks = [];
+        this.bins = 0;
+        this.layout = { widths: [], offsets: [] };
+
+        // Callbacks
+        this.onDraw = null; // Optional custom draw overlay
+        this.onStop = null; // Called when simulation stops (e.g. max samples or manual stop)
+    }
+
+    resize(width, height) {
+        this.width = width;
+        this.height = height;
+        // The consumer (StandardSimulation) should handle recomputing layout via its own resize listener
+        // or we can trigger a callback here if needed.
+        // For now, we just update dimensions.
+    }
+
+    reset({ bins, layout }) {
+        this.bins = bins;
+        this.layout = layout;
+        this.counts = new Array(bins).fill(0);
+        this.stacks = new Array(bins).fill(0);
+        this.total = 0;
+        this.stopSpawning = false;
+        this.running = false;
+    }
+
+    start(generateFn) {
+        if (this.running) return;
+        this.generateFn = generateFn;
+        this.running = true;
+        this.loop();
+    }
+
+    stop() {
+        this.running = false;
+        if (this.onStop) this.onStop();
+    }
+
+
+
+    drawYAxisGridLines() {
+        if (!this.config.dynamicYScale) return;
+
+        const yScale = this.getYScale();
+        const { blockPx } = this.config;
+
+        // Calculate the capacity (total height in blocks)
+        const capacity = this.height / yScale;
+        const capacityInBlocks = capacity / blockPx;
+
+        const ctx = this.ctx;
+
+        // Draw y-axis line on the left
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, this.height);
+        ctx.stroke();
+
+        // Determine interval (power of 2 for nice numbers)
+        let interval = 1;
+        while (capacityInBlocks / interval > 8) {
+            interval *= 2;
+        }
+
+        // Draw tick marks and labels
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.lineWidth = 1;
+        ctx.fillStyle = '#222';
+        ctx.font = '11px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+
+        for (let i = 0; i <= capacityInBlocks; i += interval) {
+            const y = this.height - (i * blockPx * yScale);
+            if (y >= 0 && y <= this.height) {
+                // Draw tick mark
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(8, y);
+                ctx.stroke();
+
+                // Draw label
+                if (i > 0) {
+                    ctx.fillText(i.toString(), 12, y);
+                }
+            }
+        }
+    }
+
+    step() {
+        const { samplesPerFrame, maxSamples } = this.config;
+
+        // Generate samples
+        for (let i = 0; i < samplesPerFrame && !this.stopSpawning; i++) {
+            if (this.total >= maxSamples) {
+                this.stopSpawning = true;
+                break;
+            }
+            const idx = this.generateFn();
+            if (idx >= 0 && idx < this.bins) {
+                this.counts[idx]++;
+                this.stacks[idx]++;
+            }
+            this.total++; // Increment total per sample
+        }
+    }
+
+    getMaxStackHeight() {
+        let max = 1;
+        for (let i = 0; i < this.stacks.length; i++) {
+            const val = this.stacks[i];
+            if (isFinite(val) && val > max) {
+                max = val;
+            }
+        }
+        return max;
+    }
+
+    getYScale() {
+        const maxHeight = this.getMaxStackHeight();
+        const { blockPx } = this.config;
+
+        // Calculate what the current max would be in pixels
+        const currentMaxPx = maxHeight * blockPx;
+
+        // Scale so max height is at 80% of canvas (20% headroom at top)
+        // capacity = currentMaxPx / 0.8 = currentMaxPx * 1.25
+        const capacity = currentMaxPx * 1.25;
+
+        // Scale factor is canvas height / capacity
+        // For small values, this will be > 1, scaling them up
+        // For large values, this will be < 1, scaling them down
+        const newScale = this.height / capacity;
+        this.lastYScale = newScale;
+
+        return newScale;
+    }
+
+    draw() {
+        if (this.config.customDraw) {
+            this.config.customDraw(this.ctx, {
+                width: this.width,
+                height: this.height,
+                total: this.total,
+                counts: this.counts,
+                stacks: this.stacks,
+                falling: this.falling,
+                layout: this.layout,
+                bins: this.bins,
+                blockPx: this.config.blockPx,
+                baseHue: this.config.baseHue,
+                yScale: this.getYScale()
+            });
+
+            if (this.onDraw) this.onDraw(this.ctx, this.total);
+            return;
+        }
+
+        const { blockPx, baseHue, logY } = this.config;
+        this.ctx.clearRect(0, 0, this.width, this.height);
+
+        // Apply dynamic y-scaling by adjusting block pixel size
+        const yScale = this.config.dynamicYScale ? this.getYScale() : 1;
+        const scaledBlockPx = blockPx * yScale;
+
+        drawStackLineByOffsets(
+            this.ctx,
+            this.stacks,
+            this.layout.offsets,
+            this.layout.widths,
+            scaledBlockPx,
+            this.height,
+            `hsl(${baseHue}, 70%, 45%)`,
+            logY
+        );
+
+        if (this.onDraw) {
+            this.onDraw(this.ctx, this.total);
+        }
+    }
+
+    loop() {
+        if (!this.running) return;
+        this.step();
+        this.draw();
+
+        if (this.stopSpawning) {
+            this.stop();
+            return;
+        }
+
+        requestAnimationFrame(() => this.loop());
+    }
+}
+
+export class StandardSimulation {
+    constructor({ canvasId, stepId, runId, stepCountName, resetId, buttonId, playPauseId, sidesId, countId, logXId, logYId, infoId, config, onStart, onRecompute, onStep }) {
+        this.canvas = document.getElementById(canvasId);
+        this.stepBtn = document.getElementById(stepId);
+        this.runBtn = document.getElementById(runId);
+        this.stepCountName = stepCountName;
+        this.resetBtn = document.getElementById(resetId);
+        this.sidesSelect = document.getElementById(sidesId);
+        this.countInput = document.getElementById(countId);
+        this.logXToggle = document.getElementById(logXId);
+        this.logYToggle = document.getElementById(logYId);
+        this.infoEl = document.getElementById(infoId);
+
+        // Backward compatibility: support old playPauseId if stepId not provided
+        if (!this.stepBtn && (playPauseId || buttonId)) {
+            this.stepBtn = document.getElementById(playPauseId || buttonId);
+        }
+
+        if (!this.canvas || !this.stepBtn) return;
+
+        // Setup responsive canvas sizing with resize callback
+        setupResponsiveCanvas(this.canvas, LAYOUT.defaultAspectRatio, ({ width, height }) => {
+            if (this.runner) {
+                this.runner.resize(width, height);
+                this.recompute();
+                this.runner.draw();
+            }
+        });
+
+        // Merge defaults with provided config
+        this.config = {
+            dynamicYScale: true,
+            maxSamples: Infinity,
+            blockPx: DEFAULTS.blockPx,
+            blockValue: DEFAULTS.blockValue,
+            samplesPerFrame: DEFAULTS.samplesPerFrame,
+            baseHue: 200,
+            bins: DEFAULTS.bins,
+            logY: this.logYToggle?.checked || false,
+            ...config
+        };
+
+        this.runner = new SimulationRunner(this.canvas, this.config);
+
+        // Callbacks
+        this.customOnStart = onStart;
+        this.customOnRecompute = onRecompute; // Optional override
+        this.customOnStep = onStep; // Custom step logic
+
+        this.startTime = 0;
+        this.samples = [];
+        this.rangeLow = 0;
+        this.rangeHigh = 100;
+        this.isPlaying = false;
+
+        this.setup();
+    }
+
+    setup() {
+        // Text overlay removed as per user request
+        this.runner.onDraw = null;
+
+        this.runner.onStop = () => {
+            this.isPlaying = false;
+        };
+
+        if (this.resetBtn) {
+            this.resetBtn.addEventListener("click", () => this.reset());
+        }
+
+        // Run button: run for 5 seconds using step size per frame
+        if (this.runBtn) {
+            this.runBtn.addEventListener("click", () => this.startRun());
+        }
+
+        // Step button: generate N samples based on radio button selection
+        if (this.stepBtn) {
+            this.stepBtn.addEventListener("click", () => {
+                // Get selected sample count from radio buttons
+                const selectedRadio = this.stepCountName ?
+                    document.querySelector(`input[name="${this.stepCountName}"]:checked`) : null;
+                const sampleCount = selectedRadio ? parseInt(selectedRadio.value, 10) : 10;
+
+                // Set up generateFn if not already set
+                if (!this.runner.generateFn) {
+                    const { count } = this.getParams();
+                    this.runner.generateFn = () => {
+                        return this.customOnStart({ count, sim: this });
+                    };
+                }
+
+                // Generate N samples directly
+                for (let i = 0; i < sampleCount; i++) {
+                    const idx = this.runner.generateFn();
+                    if (idx >= 0 && idx < this.runner.bins) {
+                        this.runner.counts[idx]++;
+                        this.runner.stacks[idx]++;
+                    }
+                    this.runner.total++;
+
+                    // Call custom step callback if exists (e.g., for sigmoid cumulative)
+                    if (this.customOnStep) {
+                        this.customOnStep(this);
+                    }
+                }
+
+                this.runner.draw();
+            });
+        }
+
+        // Log toggles
+        if (this.logXToggle) {
+            this.logXToggle.addEventListener("change", () => {
+                if (this.config.recomputeOnLogX) {
+                    this.recompute();
+                } else {
+                    this.updateLayout();
+                }
+                this.runner.draw();
+            });
+        }
+        if (this.logYToggle) {
+            this.logYToggle.addEventListener("change", () => {
+                this.runner.config.logY = this.logYToggle.checked;
+                this.runner.draw();
+            });
+        }
+
+        // Parameter changes (sides, count) should reset the simulation
+        if (this.sidesSelect) {
+            this.sidesSelect.addEventListener("change", () => {
+                this.reset();
+            });
+        }
+        if (this.countInput) {
+            this.countInput.addEventListener("change", () => {
+                this.reset();
+            });
+        }
+
+        // Initial setup
+        this.recompute();
+        this.updateInfo();
+        this.runner.draw();
+    }
+
+    updateLayout(bins = this.runner.bins) {
+        // Allow custom override (e.g. for pref-attach which has dynamic bins/layout)
+        if (this.config.customUpdateLayout) {
+            this.config.customUpdateLayout(this, bins);
+            return;
+        }
+
+        // Default layout update
+        const logX = this.logXToggle?.checked || false;
+        const availableWidth = this.runner.width - LAYOUT.leftPadding;
+        this.runner.layout = makeBarLayout(availableWidth, bins, logX);
+
+        // Allow custom step logic to run after layout update if needed
+        if (this.customOnStep) {
+            this.customOnStep(this);
+        }
+    }
+
+    getParams() {
+        return {
+            sides: this.sidesSelect ? parseInt(this.sidesSelect.value) : 6,
+            count: this.countInput ? parseInt(this.countInput.value) : 1,
+            logX: this.logXToggle?.checked || false
+        };
+    }
+
+    updateInfo() {
+        // Info text removed - controls are now self-explanatory
+    }
+
+    rollSample() {
+        return Math.random(); // Continuous [0, 1)
+    }
+
+    recordSample(val) {
+        this.samples.push(val);
+    }
+
+    valueToBin(val) {
+        const bins = this.bins || this.config.bins;
+
+        if (this.config.customValueToBin) {
+            return this.config.customValueToBin(val, this);
+        }
+
+        // Always use linear binning - logX only affects visual layout, not binning
+        const t = (val - this.rangeLow) / (this.rangeHigh - this.rangeLow);
+        return Math.min(Math.floor(t * bins), bins - 1);
+    }
+
+    recompute() {
+        // If custom recompute is provided, use it (legacy support or complex cases like pref-attach)
+        if (this.customOnRecompute) {
+            this.customOnRecompute(this);
+            return;
+        }
+
+        const params = this.getParams();
+        const { sides, count } = params;
+        let bins = this.config.bins;
+
+        // Update range
+        if (this.config.getRange) {
+            const range = this.config.getRange(params);
+            this.rangeLow = range.min;
+            this.rangeHigh = range.max;
+            if (range.bins) bins = range.bins;
+        }
+
+        this.bins = bins; // Store current bins
+
+        // Reset runner layout using updateLayout to respect logX
+        this.updateLayout(bins);
+        this.runner.reset({ bins, layout: this.runner.layout });
+
+        // Re-bin existing samples
+        if (this.samples.length > 0) {
+            for (const val of this.samples) {
+                const bin = this.valueToBin(val);
+                if (bin >= 0 && bin < bins) {
+                    this.runner.counts[bin]++;
+                    this.runner.stacks[bin]++;
+                }
+            }
+            // Update total
+            this.runner.total = this.samples.length;
+
+            // Recalculate max stack for y-scale
+            // (SimulationRunner doesn't track maxStack automatically on reset, 
+            // but it calculates it in getYScale, so we are good)
+        }
+    }
+
+    startRun() {
+        if (this.isPlaying) return;
+        this.isPlaying = true;
+        const runStartTime = Date.now();
+
+        // Set up generateFn if not already set
+        if (!this.runner.generateFn) {
+            const { count } = this.getParams();
+            this.runner.generateFn = () => {
+                return this.customOnStart({ count, sim: this });
+            };
+        }
+
+        const loop = () => {
+            if (!this.isPlaying) return;
+
+            const now = Date.now();
+            if (now - runStartTime > 5000) {
+                this.isPlaying = false;
+                return;
+            }
+
+            // Get selected sample count from radio buttons
+            const selectedRadio = this.stepCountName ?
+                document.querySelector(`input[name="${this.stepCountName}"]:checked`) : null;
+            const sampleCount = selectedRadio ? parseInt(selectedRadio.value, 10) : 10;
+
+            // Generate N samples directly
+            for (let i = 0; i < sampleCount; i++) {
+                const idx = this.runner.generateFn();
+                if (idx >= 0 && idx < this.runner.bins) {
+                    this.runner.counts[idx]++;
+                    this.runner.stacks[idx]++;
+                }
+                this.runner.total++;
+
+                if (this.customOnStep) {
+                    this.customOnStep(this);
+                }
+            }
+
+            this.runner.draw();
+            requestAnimationFrame(loop);
+        };
+
+        loop();
+    }
+
+    reset() {
+        this.isPlaying = false;
+        this.runner.running = false;
+        this.runner.generateFn = null; // Clear so it gets recreated with new params
+        this.samples = [];
+        this.recompute();
+        this.runner.draw();
+    }
+}
+
+
+
