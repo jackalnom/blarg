@@ -34,7 +34,7 @@ That notion is the seed of my classroom simulations: worlds that run on their ow
 
 My first classroom simulation-game came out of a databases course. Early on, I realized students weren’t really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about. The kind of thing that breaks at 3 a.m.
 
-* Teaching concurrency errors: Let students run into them naturally. As “customers” fire off parallel calls that collide in unpredictable ways, things break. Sorry your inventory is out of sync. You had a lost update. I bet you're excited next week we are lecturing on what a transaction is.
+* Teaching concurrency errors: Let students run into them naturally. As “customers” fire off parallel calls that collide in unpredictable ways, things break. Sorry your inventory is out of sync. You had a lost update. The week after, when we lecture on transactions, you are excited when it solves your problem.
 * Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, and systems designed for observability and debugging. That’s how many experienced developers come to care about those principles: not from theory, but from scars.
 
 Teaching SQL is one thing. Teaching the principles behind real systems is much harder without first letting students experience the pain, then walking them through how we solve it.
@@ -49,7 +49,7 @@ My goal when designing a simulation is for it to mimic the real-world in the way
 
 Fake data often looks fake to me.
 
-If I roll a fair hundred-sided die a million times and plot the results, I will get (if I stand back a bit) a nicely flat line: a uniform distribution. But if I ask a million people to give me a random number between 1 and 100, the shape will be very different. Some numbers—like 7, 37, and 77, which feels random—will peak. So will 42 (*thank you, Hitchhiker’s Guide fans*). And, sadly, so will 67, due to brainrot.
+If I roll a fair hundred-sided die a million times and plot the results, I will get (if I stand back a bit) a nicely flat line: a uniform distribution. But if I ask a million people to give me a random number between 1 and 100, the shape will be very different. Some numbers—like 7, 37, and 77, which feel random—will peak. So will 42 (*thank you, Hitchhiker’s Guide fans*). And, sadly, so will 67, due to brainrot.
 
 You can tell, just by the shape in this case, that the “random” numbers weren’t truly random.
 
@@ -63,7 +63,7 @@ There are three ways fake data tends to give itself away:
 
 ### Correlation
 
-Did you know that ice cream and violent crime are [correlate](https://www.sciencedirect.com/science/article/abs/pii/S0095069613001289)? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.
+Did you know that ice cream and violent crime are [correlated](https://www.sciencedirect.com/science/article/abs/pii/S0095069613001289)? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.
 
 {{< ice-cream-murder id="icecream" >}}
 
@@ -77,7 +77,7 @@ For example, in the interaction below, we can see a classic case of confounding 
 
 {{< dag-vis id="dag" structure="confounded" >}}
 
-This is all too neat though if we actually let students see all of this though. The real world is like [the blind men and an elephant](https://en.wikipedia.org/wiki/Blind_men_and_an_elephant) from the *Tittha Sutta*. One blind man feels the trunk and says “It’s a snake!” Another feels a leg and says “It’s a tree!” Yet another feels the tusk and says “No, you fools, it’s a giant spear!” Each has only a partial view of the underlying truth.
+This is all too neat though if we actually let students see all of this. The real world is like [the blind men and an elephant](https://en.wikipedia.org/wiki/Blind_men_and_an_elephant) from the *Tittha Sutta*. One blind man feels the trunk and says “It’s a snake!” Another feels a leg and says “It’s a tree!” Yet another feels the tusk and says “No, you fools, it’s a giant spear!” Each has only a partial view of the underlying truth.
 I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.
 
 Real data is not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, the first few inputs change everything, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your 100th friend matters a lot less than your first or your tenth--you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in learning, social networks, and even marketing spend. It’s what gives real data its characteristic bend—rising fast, then flattening as systems run into limits.
@@ -86,9 +86,9 @@ Real data is not limited to linear correlations. This happens for various reason
 
 Real data is littered with selection biases; the data we have is not representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, [a hospital in Canada](https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363) noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson's paradox). The hospital isn't seeing all bike riders and all bike accidents. They don't see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.
 
-You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones you died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It’s a kind of selection echo: the world you see isn’t the world as it is, but the world that lasted.
+You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It’s a kind of selection echo: the world you see isn’t the world as it is, but the world that lasted.
 
-In the simulation below, 
+In the simulation below, I show how food quality and location can become inversely correlated, even if they start out completely independent. This happens because survival is a filter: a restaurant can survive with bad food if it has high foot traffic (a tourist trap), and it can survive in a bad location if the food is amazing. But if it has bad food and a bad location, it goes out of business and disappears from the dataset. We only see the survivors.
 
 {{< berkson-paradox id="berkson" >}}
 
@@ -117,11 +117,11 @@ We can get something similar using our same dice rolling example. But this time,
 
 Many human systems aren’t just multiplicative—they’re compounding. The rich get richer because their money earns more money; popular people attract more popularity simply because they’re already popular. Algorithms that surface trending videos, products, or songs amplify these dynamics even further. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.
 
-When I first started plotting data—any kind of data—on user engagement, I was struck by how often those power-law curves appeared. They looked like the chart below of city populations: a few giants, a long tail of small ones. Think about why cities would follow that same pattern based on the dynamic described above.
+When I first started plotting data—any kind of data—on user engagement, I was struck by how often those power-law curves appeared. They looked like the chart below of [reviews per game on Steam](https://www.kaggle.com/datasets/andrewmvd/steam-reviews). In practice, you often see a mix of log-normal on the left, power-law on the right (I call it the [mullet](https://en.wikipedia.org/wiki/Mullet_(haircut)) of distributions). 
 
-{{< city-population id="cities" >}}
+{{< steam-reviews id="steam" >}}
 
-It’s surprisingly easy to make preferential attachment appear in a simulation: you simply make prior success increase the odds of future success. Make customers more likely to pick the company that already has a lot of customers (maybe even just because they know someone who is already a customer of the company). Allow the wealthy to reinvest their money and get a return on their investment. And let them use that wealth to get preferential deals or achieve economies of scale.
+It’s surprisingly easy to make preferential attachment appear in a simulation: you simply make prior success increase the odds of future success. Make customers more likely to pick the company that already has a lot of customers (maybe even just because they know someone who is already a customer of the company). Allow the wealthy to reinvest their money and get a return on their investment. And let them use that wealth to get preferential deals or achieve economies of scale. In the simulation below I have an example of a distribution generated purely based on preferential attachment.
 
 {{< generate-samples id="pa" type="preferential-attachment" >}}
 
@@ -145,7 +145,7 @@ Real data shows this rhythm and seasonality for several reasons:
 * You see it across a week, however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.
 * And you see it across a year, driven by that same sun: the seasons, and the layers we’ve added on top—holidays, festivals, school breaks, and all the rituals that divide our time into meaning.
 
-In the visualization below, I layer these temporal components—daily, weekly, and yearly—on top of each other to approximate the kinds of cycles that appear in real time series. Conceptually, it’s similar to seasonal–trend decomposition (like STL), where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I’m composing those cycles from the ground up rather than decomposing observed data.
+In the visualization below, I multiply these temporal components—daily, weekly, and yearly—to approximate the kinds of cycles that appear in real time series. Conceptually, it’s similar to seasonal–trend decomposition (like STL), where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I’m composing those cycles from the ground up rather than decomposing observed data.
 
 {{< seasonality-vis >}}
 
@@ -172,4 +172,4 @@ Over time, the system reaches a kind of equilibrium. I never expose day zero of 
 
 That’s it; mostly... I'm showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.
 
-The core idea remains though, I keep the agents simple and let their interactions produce the messy, rhythmic complexity I’ve seen in the real world. When students realize data isn’t just numbers but traces of living systems, they stop treating it as homework (let me at least pretend) and start treating it as discovery. Sparking that curiosity is the most real lesson I can hope to teach.
+I keep the agents simple and let their interactions produce the messy, rhythmic complexity I’ve seen in the real world. When students engage with these living systems, they stop treating data as just numbers for homework and start treating it as traces of a world to be discovered. They learn to formulate problems from ambiguity, interpret messy results, and build resilience—the real, fundamental skills that no AI today can simply solve for them. Sparking that curiosity is the most real lesson I can hope to teach.

@@ -6,6 +6,7 @@ export { initIceCreamMurder } from "./visuals/ice-cream-murder.js";
 export { initHeightDistribution } from "./visuals/height-distribution.js";
 export { initHomeValues } from "./visuals/home-values.js";
 export { initCityPopulation } from "./visuals/city-population.js";
+export { initSteamReviews } from "./visuals/steam-reviews.js";
 export { initElectricityDemand } from "./visuals/electricity-demand.js";
 export { initEcosystem } from "./visuals/ecosystem.js";
 export { initDiminishingReturns } from "./visuals/diminishing-returns.js";

@@ -1,0 +1,11 @@
+{{- $base := .Get "id" | default "steam" -}}
+<div id="{{ $base }}Container" style="margin:10px 0;">
+  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+    <strong>Steam reviews per game</strong>
+    <label style="font-size:0.9em;"><input type="checkbox" id="{{ $base }}Log"> log axes</label>
+  </div>
+</div>
+<script type="module">
+  import { initSteamReviews } from "/js/teaching-visuals.js";
+  initSteamReviews("{{ $base }}Container", "{{ $base }}Log");
+</script>

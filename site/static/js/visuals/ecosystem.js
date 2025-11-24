@@ -3,6 +3,8 @@
  * Cats chase mice, mice eat grass, grass spreads
  */
 
+import { setupResponsiveCanvas } from "./simulation.js";
+
 export function initEcosystem(config) {
     const canvas = document.getElementById(config.canvasId);
     const chartCanvas = document.getElementById(config.chartId);
@@ -33,7 +35,7 @@ export function initEcosystem(config) {
 
     // Grid settings
     const GRID_SIZE = 40;
-    const CELL_SIZE = 15;
+    let CELL_SIZE = 15; // Initial, will be updated on resize
 
     // Entity types
     const GRASS = 'grass';
@@ -62,6 +64,13 @@ export function initEcosystem(config) {
     let animationId = null;
     let useLogScale = false;
     let hoveredEntity = null;
+
+    // Setup responsive canvas
+    setupResponsiveCanvas(canvas, 1, ({ width, height }) => {
+        // Update CELL_SIZE to fit the grid in the available width
+        CELL_SIZE = width / GRID_SIZE;
+        draw();
+    });
 
     function initGrid() {
         grid = Array(GRID_SIZE).fill(null).map(() => Array(GRID_SIZE).fill(null));
@@ -282,7 +291,7 @@ export function initEcosystem(config) {
             for (let x = 0; x < GRID_SIZE; x++) {
                 if (grid[y][x] === GRASS && Math.random() < grassSpreadChance) {
                     // Try to spread to adjacent cell
-                    const dirs = [[-1,0], [1,0], [0,-1], [0,1]];
+                    const dirs = [[-1, 0], [1, 0], [0, -1], [0, 1]];
                     const dir = dirs[Math.floor(Math.random() * dirs.length)];
                     const nx = (x + dir[0] + GRID_SIZE) % GRID_SIZE;
                     const ny = (y + dir[1] + GRID_SIZE) % GRID_SIZE;
@@ -303,7 +312,7 @@ export function initEcosystem(config) {
 
         // Age and remove old blood splats
         bloodSplats = bloodSplats.map(splat => ({ ...splat, age: splat.age + 1 }))
-                                 .filter(splat => splat.age < 5);
+            .filter(splat => splat.age < 5);
 
         recordHistory();
         draw();
@@ -311,11 +320,10 @@ export function initEcosystem(config) {
     }
 
     function draw() {
-        const width = GRID_SIZE * CELL_SIZE;
-        const height = GRID_SIZE * CELL_SIZE;
-
-        canvas.width = width;
-        canvas.height = height;
+        // Canvas size is handled by setupResponsiveCanvas
+        // We just need to clear and draw using current CELL_SIZE
+        const width = canvas.width / (window.devicePixelRatio || 1); // Logical width
+        const height = canvas.height / (window.devicePixelRatio || 1); // Logical height
 
         // Clear
         ctx.fillStyle = '#f5f5dc'; // Beige background
@@ -332,20 +340,20 @@ export function initEcosystem(config) {
         }
 
         // Draw blood splats
-        ctx.font = '12px Arial';
+        ctx.font = `${Math.max(10, Math.floor(CELL_SIZE * 0.8))}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         for (const splat of bloodSplats) {
-            ctx.fillText('☠️', splat.x * CELL_SIZE + CELL_SIZE/2, splat.y * CELL_SIZE + CELL_SIZE/2);
+            ctx.fillText('☠️', splat.x * CELL_SIZE + CELL_SIZE / 2, splat.y * CELL_SIZE + CELL_SIZE / 2);
         }
 
         // Draw mice
         for (const mouse of mice) {
-            ctx.fillText('🐀', mouse.x * CELL_SIZE + CELL_SIZE/2, mouse.y * CELL_SIZE + CELL_SIZE/2);
+            ctx.fillText('🐀', mouse.x * CELL_SIZE + CELL_SIZE / 2, mouse.y * CELL_SIZE + CELL_SIZE / 2);
         }
 
         // Draw cats (2x2 size)
-        ctx.font = '24px Arial';
+        ctx.font = `${Math.max(16, Math.floor(CELL_SIZE * 1.6))}px Arial`;
         for (const cat of cats) {
             ctx.fillText('🐈', cat.x * CELL_SIZE + CELL_SIZE, cat.y * CELL_SIZE + CELL_SIZE);
         }

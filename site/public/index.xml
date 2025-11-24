@@ -363,6 +363,461 @@ The data scientist was careful in how they presented results; an incomplete trut
     </item>
     
     <item>
+      <title>Visualization Test Page</title>
+      <link>https://www.bonnycode.com/posts/vis-test/</link>
+      <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bonnycode.com/posts/vis-test/</guid>
+      <description>&lt;h2 id=&#34;uniform-distribution&#34;&gt;Uniform Distribution&lt;/h2&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+
+    &lt;button id=&#34;uniformStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;uniformRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;uniformReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id=&#34;uniformInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;uniformCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;uniform&#34;, &#34;uniform&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;central-limit-theorem&#34;&gt;Central Limit Theorem&lt;/h2&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+    &lt;label class=&#34;sim-param-label&#34;&gt;Dice per roll
+        &lt;input id=&#34;normalCount&#34; type=&#34;number&#34; min=&#34;1&#34; max=&#34;20&#34; value=&#34;5&#34;&gt;
+    &lt;/label&gt;
+    
+
+    &lt;button id=&#34;normalStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;normalRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;normalReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id=&#34;normalInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;normalCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;normal&#34;, &#34;normal&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;sigmoid&#34;&gt;Sigmoid&lt;/h2&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+    &lt;label class=&#34;sim-param-label&#34;&gt;Dice per roll
+        &lt;input id=&#34;sigmoidCount&#34; type=&#34;number&#34; min=&#34;1&#34; max=&#34;20&#34; value=&#34;5&#34;&gt;
+    &lt;/label&gt;
+    
+
+    &lt;button id=&#34;sigmoidStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;sigmoidRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;sigmoidReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id=&#34;sigmoidInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;sigmoidCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;sigmoid&#34;, &#34;sigmoid&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;log-normal&#34;&gt;Log Normal&lt;/h2&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+    &lt;label class=&#34;sim-param-label&#34;&gt;Dice per roll
+        &lt;input id=&#34;lognormalCount&#34; type=&#34;number&#34; min=&#34;1&#34; max=&#34;20&#34; value=&#34;5&#34;&gt;
+    &lt;/label&gt;
+    
+
+    &lt;button id=&#34;lognormalStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;lognormalRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;lognormalReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;sim-log-options&#34;&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; id=&#34;lognormalLogX&#34;&gt; Log scale X&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; id=&#34;lognormalLogY&#34;&gt; Log scale Y&lt;/label&gt;
+&lt;/div&gt;
+
+
+&lt;div id=&#34;lognormalInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;lognormalCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;lognormal&#34;, &#34;lognormal&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;preferential-attachment&#34;&gt;Preferential Attachment&lt;/h2&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+
+    &lt;button id=&#34;paStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;paRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;paReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;sim-log-options&#34;&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; id=&#34;paLogX&#34;&gt; Log scale X&lt;/label&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; id=&#34;paLogY&#34;&gt; Log scale Y&lt;/label&gt;
+&lt;/div&gt;
+
+
+&lt;div id=&#34;paInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;paCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;pa&#34;, &#34;preferential-attachment&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;causal-dag-confounded&#34;&gt;Causal DAG (Confounded)&lt;/h2&gt;
+&lt;div id=&#34;dagWeights&#34; class=&#34;dag-weights&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;sim-controls&#34;&gt;
+    &lt;button id=&#34;dagStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;dagRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;dagReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;dagCorrelation&#34; class=&#34;dag-correlation&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;dag-container&#34;&gt;
+    &lt;canvas id=&#34;dagCanvas&#34; class=&#34;dag-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;script type=&#34;module&#34;&gt;
+    import { initDAG } from &#34;/js/teaching-visuals.js&#34;;
+    initDAG({
+        canvasId: &#34;dagCanvas&#34;,
+        structure: &#34;confounded&#34;,
+        correlationId: &#34;dagCorrelation&#34;,
+        weightsId: &#34;dagWeights&#34;,
+        stepId: &#34;dagStep&#34;,
+        runId: &#34;dagRun&#34;,
+        resetId: &#34;dagReset&#34;
+    });
+&lt;/script&gt;
+&lt;h2 id=&#34;seasonality&#34;&gt;Seasonality&lt;/h2&gt;
+&lt;div class=&#34;seasonality-grid&#34;&gt;
+  &lt;div class=&#34;seasonality-panel&#34;&gt;
+    &lt;div class=&#34;seasonality-header&#34;&gt;
+      &lt;strong&gt;Daily&lt;/strong&gt;
+      &lt;small class=&#34;seasonality-hint&#34;&gt;drag dots&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;canvas id=&#34;dailyCanvas&#34; class=&#34;seasonality-canvas&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;seasonality-panel&#34;&gt;
+    &lt;div class=&#34;seasonality-header&#34;&gt;
+      &lt;strong&gt;Weekly&lt;/strong&gt;
+      &lt;small class=&#34;seasonality-hint&#34;&gt;drag dots&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;canvas id=&#34;weeklyCanvas&#34; class=&#34;seasonality-canvas&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;seasonality-panel&#34;&gt;
+    &lt;div class=&#34;seasonality-header&#34;&gt;
+      &lt;strong&gt;Annual&lt;/strong&gt;
+      &lt;small class=&#34;seasonality-hint&#34;&gt;drag dots&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;canvas id=&#34;annualCanvas&#34; class=&#34;seasonality-canvas&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;seasonality-combo&#34;&gt;
+  &lt;div class=&#34;seasonality-header&#34;&gt;
+    &lt;strong&gt;Combined&lt;/strong&gt;
+    &lt;small class=&#34;seasonality-hint&#34;&gt;daily × weekly × annual (normalized)&lt;/small&gt;
+  &lt;/div&gt;
+  &lt;canvas id=&#34;comboCanvas&#34; class=&#34;seasonality-combo-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;script type=&#34;module&#34;&gt;
+  import { initSeasonality } from &#34;/js/teaching-visuals.js&#34;;
+  initSeasonality();
+&lt;/script&gt;
+
+&lt;h2 id=&#34;boids-flocking&#34;&gt;Boids Flocking&lt;/h2&gt;
+&lt;div class=&#34;boids-controls&#34;&gt;
+    &lt;div class=&#34;boids-rule&#34;&gt;
+        &lt;label&gt;Separation &lt;small&gt;(avoid crowding)&lt;/small&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;boidsSeparation&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.5&#34; class=&#34;boids-slider&#34;&gt;
+        &lt;span id=&#34;boidsSeparationValue&#34; class=&#34;boids-value&#34;&gt;1.5&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;boids-rule&#34;&gt;
+        &lt;label&gt;Alignment &lt;small&gt;(match direction)&lt;/small&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;boidsAlignment&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.0&#34; class=&#34;boids-slider&#34;&gt;
+        &lt;span id=&#34;boidsAlignmentValue&#34; class=&#34;boids-value&#34;&gt;1.0&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;boids-rule&#34;&gt;
+        &lt;label&gt;Cohesion &lt;small&gt;(stay together)&lt;/small&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;boidsCohesion&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.0&#34; class=&#34;boids-slider&#34;&gt;
+        &lt;span id=&#34;boidsCohesionValue&#34; class=&#34;boids-value&#34;&gt;1.0&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;boids-secondary-controls&#34;&gt;
+    &lt;label&gt;Boids: &lt;span id=&#34;boidsCountValue&#34;&gt;100&lt;/span&gt;&lt;/label&gt;
+    &lt;input type=&#34;range&#34; id=&#34;boidsCount&#34; min=&#34;10&#34; max=&#34;300&#34; step=&#34;10&#34; value=&#34;100&#34; class=&#34;boids-slider&#34;&gt;
+    &lt;button id=&#34;boidsReset&#34; class=&#34;btn-secondary sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;boids-container&#34;&gt;
+    &lt;canvas id=&#34;boidsCanvas&#34; class=&#34;boids-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initBoids } from &#34;/js/teaching-visuals.js&#34;;
+    initBoids({
+        canvasId: &#34;boidsCanvas&#34;,
+        separationId: &#34;boidsSeparation&#34;,
+        alignmentId: &#34;boidsAlignment&#34;,
+        cohesionId: &#34;boidsCohesion&#34;,
+        separationValueId: &#34;boidsSeparationValue&#34;,
+        alignmentValueId: &#34;boidsAlignmentValue&#34;,
+        cohesionValueId: &#34;boidsCohesionValue&#34;,
+        countId: &#34;boidsCount&#34;,
+        countValueId: &#34;boidsCountValue&#34;,
+        resetId: &#34;boidsReset&#34;
+    });
+&lt;/script&gt;
+
+&lt;h2 id=&#34;ice-cream-vs-murder-rate&#34;&gt;Ice Cream vs Murder Rate&lt;/h2&gt;
+&lt;div class=&#34;static-chart-container&#34; id=&#34;icecream&#34;&gt;&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initIceCreamMurder } from &#34;/js/teaching-visuals.js&#34;;
+  initIceCreamMurder(&#34;icecream&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;human-height-distribution&#34;&gt;Human Height Distribution&lt;/h2&gt;
+&lt;div class=&#34;static-chart-wrapper&#34;&gt;
+  &lt;div class=&#34;static-chart-controls&#34;&gt;
+    &lt;label&gt;
+      &lt;input type=&#34;checkbox&#34; id=&#34;height-split&#34;&gt; Split by gender
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;static-chart-container&#34; id=&#34;height&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initHeightDistribution } from &#34;/js/teaching-visuals.js&#34;;
+  initHeightDistribution(&#34;height&#34;, &#34;height-split&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;milwaukee-home-sale-prices&#34;&gt;Milwaukee Home Sale Prices&lt;/h2&gt;
+&lt;div class=&#34;static-chart-wrapper&#34;&gt;
+  &lt;div class=&#34;static-chart-controls&#34;&gt;
+    &lt;label&gt;
+      &lt;input type=&#34;checkbox&#34; id=&#34;homevalues-log&#34;&gt; Log scale
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;static-chart-container&#34; id=&#34;homevalues&#34;&gt;&lt;/div&gt;
+  &lt;div class=&#34;static-chart-source&#34;&gt;Source: City of Milwaukee Open Data Portal, Property Sales (2024)&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initHomeValues } from &#34;/js/teaching-visuals.js&#34;;
+  initHomeValues(&#34;homevalues&#34;, &#34;homevalues-log&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;steam-reviews&#34;&gt;Steam reviews&lt;/h2&gt;
+&lt;div id=&#34;steamContainer&#34; style=&#34;margin:10px 0;&#34;&gt;
+  &lt;div style=&#34;display:flex; align-items:center; gap:10px; margin-bottom:6px;&#34;&gt;
+    &lt;strong&gt;Steam reviews per game&lt;/strong&gt;
+    &lt;label style=&#34;font-size:0.9em;&#34;&gt;&lt;input type=&#34;checkbox&#34; id=&#34;steamLog&#34;&gt; log axes&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&#34;module&#34;&gt;
+  import { initSteamReviews } from &#34;/js/teaching-visuals.js&#34;;
+  initSteamReviews(&#34;steamContainer&#34;, &#34;steamLog&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;california-electricity-demand-real-seasonality&#34;&gt;California Electricity Demand (Real Seasonality)&lt;/h2&gt;
+&lt;div class=&#34;electricity-demand-container&#34; id=&#34;elec&#34;&gt;&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initElectricityDemand } from &#34;/js/teaching-visuals.js&#34;;
+  initElectricityDemand(&#34;elec&#34;);
+&lt;/script&gt;
+
+&lt;h2 id=&#34;predator-prey-ecosystem&#34;&gt;Predator-Prey Ecosystem&lt;/h2&gt;
+&lt;div class=&#34;ecosystem-params&#34;&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Cat Speed: &lt;span id=&#34;ecosystemCatSpeedValue&#34;&gt;1.5&lt;/span&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemCatSpeed&#34; min=&#34;0&#34; max=&#34;2&#34; step=&#34;0.1&#34; value=&#34;1.5&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Mouse Speed: &lt;span id=&#34;ecosystemMouseSpeedValue&#34;&gt;1.0&lt;/span&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemMouseSpeed&#34; min=&#34;0&#34; max=&#34;2&#34; step=&#34;0.1&#34; value=&#34;1.0&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Grass Growth: &lt;span id=&#34;ecosystemGrassGrowthValue&#34;&gt;1.0&lt;/span&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemGrassGrowth&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.0&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Cat Vision: &lt;span id=&#34;ecosystemVisionValue&#34;&gt;10&lt;/span&gt; cells&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemVision&#34; min=&#34;1&#34; max=&#34;30&#34; step=&#34;1&#34; value=&#34;10&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Mouse Reproduce: &lt;span id=&#34;ecosystemMouseReproduceValue&#34;&gt;5&lt;/span&gt; grass&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemMouseReproduce&#34; min=&#34;1&#34; max=&#34;30&#34; step=&#34;1&#34; value=&#34;5&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Cat Reproduce: &lt;span id=&#34;ecosystemCatReproduceValue&#34;&gt;15&lt;/span&gt; mice&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemCatReproduce&#34; min=&#34;1&#34; max=&#34;30&#34; step=&#34;1&#34; value=&#34;15&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Starve After: &lt;span id=&#34;ecosystemStarvationValue&#34;&gt;50&lt;/span&gt; turns&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemStarvation&#34; min=&#34;10&#34; max=&#34;200&#34; step=&#34;10&#34; value=&#34;50&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;ecosystem-controls&#34;&gt;
+    &lt;button id=&#34;ecosystemStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;ecosystemRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;ecosystemReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;ecosystem-container&#34;&gt;
+    &lt;div class=&#34;ecosystem-grid&#34;&gt;
+        &lt;canvas id=&#34;ecosystemCanvas&#34; class=&#34;ecosystem-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-chart&#34;&gt;
+        &lt;div style=&#34;margin-bottom: 8px;&#34;&gt;
+            &lt;label&gt;
+                &lt;input type=&#34;checkbox&#34; id=&#34;ecosystemLogScale&#34;&gt;
+                Log scale
+            &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;canvas id=&#34;ecosystemChart&#34; class=&#34;ecosystem-chart-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initEcosystem } from &#34;/js/teaching-visuals.js&#34;;
+    initEcosystem({
+        canvasId: &#34;ecosystemCanvas&#34;,
+        chartId: &#34;ecosystemChart&#34;,
+        stepId: &#34;ecosystemStep&#34;,
+        runId: &#34;ecosystemRun&#34;,
+        resetId: &#34;ecosystemReset&#34;,
+        logScaleId: &#34;ecosystemLogScale&#34;,
+        catSpeedId: &#34;ecosystemCatSpeed&#34;,
+        catSpeedValueId: &#34;ecosystemCatSpeedValue&#34;,
+        mouseSpeedId: &#34;ecosystemMouseSpeed&#34;,
+        mouseSpeedValueId: &#34;ecosystemMouseSpeedValue&#34;,
+        grassGrowthId: &#34;ecosystemGrassGrowth&#34;,
+        grassGrowthValueId: &#34;ecosystemGrassGrowthValue&#34;,
+        visionId: &#34;ecosystemVision&#34;,
+        visionValueId: &#34;ecosystemVisionValue&#34;,
+        mouseReproduceId: &#34;ecosystemMouseReproduce&#34;,
+        mouseReproduceValueId: &#34;ecosystemMouseReproduceValue&#34;,
+        catReproduceId: &#34;ecosystemCatReproduce&#34;,
+        catReproduceValueId: &#34;ecosystemCatReproduceValue&#34;,
+        starvationId: &#34;ecosystemStarvation&#34;,
+        starvationValueId: &#34;ecosystemStarvationValue&#34;
+    });
+&lt;/script&gt;
+
+&lt;h2 id=&#34;diminishing-returns--marginal-utility&#34;&gt;Diminishing Returns / Marginal Utility&lt;/h2&gt;
+&lt;div class=&#34;diminishing-param&#34;&gt;
+    &lt;label&gt;Returns Exponent: &lt;span id=&#34;diminishingExponentValue&#34;&gt;0.50&lt;/span&gt;&lt;/label&gt;
+    &lt;input type=&#34;range&#34; id=&#34;diminishingExponent&#34; min=&#34;0.2&#34; max=&#34;1.0&#34; step=&#34;0.05&#34; value=&#34;0.5&#34; class=&#34;diminishing-slider&#34;&gt;
+    &lt;div style=&#34;font-size: 0.75em; color: var(--fg3); margin-top: 2px;&#34;&gt;
+        Lower = stronger diminishing returns
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;sim-controls&#34;&gt;
+    &lt;button id=&#34;diminishingStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;diminishingRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;diminishingReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;diminishing-container&#34;&gt;
+    &lt;canvas id=&#34;diminishingCanvas&#34; class=&#34;diminishing-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initDiminishingReturns } from &#34;/js/teaching-visuals.js&#34;;
+    initDiminishingReturns({
+        canvasId: &#34;diminishingCanvas&#34;,
+        stepId: &#34;diminishingStep&#34;,
+        runId: &#34;diminishingRun&#34;,
+        resetId: &#34;diminishingReset&#34;,
+        exponentId: &#34;diminishingExponent&#34;,
+        exponentValueId: &#34;diminishingExponentValue&#34;
+    });
+&lt;/script&gt;
+
+&lt;h2 id=&#34;berksons-paradox-selection-bias&#34;&gt;Berkson&amp;rsquo;s Paradox (Selection Bias)&lt;/h2&gt;
+&lt;div class=&#34;berkson-param&#34;&gt;
+    &lt;label&gt;Survival Threshold: &lt;span id=&#34;berksonThresholdValue&#34;&gt;100&lt;/span&gt;&lt;/label&gt;
+    &lt;input type=&#34;range&#34; id=&#34;berksonThreshold&#34; min=&#34;50&#34; max=&#34;150&#34; step=&#34;5&#34; value=&#34;100&#34; class=&#34;berkson-slider&#34;&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;sim-controls&#34;&gt;
+    &lt;button id=&#34;berksonStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;berksonRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;berksonReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;berkson-dag&#34;&gt;
+    &lt;canvas id=&#34;berksonDAG&#34; class=&#34;berkson-dag-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;berkson-charts&#34;&gt;
+    &lt;div class=&#34;berkson-chart&#34;&gt;
+        &lt;canvas id=&#34;berksonFull&#34; class=&#34;berkson-scatter-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;berkson-chart&#34;&gt;
+        &lt;canvas id=&#34;berksonSelected&#34; class=&#34;berkson-scatter-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initBerksonParadox } from &#34;/js/teaching-visuals.js&#34;;
+    initBerksonParadox({
+        dagCanvasId: &#34;berksonDAG&#34;,
+        fullCanvasId: &#34;berksonFull&#34;,
+        selectedCanvasId: &#34;berksonSelected&#34;,
+        stepId: &#34;berksonStep&#34;,
+        runId: &#34;berksonRun&#34;,
+        resetId: &#34;berksonReset&#34;,
+        thresholdId: &#34;berksonThreshold&#34;,
+        thresholdValueId: &#34;berksonThresholdValue&#34;
+    });
+&lt;/script&gt;
+
+</description>
+    </item>
+    
+    <item>
       <title>How to be a better software manager</title>
       <link>https://www.bonnycode.com/posts/how-to-be-a-better-software-manager/</link>
       <pubDate>Sun, 16 Mar 2014 00:00:00 +0000</pubDate>
@@ -444,24 +899,6 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Second, if you are still conscious, simulate iterative software development: while driving, close your eyes for 1 second, then open them for 1 second, etc. Despite your eyes being closed for the same amount of time as in the first example, you likely never ran off the road and, if you did hit someone, you probably meant to do it.&lt;/p&gt;
 &lt;p&gt;This is the difference between iterative development and non-iterative development. You know that you are on track because you are getting constant feedback. And you are getting that feedback where it matters, from the people that will use your software. Iterative development is so critical to staying on track that I will write copious amount of throwaway code to make iterations short. The ironic thing is, the people that avoid throwaway code end up writing the most in the end. They just do it unintentionally because they write large amounts of code that never gets used because their feature was off-track from the beginning.&lt;/p&gt;
 &lt;p&gt;I love writing throwaway code because it is this beautiful launch vehicle to get the code I want to last out there and used immediately. When I actively make the decision to write it, I know there is a good chance I&amp;rsquo;m on the right track.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Cost benefit analysis for bear lovers</title>
-      <link>https://www.bonnycode.com/posts/cost-benefit-analysis/</link>
-      <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.bonnycode.com/posts/cost-benefit-analysis/</guid>
-      <description>&lt;p&gt;Feature estimates are often blindly used for cost benefit analysis. This was no more apparent than when I once worked with a product manager named Bethany. She was responsible for what, in hindsight, was always a doomed social network for lovers of the North American Brown Bear. Bethany would routinely ask her developers to provide implementation costs for a long list of features. The developers would grumble and complain they need more detailed requirements before they can put together detailed estimates (because they had been burned in the past on being held to commitments based on changing scope). Bethany retorts that she just needs “T-shirt sizes”, which is code for wild ass guesses, so she can do cost benefit analysis. Logically, this makes sense. Like any savvy businesswoman, the product manager wants to get a return on her investment. You wouldn&amp;rsquo;t buy a piano without first knowing the price, right?&lt;/p&gt;
-&lt;p&gt;The developer would always eventually relent and give her the feature estimates she asked for. The feature to let people upload pictures of their favorite bear for example would take 2 weeks to build. The feature to translate English into Bearease was estimated to take between 1 month and 2 years. The bear picture upload feature was a clear customer win and a frequent ask from the sites three customers, but the English to Bearease language translation was a real opportunity to differentiate their site from the other bear lover social networks. If the bearease translation feature cost only 1 month it made more sense to prioritize that feature, but not if it took 2 years.&lt;/p&gt;
-&lt;p&gt;Bethany went back to the developers and asked why there was such a wide estimate in the translation feature and if there was a way to bring it down to the 1 month side. The developers came back with a bunch of mumbo jumbo about corpuses and having to maintain the translator by hand. They could develop a version of the feature in 1 month, but they wanted to do something fancier. Bethany heard that it could be done in 1 month if they really wanted to and said “go forth and develop my Bearease translator.” (she literally said that, it was weird then and it is weird now)&lt;/p&gt;
-&lt;p&gt;A month later, as expected, the developers had cranked out a Bearease translator just like they said they would. Bethany and the developers had a big launch party, people drank a bit too much and they talked about all the money they were going to make when the site went IPO.&lt;/p&gt;
-&lt;p&gt;Horribly hungover (likely due to the preponderance of blended whisky drinks), Bethany then tasked the developers to start working on the bear picture upload feature she had put off earlier. The developers went to work and two weeks later Bethany came back to check in on their launch. The developers said they were still working on it, and it would take them another two weeks. Bethany was furious. The feature was only supposed to take 2 weeks, she demanded to know why they couldn&amp;rsquo;t make their commitment. The developers started venting about how they were spending half their time maintaining the Bearease translator, constantly adding new words to the dictionary as users tried to translate words that they didn&amp;rsquo;t already have translations for. Bethany was angry at the developers for not being able to develop new features quickly enough and the developers were similarly angry they were spending so much of their time maintaining dictionaries rather than coding new features. They spent so much time being angry with each other that they stopped developing features all together. Facebook swooped in and stole their Bear loving user-base (with the ability to upload &lt;a href=&#34;http://upload.wikimedia.org/wikipedia/commons/6/6e/Bearclaw2.jpg&#34; title=&#34;Bear manicure&#34;&gt;bear pictures&lt;/a&gt; even!), and the rest is history.&lt;/p&gt;
-&lt;p&gt;Bethany and the developers took away opposite lessons from the whole experience. Bethany said working with developers is lame because they are lazy and don&amp;rsquo;t understand business. She started her own hedge fund and now has a net worth measured in billions of dollars. The lesson the developers pulled from the experience was to never again do a feature quick and dirty, and the next time a product manager asks them to build a Bearease translator, they will say it takes 2 years, end of story.&lt;/p&gt;
-&lt;p&gt;While Bethany can now afford to send several teams of highly trained ninja assassins my way for saying this, I put forth the contention that both Bethany and the developers pulled away the wrong lesson. Bethany&amp;rsquo;s real mistake was equating implementation cost with the true cost of a feature for cost benefit analysis. Software features, like most business investments, have operating costs associated with them. Those operating costs can vary wildly and there is frequently a trade off between initial investment cost and operating cost. If Bethany had taken into account the full cost of the features, she may have decided that uploading bear pictures was actually the wiser investment (something Facebook was smart enough to pick up on). Or at least she would have come in with the right expectation on what she was getting with her initial Bearease translator, and budgeted for followup work to make the feature more operationally maintainable if it was a success.&lt;/p&gt;
-&lt;p&gt;The developers on the other hand learned too simplistic a lesson on technical debt. Technical debt, like any form of debt, is not evil. Without the ability to go into debt (i.e., taking out a loan), most new businesses couldn&amp;rsquo;t even get off the ground in the first place. If the demand for a Bearease translator was uncertain or if the immediate rush to market of being the first to have a Bearease translator justified it, the one month implementation with high technical debt could absolutely be the correct decision. For example, if they launched the Bearease translator and it completely tanked, they at least would have only lost out on 1 month of work rather than 2 years worth of work. Requirements and customer adoption are so subtly variable and changing in software development that this is often in fact the best approach to take. As long as ongoing operational cost is measured and time is continuously budgeted to reduce it, everyone can benefit from such a rapid iteration methodology.&lt;/p&gt;
-&lt;p&gt;This post is also available in spoken &lt;a href=&#34;https://www.bonnycode.com/posts/rawr/&#34;&gt;Bearease&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

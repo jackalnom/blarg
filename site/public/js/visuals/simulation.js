@@ -276,7 +276,8 @@ export class StandardSimulation {
         this.canvas = document.getElementById(canvasId);
         this.stepBtn = document.getElementById(stepId);
         this.runBtn = document.getElementById(runId);
-        this.stepCountName = stepCountName;
+        this.runBtn = document.getElementById(runId);
+        // this.stepCountName = stepCountName; // Unused
         this.resetBtn = document.getElementById(resetId);
         this.sidesSelect = document.getElementById(sidesId);
         this.countInput = document.getElementById(countId);
@@ -349,10 +350,8 @@ export class StandardSimulation {
         // Step button: generate N samples based on radio button selection
         if (this.stepBtn) {
             this.stepBtn.addEventListener("click", () => {
-                // Get selected sample count from radio buttons
-                const selectedRadio = this.stepCountName ?
-                    document.querySelector(`input[name="${this.stepCountName}"]:checked`) : null;
-                const sampleCount = selectedRadio ? parseInt(selectedRadio.value, 10) : 10;
+                // Default to 10 samples
+                const sampleCount = 10;
 
                 // Set up generateFn if not already set
                 if (!this.runner.generateFn) {
@@ -532,10 +531,8 @@ export class StandardSimulation {
                 return;
             }
 
-            // Get selected sample count from radio buttons
-            const selectedRadio = this.stepCountName ?
-                document.querySelector(`input[name="${this.stepCountName}"]:checked`) : null;
-            const sampleCount = selectedRadio ? parseInt(selectedRadio.value, 10) : 10;
+            // Default to 10 samples per frame
+            const sampleCount = 10;
 
             // Generate N samples directly
             for (let i = 0; i < sampleCount; i++) {

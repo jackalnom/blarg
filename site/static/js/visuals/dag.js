@@ -7,8 +7,8 @@ export function initDAG(ids) {
     const stepBtn = document.getElementById(ids.stepId);
     const runBtn = document.getElementById(ids.runId);
     const resetBtn = document.getElementById(ids.resetId);
-    const stepCountName = ids.stepCountName;
-    const sampleCountEl = document.getElementById(ids.sampleCountId);
+    const stepCountName = ids.stepCountName; // Unused now
+    const sampleCountEl = document.getElementById(ids.sampleCountId); // Unused now
 
     // Structure is now passed as a parameter
     const structure = ids.structure || 'chain';
@@ -17,6 +17,7 @@ export function initDAG(ids) {
     let data = { A: [], B: [], C: [] };
     let edgeWeights = {};
     let isRunning = false;
+    let animationId = null;
 
     const structures = {
         'chain': { name: 'Chain: A → B → C', edges: [['A', 'B'], ['B', 'C']] },
@@ -63,23 +64,27 @@ export function initDAG(ids) {
             data.C.push(values.C);
         }
 
-        updateSampleCount();
+        // Keep last 500 samples to prevent performance issues
+        if (data.A.length > 500) {
+            data.A = data.A.slice(-500);
+            data.B = data.B.slice(-500);
+            data.C = data.C.slice(-500);
+        }
+
         draw();
         updateCorrelations();
     }
 
     function reset() {
         isRunning = false;
+        if (animationId) {
+            cancelAnimationFrame(animationId);
+            animationId = null;
+        }
+        if (runBtn) runBtn.textContent = 'Run';
         data = { A: [], B: [], C: [] };
-        updateSampleCount();
         draw();
         updateCorrelations();
-    }
-
-    function updateSampleCount() {
-        if (sampleCountEl) {
-            sampleCountEl.textContent = `n = ${data.A.length}`;
-        }
     }
 
     function correlation(x, y) {
@@ -155,9 +160,9 @@ export function initDAG(ids) {
                 edgeWeights[key] = val;
                 e.target.nextElementSibling.textContent = val.toFixed(1);
                 if (data.A.length > 0) {
-                    const count = data.A.length;
+                    // Re-generate data with new weights if we have data
+                    // Or just clear? Let's clear to avoid confusion
                     reset();
-                    generateSamples(count);
                 }
             });
         });
@@ -301,11 +306,6 @@ export function initDAG(ids) {
         ctx.fillText(`R² = ${rSquared.toFixed(2)}`, centerX, centerY + height / 2 + 24);
     }
 
-    function getStepCount() {
-        const radio = stepCountName ? document.querySelector(`input[name="${stepCountName}"]:checked`) : null;
-        return radio ? parseInt(radio.value, 10) : 10;
-    }
-
     function resizeCanvas() {
         const rect = canvas.getBoundingClientRect();
         const dpr = window.devicePixelRatio || 1;
@@ -324,28 +324,33 @@ export function initDAG(ids) {
         draw();
     }
 
+    function runLoop() {
+        if (!isRunning) return;
+        generateSamples(10); // Add 10 samples per frame
+        setTimeout(() => {
+            animationId = requestAnimationFrame(runLoop);
+        }, 100);
+    }
+
     if (stepBtn) {
         stepBtn.addEventListener('click', () => {
-            generateSamples(getStepCount());
+            generateSamples(10); // Default to 10 samples per step
         });
     }
 
     if (runBtn) {
         runBtn.addEventListener('click', () => {
-            if (isRunning) return;
-            isRunning = true;
-            const startTime = Date.now();
-
-            const loop = () => {
-                if (!isRunning) return;
-                if (Date.now() - startTime > 5000) {
-                    isRunning = false;
-                    return;
+            isRunning = !isRunning;
+            if (isRunning) {
+                runBtn.textContent = 'Stop';
+                runLoop();
+            } else {
+                runBtn.textContent = 'Run';
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
                 }
-                generateSamples(getStepCount());
-                requestAnimationFrame(loop);
-            };
-            loop();
+            }
         });
     }
 

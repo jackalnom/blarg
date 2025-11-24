@@ -52,9 +52,9 @@ _build:
 
 {{< home-values id="homevalues" >}}
 
-## US City Populations (Zipf's Law)
+## Steam reviews
 
-{{< city-population id="cities" >}}
+{{< steam-reviews id="steam" >}}
 
 ## California Electricity Demand (Real Seasonality)
 
