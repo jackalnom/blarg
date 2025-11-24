@@ -329,6 +329,8 @@ export function initEcosystem(config) {
         ctx.fillStyle = '#f5f5dc'; // Beige background
         ctx.fillRect(0, 0, width, height);
 
+        if (!grid || grid.length === 0) return;
+
         // Draw grass
         for (let y = 0; y < GRID_SIZE; y++) {
             for (let x = 0; x < GRID_SIZE; x++) {
