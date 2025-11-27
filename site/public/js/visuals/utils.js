@@ -111,12 +111,12 @@ export function getThemeColors() {
 
     // Primary dark mode detection: check if darkmode class exists on html element
     // This is more reliable than checking computed CSS values
-    let isDark = document.documentElement.classList.contains('darkmode');
+    let isDark = document.documentElement.classList.contains('darkmode') || document.body.classList.contains('darkmode');
 
     // Fallback: if no class, try detecting from bg color
     if (!isDark && bg) {
         isDark = bg === '#1d2021' || bg === '#282828' ||
-                 bg.includes('40, 40, 40') || bg.includes('29, 32, 33');
+            bg.includes('40, 40, 40') || bg.includes('29, 32, 33');
     }
 
     return {
@@ -154,6 +154,10 @@ export function listenForThemeChange(callback) {
     });
 
     observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+    observer.observe(document.body, {
         attributes: true,
         attributeFilter: ['class']
     });

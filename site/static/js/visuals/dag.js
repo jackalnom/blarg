@@ -1,5 +1,6 @@
 import { COLORS, STYLE } from "./constants.js";
 import { getThemeColors, listenForThemeChange } from "./utils.js";
+import { randn, correlation } from "./stats.js";
 
 export function initDAG(ids) {
     const dagCanvas = document.getElementById(ids.dagCanvasId);
@@ -36,11 +37,7 @@ export function initDAG(ids) {
         'default': { A: 'A', B: 'B', C: 'C' }
     };
 
-    function randn() {
-        const u1 = Math.random();
-        const u2 = Math.random();
-        return Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
-    }
+
 
     function generateSamples(count) {
         const edges = structures[structure].edges;
@@ -101,25 +98,7 @@ export function initDAG(ids) {
         updateCorrelations();
     }
 
-    function correlation(x, y) {
-        const n = x.length;
-        if (n < 2) return 0;
 
-        const meanX = x.reduce((a, b) => a + b, 0) / n;
-        const meanY = y.reduce((a, b) => a + b, 0) / n;
-
-        let num = 0, denomX = 0, denomY = 0;
-        for (let i = 0; i < n; i++) {
-            const dx = x[i] - meanX;
-            const dy = y[i] - meanY;
-            num += dx * dy;
-            denomX += dx * dx;
-            denomY += dy * dy;
-        }
-
-        const denom = Math.sqrt(denomX * denomY);
-        return denom > 0 ? num / denom : 0;
-    }
 
     function updateCorrelations() {
         if (!correlationDiv) return;

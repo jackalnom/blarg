@@ -4,6 +4,7 @@
  */
 
 import { getThemeColors, listenForThemeChange } from "./utils.js";
+import { linearRegression } from "./stats.js";
 
 export function initBerksonParadox(config) {
     const dagCanvas = document.getElementById(config.dagCanvasId);
@@ -60,22 +61,7 @@ export function initBerksonParadox(config) {
         drawScatterplots();
     }
 
-    function linearRegression(points) {
-        const n = points.length;
-        if (n === 0) return { slope: 0, intercept: 0 };
 
-        let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
-        for (const p of points) {
-            sumX += p.location;
-            sumY += p.taste;
-            sumXY += p.location * p.taste;
-            sumXX += p.location * p.location;
-        }
-
-        const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
-        const intercept = (sumY - slope * sumX) / n;
-        return { slope, intercept };
-    }
 
     // getColors removed, using getThemeColors from utils.js
 
@@ -322,7 +308,10 @@ export function initBerksonParadox(config) {
         }
 
         // Calculate regression
-        const regression = linearRegression(dataPoints);
+        const regression = linearRegression(
+            dataPoints.map(p => p.location),
+            dataPoints.map(p => p.taste)
+        );
 
         // Draw regression line if we have enough data
         if (dataPoints.length > 1 && !isNaN(regression.slope)) {
