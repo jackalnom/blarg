@@ -1,15 +1,15 @@
 /**
- * California Electricity Demand - Four weeks stacked to show daily/weekly patterns
- * Data source: EIA Form 930, California region, 2023
+ * California Electricity Demand - Three years of daily data
+ * Data source: EIA Form 930, California region
  */
 export async function initElectricityDemand(containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
 
-    // Create layout - single canvas with 4 stacked weeks
+    // Create layout
     container.innerHTML = `
         <div class="elec-main-chart"></div>
-        <div class="elec-source">Source: U.S. Energy Information Administration, Form EIA-930 (California, October 2023)</div>
+        <div class="elec-source">Source: U.S. Energy Information Administration, Form EIA-930 (California, Nov 2022 - Nov 2025)</div>
     `;
 
     const mainContainer = container.querySelector('.elec-main-chart');
@@ -18,27 +18,49 @@ export async function initElectricityDemand(containerId) {
     mainContainer.appendChild(mainCanvas);
     const ctx = mainCanvas.getContext('2d');
 
-    // Load data
-    let data;
+    let hoveredDay = null;
+
+    // Load and parse CSV data
+    let dataPoints = [];
     try {
-        const resp = await fetch('/data/cal_demand_2023.json');
-        data = await resp.json();
+        const resp = await fetch('/data/daily_demand_ca.csv');
+        const csvText = await resp.text();
+        const lines = csvText.trim().split('\n');
+
+        // Skip header (first line may have BOM)
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i].trim();
+            if (!line) continue;
+
+            // Parse: "26Nov2022","614,216"
+            const match = line.match(/^(.+?),\"?([\d,]+)\"?$/);
+            if (match) {
+                const dateStr = match[1].replace(/^"/, '');
+                const demandStr = match[2].replace(/,/g, '');
+                const demand = parseFloat(demandStr);
+
+                // Parse date format: ddMmmyyyy
+                const day = parseInt(dateStr.slice(0, 2));
+                const monthStr = dateStr.slice(2, 5);
+                const year = parseInt(dateStr.slice(5));
+
+                const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                               'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                const month = months.indexOf(monthStr);
+
+                const date = new Date(year, month, day);
+                dataPoints.push({ date, demand });
+            }
+        }
     } catch (e) {
         container.innerHTML = '<p>Failed to load electricity data</p>';
         return;
     }
 
-    const allValues = data.values;
-
-    // Extract 4 weeks starting October 1, 2023 (Sunday) through October 28
-    // October 1, 2023 is day 273 (0-indexed from Jan 1)
-    const weekStartHour = 273 * 24;
-    const weeks = [
-        { label: 'Oct 1–7', values: allValues.slice(weekStartHour, weekStartHour + 168) },
-        { label: 'Oct 8–14', values: allValues.slice(weekStartHour + 168, weekStartHour + 336) },
-        { label: 'Oct 15–21', values: allValues.slice(weekStartHour + 336, weekStartHour + 504) },
-        { label: 'Oct 22–28', values: allValues.slice(weekStartHour + 504, weekStartHour + 672) }
-    ];
+    if (dataPoints.length === 0) {
+        container.innerHTML = '<p>No electricity data available</p>';
+        return;
+    }
 
     function getColors() {
         const isDark = document.documentElement.classList.contains('darkmode') ||
@@ -73,92 +95,174 @@ export async function initElectricityDemand(containerId) {
 
     function draw() {
         const colors = getColors();
-        const dims = setupCanvas(mainCanvas, 1.4); // Taller for 4 rows
+        const dims = setupCanvas(mainCanvas, 3.5); // Wider aspect for 3 years
         const { width, height } = dims;
-        const padding = { top: 25, right: 15, bottom: 30, left: 55 };
+        const padding = { top: 50, right: 20, bottom: 60, left: 70 };
         const plotW = width - padding.left - padding.right;
-        const totalPlotH = height - padding.top - padding.bottom;
-        const rowGap = 8;
-        const rowH = (totalPlotH - rowGap * 3) / 4;
+        const plotH = height - padding.top - padding.bottom;
 
         ctx.clearRect(0, 0, width, height);
 
-        // Find global min/max across all weeks for consistent scale
-        const allWeekValues = weeks.flatMap(w => w.values);
-        const minVal = Math.min(...allWeekValues);
-        const maxVal = Math.max(...allWeekValues);
-        const yMin = Math.floor(minVal / 5000) * 5000;
-        const yMax = Math.ceil(maxVal / 5000) * 5000;
+        // Find min/max for scale
+        const demands = dataPoints.map(d => d.demand);
+        const minVal = Math.min(...demands);
+        const maxVal = Math.max(...demands);
+        const yMin = Math.floor(minVal / 50000) * 50000;
+        const yMax = Math.ceil(maxVal / 50000) * 50000;
 
-        // Draw day labels at top (only once)
-        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        // Draw axes
+        ctx.strokeStyle = colors.axis;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(padding.left, padding.top, plotW, plotH);
+
+        // Y-axis labels and grid
+        ctx.fillStyle = colors.text;
+        ctx.font = '11px system-ui, sans-serif';
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'middle';
+        const numYTicks = 5;
+        for (let i = 0; i <= numYTicks; i++) {
+            const val = yMin + (yMax - yMin) * (i / numYTicks);
+            const py = padding.top + plotH - ((val - yMin) / (yMax - yMin)) * plotH;
+            ctx.fillText(`${(val/1000).toFixed(0)}k`, padding.left - 8, py);
+
+            // Horizontal grid line
+            ctx.strokeStyle = colors.grid;
+            ctx.beginPath();
+            ctx.moveTo(padding.left, py);
+            ctx.lineTo(width - padding.right, py);
+            ctx.stroke();
+        }
+
+        // Y-axis label
+        ctx.save();
+        ctx.translate(20, padding.top + plotH / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.textAlign = 'center';
+        ctx.font = '12px system-ui, sans-serif';
+        ctx.fillStyle = colors.text;
+        ctx.fillText('Daily Demand (MWh)', 0, 0);
+        ctx.restore();
+
+        // X-axis: draw year labels and vertical grid lines
+        const firstDate = dataPoints[0].date;
+        const lastDate = dataPoints[dataPoints.length - 1].date;
+        const totalDays = dataPoints.length;
+
+        // Draw vertical grid at start of each year
+        ctx.strokeStyle = colors.grid;
+        ctx.lineWidth = 1;
         ctx.fillStyle = colors.text;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'center';
-        ctx.textBaseline = 'bottom';
-        days.forEach((day, i) => {
-            const px = padding.left + ((i + 0.5) * 24 / 168) * plotW;
-            ctx.fillText(day, px, padding.top - 8);
+        ctx.textBaseline = 'top';
+
+        const years = [2022, 2023, 2024, 2025];
+        years.forEach(year => {
+            // Find first data point in this year
+            const idx = dataPoints.findIndex(d => d.date.getFullYear() === year);
+            if (idx >= 0) {
+                const px = padding.left + (idx / totalDays) * plotW;
+                ctx.strokeStyle = colors.grid;
+                ctx.beginPath();
+                ctx.moveTo(px, padding.top);
+                ctx.lineTo(px, height - padding.bottom);
+                ctx.stroke();
+
+                // Label at middle of year
+                const yearStart = dataPoints.findIndex(d => d.date.getFullYear() === year);
+                const yearEnd = dataPoints.findIndex(d => d.date.getFullYear() === year + 1);
+                const yearMid = yearEnd === -1 ? (yearStart + dataPoints.length) / 2 : (yearStart + yearEnd) / 2;
+                const midPx = padding.left + (yearMid / totalDays) * plotW;
+
+                ctx.fillStyle = colors.text;
+                ctx.fillText(year.toString(), midPx, height - padding.bottom + 8);
+            }
         });
 
-        // Draw each week as a row
-        weeks.forEach((week, rowIndex) => {
-            const rowTop = padding.top + rowIndex * (rowH + rowGap);
+        // Draw data line
+        ctx.beginPath();
+        for (let i = 0; i < dataPoints.length; i++) {
+            const px = padding.left + (i / totalDays) * plotW;
+            const py = padding.top + plotH - ((dataPoints[i].demand - yMin) / (yMax - yMin)) * plotH;
+            if (i === 0) ctx.moveTo(px, py);
+            else ctx.lineTo(px, py);
+        }
+        ctx.strokeStyle = colors.line;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
 
-            // Shade weekend columns
-            ctx.fillStyle = colors.weekend;
-            ctx.fillRect(padding.left, rowTop, (24 / 168) * plotW, rowH); // Sunday
-            ctx.fillRect(padding.left + (144 / 168) * plotW, rowTop, (24 / 168) * plotW, rowH); // Saturday
+        // Fill under curve
+        ctx.lineTo(padding.left + plotW, height - padding.bottom);
+        ctx.lineTo(padding.left, height - padding.bottom);
+        ctx.closePath();
+        ctx.fillStyle = colors.fill;
+        ctx.fill();
 
-            // Draw vertical grid lines at midnight
-            ctx.strokeStyle = colors.grid;
-            ctx.lineWidth = 1;
-            for (let day = 0; day <= 7; day++) {
-                const px = padding.left + (day * 24 / 168) * plotW;
-                ctx.beginPath();
-                ctx.moveTo(px, rowTop);
-                ctx.lineTo(px, rowTop + rowH);
-                ctx.stroke();
-            }
+        // Draw hover tooltip
+        if (hoveredDay !== null && hoveredDay >= 0 && hoveredDay < dataPoints.length) {
+            const point = dataPoints[hoveredDay];
+            const px = padding.left + (hoveredDay / totalDays) * plotW;
+            const py = padding.top + plotH - ((point.demand - yMin) / (yMax - yMin)) * plotH;
 
-            // Draw row border
+            // Draw vertical line at hover point
             ctx.strokeStyle = colors.axis;
             ctx.lineWidth = 1;
-            ctx.strokeRect(padding.left, rowTop, plotW, rowH);
-
-            // Draw week label on left
-            ctx.fillStyle = colors.text;
-            ctx.font = '10px system-ui, sans-serif';
-            ctx.textAlign = 'right';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(week.label, padding.left - 8, rowTop + rowH / 2);
-
-            // Draw data line
+            ctx.setLineDash([3, 3]);
             ctx.beginPath();
-            for (let i = 0; i < week.values.length; i++) {
-                const px = padding.left + (i / 168) * plotW;
-                const py = rowTop + rowH - ((week.values[i] - yMin) / (yMax - yMin)) * rowH;
-                if (i === 0) ctx.moveTo(px, py);
-                else ctx.lineTo(px, py);
-            }
-            ctx.strokeStyle = colors.line;
-            ctx.lineWidth = 1.5;
+            ctx.moveTo(px, padding.top);
+            ctx.lineTo(px, height - padding.bottom);
             ctx.stroke();
+            ctx.setLineDash([]);
 
-            // Fill under curve
-            ctx.lineTo(padding.left + plotW, rowTop + rowH);
-            ctx.lineTo(padding.left, rowTop + rowH);
-            ctx.closePath();
-            ctx.fillStyle = colors.fill;
+            // Draw point
+            ctx.fillStyle = colors.line;
+            ctx.beginPath();
+            ctx.arc(px, py, 4, 0, Math.PI * 2);
             ctx.fill();
-        });
 
-        // Y-axis scale indicator (just show range once on left)
-        ctx.fillStyle = colors.text;
-        ctx.font = '9px system-ui, sans-serif';
-        ctx.textAlign = 'left';
-        ctx.textBaseline = 'top';
-        ctx.fillText(`${(yMin/1000).toFixed(0)}k–${(yMax/1000).toFixed(0)}k MWh`, padding.left, height - padding.bottom + 10);
+            // Format date
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                               'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const dateStr = `${monthNames[point.date.getMonth()]} ${point.date.getDate()}, ${point.date.getFullYear()}`;
+            const valueStr = `${(point.demand / 1000).toFixed(1)}k MWh`;
+
+            // Draw tooltip box
+            ctx.font = '11px system-ui, sans-serif';
+            const dateWidth = ctx.measureText(dateStr).width;
+            const valueWidth = ctx.measureText(valueStr).width;
+            const boxWidth = Math.max(dateWidth, valueWidth) + 16;
+            const boxHeight = 36;
+
+            let boxX = px + 10;
+            let boxY = py - boxHeight / 2;
+
+            // Keep tooltip on screen
+            if (boxX + boxWidth > width - padding.right) {
+                boxX = px - boxWidth - 10;
+            }
+            if (boxY < padding.top) {
+                boxY = padding.top;
+            }
+            if (boxY + boxHeight > height - padding.bottom) {
+                boxY = height - padding.bottom - boxHeight;
+            }
+
+            // Draw box
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
+            ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
+            ctx.strokeStyle = colors.axis;
+            ctx.lineWidth = 1;
+            ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+
+            // Draw text
+            ctx.fillStyle = '#fff';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'top';
+            ctx.fillText(dateStr, boxX + 8, boxY + 6);
+            ctx.font = 'bold 11px system-ui, sans-serif';
+            ctx.fillText(valueStr, boxX + 8, boxY + 20);
+        }
     }
 
     // Handle resize
@@ -166,6 +270,36 @@ export async function initElectricityDemand(containerId) {
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(draw, 100);
+    });
+
+    // Handle hover
+    mainCanvas.addEventListener('mousemove', (e) => {
+        const rect = mainCanvas.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        // Get current dimensions
+        const width = rect.width;
+        const height = rect.height;
+        const padding = { top: 50, right: 20, bottom: 60, left: 70 };
+        const plotW = width - padding.left - padding.right;
+
+        // Check if mouse is in plot area
+        if (mouseX >= padding.left && mouseX <= width - padding.right &&
+            mouseY >= padding.top && mouseY <= height - padding.bottom) {
+            // Calculate which day
+            const fraction = (mouseX - padding.left) / plotW;
+            hoveredDay = Math.floor(fraction * dataPoints.length);
+        } else {
+            hoveredDay = null;
+        }
+
+        draw();
+    });
+
+    mainCanvas.addEventListener('mouseleave', () => {
+        hoveredDay = null;
+        draw();
     });
 
     draw();

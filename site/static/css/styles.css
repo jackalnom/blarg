@@ -312,11 +312,13 @@ input[type="checkbox"]:hover {
 .static-chart-wrapper {
   max-width: 900px;
   width: 100%;
+  margin-bottom: 14px;
 }
 
 .static-chart-container {
   max-width: 900px;
   width: 100%;
+  padding-bottom: 8px; /* breathing room for x-axis labels */
 }
 
 .static-chart-canvas {
@@ -350,6 +352,8 @@ input[type="checkbox"]:hover {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+  max-width: 900px;
+  width: 100%;
 }
 
 .seasonality-panel {
@@ -377,6 +381,8 @@ input[type="checkbox"]:hover {
 
 .seasonality-combo {
   margin: 10px 0;
+  max-width: 900px;
+  width: 100%;
 }
 
 .seasonality-combo-canvas {
@@ -389,6 +395,8 @@ input[type="checkbox"]:hover {
 /* Electricity demand visualization */
 .electricity-demand-container {
   margin: 14px 0;
+  max-width: 900px;
+  width: 100%;
 }
 
 .elec-main-chart {
@@ -509,6 +517,8 @@ input[type="checkbox"]:hover {
   flex-direction: column;
   gap: 20px;
   margin-bottom: 14px;
+  max-width: 900px;
+  width: 100%;
 }
 
 .ecosystem-grid {
@@ -563,6 +573,8 @@ input[type="checkbox"]:hover {
 
 .diminishing-container {
   margin-bottom: 14px;
+  max-width: 900px;
+  width: 100%;
 }
 
 .diminishing-canvas {

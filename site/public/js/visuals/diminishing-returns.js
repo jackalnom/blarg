@@ -17,7 +17,7 @@ export function initDiminishingReturns(config) {
     let width, height;
 
     let data = [];
-    let exponent = 0.5; // Default is sqrt (x^0.5)
+    let exponent = 0.7; // Default (Medium strength: slider at 0.5 maps to 1.2 - 0.5 = 0.7)
     let running = false;
     let animationId = null;
 
@@ -36,9 +36,36 @@ export function initDiminishingReturns(config) {
         // Add 3 new random data points
         for (let i = 0; i < 3; i++) {
             const x = Math.random() * 100;
-            const trueMean = 100 * Math.pow(x / 100, exponent);
-            const noise = (Math.random() - 0.5) * 15;
-            const y = Math.max(0, Math.min(100, trueMean + noise));
+
+            // Model diminishing returns: each successive unit of input yields less output
+            // Early units: high marginal return (near linear)
+            // Later units: low marginal return (far below linear)
+            let totalOutput = 0;
+
+            // Integrate marginal returns
+            // Marginal return at input level t is proportional to 1/t^(1-exponent)
+            // Higher exponent (weak diminishing) → marginal return stays high
+            // Lower exponent (strong diminishing) → marginal return drops fast
+            const steps = 100;
+            const dx = x / steps;
+
+            for (let i = 0; i < steps; i++) {
+                const t = (i + 0.5) * dx; // Midpoint of interval
+                // Marginal utility at this point (starts at 1, decreases)
+                const marginalReturn = Math.pow(Math.max(1 - t / 100, 0.01), (1 - exponent) * 3);
+                totalOutput += marginalReturn * dx;
+            }
+
+            let y = totalOutput;
+
+            // Add agent-level variation (some agents are more/less efficient)
+            const agentEfficiency = 0.92 + Math.random() * 0.16; // 0.92 to 1.08
+            y = y * agentEfficiency;
+
+            // Add measurement noise
+            const noise = (Math.random() - 0.5) * 4;
+            y = Math.max(0, Math.min(100, y + noise));
+
             data.push({ x, y });
         }
 
@@ -66,7 +93,7 @@ export function initDiminishingReturns(config) {
         const dpr = window.devicePixelRatio || 1;
         const container = canvas.parentElement;
         const displayWidth = container.clientWidth;
-        const displayHeight = Math.round(displayWidth / 2.5);
+        const displayHeight = Math.round(displayWidth / 1.67); // 50% taller than before (was 2.5)
 
         canvas.width = displayWidth * dpr;
         canvas.height = displayHeight * dpr;
@@ -152,19 +179,6 @@ export function initDiminishingReturns(config) {
         ctx.fillText('Output (e.g., Test Score, Sales)', 0, 0);
         ctx.restore();
 
-        // Draw true curve
-        ctx.strokeStyle = colors.curve;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        for (let x = 0; x <= maxX; x += 0.5) {
-            const y = 100 * Math.pow(x / 100, exponent);
-            const px = scaleX(x);
-            const py = scaleY(y);
-            if (x === 0) ctx.moveTo(px, py);
-            else ctx.lineTo(px, py);
-        }
-        ctx.stroke();
-
         // Draw naive linear expectation
         ctx.strokeStyle = colors.linear;
         ctx.lineWidth = 2;
@@ -191,25 +205,16 @@ export function initDiminishingReturns(config) {
         const legendX = padding.left + 10;
         const legendY = padding.top + 10;
 
-        ctx.strokeStyle = colors.curve;
-        ctx.lineWidth = 3;
-        ctx.beginPath();
-        ctx.moveTo(legendX, legendY);
-        ctx.lineTo(legendX + 30, legendY);
-        ctx.stroke();
-        ctx.fillStyle = colors.fg;
-        ctx.fillText('Actual (diminishing returns)', legendX + 35, legendY + 4);
-
         ctx.strokeStyle = colors.linear;
         ctx.lineWidth = 2;
         ctx.setLineDash([5, 5]);
         ctx.beginPath();
-        ctx.moveTo(legendX, legendY + 20);
-        ctx.lineTo(legendX + 30, legendY + 20);
+        ctx.moveTo(legendX, legendY);
+        ctx.lineTo(legendX + 30, legendY);
         ctx.stroke();
         ctx.setLineDash([]);
         ctx.fillStyle = colors.fg;
-        ctx.fillText('Naive linear expectation', legendX + 35, legendY + 24);
+        ctx.fillText('Naive linear expectation', legendX + 35, legendY + 4);
     }
 
     function runLoop() {
@@ -241,9 +246,20 @@ export function initDiminishingReturns(config) {
 
     if (exponentSlider) {
         exponentSlider.addEventListener('input', () => {
-            exponent = parseFloat(exponentSlider.value);
-            if (exponentValue) exponentValue.textContent = exponent.toFixed(2);
-            draw();
+            // Invert slider: right (max=1.0) = stronger = lower exponent (0.2)
+            const sliderVal = parseFloat(exponentSlider.value);
+            exponent = 1.2 - sliderVal; // Maps 0.2->1.0, 1.0->0.2
+
+            // Update label to be descriptive
+            if (exponentValue) {
+                if (exponent >= 0.8) exponentValue.textContent = 'Weak';
+                else if (exponent >= 0.5) exponentValue.textContent = 'Medium';
+                else if (exponent >= 0.3) exponentValue.textContent = 'Strong';
+                else exponentValue.textContent = 'Very Strong';
+            }
+
+            // Reset the plot when strength changes
+            reset();
         });
     }
 

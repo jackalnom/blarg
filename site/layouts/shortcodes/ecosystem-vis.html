@@ -6,8 +6,8 @@
         <input type="range" id="{{ $id }}CatSpeed" min="0" max="2" step="0.1" value="1.5" class="ecosystem-slider">
     </div>
     <div class="ecosystem-param">
-        <label>Mouse Speed: <span id="{{ $id }}MouseSpeedValue">1.0</span></label>
-        <input type="range" id="{{ $id }}MouseSpeed" min="0" max="2" step="0.1" value="1.0" class="ecosystem-slider">
+        <label>Mouse Speed: <span id="{{ $id }}MouseSpeedValue">0.6</span></label>
+        <input type="range" id="{{ $id }}MouseSpeed" min="0" max="2" step="0.1" value="0.6" class="ecosystem-slider">
     </div>
     <div class="ecosystem-param">
         <label>Grass Growth: <span id="{{ $id }}GrassGrowthValue">1.0</span></label>
@@ -16,6 +16,10 @@
     <div class="ecosystem-param">
         <label>Cat Vision: <span id="{{ $id }}VisionValue">10</span> cells</label>
         <input type="range" id="{{ $id }}Vision" min="1" max="30" step="1" value="10" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Mouse Vision: <span id="{{ $id }}MouseVisionValue">5</span> cells</label>
+        <input type="range" id="{{ $id }}MouseVision" min="1" max="30" step="1" value="5" class="ecosystem-slider">
     </div>
     <div class="ecosystem-param">
         <label>Mouse Reproduce: <span id="{{ $id }}MouseReproduceValue">5</span> grass</label>
@@ -69,6 +73,8 @@
         grassGrowthValueId: "{{ $id }}GrassGrowthValue",
         visionId: "{{ $id }}Vision",
         visionValueId: "{{ $id }}VisionValue",
+        mouseVisionId: "{{ $id }}MouseVision",
+        mouseVisionValueId: "{{ $id }}MouseVisionValue",
         mouseReproduceId: "{{ $id }}MouseReproduce",
         mouseReproduceValueId: "{{ $id }}MouseReproduceValue",
         catReproduceId: "{{ $id }}CatReproduce",

@@ -89,7 +89,7 @@ export async function initSteamReviews(containerId, logCheckboxId) {
 
     function formatTick(v) {
       if (v >= 1e6) return `${Math.round(v / 1e5) / 10}M`;
-      if (v >= 1e3) return v.toLocaleString();
+      if (v >= 1e3) return `${Math.round(v / 1e2) / 10}k`;
       return v.toString();
     }
 

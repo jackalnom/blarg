@@ -24,6 +24,7 @@ export const COLORS = {
         daily: 210,
         weekly: 28,
         annual: 120,
+        trend: 200,
         combined: 260
     },
     dag: {

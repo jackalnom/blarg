@@ -1,13 +1,6 @@
 <div class="seasonality-grid">
   <div class="seasonality-panel">
     <div class="seasonality-header">
-      <strong>Daily</strong>
-      <small class="seasonality-hint">drag dots</small>
-    </div>
-    <canvas id="dailyCanvas" class="seasonality-canvas"></canvas>
-  </div>
-  <div class="seasonality-panel">
-    <div class="seasonality-header">
       <strong>Weekly</strong>
       <small class="seasonality-hint">drag dots</small>
     </div>
@@ -20,11 +13,24 @@
     </div>
     <canvas id="annualCanvas" class="seasonality-canvas"></canvas>
   </div>
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Trend</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="trendCanvas" class="seasonality-canvas"></canvas>
+  </div>
 </div>
 <div class="seasonality-combo">
   <div class="seasonality-header">
-    <strong>Combined</strong>
-    <small class="seasonality-hint">daily × weekly × annual (normalized)</small>
+    <strong>Combined (3 years)</strong>
+    <small class="seasonality-hint">driven by controls above</small>
+  </div>
+  <div class="seasonality-controls" style="margin-bottom: 8px;">
+    <label style="font-size: 0.9em; color: var(--fg2); display: flex; align-items: center; gap: 8px;">
+      <span>Noise:</span>
+      <input type="range" id="seasonalityNoise" min="0" max="0.5" step="0.01" value="0" style="width: 100px;">
+    </label>
   </div>
   <canvas id="comboCanvas" class="seasonality-combo-canvas"></canvas>
 </div>

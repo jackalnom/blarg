@@ -63,9 +63,7 @@ There are three ways fake data tends to give itself away:
 
 ### Correlation
 
-Did you know that ice cream and violent crime are [correlated](https://www.sciencedirect.com/science/article/abs/pii/S0095069613001289)? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.
-
-{{< ice-cream-murder id="icecream" >}}
+Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.
 
 Why are they correlated though? We’ve all heard the phrase *correlation does not imply causation.* When we say that, we mostly mean *direct causation*. What’s happening here is that both violent crime and ice cream consumption rise during the summer months—the confounder is the season.
 
@@ -73,18 +71,19 @@ If we accept that our highly correlated world results from a web of causes—“
 
 I draw upon [Judea Pearl’s causal directed acyclic graphs (DAGs)](https://www.jstor.org/stable/2337329) to make this happen. I draw out my causal graph, giving each effect multiple causes, often layers-and-layers deep.
 
-For example, in the interaction below, we can see a classic case of confounding illustrated using a DAG. **A** could be ice-cream consumption, **C** could be violent crime, and **B** could be season (the confounder). You can see in the scatter plots how **A** and **C** become correlated even without any direct causal link.
+For example, in the interaction below, we can see how the ice-cream/violent crime correlation could arise via confounding illustrated using a DAG. In this case both ice-cream consumption and violent crime are dependent on season (the confounder). You can see in the scatter plots how ice-cream and violent crime become correlated as a result even without any direct causal link.
 
 {{< dag-vis id="dag" structure="confounded" >}}
 
 This is all too neat though if we actually let students see all of this. The real world is like [the blind men and an elephant](https://en.wikipedia.org/wiki/Blind_men_and_an_elephant) from the *Tittha Sutta*. One blind man feels the trunk and says “It’s a snake!” Another feels a leg and says “It’s a tree!” Yet another feels the tusk and says “No, you fools, it’s a giant spear!” Each has only a partial view of the underlying truth.
+
 I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.
 
-Real data is not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, the first few inputs change everything, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your 100th friend matters a lot less than your first or your tenth--you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in learning, social networks, and even marketing spend. It’s what gives real data its characteristic bend—rising fast, then flattening as systems run into limits.
+It isn't just about the strength and reason for correlation, real data is also not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, having a little bit of something is a big deal, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your hundredth friend matters a lot less than your first or your tenth--you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in studying/exam results, income/happiness, marketing spend/impact, and many more such cases. It’s what gives real data its characteristic bend—rising fast, then flattening as systems run into limits.
 
 {{< diminishing-returns id="diminishing" >}}
 
-Real data is littered with selection biases; the data we have is not representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, [a hospital in Canada](https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363) noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson's paradox). The hospital isn't seeing all bike riders and all bike accidents. They don't see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.
+Lastly, and perhaps most trickily, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, [a hospital in Canada](https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363) noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson's paradox). The hospital isn't seeing all bike riders and all bike accidents. They don't see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.
 
 You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It’s a kind of selection echo: the world you see isn’t the world as it is, but the world that lasted.
 
@@ -92,7 +91,7 @@ In the simulation below, I show how food quality and location can become inverse
 
 {{< berkson-paradox id="berkson" >}}
 
-The end result is wonderfully correlated and messy data that feels real and is more fun to work with.
+Combine this all together and you get data that is filled with correlations, large and small, inversed and positive, linear and not-so-linear, spurious and true. Or in other words, data that is actually worth analyzing.
 
 ### Shape
 
@@ -102,11 +101,13 @@ Most people are familiar with the bell curve or normal distribution. Plot human 
 
 {{< height-distribution id="height" >}}
 
-Roll a bunch of dice, **add** them up, and you’ll get the same shape; that’s the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.
+Roll a bunch of dice, **add** them up, record that sum, repeat many times, and you’ll get the same shape; that’s the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.
 
 {{< generate-samples id="clt" type="normal" >}}
 
-Most of the data I’ve worked with doesn’t follow a normal distribution. Systems and people rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.  [Housing prices](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf)
+Most of the data I’ve worked with doesn’t follow a normal distribution though. Systems and people rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.  
+
+For example, [housing prices](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf)
  are generally right-skewed, largely because each property’s value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because log turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is also common to look at these right-skewed distributions in log space, which you are free to try below.
 
 {{< home-values id="homevalues" >}}
@@ -135,14 +136,14 @@ Getting these shapes to emerge naturally is key. When I’m building simulations
 
 When I worked at Snapchat, I could tell when holidays were happening without ever doing something as prosaic as checking a calendar. I’d just look at time-series charts of user engagement, split by region. If people started taking pictures at six or seven in the morning, it was a work or school day. If usage didn’t spike until around 10 in the morning, it was a weekend or holiday.
 
-Anyone who has looked at these time-series is familiar with the rhythms of real-data. Below is [hourly demand for electricity](https://www.eia.gov/electricity/gridmonitor/) in California in October 2023.
+Anyone who has looked at these time-series is familiar with the rhythms of real-data. For example, below is [daily demand for electricity](https://www.eia.gov/electricity/gridmonitor/) in California for the past three years. You can see the weekly rythms plus the greater demand for electricity in summer. Summer strikes again with its many correlations.
 
 {{< electricity-demand id="elec" >}}
 
 Real data shows this rhythm and seasonality for several reasons:
 
 * You see it across a day because we sleep, work, and live as the earth spins and brings day and night.
-* You see it across a week, however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.
+* You see it across a week based on however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.
 * And you see it across a year, driven by that same sun: the seasons, and the layers we’ve added on top—holidays, festivals, school breaks, and all the rituals that divide our time into meaning.
 
 In the visualization below, I multiply these temporal components—daily, weekly, and yearly—to approximate the kinds of cycles that appear in real time series. Conceptually, it’s similar to seasonal–trend decomposition (like STL), where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I’m composing those cycles from the ground up rather than decomposing observed data.

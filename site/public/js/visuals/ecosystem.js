@@ -48,9 +48,10 @@ export function initEcosystem(config) {
 
     // Parameters (controlled by sliders)
     let catSpeed = 1.5;
-    let mouseSpeed = 1.0;
+    let mouseSpeed = 0.6;
     let grassGrowth = 1.0;
     let visionRange = 10; // How far cats can see (in cells)
+    let mouseVisionRange = 5; // How far mice can see (in cells)
     let mouseReproduceThreshold = 5; // Number of grass to eat before reproducing
     let catReproduceThreshold = 15; // Number of mice to eat before reproducing
     let starvationThreshold = 50; // Turns without eating before starvation
@@ -155,6 +156,32 @@ export function initEcosystem(config) {
 
             // Wrap around edges
             entity.x = (entity.x + GRID_SIZE) % GRID_SIZE;
+        }
+    }
+
+    function moveAway(entity, targetX, targetY, speed) {
+        // Move multiple steps based on speed
+        const steps = Math.floor(speed) + (Math.random() < (speed % 1) ? 1 : 0);
+
+        for (let i = 0; i < steps; i++) {
+            // Move away from target
+            const dx = entity.x - targetX;
+            const dy = entity.y - targetY;
+
+            if (dx === 0 && dy === 0) {
+                // On top of target, move randomly
+                entity.x += Math.floor(Math.random() * 3) - 1;
+                entity.y += Math.floor(Math.random() * 3) - 1;
+            } else if (Math.abs(dx) > Math.abs(dy)) {
+                entity.x += Math.sign(dx);
+            } else if (dy !== 0) {
+                entity.y += Math.sign(dy);
+            } else if (dx !== 0) {
+                entity.x += Math.sign(dx);
+            }
+
+            // Wrap around edges
+            entity.x = (entity.x + GRID_SIZE) % GRID_SIZE;
             entity.y = (entity.y + GRID_SIZE) % GRID_SIZE;
         }
     }
@@ -178,14 +205,33 @@ export function initEcosystem(config) {
                 mouse.turnsSinceEating = 0; // Reset starvation counter
             }
 
-            // Mice always move randomly (wandering behavior)
-            const steps = Math.floor(mouseSpeed) + (Math.random() < (mouseSpeed % 1) ? 1 : 0);
-            for (let i = 0; i < steps; i++) {
-                mouse.x += Math.floor(Math.random() * 3) - 1;
-                mouse.y += Math.floor(Math.random() * 3) - 1;
-                // Wrap around edges
-                mouse.x = (mouse.x + GRID_SIZE) % GRID_SIZE;
-                mouse.y = (mouse.y + GRID_SIZE) % GRID_SIZE;
+            // Check for nearby cats to flee from
+            let fled = false;
+            if (cats.length > 0) {
+                const nearestCat = findNearest(mouse.x, mouse.y, cats);
+                if (nearestCat) {
+                    const dx = nearestCat.x - mouse.x;
+                    const dy = nearestCat.y - mouse.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist <= mouseVisionRange) {
+                        // Run away!
+                        moveAway(mouse, nearestCat.x, nearestCat.y, mouseSpeed);
+                        fled = true;
+                    }
+                }
+            }
+
+            // If not fleeing, wander randomly
+            if (!fled) {
+                const steps = Math.floor(mouseSpeed) + (Math.random() < (mouseSpeed % 1) ? 1 : 0);
+                for (let i = 0; i < steps; i++) {
+                    mouse.x += Math.floor(Math.random() * 3) - 1;
+                    mouse.y += Math.floor(Math.random() * 3) - 1;
+                    // Wrap around edges
+                    mouse.x = (mouse.x + GRID_SIZE) % GRID_SIZE;
+                    mouse.y = (mouse.y + GRID_SIZE) % GRID_SIZE;
+                }
             }
 
             // Reproduce if eaten enough grass
@@ -202,16 +248,6 @@ export function initEcosystem(config) {
             newMice.push(mouse);
         }
         mice = newMice;
-
-        // If all mice died, spawn a new one
-        if (mice.length === 0) {
-            mice.push({
-                x: Math.floor(Math.random() * GRID_SIZE),
-                y: Math.floor(Math.random() * GRID_SIZE),
-                eaten: 0,
-                turnsSinceEating: 0
-            });
-        }
 
         // Cats eat mice and move
         const newCats = [];
@@ -271,16 +307,6 @@ export function initEcosystem(config) {
             newCats.push(cat);
         }
         cats = newCats;
-
-        // If all cats died, spawn a new one
-        if (cats.length === 0) {
-            cats.push({
-                x: Math.floor(Math.random() * GRID_SIZE),
-                y: Math.floor(Math.random() * GRID_SIZE),
-                eaten: 0,
-                turnsSinceEating: 0
-            });
-        }
 
         // Grass spreads
         const newGrass = [];
@@ -523,6 +549,15 @@ export function initEcosystem(config) {
         visionSlider.addEventListener('input', () => {
             visionRange = parseInt(visionSlider.value);
             if (visionValue) visionValue.textContent = visionRange;
+        });
+    }
+
+    const mouseVisionSlider = document.getElementById(config.mouseVisionId);
+    const mouseVisionValue = document.getElementById(config.mouseVisionValueId);
+    if (mouseVisionSlider) {
+        mouseVisionSlider.addEventListener('input', () => {
+            mouseVisionRange = parseInt(mouseVisionSlider.value);
+            if (mouseVisionValue) mouseVisionValue.textContent = mouseVisionRange;
         });
     }
 

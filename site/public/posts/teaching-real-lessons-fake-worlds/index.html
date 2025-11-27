@@ -68,7 +68,7 @@
   <meta itemprop="description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
   <meta itemprop="datePublished" content="2025-11-23T00:00:00+00:00">
   <meta itemprop="dateModified" content="2025-11-24T15:25:15-08:00">
-  <meta itemprop="wordCount" content="3315">
+  <meta itemprop="wordCount" content="3405">
   <meta itemprop="keywords" content="Career &amp; Professional">
 
   
@@ -226,7 +226,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          3315 words
+          3405 words
         </span>
       
       
@@ -293,18 +293,11 @@
 </li>
 </ul>
 <h3 id="correlation">Correlation</h3>
-<p>Did you know that ice cream and violent crime are <a href="https://www.sciencedirect.com/science/article/abs/pii/S0095069613001289">correlated</a>? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.</p>
-<div class="static-chart-container" id="icecream"></div>
-
-<script type="module">
-  import { initIceCreamMurder } from "/js/teaching-visuals.js";
-  initIceCreamMurder("icecream");
-</script>
-
+<p>Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.</p>
 <p>Why are they correlated though? We’ve all heard the phrase <em>correlation does not imply causation.</em> When we say that, we mostly mean <em>direct causation</em>. What’s happening here is that both violent crime and ice cream consumption rise during the summer months—the confounder is the season.</p>
 <p>If we accept that our highly correlated world results from a web of causes—“this causes this, which causes these two things, and then those in turn cause others”—we can use that fact as the foundation for natural-looking correlations.</p>
 <p>I draw upon <a href="https://www.jstor.org/stable/2337329">Judea Pearl’s causal directed acyclic graphs (DAGs)</a> to make this happen. I draw out my causal graph, giving each effect multiple causes, often layers-and-layers deep.</p>
-<p>For example, in the interaction below, we can see a classic case of confounding illustrated using a DAG. <strong>A</strong> could be ice-cream consumption, <strong>C</strong> could be violent crime, and <strong>B</strong> could be season (the confounder). You can see in the scatter plots how <strong>A</strong> and <strong>C</strong> become correlated even without any direct causal link.</p>
+<p>For example, in the interaction below, we can see how the ice-cream/violent crime correlation could arise via confounding illustrated using a DAG. In this case both ice-cream consumption and violent crime are dependent on season (the confounder). You can see in the scatter plots how ice-cream and violent crime become correlated as a result even without any direct causal link.</p>
 <div id="dagWeights" class="dag-weights"></div>
 
 <div class="sim-controls">
@@ -329,14 +322,16 @@
         resetId: "dagReset"
     });
 </script>
-<p>This is all too neat though if we actually let students see all of this. The real world is like <a href="https://en.wikipedia.org/wiki/Blind_men_and_an_elephant">the blind men and an elephant</a> from the <em>Tittha Sutta</em>. One blind man feels the trunk and says “It’s a snake!” Another feels a leg and says “It’s a tree!” Yet another feels the tusk and says “No, you fools, it’s a giant spear!” Each has only a partial view of the underlying truth.
-I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.</p>
-<p>Real data is not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, the first few inputs change everything, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your 100th friend matters a lot less than your first or your tenth&ndash;you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in learning, social networks, and even marketing spend. It’s what gives real data its characteristic bend—rising fast, then flattening as systems run into limits.</p>
+<p>This is all too neat though if we actually let students see all of this. The real world is like <a href="https://en.wikipedia.org/wiki/Blind_men_and_an_elephant">the blind men and an elephant</a> from the <em>Tittha Sutta</em>. One blind man feels the trunk and says “It’s a snake!” Another feels a leg and says “It’s a tree!” Yet another feels the tusk and says “No, you fools, it’s a giant spear!” Each has only a partial view of the underlying truth.</p>
+<p>I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.</p>
+<p>It isn&rsquo;t just about the strength and reason for correlation, real data is also not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, having a little bit of something is a big deal, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your hundredth friend matters a lot less than your first or your tenth&ndash;you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in studying/exam results, income/happiness, marketing spend/impact, and many more such cases. It’s what gives real data its characteristic bend—rising fast, then flattening as systems run into limits.</p>
 <div class="diminishing-param">
-    <label>Returns Exponent: <span id="diminishingExponentValue">0.50</span></label>
+    <label>Strength of Diminishing Returns: <span id="diminishingExponentValue">Medium</span></label>
     <input type="range" id="diminishingExponent" min="0.2" max="1.0" step="0.05" value="0.5" class="diminishing-slider">
     <div style="font-size: 0.75em; color: var(--fg3); margin-top: 2px;">
-        Lower = stronger diminishing returns
+        <span style="float: left;">Weak</span>
+        <span style="float: right;">Strong</span>
+        <div style="clear: both;"></div>
     </div>
 </div>
 
@@ -362,7 +357,7 @@ I build my “elephant” by creating a large causal DAG that naturally produces
     });
 </script>
 
-<p>Real data is littered with selection biases; the data we have is not representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363">a hospital in Canada</a> noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson&rsquo;s paradox). The hospital isn&rsquo;t seeing all bike riders and all bike accidents. They don&rsquo;t see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.</p>
+<p>Lastly, and perhaps most trickily, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363">a hospital in Canada</a> noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson&rsquo;s paradox). The hospital isn&rsquo;t seeing all bike riders and all bike accidents. They don&rsquo;t see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.</p>
 <p>You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It’s a kind of selection echo: the world you see isn’t the world as it is, but the world that lasted.</p>
 <p>In the simulation below, I show how food quality and location can become inversely correlated, even if they start out completely independent. This happens because survival is a filter: a restaurant can survive with bad food if it has high foot traffic (a tourist trap), and it can survive in a bad location if the food is amazing. But if it has bad food and a bad location, it goes out of business and disappears from the dataset. We only see the survivors.</p>
 <div class="berkson-param">
@@ -403,7 +398,7 @@ I build my “elephant” by creating a large causal DAG that naturally produces
     });
 </script>
 
-<p>The end result is wonderfully correlated and messy data that feels real and is more fun to work with.</p>
+<p>Combine this all together and you get data that is filled with correlations, large and small, inversed and positive, linear and not-so-linear, spurious and true. Or in other words, data that is actually worth analyzing.</p>
 <h3 id="shape">Shape</h3>
 <p>I&rsquo;ve long been fascinated by the beautifully smooth shapes that data makes when generated at scale. Not just systems, but data that is based on human behavior. I had once assumed just because individual humans are so complicated, so individual, so hard to predict individually, that a bunch of humans should be exponentially more complicated to predict. But it is in fact the opposite. When you get lots of people, all the individual differences wash out, and what you are left with is the smooth underlying generative mechanisms that underlie their common behavior.</p>
 <p>Most people are familiar with the bell curve or normal distribution. Plot human height and you’ll get something roughly normal. Human height follows this pattern because it’s the sum of many small, independent effects: genes, nutrition, environment. But it’s not perfectly normal; the curve’s a bit too flat and wide. It’s multimodal, a blend of overlapping distributions. Split by gender, and each group looks much closer to a proper bell curve.</p>
@@ -421,7 +416,7 @@ I build my “elephant” by creating a large causal DAG that naturally produces
   initHeightDistribution("height", "height-split");
 </script>
 
-<p>Roll a bunch of dice, <strong>add</strong> them up, and you’ll get the same shape; that’s the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.</p>
+<p>Roll a bunch of dice, <strong>add</strong> them up, record that sum, repeat many times, and you’ll get the same shape; that’s the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.</p>
 <div class="sim-controls">
     
     <label class="sim-param-label">Dice per roll
@@ -447,7 +442,8 @@ I build my “elephant” by creating a large causal DAG that naturally produces
   initGenerateSamples("clt", "normal");
 </script>
 
-<p>Most of the data I’ve worked with doesn’t follow a normal distribution. Systems and people rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.  <a href="https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf">Housing prices</a>
+<p>Most of the data I’ve worked with doesn’t follow a normal distribution though. Systems and people rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.</p>
+<p>For example, <a href="https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf">housing prices</a>
 are generally right-skewed, largely because each property’s value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because log turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is also common to look at these right-skewed distributions in log space, which you are free to try below.</p>
 <div class="static-chart-wrapper">
   <div class="static-chart-controls">
@@ -497,11 +493,12 @@ are generally right-skewed, largely because each property’s value grows throug
 
 <p>Many human systems aren’t just multiplicative—they’re compounding. The rich get richer because their money earns more money; popular people attract more popularity simply because they’re already popular. Algorithms that surface trending videos, products, or songs amplify these dynamics even further. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.</p>
 <p>When I first started plotting data—any kind of data—on user engagement, I was struck by how often those power-law curves appeared. They looked like the chart below of <a href="https://www.kaggle.com/datasets/andrewmvd/steam-reviews">reviews per game on Steam</a>. In practice, you often see a mix of log-normal on the left, power-law on the right (I call it the <a href="https://en.wikipedia.org/wiki/Mullet_(haircut)">mullet</a> of distributions).</p>
-<div id="steamContainer" style="margin:10px 0;">
-  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls" style="display:flex; align-items:center; gap:10px;">
     <strong>Steam reviews per game</strong>
-    <label style="font-size:0.9em;"><input type="checkbox" id="steamLog"> log axes</label>
+    <label><input type="checkbox" id="steamLog"> Log axes</label>
   </div>
+  <div class="static-chart-container" id="steamContainer"></div>
 </div>
 <script type="module">
   import { initSteamReviews } from "/js/teaching-visuals.js";
@@ -564,7 +561,7 @@ are generally right-skewed, largely because each property’s value grows throug
 <p>Getting these shapes to emerge naturally is key. When I’m building simulations, I never directly sample from these distributions. Instead, I code my agents so that, taken together, they arrive at those shapes honestly. I create the feedback loops that produce power-law distributions. I make processes multiplicative where they should be, and allow for multimodality by giving categories different generative properties.</p>
 <h3 id="time">Time</h3>
 <p>When I worked at Snapchat, I could tell when holidays were happening without ever doing something as prosaic as checking a calendar. I’d just look at time-series charts of user engagement, split by region. If people started taking pictures at six or seven in the morning, it was a work or school day. If usage didn’t spike until around 10 in the morning, it was a weekend or holiday.</p>
-<p>Anyone who has looked at these time-series is familiar with the rhythms of real-data. Below is <a href="https://www.eia.gov/electricity/gridmonitor/">hourly demand for electricity</a> in California in October 2023.</p>
+<p>Anyone who has looked at these time-series is familiar with the rhythms of real-data. For example, below is <a href="https://www.eia.gov/electricity/gridmonitor/">daily demand for electricity</a> in California for the past three years. You can see the weekly rythms plus the greater demand for electricity in summer. Summer strikes again with its many correlations.</p>
 <div class="electricity-demand-container" id="elec"></div>
 
 <script type="module">
@@ -575,18 +572,11 @@ are generally right-skewed, largely because each property’s value grows throug
 <p>Real data shows this rhythm and seasonality for several reasons:</p>
 <ul>
 <li>You see it across a day because we sleep, work, and live as the earth spins and brings day and night.</li>
-<li>You see it across a week, however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.</li>
+<li>You see it across a week based on however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.</li>
 <li>And you see it across a year, driven by that same sun: the seasons, and the layers we’ve added on top—holidays, festivals, school breaks, and all the rituals that divide our time into meaning.</li>
 </ul>
 <p>In the visualization below, I multiply these temporal components—daily, weekly, and yearly—to approximate the kinds of cycles that appear in real time series. Conceptually, it’s similar to seasonal–trend decomposition (like STL), where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I’m composing those cycles from the ground up rather than decomposing observed data.</p>
 <div class="seasonality-grid">
-  <div class="seasonality-panel">
-    <div class="seasonality-header">
-      <strong>Daily</strong>
-      <small class="seasonality-hint">drag dots</small>
-    </div>
-    <canvas id="dailyCanvas" class="seasonality-canvas"></canvas>
-  </div>
   <div class="seasonality-panel">
     <div class="seasonality-header">
       <strong>Weekly</strong>
@@ -601,11 +591,24 @@ are generally right-skewed, largely because each property’s value grows throug
     </div>
     <canvas id="annualCanvas" class="seasonality-canvas"></canvas>
   </div>
+  <div class="seasonality-panel">
+    <div class="seasonality-header">
+      <strong>Trend</strong>
+      <small class="seasonality-hint">drag dots</small>
+    </div>
+    <canvas id="trendCanvas" class="seasonality-canvas"></canvas>
+  </div>
 </div>
 <div class="seasonality-combo">
   <div class="seasonality-header">
-    <strong>Combined</strong>
-    <small class="seasonality-hint">daily × weekly × annual (normalized)</small>
+    <strong>Combined (3 years)</strong>
+    <small class="seasonality-hint">driven by controls above</small>
+  </div>
+  <div class="seasonality-controls" style="margin-bottom: 8px;">
+    <label style="font-size: 0.9em; color: var(--fg2); display: flex; align-items: center; gap: 8px;">
+      <span>Noise:</span>
+      <input type="range" id="seasonalityNoise" min="0" max="0.5" step="0.01" value="0" style="width: 100px;">
+    </label>
   </div>
   <canvas id="comboCanvas" class="seasonality-combo-canvas"></canvas>
 </div>
@@ -613,7 +616,6 @@ are generally right-skewed, largely because each property’s value grows throug
   import { initSeasonality } from "/js/teaching-visuals.js";
   initSeasonality();
 </script>
-
 <p>I combine those cycles with holidays—which turn weekdays into weekends—and make them an integral part of the causal DAG that drives my agents. By giving the root nodes those rhythms and letting them propagate through the graph, the model naturally produces the kinds of correlated effects that trip people up—spurious patterns like, “Hey, I think ice cream causes murder!”</p>
 <h2 id="emergent-complexity">Emergent Complexity</h2>
 <p>Now that we know what our data should look like, how do we achieve that without manually faking every data point? That sounds so complex!</p>
@@ -671,8 +673,8 @@ are generally right-skewed, largely because each property’s value grows throug
         <input type="range" id="ecosystemCatSpeed" min="0" max="2" step="0.1" value="1.5" class="ecosystem-slider">
     </div>
     <div class="ecosystem-param">
-        <label>Mouse Speed: <span id="ecosystemMouseSpeedValue">1.0</span></label>
-        <input type="range" id="ecosystemMouseSpeed" min="0" max="2" step="0.1" value="1.0" class="ecosystem-slider">
+        <label>Mouse Speed: <span id="ecosystemMouseSpeedValue">0.6</span></label>
+        <input type="range" id="ecosystemMouseSpeed" min="0" max="2" step="0.1" value="0.6" class="ecosystem-slider">
     </div>
     <div class="ecosystem-param">
         <label>Grass Growth: <span id="ecosystemGrassGrowthValue">1.0</span></label>
@@ -681,6 +683,10 @@ are generally right-skewed, largely because each property’s value grows throug
     <div class="ecosystem-param">
         <label>Cat Vision: <span id="ecosystemVisionValue">10</span> cells</label>
         <input type="range" id="ecosystemVision" min="1" max="30" step="1" value="10" class="ecosystem-slider">
+    </div>
+    <div class="ecosystem-param">
+        <label>Mouse Vision: <span id="ecosystemMouseVisionValue">5</span> cells</label>
+        <input type="range" id="ecosystemMouseVision" min="1" max="30" step="1" value="5" class="ecosystem-slider">
     </div>
     <div class="ecosystem-param">
         <label>Mouse Reproduce: <span id="ecosystemMouseReproduceValue">5</span> grass</label>
@@ -734,6 +740,8 @@ are generally right-skewed, largely because each property’s value grows throug
         grassGrowthValueId: "ecosystemGrassGrowthValue",
         visionId: "ecosystemVision",
         visionValueId: "ecosystemVisionValue",
+        mouseVisionId: "ecosystemMouseVision",
+        mouseVisionValueId: "ecosystemMouseVisionValue",
         mouseReproduceId: "ecosystemMouseReproduce",
         mouseReproduceValueId: "ecosystemMouseReproduceValue",
         catReproduceId: "ecosystemCatReproduce",
@@ -742,7 +750,6 @@ are generally right-skewed, largely because each property’s value grows throug
         starvationValueId: "ecosystemStarvationValue"
     });
 </script>
-
 <p>I usually introduce some form of survival of the fittest to stabilize things. I’m not afraid to let agents die if they can’t achieve their utility, but I’m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.
 Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. It feels less like engineering and more like gardening, an organic process. I tend to my simulation as much as I build it.</p>
 <p>That’s it; mostly&hellip; I&rsquo;m showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.</p>

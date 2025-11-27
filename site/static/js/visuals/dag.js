@@ -27,6 +27,12 @@ export function initDAG(ids) {
         'confounded': { name: 'Confounded: A ← B → C', edges: [['B', 'A'], ['B', 'C']] }
     };
 
+    // Node labels per structure
+    const nodeLabels = {
+        'confounded': { A: 'Ice Cream', B: 'Summer', C: 'Crime' },
+        'default': { A: 'A', B: 'B', C: 'C' }
+    };
+
     function randn() {
         const u1 = Math.random();
         const u2 = Math.random();
@@ -109,28 +115,14 @@ export function initDAG(ids) {
 
     function updateCorrelations() {
         if (!correlationDiv) return;
-
-        if (data.A.length < 2) {
-            correlationDiv.innerHTML = '';
-            return;
-        }
-
-        const corrAB = correlation(data.A, data.B);
-        const corrBC = correlation(data.B, data.C);
-        const corrAC = correlation(data.A, data.C);
-
-        correlationDiv.innerHTML = `
-            <strong>Correlations:</strong>
-            A↔B: ${corrAB.toFixed(2)},
-            B↔C: ${corrBC.toFixed(2)},
-            A↔C: ${corrAC.toFixed(2)}
-        `;
+        correlationDiv.innerHTML = '';
     }
 
     function buildWeightControls() {
         if (!weightsDiv) return;
 
         const edges = structures[structure].edges;
+        const labels = nodeLabels[structure] || nodeLabels['default'];
 
         if (edges.length === 0) {
             weightsDiv.innerHTML = '<em>No causal relationships</em>';
@@ -141,9 +133,11 @@ export function initDAG(ids) {
         for (const [from, to] of edges) {
             const key = `${from}-${to}`;
             const currentWeight = edgeWeights[key] ?? 0.7;
+            const labelFrom = labels[from] || from;
+            const labelTo = labels[to] || to;
             html += `
                 <div class="dag-weight-control">
-                    <label>${from} → ${to}:</label>
+                    <label>${labelFrom} → ${labelTo}:</label>
                     <input type="range" min="-1" max="1" step="0.1" value="${currentWeight}"
                            data-edge="${key}" class="dag-weight-slider">
                     <span class="dag-weight-value">${currentWeight.toFixed(1)}</span>
@@ -171,79 +165,103 @@ export function initDAG(ids) {
     let canvasLogicalWidth = 0;
     let canvasLogicalHeight = 0;
 
+    function getColors() {
+        const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        return {
+            bg: isDark ? '#1d2021' : '#fbf1c7',
+            fg: isDark ? '#ebdbb2' : '#3c3836',
+            fg2: isDark ? '#a89984' : '#7c6f64',
+            node: isDark ? '#458588' : '#076678',
+            edge: isDark ? '#a89984' : '#7c6f64'
+        };
+    }
+
     function draw() {
         const w = canvasLogicalWidth;
         const h = canvasLogicalHeight;
+        const colors = getColors();
         ctx.clearRect(0, 0, w, h);
+        ctx.fillStyle = colors.bg;
+        ctx.fillRect(0, 0, w, h);
 
-        // Node positions
+        // Node positions - use same aspect ratio as berkson (3:1)
+        const nodeRadius = 30;
+        const centerX = w / 2;
+        const spacing = 150;
+        const dagHeight = Math.round(w / 3); // Same aspect ratio as berkson
+
         const nodes = {
-            A: { x: w * 0.3, y: 50 },
-            B: { x: w * 0.5, y: 110 },
-            C: { x: w * 0.7, y: 50 }
+            A: { x: centerX - spacing / 2, y: dagHeight * 0.65 },
+            B: { x: centerX, y: dagHeight * 0.35 },
+            C: { x: centerX + spacing / 2, y: dagHeight * 0.65 }
         };
 
         const edges = structures[structure].edges;
 
-        // Draw edges with weight-based thickness
+        // Draw edges with arrows
+        ctx.strokeStyle = colors.edge;
+        ctx.fillStyle = colors.edge;
+        ctx.lineWidth = 2;
+
         for (const [from, to] of edges) {
             const start = nodes[from];
             const end = nodes[to];
-            const weight = edgeWeights[`${from}-${to}`] ?? 0.7;
 
             const angle = Math.atan2(end.y - start.y, end.x - start.x);
-            const nodeRadius = STYLE.nodeRadius;
 
             const startX = start.x + nodeRadius * Math.cos(angle);
             const startY = start.y + nodeRadius * Math.sin(angle);
             const endX = end.x - nodeRadius * Math.cos(angle);
             const endY = end.y - nodeRadius * Math.sin(angle);
 
-            const isNegative = weight < 0;
-            ctx.strokeStyle = isNegative ? '#c44' : '#666';
-            ctx.fillStyle = isNegative ? '#c44' : '#666';
-            ctx.lineWidth = 1 + Math.abs(weight) * 3;
-
+            // Draw line
             ctx.beginPath();
             ctx.moveTo(startX, startY);
             ctx.lineTo(endX, endY);
             ctx.stroke();
 
+            // Draw arrowhead
+            const headLength = 10;
             ctx.beginPath();
             ctx.moveTo(endX, endY);
-            ctx.lineTo(endX - 10 * Math.cos(angle - Math.PI / 6), endY - 10 * Math.sin(angle - Math.PI / 6));
-            ctx.lineTo(endX - 10 * Math.cos(angle + Math.PI / 6), endY - 10 * Math.sin(angle + Math.PI / 6));
+            ctx.lineTo(endX - headLength * Math.cos(angle - Math.PI / 6),
+                       endY - headLength * Math.sin(angle - Math.PI / 6));
+            ctx.lineTo(endX - headLength * Math.cos(angle + Math.PI / 6),
+                       endY - headLength * Math.sin(angle + Math.PI / 6));
             ctx.closePath();
             ctx.fill();
         }
 
         // Draw nodes
+        const labels = nodeLabels[structure] || nodeLabels['default'];
         for (const [name, pos] of Object.entries(nodes)) {
             ctx.beginPath();
-            ctx.arc(pos.x, pos.y, STYLE.nodeRadius, 0, 2 * Math.PI);
-            ctx.fillStyle = COLORS.dag.node;
+            ctx.arc(pos.x, pos.y, nodeRadius, 0, 2 * Math.PI);
+            ctx.fillStyle = colors.node;
             ctx.fill();
-            ctx.strokeStyle = COLORS.dag.nodeBorder;
-            ctx.lineWidth = 2;
-            ctx.stroke();
 
-            ctx.fillStyle = '#fff';
-            ctx.font = `bold ${STYLE.font.large}`;
+            ctx.fillStyle = colors.bg;
+            ctx.font = '12px sans-serif';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText(name, pos.x, pos.y);
+            const label = labels[name] || name;
+            ctx.fillText(label, pos.x, pos.y);
         }
 
-        // Draw scatterplots - size based on available width, leave room for labels
-        const maxPlotSize = STYLE.plotSize;
-        const plotSize = Math.min(maxPlotSize, Math.floor((w - 40) / 3.5));
-        const labelSpace = 30; // Space for labels below plots
-        const plotY = 140 + plotSize / 2;
-        const spacing = (w - 3 * plotSize) / 4;
+        // Add explanation text
+        ctx.fillStyle = colors.fg;
+        ctx.font = '11px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Ice cream and crime appear correlated, but summer causes both', w / 2, dagHeight + 10);
 
-        drawScatterplot(data.A, data.B, spacing + plotSize / 2, plotY, plotSize, plotSize, 'A vs B');
-        drawScatterplot(data.B, data.C, spacing * 2 + plotSize * 1.5, plotY, plotSize, plotSize, 'B vs C');
-        drawScatterplot(data.A, data.C, spacing * 3 + plotSize * 2.5, plotY, plotSize, plotSize, 'A vs C');
+        // Draw single scatterplot - Ice Cream vs Crime
+        const maxPlotSize = 240; // Larger since it's just one plot
+        const plotSize = Math.min(maxPlotSize, Math.floor(w * 0.5));
+        const plotY = dagHeight + 30 + plotSize / 2; // Start after DAG and explanation text
+
+        const labelA = labels['A'];
+        const labelC = labels['C'];
+        drawScatterplot(data.A, data.C, w / 2, plotY, plotSize, plotSize, `${labelA} vs ${labelC}`);
     }
 
     function drawScatterplot(xData, yData, centerX, centerY, width, height, label) {
@@ -265,7 +283,7 @@ export function initDAG(ids) {
         if (xData.length === 0) {
             ctx.fillStyle = '#999';
             ctx.textBaseline = 'middle';
-            ctx.fillText('No data', centerX, centerY);
+            ctx.fillText('Press Run', centerX, centerY);
             // Label underneath
             ctx.fillStyle = labelColor;
             ctx.font = 'bold 13px sans-serif';
@@ -311,10 +329,11 @@ export function initDAG(ids) {
         const dpr = window.devicePixelRatio || 1;
         canvasLogicalWidth = rect.width;
 
-        // Calculate height to fit: nodes (140) + plot size + labels (70)
-        const maxPlotSize = STYLE.plotSize;
-        const plotSize = Math.min(maxPlotSize, Math.floor((rect.width - 40) / 3.5));
-        canvasLogicalHeight = 140 + plotSize + 70;
+        // Calculate height to fit: DAG (width/3) + explanation text (30) + single plot + labels (50)
+        const dagHeight = Math.round(rect.width / 3);
+        const maxPlotSize = 240;
+        const plotSize = Math.min(maxPlotSize, Math.floor(rect.width * 0.5));
+        canvasLogicalHeight = dagHeight + 30 + plotSize + 50;
 
         canvas.style.height = `${canvasLogicalHeight}px`;
         canvas.width = Math.floor(rect.width * dpr);

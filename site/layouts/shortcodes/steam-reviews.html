@@ -1,9 +1,10 @@
 {{- $base := .Get "id" | default "steam" -}}
-<div id="{{ $base }}Container" style="margin:10px 0;">
-  <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+<div class="static-chart-wrapper">
+  <div class="static-chart-controls" style="display:flex; align-items:center; gap:10px;">
     <strong>Steam reviews per game</strong>
-    <label style="font-size:0.9em;"><input type="checkbox" id="{{ $base }}Log"> log axes</label>
+    <label><input type="checkbox" id="{{ $base }}Log"> Log axes</label>
   </div>
+  <div class="static-chart-container" id="{{ $base }}Container"></div>
 </div>
 <script type="module">
   import { initSteamReviews } from "/js/teaching-visuals.js";
