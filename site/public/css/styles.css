@@ -31,6 +31,11 @@
   --aqua-dim: #689d6a;
   --orange-dim: #d65d0e;
   --gray-dim: #7c6f64;
+
+  --grid-color: rgba(0, 0, 0, 0.1);
+  --dag-node: #4A90E2;
+  --dag-edge: #666;
+  --dag-point: rgba(74, 144, 226, 0.5);
 }
 
 .darkmode {
@@ -65,6 +70,11 @@
   --aqua-dim: #689d6a;
   --gray-dim: #a89984;
   --orange-dim: #d65d0e;
+
+  --grid-color: rgba(255, 255, 255, 0.1);
+  --dag-node: #458588;
+  --dag-edge: #a89984;
+  --dag-point: rgba(69, 133, 136, 0.5);
 }
 
 /* Button styles */
@@ -318,7 +328,8 @@ input[type="checkbox"]:hover {
 .static-chart-container {
   max-width: 900px;
   width: 100%;
-  padding-bottom: 8px; /* breathing room for x-axis labels */
+  padding-bottom: 8px;
+  /* breathing room for x-axis labels */
 }
 
 .static-chart-canvas {

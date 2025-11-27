@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on BonnyCode</title>
-    <link>http://localhost:49476/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:49476/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>If managers were angels</title>
-      <link>http://localhost:49476/posts/if-managers-were-angels/</link>
+      <link>http://localhost:1313/posts/if-managers-were-angels/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/if-managers-were-angels/</guid>
+      <guid>http://localhost:1313/posts/if-managers-were-angels/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;If managers were angels, no upward management would be necessary. In a career administered by people over people, the great difficulty lies in this: a manager must be allowed to manage the managed; and in the next place, the managed must, in turn, also manage upwards.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;— Jim Madison, ex-VP BigCo, 3x Founder, Board Director, Executive Coach, Author of &lt;em&gt;Jim’s Federalist Newsletter&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
@@ -82,7 +82,7 @@ Alleigh&lt;/p&gt;
 &lt;p&gt;An hour later, Sammi finally replies:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Al, yeahhh… I assumed when you said it would only be one point you had no idea haha. So the thing is don’t mess with &lt;code&gt;uber_controller&lt;/code&gt;. This is all domain-driven. You need to look in the FUON files, which contain our CSS derivatives. The whole thing is crazy over-architected and honestly the worst.&lt;/p&gt;
-&lt;p&gt;Let me just point you toward some similar tasks, and that might be enough to get PAT cooking. &lt;a href=&#34;http://localhost:49476/posts/rawr/&#34;&gt;Task 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:49476/posts/rawr/&#34;&gt;Task 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:49476/posts/rawr/&#34;&gt;Task 3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let me just point you toward some similar tasks, and that might be enough to get PAT cooking. &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Task 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Task 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Task 3&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Cheers, SM.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Alleigh opens up the links; she’s both horrified at how the system works and, honestly, so relieved she could cry. She drops PAT the tasks for reference. PAT is also horrified (&amp;ldquo;It hurts, Boss 🫠🫥&amp;rdquo;), but PAT finally, if reluctantly, knows what to do. Alleigh works with PAT the rest of the afternoon to craft the perfect elegant sheen on the checkout button. It&amp;rsquo;s the first time she&amp;rsquo;s felt accomplished at BigCo.&lt;/p&gt;
 &lt;p&gt;When she finishes, Alleigh walks to Sammi’s desk. Sammi’s vibing behind her bulky headphones, locked in, typing like an actual menace. Alleigh waves to get her attention, and Sammi oh-so-slowly slides the headphones off. Alleigh gushes a stream of thank-yous. Sammi averts her eyes, turns a shade of red under the praise, and manages the most awkward, forced smile. Alleigh doesn’t care; Sammi is her savior, and she’s going to suffer through some well-deserved adulation.&lt;/p&gt;
@@ -104,10 +104,10 @@ Alleigh&lt;/p&gt;
     
     <item>
       <title>The architecture of truth-seeking</title>
-      <link>http://localhost:49476/posts/architecture-of-truth-seeking/</link>
+      <link>http://localhost:1313/posts/architecture-of-truth-seeking/</link>
       <pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/architecture-of-truth-seeking/</guid>
+      <guid>http://localhost:1313/posts/architecture-of-truth-seeking/</guid>
       <description>&lt;p&gt;A brilliant executive I worked with hired a team of PhDs to automate a critical process deep in his organization. After a year, they delivered plans that were as beautiful as they were unworkable.&lt;/p&gt;
 &lt;p&gt;So the manual decisions continued. At most, the team only glanced at the optimal plans. The leader would check in, demanding progress. The team kept saying &amp;ldquo;any day now, the model doesn&amp;rsquo;t work perfectly yet.&amp;rdquo; The leader grew more frustrated. The cycle continued, until finally, everyone just… pretended it all worked. When asked &amp;ldquo;are you using the new system?&amp;rdquo; they&amp;rsquo;d palter &amp;ldquo;yes&amp;rdquo;; technically it was true. They glanced at its output while making the decisions that made sense for the business.&lt;/p&gt;
 &lt;p&gt;For years after, this executive would roll out this automation success story when teams in the rest of the company told him something wasn&amp;rsquo;t possible. And the manual team in his own organization kept quietly doing everything the old way. He never noticed. Or never asked. He had his success story, and that appears to be all he really needed.&lt;/p&gt;
@@ -166,10 +166,10 @@ The data scientist was careful in how they presented results; an incomplete trut
     
     <item>
       <title>Work Hard, Have Fun, Go Home</title>
-      <link>http://localhost:49476/posts/work-hard-have-fun-go-home/</link>
+      <link>http://localhost:1313/posts/work-hard-have-fun-go-home/</link>
       <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/work-hard-have-fun-go-home/</guid>
+      <guid>http://localhost:1313/posts/work-hard-have-fun-go-home/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;hus·tle cul·ture&lt;/strong&gt;  ˈhə-səl ˈkəl-chər&lt;br&gt;
 &lt;em&gt;noun&lt;/em&gt;&lt;/p&gt;
@@ -240,10 +240,10 @@ The data scientist was careful in how they presented results; an incomplete trut
     
     <item>
       <title>Just people in a room</title>
-      <link>http://localhost:49476/posts/just-people-in-a-room/</link>
+      <link>http://localhost:1313/posts/just-people-in-a-room/</link>
       <pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/just-people-in-a-room/</guid>
+      <guid>http://localhost:1313/posts/just-people-in-a-room/</guid>
       <description>&lt;p&gt;In the early 2000s, I worked for a digital video processing startup that Autodesk acquired. We were merged with another acquisition. Our team became the developers, their team (the &amp;ldquo;others&amp;rdquo;) became management. The others were clueless. They didn&amp;rsquo;t understand the technical domain, our customers, or the product. Naturally, I hated them. Their meetings were always pointless; I learned to skip them. Their product plan was a disaster. We secretly built our own, supposedly better version. We believed once upper management saw how superior ours was, we&amp;rsquo;d finally get rid of the others and everything would be good again.&lt;/p&gt;
 &lt;p&gt;One morning, we were all called into a conference room. I tried to skip, assuming it was another pointless meeting from the others, but HR said it was mandatory. Everyone was there. We were all laid off, effective immediately. The whole department shut down. Us, the others, everyone.&lt;/p&gt;
 &lt;p&gt;All the hate and politics evaporated. We were just people sitting in a room together. I felt silly and embarrassed for how I&amp;rsquo;d felt moments before.&lt;/p&gt;
@@ -292,10 +292,10 @@ The data scientist was careful in how they presented results; an incomplete trut
     
     <item>
       <title>Short-term metrics, long-term harm</title>
-      <link>http://localhost:49476/posts/short-term-metrics-long-term-harm/</link>
+      <link>http://localhost:1313/posts/short-term-metrics-long-term-harm/</link>
       <pubDate>Mon, 04 Aug 2025 12:27:25 -0700</pubDate>
       
-      <guid>http://localhost:49476/posts/short-term-metrics-long-term-harm/</guid>
+      <guid>http://localhost:1313/posts/short-term-metrics-long-term-harm/</guid>
       <description>&lt;p&gt;In the early 90s, I first discovered &lt;a href=&#34;https://en.wikipedia.org/wiki/Multi-user_dungeon&#34;&gt;MUDs&lt;/a&gt;: amazing text-based, multiplayer roleplaying-games before the web or silly things like graphics. I was one of those cool kids who played Advanced Dungeons &amp;amp; Dragons (AD&amp;amp;D) and this was like that but you played with randos on the internet instead.&lt;/p&gt;
 &lt;p&gt;You started at level 1 killing rats for experience points. After you gained enough experience points, you leveled up, and your character became more powerful. Then you killed slimes, and goblins, and later trolls and dragons as your power grew. Unlike AD&amp;amp;D, which required walking to a friend&amp;rsquo;s house and coordinating schedules, MUDs were always there. Always waiting. Just one more level&amp;hellip; I feigned illness to skip school and grind all day. My grades suffered. School was boring anyway though. Completing one more dungeon, getting better gear, just one more level; so much more satisfying than learning about arctangents.&lt;/p&gt;
 &lt;h1 id=&#34;how-big-tech-launches-features-through-ab-testing&#34;&gt;How big tech launches features through A/B testing&lt;/h1&gt;
@@ -337,10 +337,10 @@ The data scientist was careful in how they presented results; an incomplete trut
     
     <item>
       <title>Are we cooked?</title>
-      <link>http://localhost:49476/posts/are-we-cooked/</link>
+      <link>http://localhost:1313/posts/are-we-cooked/</link>
       <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/are-we-cooked/</guid>
+      <guid>http://localhost:1313/posts/are-we-cooked/</guid>
       <description>&lt;p&gt;My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of &amp;ldquo;low-key, are we cooked?&amp;rdquo;. The last one, if you are not one of my students, translates in millennial to &amp;ldquo;good esteemed professor, tell me true, are we f#@ked?&amp;rdquo; While I&amp;rsquo;ve given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.&lt;/p&gt;
 &lt;h1 id=&#34;some-personal-background&#34;&gt;Some personal background&lt;/h1&gt;
 &lt;p&gt;I want to start by giving a little personal history and just saying I understand the anxiety. I started my freshman year at CalPoly San Luis Obispo in Computer Science in September 1999. Like many of us older millennials that got into tech, I had been programming since elementary school (QBasic!) and computer science seemed a natural path. I always loved reading philosophy though and I seriously considered getting a philosophy degree instead. It was a choice between something I figured I was pretty decent at and could make money doing (computer science) and something that I was personally invested in but probably couldn&amp;rsquo;t make money with (philosophy). Earning a living won out over passion. I stuck with computer science, but I took as many philosophy classes as I could get into. To the extent that I was put on academic probation, not because my grades were too low, but because in the words of the admin &amp;ldquo;stop taking so many philosophy classes and just graduate!&amp;rdquo;. Good times…&lt;/p&gt;
@@ -365,10 +365,10 @@ The data scientist was careful in how they presented results; an incomplete trut
     
     <item>
       <title>How to be a better software manager</title>
-      <link>http://localhost:49476/posts/how-to-be-a-better-software-manager/</link>
+      <link>http://localhost:1313/posts/how-to-be-a-better-software-manager/</link>
       <pubDate>Sun, 16 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/how-to-be-a-better-software-manager/</guid>
+      <guid>http://localhost:1313/posts/how-to-be-a-better-software-manager/</guid>
       <description>&lt;p&gt;“My dev team is failing, what software process should we use to be more successful?”&lt;br&gt;
 “My dev team keeps missing their deliverables, what task management software should I use so they hit their commitments?”&lt;br&gt;
 “I’m not a very fast runner, what shoes should I buy to make me faster?”&lt;br&gt;
@@ -390,10 +390,10 @@ The data scientist was careful in how they presented results; an incomplete trut
     
     <item>
       <title>A time to dream</title>
-      <link>http://localhost:49476/posts/a-time-to-dream/</link>
+      <link>http://localhost:1313/posts/a-time-to-dream/</link>
       <pubDate>Sun, 27 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/a-time-to-dream/</guid>
+      <guid>http://localhost:1313/posts/a-time-to-dream/</guid>
       <description>&lt;p&gt;My success in life is based on my love and respect for daydreaming. I&amp;rsquo;ve always been a daydreamer. At the age of seven, I envisioned a space opera of powerful Lizians, Heart Monkeys and Star People who fought against the tyrannical Lizard Men. I loved this world and I visited every chance I got. I spent so much time fleshing out my world rather than school work that by the end of high school I had a written a truly intricate science fiction novel and I had the poor grades to show it. It was also an amazingly horrible novel. When I showed it to a girl I liked in high school, because high school chicks dig sci-fi authors, I couldn&amp;rsquo;t have anticipated the reaction, “I can&amp;rsquo;t believe you waste your time dreaming about stupid stuff like this.”&lt;/p&gt;
 &lt;p&gt;To this day, I still waste most of my time “dreaming about stupid stuff.” Most of those dreams now involve my work rather than fantastical worlds, but the love is still there. I set aside several hours every week to dream about what could be. I sprawl out in these dreams, I linger, and I set no goals for myself in what I hope to accomplish. I ask myself, what would make this amazing? Why would that be amazing? What is the essence of amazingness? I go down every corridor, until I get to the essence of the problem and the solution. This isn&amp;rsquo;t work that can measured; this is my time to enjoy myself and untangle life&amp;rsquo;s truly difficult puzzles. It is during these times that I get excited about the potential of what could be.&lt;/p&gt;
 &lt;p&gt;Without this time to dream, my work would have no direction. I would be subject to the whims of whomever is yelling the most at a particular moment or whatever crisis of the week has sprung up. Dreaming builds a vision and a vision creates purpose. When something urgent comes up, I can keep it in the context of whether it is truly more important than the great things I&amp;rsquo;ve envisioned.&lt;/p&gt;
@@ -403,10 +403,10 @@ The data scientist was careful in how they presented results; an incomplete trut
     
     <item>
       <title>Throwaway Code: A Love Story</title>
-      <link>http://localhost:49476/posts/throwaway-code/</link>
+      <link>http://localhost:1313/posts/throwaway-code/</link>
       <pubDate>Sat, 28 Sep 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/throwaway-code/</guid>
+      <guid>http://localhost:1313/posts/throwaway-code/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Throwaway Code&lt;/strong&gt;&lt;br&gt;
 THrōəwā kōd&lt;br&gt;
@@ -450,10 +450,10 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
     
     <item>
       <title>Cost benefit analysis for bear lovers</title>
-      <link>http://localhost:49476/posts/cost-benefit-analysis/</link>
+      <link>http://localhost:1313/posts/cost-benefit-analysis/</link>
       <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/cost-benefit-analysis/</guid>
+      <guid>http://localhost:1313/posts/cost-benefit-analysis/</guid>
       <description>&lt;p&gt;Feature estimates are often blindly used for cost benefit analysis. This was no more apparent than when I once worked with a product manager named Bethany. She was responsible for what, in hindsight, was always a doomed social network for lovers of the North American Brown Bear. Bethany would routinely ask her developers to provide implementation costs for a long list of features. The developers would grumble and complain they need more detailed requirements before they can put together detailed estimates (because they had been burned in the past on being held to commitments based on changing scope). Bethany retorts that she just needs “T-shirt sizes”, which is code for wild ass guesses, so she can do cost benefit analysis. Logically, this makes sense. Like any savvy businesswoman, the product manager wants to get a return on her investment. You wouldn&amp;rsquo;t buy a piano without first knowing the price, right?&lt;/p&gt;
 &lt;p&gt;The developer would always eventually relent and give her the feature estimates she asked for. The feature to let people upload pictures of their favorite bear for example would take 2 weeks to build. The feature to translate English into Bearease was estimated to take between 1 month and 2 years. The bear picture upload feature was a clear customer win and a frequent ask from the sites three customers, but the English to Bearease language translation was a real opportunity to differentiate their site from the other bear lover social networks. If the bearease translation feature cost only 1 month it made more sense to prioritize that feature, but not if it took 2 years.&lt;/p&gt;
 &lt;p&gt;Bethany went back to the developers and asked why there was such a wide estimate in the translation feature and if there was a way to bring it down to the 1 month side. The developers came back with a bunch of mumbo jumbo about corpuses and having to maintain the translator by hand. They could develop a version of the feature in 1 month, but they wanted to do something fancier. Bethany heard that it could be done in 1 month if they really wanted to and said “go forth and develop my Bearease translator.” (she literally said that, it was weird then and it is weird now)&lt;/p&gt;
@@ -462,7 +462,7 @@ The BonnyCode Dictionary of Software Terms&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Bethany and the developers took away opposite lessons from the whole experience. Bethany said working with developers is lame because they are lazy and don&amp;rsquo;t understand business. She started her own hedge fund and now has a net worth measured in billions of dollars. The lesson the developers pulled from the experience was to never again do a feature quick and dirty, and the next time a product manager asks them to build a Bearease translator, they will say it takes 2 years, end of story.&lt;/p&gt;
 &lt;p&gt;While Bethany can now afford to send several teams of highly trained ninja assassins my way for saying this, I put forth the contention that both Bethany and the developers pulled away the wrong lesson. Bethany&amp;rsquo;s real mistake was equating implementation cost with the true cost of a feature for cost benefit analysis. Software features, like most business investments, have operating costs associated with them. Those operating costs can vary wildly and there is frequently a trade off between initial investment cost and operating cost. If Bethany had taken into account the full cost of the features, she may have decided that uploading bear pictures was actually the wiser investment (something Facebook was smart enough to pick up on). Or at least she would have come in with the right expectation on what she was getting with her initial Bearease translator, and budgeted for followup work to make the feature more operationally maintainable if it was a success.&lt;/p&gt;
 &lt;p&gt;The developers on the other hand learned too simplistic a lesson on technical debt. Technical debt, like any form of debt, is not evil. Without the ability to go into debt (i.e., taking out a loan), most new businesses couldn&amp;rsquo;t even get off the ground in the first place. If the demand for a Bearease translator was uncertain or if the immediate rush to market of being the first to have a Bearease translator justified it, the one month implementation with high technical debt could absolutely be the correct decision. For example, if they launched the Bearease translator and it completely tanked, they at least would have only lost out on 1 month of work rather than 2 years worth of work. Requirements and customer adoption are so subtly variable and changing in software development that this is often in fact the best approach to take. As long as ongoing operational cost is measured and time is continuously budgeted to reduce it, everyone can benefit from such a rapid iteration methodology.&lt;/p&gt;
-&lt;p&gt;This post is also available in spoken &lt;a href=&#34;http://localhost:49476/posts/rawr/&#34;&gt;Bearease&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This post is also available in spoken &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Bearease&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

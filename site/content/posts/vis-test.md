@@ -40,10 +40,6 @@ _build:
 
 {{< boids-vis id="boids" >}}
 
-## Ice Cream vs Murder Rate
-
-{{< ice-cream-murder id="icecream" >}}
-
 ## Human Height Distribution
 
 {{< height-distribution id="height" >}}

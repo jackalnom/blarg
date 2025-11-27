@@ -1,3 +1,5 @@
+import { getThemeColors } from "./utils.js";
+
 /**
  * US City Population distribution (Zipf's Law)
  * Shows power-law using real Census data
@@ -13,17 +15,6 @@ export function initCityPopulation(containerId, logCheckboxId) {
     container.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
-
-    // Get colors
-    function getColors() {
-        const isDark = document.documentElement.classList.contains('darkmode') ||
-                       window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            axis: isDark ? '#a89984' : '#7c6f64',
-            text: isDark ? '#d5c4a1' : '#504945',
-            textLight: isDark ? '#bdae93' : '#665c54'
-        };
-    }
 
     // Real US Census 2020 data - Top 100 cities by population
     const cities = [
@@ -124,7 +115,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
     }
 
     function draw() {
-        const colors = getColors();
+        const colors = getThemeColors();
         const padding = { top: 30, right: 20, bottom: 50, left: 60 };
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
@@ -145,7 +136,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         const yMax = 9000000;
 
         // Draw axes
-        ctx.strokeStyle = colors.axis;
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding.left, padding.top);
@@ -154,7 +145,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         ctx.stroke();
 
         // X-axis labels
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
@@ -196,16 +187,16 @@ export function initCityPopulation(containerId, logCheckboxId) {
 
         // Draw bars
         const barWidth = plotW / xMax * 0.7;
-        ctx.fillStyle = chartParams.color;
+        ctx.fillStyle = colors.point;
 
         for (const city of top50) {
             const px = padding.left + (city.rank / xMax) * plotW;
             const barHeight = (city.pop / yMax) * plotH;
-            ctx.fillRect(px - barWidth/2, height - padding.bottom - barHeight, barWidth, barHeight);
+            ctx.fillRect(px - barWidth / 2, height - padding.bottom - barHeight, barWidth, barHeight);
         }
 
         // Label top cities
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '9px system-ui, sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'bottom';
@@ -222,7 +213,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         }
 
         // Note
-        ctx.fillStyle = colors.textLight;
+        ctx.fillStyle = colors.fg2;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'right';
         ctx.textBaseline = 'top';
@@ -236,7 +227,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         const logYMax = 7;    // log10(10M) = 7
 
         // Draw axes
-        ctx.strokeStyle = colors.axis;
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding.left, padding.top);
@@ -245,7 +236,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         ctx.stroke();
 
         // X-axis labels (rank)
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
@@ -290,7 +281,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         ctx.restore();
 
         // Draw data points
-        ctx.fillStyle = chartParams.color;
+        ctx.fillStyle = colors.point;
         for (const city of cities) {
             const logX = Math.log10(city.rank);
             const logY = Math.log10(city.pop);
@@ -309,7 +300,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         // Draw Zipf's Law reference line: pop = C / rank (slope = -1 on log-log)
         // Fit to NYC: C = 8.3M * 1 = 8.3M
         const C = 8336817;
-        ctx.strokeStyle = chartParams.stroke;
+        ctx.strokeStyle = colors.node;
         ctx.lineWidth = 2;
         ctx.setLineDash([6, 4]);
 
@@ -334,7 +325,7 @@ export function initCityPopulation(containerId, logCheckboxId) {
         ctx.setLineDash([]);
 
         // Label a few cities
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '9px system-ui, sans-serif';
         const toLabel = cities.filter(c => [1, 2, 3, 10, 50].includes(c.rank) && c.name);
         for (const city of toLabel) {

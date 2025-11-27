@@ -14,17 +14,17 @@ tags: []
 
 When I transitioned from industry to teaching, the biggest gap I sought to close was the disconnect between the problems students face in class and the actual challenges I saw in the real world.
 
-Too often, I saw new-grads who only had exposure to toy problems that bear only a passing resemblance to what makes technical work difficult. In the wild, solving a technical problem is a cycle:
+Too often, I saw new grads who only had exposure to toy problems that bear only a passing resemblance to the things that make technical work difficult. In the wild, solving a technical problem looks more like a cycle:
 
 1. **Formulate:** Translate an unbounded, ambiguous real-world situation into a technical problem.
 2. **Solve:** Execute the technical solution.
 3. **Interpret:** Evaluate whether your solution actually solved the problem.
 
-Even when toy problems attempt steps 1 and 3, it is often just a sort of thinly wrapped pseudo-context. There isn’t enough noise. There isn't enough mess. It is painfully obvious what technical thing needs to be done.
+Even when toy problems attempt steps 1 and 3, it is often just a sort of thinly wrapped pseudo-context. There isn’t enough noise and it is painfully obvious what technical thing needs to be done.
 
-LLMs have significantly exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. In the same way calculators solved the “how do I perform arithmetic on these numbers” problem, but didn’t solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren't just working on problems that don’t match the real world; they aren’t building any fundamental skills at all.
+LLMs have significantly exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. It’s similar to how calculators solved the “how do I perform arithmetic on these numbers” problem, but didn’t solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren't just working on problems that don’t match the real world; they aren’t building any fundamental skills at all.
 
-My answer to this problem has been making the classroom look more like the real world through simulation.
+My answer to this problem has been making the classroom (specifically, in my case, upper-division computer science classes) look more like the real world through simulation.
 
 ## Why Simulation?
 
@@ -34,7 +34,9 @@ That notion is the seed of my classroom simulations: worlds that run on their ow
 
 My first classroom simulation-game came out of a databases course. Early on, I realized students weren’t really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about. The kind of thing that breaks at 3 a.m.
 
-* Teaching concurrency errors: Let students run into them naturally. As “customers” fire off parallel calls that collide in unpredictable ways, things break. Sorry your inventory is out of sync. You had a lost update. The week after, when we lecture on transactions, you are excited when it solves your problem.
+For example:
+
+* Teaching concurrency errors: As “customers” fire off parallel cart checkouts, students code now runs into fun and unpredictable race conditions. Sorry your inventory is out of sync. You had a lost update. The week after, when we lecture on transactions, you are excited when it solves your problem.
 * Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, and systems designed for observability and debugging. That’s how many experienced developers come to care about those principles: not from theory, but from scars.
 
 Teaching SQL is one thing. Teaching the principles behind real systems is much harder without first letting students experience the pain, then walking them through how we solve it.
@@ -83,7 +85,9 @@ It isn't just about the strength and reason for correlation, real data is also n
 
 {{< diminishing-returns id="diminishing" >}}
 
-Lastly, and perhaps most trickily, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, [a hospital in Canada](https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363) noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson's paradox). The hospital isn't seeing all bike riders and all bike accidents. They don't see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.
+Lastly, and perhaps most trickily, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, [a hospital in Canada](https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363) noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were ~50% more likely to have a serious injury compared to not wearing a helmet. That seems wrong doesn't it? 
+
+This is a case of a specific selection bias called a collider bias (or Berkson's paradox). The hospital isn't seeing all bike riders and all bike accidents; they don't see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.
 
 You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It’s a kind of selection echo: the world you see isn’t the world as it is, but the world that lasted.
 
@@ -126,7 +130,7 @@ It’s surprisingly easy to make preferential attachment appear in a simulation:
 
 {{< generate-samples id="pa" type="preferential-attachment" >}}
 
-The sigmoid, or S-curve, has a way of spontaneously appearing on its own. Start with exponential growth—your babies have babies, and theirs do too—and sooner or later a carrying capacity reins things in, bending the curve into a smooth logistic shape. A different route to the same S appears if your agents each have a normally distributed threshold: as the value rises, the cumulative number who cross that line climbs along a probit curve that looks much the same.
+The sigmoid, or S-curve, has a way of spontaneously appearing on its own. Start with exponential growth—your babies have babies, and theirs do too—and sooner or later a carrying capacity reins things in, bending the curve into a smooth logistic shape. A different route to a sigmoid is if your agents each have a normally distributed threshold: as the value rises, the cumulative number who cross that line climbs along a probit curve that looks much the same. This probit curve is what I demonstrate through simulation below.
 
 {{< generate-samples id="sig" type="sigmoid" >}}
 
@@ -162,15 +166,20 @@ The fact that complexity can arise from simple rules is well established. Boids 
 
 {{< boids-vis id="boids" >}}
 
-My agents are generally utility-driven. They have a utility function they’re trying to greedily maximize over time. They’re single-minded, simple, sometimes stupid, but consistently so. Stupid agents make for smart systems, as long as their stupidity is sufficiently diverse and independent. It is the same power you get from wisdom of the crowds; uncorrelated dumb guesses when aggregated together can create surprisingly accurate guesses.
+My agents are generally utility-driven: each has a simple utility function that it tries to maximize at every step. Individually, they’re single-minded and unintelligent, and if I relied on any one of them alone, the simulation would quickly collapse into some pathological or divergent behavior.
 
-I create balance in the system without hard-coded limits by putting agents in tension with one another. Think of a predator–prey simulation: the prey eat grass, predators eat the prey. When there are too many prey, the grass thins and predators thrive; when there are too many predators, they starve. The system naturally ebbs and flows as everyone does their part to keep it in rhythmic balance.
+To avoid that, I build a range of intentionally simple strategies. One set of agents repeats whatever was most profitable in the past; another acts randomly; another imitates whatever has been most popular recently.
+
+What I’ve discovered over years of building these systems is that when I combine many such agents—each using different but simple heuristics—the overall system becomes surprisingly robust and often appears intelligent. It’s a form of the wisdom of the crowds: a collection of uncorrelated, naïve guesses can, when aggregated, produce remarkably accurate behavior.
+
+I create balance in the system without hard-coded limits by putting agents in tension with one another. As an example, I have a simple predator-prey simulation below: the prey eat grass, predators eat the prey. When there are too many prey, the grass thins and predators thrive; when there are too many predators, they starve. The system naturally ebbs and flows as everyone does their part to keep it in rhythmic balance. You can play around with the levers to see if you can make the system stay in balance without the ecosystem collapsing.
 
 {{< ecosystem-vis id="ecosystem" >}}
 
 I usually introduce some form of survival of the fittest to stabilize things. I’m not afraid to let agents die if they can’t achieve their utility, but I’m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.
-Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. It feels less like engineering and more like gardening, an organic process. I tend to my simulation as much as I build it.
+
+Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. For many processes, I already have strong expectations on what everything should look like, because I've seen the equivalent real data many times over. When I haven't, it becomes a fun exercise to look up papers and see what the real curves look like so I can ensure my simulation matches the spirit. It feels less like engineering and more like gardening, an organic process. I tend to my simulation as much as I build it. 
 
 That’s it; mostly... I'm showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.
 
-I keep the agents simple and let their interactions produce the messy, rhythmic complexity I’ve seen in the real world. When students engage with these living systems, they stop treating data as just numbers for homework and start treating it as traces of a world to be discovered. They learn to formulate problems from ambiguity, interpret messy results, and build resilience—the real, fundamental skills that no AI today can simply solve for them. Sparking that curiosity is the most real lesson I can hope to teach.
+My hope when students engage with these living systems is that they stop treating data as just numbers for homework and start treating it as traces of a world to be discovered. That they learn to formulate problems from ambiguity, interpret messy results, and build resilience—the real, fundamental skills that no AI today can simply solve for them. Sparking that curiosity, even if I use fake worlds, is the most real lesson I can hope to teach.

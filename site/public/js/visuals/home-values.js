@@ -1,3 +1,5 @@
+import { getThemeColors, listenForThemeChange } from "./utils.js";
+
 /**
  * Milwaukee Home Sale Prices - Real transaction data
  * Shows right-skewed distribution of actual home sales
@@ -29,18 +31,6 @@ export async function initHomeValues(containerId, logCheckboxId) {
     const totalHomes = data.total;
     const medianValue = 225000;  // From data analysis
 
-    function getColors() {
-        const isDark = document.documentElement.classList.contains('darkmode') ||
-                       window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            axis: isDark ? '#a89984' : '#7c6f64',
-            text: isDark ? '#d5c4a1' : '#504945',
-            bar: isDark ? 'rgba(104, 157, 106, 0.7)' : 'rgba(76, 175, 80, 0.7)',
-            barStroke: isDark ? 'rgba(104, 157, 106, 1)' : 'rgba(76, 175, 80, 1)',
-            median: '#e67e22'
-        };
-    }
-
     let width, height;
     let useLogScale = false;
 
@@ -66,7 +56,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
     }
 
     function draw() {
-        const colors = getColors();
+        const colors = getThemeColors();
         const padding = { top: 20, right: 20, bottom: 50, left: 50 };
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
@@ -92,7 +82,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
         }
 
         // Draw axes
-        ctx.strokeStyle = colors.axis;
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding.left, padding.top);
@@ -101,7 +91,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
         ctx.stroke();
 
         // X-axis labels
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
@@ -180,7 +170,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
 
         // Draw median line
         ctx.setLineDash([5, 5]);
-        ctx.strokeStyle = colors.median;
+        ctx.strokeStyle = colors.threshold;
         ctx.lineWidth = 2;
 
         let medianPx;
@@ -204,14 +194,14 @@ export async function initHomeValues(containerId, logCheckboxId) {
         const legendX = width - padding.right - 130;
         const legendY = padding.top + 15;
 
-        ctx.strokeStyle = colors.median;
+        ctx.strokeStyle = colors.threshold;
         ctx.setLineDash([5, 5]);
         ctx.beginPath();
         ctx.moveTo(legendX, legendY);
         ctx.lineTo(legendX + 20, legendY);
         ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.fillText(`Median: ${formatMoney(medianValue)}`, legendX + 26, legendY);
     }
 
@@ -231,4 +221,8 @@ export async function initHomeValues(containerId, logCheckboxId) {
     });
 
     resize();
+
+    listenForThemeChange(() => {
+        draw();
+    });
 }

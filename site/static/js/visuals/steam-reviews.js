@@ -1,3 +1,5 @@
+import { getThemeColors, listenForThemeChange } from "./utils.js";
+
 /**
  * Steam game review counts histogram (power-law shape)
  * Data source: static/data/steam_reviews_binned.csv
@@ -11,19 +13,6 @@ export async function initSteamReviews(containerId, logCheckboxId) {
   canvas.className = "static-chart-canvas";
   container.appendChild(canvas);
   const ctx = canvas.getContext("2d");
-
-  function colors() {
-    const isDark =
-      document.documentElement.classList.contains("darkmode") ||
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    return {
-      axis: isDark ? "#a89984" : "#7c6f64",
-      text: isDark ? "#d5c4a1" : "#504945",
-      grid: isDark ? "rgba(168,153,132,0.25)" : "rgba(124,111,100,0.2)",
-      bar: isDark ? "rgba(130,170,255,0.6)" : "rgba(66,133,244,0.7)",
-      line: isDark ? "rgba(130,170,255,1)" : "rgba(66,133,244,1)"
-    };
-  }
 
   async function loadData() {
     const res = await fetch("/data/steam_reviews_binned.csv");
@@ -58,7 +47,7 @@ export async function initSteamReviews(containerId, logCheckboxId) {
   }
 
   function draw() {
-    const c = colors();
+    const c = getThemeColors();
     const padding = { top: 30, right: 24, bottom: 50, left: 70 };
     const plotW = width - padding.left - padding.right;
     const plotH = height - padding.top - padding.bottom;
@@ -107,7 +96,7 @@ export async function initSteamReviews(containerId, logCheckboxId) {
     }
 
     // axes
-    ctx.strokeStyle = c.axis;
+    ctx.strokeStyle = c.grid;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(padding.left, padding.top);
@@ -116,7 +105,7 @@ export async function initSteamReviews(containerId, logCheckboxId) {
     ctx.stroke();
 
     // grid + ticks x
-    ctx.fillStyle = c.text;
+    ctx.fillStyle = c.fg;
     ctx.font = "11px system-ui, sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "top";
@@ -130,14 +119,14 @@ export async function initSteamReviews(containerId, logCheckboxId) {
       ctx.moveTo(px, padding.top);
       ctx.lineTo(px, height - padding.bottom);
       ctx.stroke();
-      ctx.strokeStyle = c.axis;
+      ctx.strokeStyle = c.grid;
       ctx.beginPath();
       ctx.moveTo(px, height - padding.bottom);
       ctx.lineTo(px, height - padding.bottom + 4);
       ctx.stroke();
       ctx.fillText(useLog ? `1e${Math.round(Math.log10(t))}` : formatTick(t), px, height - padding.bottom + 6);
     });
-    ctx.fillStyle = c.text;
+    ctx.fillStyle = c.fg;
     ctx.font = "12px system-ui, sans-serif";
     ctx.fillText("Number of reviews", padding.left + plotW / 2, height - 12);
 
@@ -152,12 +141,12 @@ export async function initSteamReviews(containerId, logCheckboxId) {
       ctx.moveTo(padding.left, py);
       ctx.lineTo(width - padding.right, py);
       ctx.stroke();
-      ctx.strokeStyle = c.axis;
+      ctx.strokeStyle = c.grid;
       ctx.beginPath();
       ctx.moveTo(padding.left - 4, py);
       ctx.lineTo(padding.left, py);
       ctx.stroke();
-      ctx.fillStyle = c.text;
+      ctx.fillStyle = c.fg;
       ctx.font = "11px system-ui, sans-serif";
       ctx.fillText(useLog ? `1e${Math.round(Math.log10(t))}` : formatTick(t), padding.left - 8, py);
     });
@@ -166,12 +155,12 @@ export async function initSteamReviews(containerId, logCheckboxId) {
     ctx.rotate(-Math.PI / 2);
     ctx.textAlign = "center";
     ctx.font = "12px system-ui, sans-serif";
-    ctx.fillStyle = c.text;
+    ctx.fillStyle = c.fg;
     ctx.fillText("Number of games", 0, 0);
     ctx.restore();
 
     // bars
-    ctx.fillStyle = c.bar;
+    ctx.fillStyle = c.point; // Use transparent blue
     const barPad = 2;
     data.forEach((d) => {
       const x = xScale(d.reviews);
@@ -188,12 +177,17 @@ export async function initSteamReviews(containerId, logCheckboxId) {
       if (i === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = c.line;
+    ctx.strokeStyle = c.node; // Use solid blue
     ctx.lineWidth = 2;
     ctx.stroke();
   }
 
   resize();
+
+  listenForThemeChange(() => {
+    draw();
+  });
+
   logCheckbox?.addEventListener("change", draw);
   window.addEventListener("resize", resize);
 }

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code-Quality on BonnyCode</title>
-    <link>http://localhost:49476/tags/code-quality/</link>
+    <link>http://localhost:1313/tags/code-quality/</link>
     <description>Recent content in Code-Quality on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Apr 2009 22:51:32 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/code-quality/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2009 22:51:32 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/code-quality/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Just Say &#39;No&#39; To Boring Code</title>
-      <link>http://localhost:49476/posts/just-say-no-to-boring-code/</link>
+      <link>http://localhost:1313/posts/just-say-no-to-boring-code/</link>
       <pubDate>Sun, 12 Apr 2009 22:51:32 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/just-say-no-to-boring-code/</guid>
+      <guid>http://localhost:1313/posts/just-say-no-to-boring-code/</guid>
       <description>&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;http://www.cs.uchicago.edu/people/clklein&#34;&gt;Casey&lt;/a&gt; for inspiring this entry and for fighting the good fight against boring code.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I have extreme feelings of dissatisfaction with boring code. Boring code is monotonous and has a low signal to noise ratio. It takes a long time to communicate anything of value in boring code because most lines are dedicated to boilerplate. For example, according to a recent statistic I just made up, 95% of Java code consists of the following:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;getBlah&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
@@ -51,7 +51,7 @@
 &lt;li&gt;Boring code is boring to review. A critical quality insurance practice in professional software development is code reviews. But boring code is boring to review. If you write boring code, it is far more likely the reviewer will just go &amp;lsquo;yadda yadda yadda looks good to me&amp;rsquo; and gloss over mistakes.&lt;/li&gt;
 &lt;li&gt;Boring code is boring. Come on, do you really want to be boring?&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://localhost:49476/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
+&lt;p&gt;The only thing worse than boring code is &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;magic code&lt;/a&gt;. Stick to the exciting, elegant, simple code, believe me you&amp;rsquo;ll sleep better at night if you do.&lt;/p&gt;
 </description>
     </item>
     

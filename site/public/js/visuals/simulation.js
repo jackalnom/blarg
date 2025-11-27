@@ -1,4 +1,4 @@
-import { drawStackLineByOffsets, makeBarLayout, setInfo } from "./utils.js";
+import { drawStackLineByOffsets, makeBarLayout, setInfo, getThemeColors, listenForThemeChange } from "./utils.js";
 import { LAYOUT, DEFAULTS } from "./constants.js";
 
 /**
@@ -125,9 +125,10 @@ export class SimulationRunner {
         const capacityInBlocks = capacity / blockPx;
 
         const ctx = this.ctx;
+        const colors = getThemeColors();
 
         // Draw y-axis line on the left
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 2;
         ctx.beginPath();
         ctx.moveTo(0, 0);
@@ -141,9 +142,9 @@ export class SimulationRunner {
         }
 
         // Draw tick marks and labels
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.3)';
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
-        ctx.fillStyle = '#222';
+        ctx.fillStyle = colors.fg;
         ctx.font = '11px system-ui, -apple-system, sans-serif';
         ctx.textAlign = 'left';
         ctx.textBaseline = 'middle';
@@ -414,6 +415,12 @@ export class StandardSimulation {
         this.recompute();
         this.updateInfo();
         this.runner.draw();
+
+        listenForThemeChange(() => {
+            if (this.runner) {
+                this.runner.draw();
+            }
+        });
     }
 
     updateLayout(bins = this.runner.bins) {

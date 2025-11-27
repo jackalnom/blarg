@@ -1,7 +1,5 @@
-/**
- * Ice cream sales vs murder rate scatterplot
- * Demonstrates spurious correlation (both caused by temperature/summer)
- */
+import { getThemeColors, listenForThemeChange } from "./utils.js";
+
 export function initIceCreamMurder(containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -18,17 +16,6 @@ export function initIceCreamMurder(containerId) {
     chartContainer.appendChild(canvas);
 
     const ctx = canvas.getContext('2d');
-
-    // Get colors from CSS
-    function getColors() {
-        const isDark = document.documentElement.classList.contains('darkmode') ||
-                       window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            axis: isDark ? '#a89984' : '#7c6f64',
-            text: isDark ? '#d5c4a1' : '#504945',
-            textLight: isDark ? '#bdae93' : '#665c54'
-        };
-    }
 
     // Realistic monthly data (approximate real patterns)
     // Ice cream sales index (0-100), Murder rate per 100k (annualized)
@@ -59,38 +46,42 @@ export function initIceCreamMurder(containerId) {
         }
     }
 
-    let width, height;
-
-    function resize() {
-        const rect = chartContainer.getBoundingClientRect();
+    function setupCanvas(canvas, aspectRatio) {
         const dpr = window.devicePixelRatio || 1;
-        width = rect.width;
-        height = width / 2;
+        const container = canvas.parentElement;
+        const displayWidth = container.clientWidth;
+        const displayHeight = Math.round(displayWidth / aspectRatio);
 
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${height}px`;
-        canvas.width = Math.floor(width * dpr);
-        canvas.height = Math.floor(height * dpr);
-        ctx.resetTransform();
+        canvas.width = displayWidth * dpr;
+        canvas.height = displayHeight * dpr;
+        canvas.style.width = displayWidth + 'px';
+        canvas.style.height = displayHeight + 'px';
+
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.scale(dpr, dpr);
-        draw();
+
+        return { width: displayWidth, height: displayHeight };
     }
 
     function draw() {
-        const colors = getColors();
+        const colors = getThemeColors();
+        const dims = setupCanvas(canvas, 2); // 2:1 aspect ratio
+        const { width, height } = dims;
         const padding = { top: 20, right: 20, bottom: 45, left: 55 };
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
 
-        // Clear
+        // Clear and fill background
         ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = colors.bg;
+        ctx.fillRect(0, 0, width, height);
 
         // Data ranges
         const xMin = 0, xMax = 110;
         const yMin = 3.5, yMax = 7;
 
         // Draw axes
-        ctx.strokeStyle = colors.axis;
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding.left, padding.top);
@@ -99,7 +90,7 @@ export function initIceCreamMurder(containerId) {
         ctx.stroke();
 
         // X-axis labels
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '12px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
@@ -137,17 +128,7 @@ export function initIceCreamMurder(containerId) {
         ctx.fillText('Murder Rate (per 100k)', 0, 0);
         ctx.restore();
 
-        // Draw points
-        ctx.fillStyle = 'rgba(220, 90, 90, 0.6)';
-        for (const d of data) {
-            const px = padding.left + ((d.iceCream - xMin) / (xMax - xMin)) * plotW;
-            const py = height - padding.bottom - ((d.murder - yMin) / (yMax - yMin)) * plotH;
-            ctx.beginPath();
-            ctx.arc(px, py, 5, 0, Math.PI * 2);
-            ctx.fill();
-        }
-
-        // Calculate and draw trend line
+        // Calculate regression for the line
         const n = data.length;
         let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
         for (const d of data) {
@@ -159,24 +140,17 @@ export function initIceCreamMurder(containerId) {
         const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
         const intercept = (sumY - slope * sumX) / n;
 
-        // Draw trend line
-        ctx.strokeStyle = 'rgba(220, 90, 90, 0.9)';
-        ctx.lineWidth = 2;
-        ctx.setLineDash([5, 5]);
-        ctx.beginPath();
-        const x1 = xMin, x2 = xMax;
-        const y1 = slope * x1 + intercept;
-        const y2 = slope * x2 + intercept;
-        ctx.moveTo(
-            padding.left + ((x1 - xMin) / (xMax - xMin)) * plotW,
-            height - padding.bottom - ((y1 - yMin) / (yMax - yMin)) * plotH
-        );
-        ctx.lineTo(
-            padding.left + ((x2 - xMin) / (xMax - xMin)) * plotW,
-            height - padding.bottom - ((y2 - yMin) / (yMax - yMin)) * plotH
-        );
-        ctx.stroke();
-        ctx.setLineDash([]);
+        // Draw points first
+        ctx.fillStyle = colors.trendLine;
+        ctx.globalAlpha = 0.7;
+        for (const d of data) {
+            const px = padding.left + ((d.iceCream - xMin) / (xMax - xMin)) * plotW;
+            const py = height - padding.bottom - ((d.murder - yMin) / (yMax - yMin)) * plotH;
+            ctx.beginPath();
+            ctx.arc(px, py, 4, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.globalAlpha = 1;
 
         // Calculate R²
         let meanY = sumY / n;
@@ -189,7 +163,7 @@ export function initIceCreamMurder(containerId) {
         const r2 = 1 - ssRes / ssTotal;
 
         // Show R²
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = 'bold 13px system-ui, sans-serif';
         ctx.textAlign = 'right';
         ctx.textBaseline = 'top';
@@ -200,8 +174,13 @@ export function initIceCreamMurder(containerId) {
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(resize, 100);
+        resizeTimeout = setTimeout(draw, 100);
     });
 
-    resize();
+    // Initial draw
+    draw();
+
+    listenForThemeChange(() => {
+        draw();
+    });
 }

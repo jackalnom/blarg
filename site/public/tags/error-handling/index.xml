@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Error-Handling on BonnyCode</title>
-    <link>http://localhost:49476/tags/error-handling/</link>
+    <link>http://localhost:1313/tags/error-handling/</link>
     <description>Recent content in Error-Handling on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 May 2008 22:07:32 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/error-handling/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 May 2008 22:07:32 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/error-handling/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Catching Exceptions</title>
-      <link>http://localhost:49476/posts/catching-except/</link>
+      <link>http://localhost:1313/posts/catching-except/</link>
       <pubDate>Sun, 04 May 2008 22:07:32 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/catching-except/</guid>
+      <guid>http://localhost:1313/posts/catching-except/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;“It’s 3 am and your children are safe and asleep.
 But there’s a phone in the White House and it is ringing.
@@ -50,10 +50,10 @@ Who do you want answering that phone?”
     
     <item>
       <title>Exceptions are part of the Method Signature</title>
-      <link>http://localhost:49476/posts/exceptions-are/</link>
+      <link>http://localhost:1313/posts/exceptions-are/</link>
       <pubDate>Sun, 20 Apr 2008 17:32:03 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/exceptions-are/</guid>
+      <guid>http://localhost:1313/posts/exceptions-are/</guid>
       <description>&lt;p&gt;The exceptions thrown by your method are part of the signature of your method. This is true technically of checked exceptions in Java, but more importantly it is true semantically. One of the poorest way to handle exceptions is to do either this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;def&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;foo&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SomeRandomException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;SomeOtherException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;YetAnotherUselessException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ImNotDoneThrowingExceptions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ILetEclipseDesignMyMethodsException&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;TheUserWillNeverCareAboutThisException&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;OR this:&lt;/p&gt;
@@ -67,10 +67,10 @@ Who do you want answering that phone?”
     
     <item>
       <title>Exceptions vs. Status Codes vs. Assertions</title>
-      <link>http://localhost:49476/posts/exceptions-vs-s/</link>
+      <link>http://localhost:1313/posts/exceptions-vs-s/</link>
       <pubDate>Mon, 14 Apr 2008 19:57:57 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/exceptions-vs-s/</guid>
+      <guid>http://localhost:1313/posts/exceptions-vs-s/</guid>
       <description>&lt;p&gt;Step one to handling exceptional code is to be aware of the common techniques, their semantic meaning and any pitfalls. The three common error handling techniques are exceptions, status codes and assertions. If your language has exceptions, exceptions should be used in any situation where there is a normal program flow and some input outside of your control can disrupt that flow. At some point in your life, and this may have already happened to you, an antediluvian C programmer is going to tell you about all the evils of exceptions and how God intended man to use status codes for all errors. Do not be deceived by this &lt;a href=&#34;http://www.joelonsoftware.com/items/2003/10/13.html&#34;&gt;siren&lt;/a&gt; and her false promises.&lt;/p&gt;
 &lt;p&gt;A status code should be used when your language lacks exceptions or when the normal program flow is to deal with the error case. For example, if you are writing a method to validate an address, it should return a message saying what is wrong with the address and not just throw an exception that needs to be immediately caught if there is a problem with the address.&lt;/p&gt;
 &lt;p&gt;Lastly, an assertion should be used as a sanity check that your program is correct as written. You should expect to change your program&amp;rsquo;s code when an assertion is triggered. The one thing to watch out for in using assertions is that they can be turned off. When turned off, the code that is being asserted is not actually run. This means never put logic your program depends upon inside of an assert.&lt;/p&gt;
@@ -122,10 +122,10 @@ Who do you want answering that phone?”
     
     <item>
       <title>Exceptional Programming</title>
-      <link>http://localhost:49476/posts/exceptional-pro/</link>
+      <link>http://localhost:1313/posts/exceptional-pro/</link>
       <pubDate>Sun, 13 Apr 2008 20:14:29 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/exceptional-pro/</guid>
+      <guid>http://localhost:1313/posts/exceptional-pro/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;No battle plan ever survives contact with the enemy.&lt;/p&gt;
 &lt;p&gt;&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;&lt;/blockquote&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bearease on BonnyCode</title>
-    <link>http://localhost:49476/tags/bearease/</link>
+    <link>http://localhost:1313/tags/bearease/</link>
     <description>Recent content in Bearease on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 25 Aug 2013 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/bearease/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Aug 2013 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/bearease/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Grr</title>
-      <link>http://localhost:49476/posts/rawr/</link>
+      <link>http://localhost:1313/posts/rawr/</link>
       <pubDate>Sun, 25 Aug 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/rawr/</guid>
+      <guid>http://localhost:1313/posts/rawr/</guid>
       <description>&lt;p&gt;RAWWR!&lt;/p&gt;
 </description>
     </item>

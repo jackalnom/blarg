@@ -1,8 +1,11 @@
+import { getThemeColors, listenForThemeChange } from "./utils.js";
+
 /**
- * Human height distribution chart
+ * Human height distribution chart from NHANES data
+ * Data source: CDC National Health and Nutrition Examination Survey (NHANES) 2017-2020
  * Shows combined distribution that can be split by gender
  */
-export function initHeightDistribution(containerId, checkboxId) {
+export async function initHeightDistribution(containerId, checkboxId) {
     const container = document.getElementById(containerId);
     const checkbox = document.getElementById(checkboxId);
     if (!container) return;
@@ -12,33 +15,50 @@ export function initHeightDistribution(containerId, checkboxId) {
     canvas.className = 'static-chart-canvas';
     container.appendChild(canvas);
 
+    // Add source citation
+    const source = document.createElement('div');
+    source.className = 'static-chart-source';
+    source.textContent = 'Source: CDC National Health and Nutrition Examination Survey (NHANES) 2017-2020. Data represents measured heights of US adults age 20+.';
+    container.appendChild(source);
+
     const ctx = canvas.getContext('2d');
 
-    // Get colors from CSS
-    function getColors() {
-        const isDark = document.documentElement.classList.contains('darkmode') ||
-                       window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            axis: isDark ? '#a89984' : '#7c6f64',
-            text: isDark ? '#d5c4a1' : '#504945',
-            textLight: isDark ? '#bdae93' : '#665c54'
-        };
+    // Load NHANES data
+    let heightData = { male: [], female: [] };
+    try {
+        const resp = await fetch('/data/height_by_gender.csv');
+        const text = await resp.text();
+        const lines = text.trim().split('\n').slice(1); // Skip header
+
+        for (const line of lines) {
+            const [heightCm, gender, count] = line.split('\t');
+            const heightNum = parseFloat(heightCm);
+            const countNum = parseInt(count) || 0;
+
+            if (countNum > 0) {
+                heightData[gender].push({ height: heightNum, count: countNum });
+            }
+        }
+    } catch (e) {
+        container.innerHTML = '<p>Failed to load height data</p>';
+        console.error('Failed to load height data:', e);
+        return;
     }
 
-    // Height distribution parameters (in inches)
-    // Based on CDC NHANES data for US adults 20+
-    // Male: mean 69.1" (5'9.1"), std 2.9"
-    // Female: mean 63.7" (5'3.7"), std 2.8"
     const distributions = {
-        male: { mean: 69.1, std: 2.9, color: 'rgba(74, 144, 226, 0.6)', stroke: 'rgba(74, 144, 226, 1)', label: 'Male' },
-        female: { mean: 63.7, std: 2.8, color: 'rgba(226, 74, 144, 0.6)', stroke: 'rgba(226, 74, 144, 1)', label: 'Female' }
+        male: {
+            data: heightData.male,
+            color: 'rgba(74, 144, 226, 0.6)',
+            stroke: 'rgba(74, 144, 226, 1)',
+            label: 'Male'
+        },
+        female: {
+            data: heightData.female,
+            color: 'rgba(226, 74, 144, 0.6)',
+            stroke: 'rgba(226, 74, 144, 1)',
+            label: 'Female'
+        }
     };
-
-    // Generate PDF values
-    function normalPDF(x, mean, std) {
-        const z = (x - mean) / std;
-        return Math.exp(-0.5 * z * z) / (std * Math.sqrt(2 * Math.PI));
-    }
 
     let width, height;
     let splitByGender = false;
@@ -59,37 +79,41 @@ export function initHeightDistribution(containerId, checkboxId) {
     }
 
     function draw() {
-        const colors = getColors();
+        const colors = getThemeColors();
         const padding = { top: 20, right: 20, bottom: 50, left: 50 };
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
 
-        // Clear
+        // Clear and fill background
         ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = colors.bg;
+        ctx.fillRect(0, 0, width, height);
 
-        // X range: 55 to 80 inches (4'7" to 6'8")
-        const xMin = 55, xMax = 80;
-        const step = 0.25;
+        // X range: 132 to 201 cm to cover data range
+        const xMin = 132, xMax = 201;
 
-        // Calculate y max based on mode
+        // Calculate y max based on mode (max count)
         let yMax = 0;
         if (splitByGender) {
             for (const dist of Object.values(distributions)) {
-                const peakY = normalPDF(dist.mean, dist.mean, dist.std);
-                yMax = Math.max(yMax, peakY);
+                const maxCount = Math.max(...dist.data.map(d => d.count));
+                yMax = Math.max(yMax, maxCount);
             }
         } else {
-            // Combined distribution
-            for (let x = xMin; x <= xMax; x += step) {
-                const y = 0.5 * normalPDF(x, distributions.male.mean, distributions.male.std) +
-                         0.5 * normalPDF(x, distributions.female.mean, distributions.female.std);
-                yMax = Math.max(yMax, y);
+            // Combined: sum male and female counts at each height
+            const combinedCounts = {};
+            for (const gender of ['male', 'female']) {
+                for (const point of distributions[gender].data) {
+                    const h = point.height;
+                    combinedCounts[h] = (combinedCounts[h] || 0) + point.count;
+                }
             }
+            yMax = Math.max(...Object.values(combinedCounts));
         }
         yMax *= 1.1; // Add headroom
 
         // Draw axes
-        ctx.strokeStyle = colors.axis;
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding.left, padding.top);
@@ -97,19 +121,16 @@ export function initHeightDistribution(containerId, checkboxId) {
         ctx.lineTo(width - padding.right, height - padding.bottom);
         ctx.stroke();
 
-        // X-axis labels (convert to feet/inches)
-        ctx.fillStyle = colors.text;
+        // X-axis labels (in cm)
+        ctx.fillStyle = colors.fg;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
 
-        for (let inches = 56; inches <= 78; inches += 2) {
-            const feet = Math.floor(inches / 12);
-            const remainingInches = inches % 12;
-            const label = `${feet}'${remainingInches}"`;
-            const px = padding.left + ((inches - xMin) / (xMax - xMin)) * plotW;
+        for (let cm = 140; cm <= 200; cm += 10) {
+            const px = padding.left + ((cm - xMin) / (xMax - xMin)) * plotW;
 
-            ctx.fillText(label, px, height - padding.bottom + 8);
+            ctx.fillText(`${cm}`, px, height - padding.bottom + 8);
 
             // Tick
             ctx.beginPath();
@@ -119,21 +140,21 @@ export function initHeightDistribution(containerId, checkboxId) {
         }
 
         ctx.font = '12px system-ui, sans-serif';
-        ctx.fillText('Height', padding.left + plotW / 2, height - 12);
+        ctx.fillText('Height (cm)', padding.left + plotW / 2, height - 12);
 
         // Y-axis title
         ctx.save();
         ctx.translate(15, padding.top + plotH / 2);
         ctx.rotate(-Math.PI / 2);
         ctx.textAlign = 'center';
-        ctx.fillText('Density', 0, 0);
+        ctx.fillText('Count', 0, 0);
         ctx.restore();
 
         // Draw distributions
         if (splitByGender) {
             // Draw each gender separately
             for (const dist of Object.values(distributions)) {
-                drawDistribution(dist, xMin, xMax, yMax, padding, plotW, plotH, step);
+                drawDistribution(dist, xMin, xMax, yMax, padding, plotW, plotH);
             }
 
             // Legend
@@ -146,50 +167,44 @@ export function initHeightDistribution(containerId, checkboxId) {
 
             ctx.fillStyle = distributions.male.color;
             ctx.fillRect(legendX, legendY - 6, 16, 12);
-            ctx.fillStyle = colors.text;
+            ctx.fillStyle = colors.fg;
             ctx.fillText('Male', legendX + 22, legendY);
 
             ctx.fillStyle = distributions.female.color;
             ctx.fillRect(legendX, legendY + 14, 16, 12);
-            ctx.fillStyle = colors.text;
+            ctx.fillStyle = colors.fg;
             ctx.fillText('Female', legendX + 22, legendY + 20);
         } else {
             // Combined distribution
-            drawCombinedDistribution(xMin, xMax, yMax, padding, plotW, plotH, step, colors);
+            drawCombinedDistribution(xMin, xMax, yMax, padding, plotW, plotH, colors);
         }
     }
 
-    function drawDistribution(dist, xMin, xMax, yMax, padding, plotW, plotH, step) {
+    function drawDistribution(dist, xMin, xMax, yMax, padding, plotW, plotH) {
         ctx.fillStyle = dist.color;
-        ctx.strokeStyle = dist.color.replace('0.6', '1');
+        ctx.strokeStyle = dist.stroke;
         ctx.lineWidth = 2;
 
+        // Draw filled area
         ctx.beginPath();
-        let first = true;
-        for (let x = xMin; x <= xMax; x += step) {
-            const y = normalPDF(x, dist.mean, dist.std);
-            const px = padding.left + ((x - xMin) / (xMax - xMin)) * plotW;
-            const py = height - padding.top - padding.bottom - (y / yMax) * plotH + padding.top;
+        ctx.moveTo(padding.left, height - padding.bottom);
 
-            if (first) {
-                ctx.moveTo(px, height - padding.bottom);
-                ctx.lineTo(px, py);
-                first = false;
-            } else {
-                ctx.lineTo(px, py);
-            }
+        for (const point of dist.data) {
+            const px = padding.left + ((point.height - xMin) / (xMax - xMin)) * plotW;
+            const py = height - padding.bottom - (point.count / yMax) * plotH;
+            ctx.lineTo(px, py);
         }
+
         ctx.lineTo(padding.left + plotW, height - padding.bottom);
         ctx.closePath();
         ctx.fill();
 
         // Draw stroke on top
         ctx.beginPath();
-        first = true;
-        for (let x = xMin; x <= xMax; x += step) {
-            const y = normalPDF(x, dist.mean, dist.std);
-            const px = padding.left + ((x - xMin) / (xMax - xMin)) * plotW;
-            const py = height - padding.top - padding.bottom - (y / yMax) * plotH + padding.top;
+        let first = true;
+        for (const point of dist.data) {
+            const px = padding.left + ((point.height - xMin) / (xMax - xMin)) * plotW;
+            const py = height - padding.bottom - (point.count / yMax) * plotH;
 
             if (first) {
                 ctx.moveTo(px, py);
@@ -201,39 +216,45 @@ export function initHeightDistribution(containerId, checkboxId) {
         ctx.stroke();
     }
 
-    function drawCombinedDistribution(xMin, xMax, yMax, padding, plotW, plotH, step, colors) {
+    function drawCombinedDistribution(xMin, xMax, yMax, padding, plotW, plotH, colors) {
+        // Combine counts at each height
+        const combinedData = {};
+        for (const gender of ['male', 'female']) {
+            for (const point of distributions[gender].data) {
+                const h = point.height;
+                combinedData[h] = (combinedData[h] || 0) + point.count;
+            }
+        }
+
+        // Sort by height
+        const sortedData = Object.keys(combinedData)
+            .map(h => ({ height: parseFloat(h), count: combinedData[h] }))
+            .sort((a, b) => a.height - b.height);
+
         ctx.fillStyle = 'rgba(130, 100, 180, 0.5)';
         ctx.strokeStyle = 'rgba(130, 100, 180, 1)';
         ctx.lineWidth = 2;
 
+        // Draw filled area
         ctx.beginPath();
-        let first = true;
-        for (let x = xMin; x <= xMax; x += step) {
-            const y = 0.5 * normalPDF(x, distributions.male.mean, distributions.male.std) +
-                     0.5 * normalPDF(x, distributions.female.mean, distributions.female.std);
-            const px = padding.left + ((x - xMin) / (xMax - xMin)) * plotW;
-            const py = height - padding.top - padding.bottom - (y / yMax) * plotH + padding.top;
+        ctx.moveTo(padding.left, height - padding.bottom);
 
-            if (first) {
-                ctx.moveTo(px, height - padding.bottom);
-                ctx.lineTo(px, py);
-                first = false;
-            } else {
-                ctx.lineTo(px, py);
-            }
+        for (const point of sortedData) {
+            const px = padding.left + ((point.height - xMin) / (xMax - xMin)) * plotW;
+            const py = height - padding.bottom - (point.count / yMax) * plotH;
+            ctx.lineTo(px, py);
         }
+
         ctx.lineTo(padding.left + plotW, height - padding.bottom);
         ctx.closePath();
         ctx.fill();
 
-        // Draw stroke
+        // Draw stroke on top
         ctx.beginPath();
-        first = true;
-        for (let x = xMin; x <= xMax; x += step) {
-            const y = 0.5 * normalPDF(x, distributions.male.mean, distributions.male.std) +
-                     0.5 * normalPDF(x, distributions.female.mean, distributions.female.std);
-            const px = padding.left + ((x - xMin) / (xMax - xMin)) * plotW;
-            const py = height - padding.top - padding.bottom - (y / yMax) * plotH + padding.top;
+        let first = true;
+        for (const point of sortedData) {
+            const px = padding.left + ((point.height - xMin) / (xMax - xMin)) * plotW;
+            const py = height - padding.bottom - (point.count / yMax) * plotH;
 
             if (first) {
                 ctx.moveTo(px, py);
@@ -245,14 +266,14 @@ export function initHeightDistribution(containerId, checkboxId) {
         ctx.stroke();
 
         // Label showing it's combined
-        ctx.fillStyle = colors.textLight;
+        ctx.fillStyle = colors.fg3;
         ctx.font = '12px system-ui, sans-serif';
         ctx.textAlign = 'right';
         ctx.textBaseline = 'top';
         ctx.fillText('Combined', width - padding.right - 10, padding.top + 10);
     }
 
-    // Checkbox handler
+    // Event listeners
     if (checkbox) {
         checkbox.addEventListener('change', () => {
             splitByGender = checkbox.checked;
@@ -260,7 +281,6 @@ export function initHeightDistribution(containerId, checkboxId) {
         });
     }
 
-    // Handle resize
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
@@ -268,4 +288,8 @@ export function initHeightDistribution(containerId, checkboxId) {
     });
 
     resize();
+
+    listenForThemeChange(() => {
+        draw();
+    });
 }

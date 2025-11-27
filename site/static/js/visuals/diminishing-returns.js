@@ -3,6 +3,8 @@
  * Shows non-linear relationship due to logarithmic utility
  */
 
+import { getThemeColors, listenForThemeChange } from "./utils.js";
+
 export function initDiminishingReturns(config) {
     const canvas = document.getElementById(config.canvasId);
     const stepBtn = document.getElementById(config.stepId);
@@ -69,25 +71,20 @@ export function initDiminishingReturns(config) {
             data.push({ x, y });
         }
 
-        // Keep last 150 points
-        if (data.length > 150) {
-            data = data.slice(-150);
+        // Stop if we have enough points
+        if (data.length >= 200) {
+            running = false;
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            runBtn.textContent = 'Run';
         }
 
         draw();
     }
 
-    function getColors() {
-        const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            bg: isDark ? '#1d2021' : '#fbf1c7',
-            fg: isDark ? '#ebdbb2' : '#3c3836',
-            fg2: isDark ? '#a89984' : '#7c6f64',
-            point: isDark ? '#458588' : '#076678',
-            curve: isDark ? '#d79921' : '#d65d0e',
-            linear: isDark ? '#cc241d' : '#9d0006'
-        };
-    }
+    // getColors removed, using getThemeColors from utils.js
 
     function setupCanvas() {
         const dpr = window.devicePixelRatio || 1;
@@ -111,7 +108,11 @@ export function initDiminishingReturns(config) {
         width = dims.width;
         height = dims.height;
 
-        const colors = getColors();
+        const colors = getThemeColors();
+        // Map theme colors to local needs
+        colors.point = colors.node || '#076678';
+        colors.curve = colors.threshold || '#d65d0e';
+        colors.linear = colors.trendLine || '#9d0006';
         const padding = { top: 40, right: 20, bottom: 50, left: 60 };
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
@@ -121,7 +122,7 @@ export function initDiminishingReturns(config) {
         ctx.fillRect(0, 0, width, height);
 
         if (data.length === 0) {
-            ctx.fillStyle = colors.fg2;
+            ctx.fillStyle = colors.fg;
             ctx.font = '14px sans-serif';
             ctx.textAlign = 'center';
             ctx.fillText('Press Step or Run to generate data', width / 2, height / 2);
@@ -136,7 +137,7 @@ export function initDiminishingReturns(config) {
         const scaleY = (y) => height - padding.bottom - (y / maxY) * plotH;
 
         // Draw axes
-        ctx.strokeStyle = colors.fg2;
+        ctx.strokeStyle = colors.fg;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding.left, padding.top);
@@ -231,6 +232,7 @@ export function initDiminishingReturns(config) {
     runBtn.addEventListener('click', () => {
         running = !running;
         if (running) {
+            if (data.length >= 200) data = []; // Auto-reset if full
             runBtn.textContent = 'Stop';
             runLoop();
         } else {
@@ -264,8 +266,13 @@ export function initDiminishingReturns(config) {
     }
 
     window.addEventListener('resize', draw);
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
 
-    // Initialize
-    reset();
+    listenForThemeChange(() => {
+        draw();
+    });
+
+    // Initialize - defer to ensure theme is loaded
+    setTimeout(() => {
+        reset();
+    }, 0);
 }

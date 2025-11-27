@@ -3,6 +3,8 @@
  * Shows inverse correlation due to selection bias
  */
 
+import { getThemeColors, listenForThemeChange } from "./utils.js";
+
 export function initBerksonParadox(config) {
     const dagCanvas = document.getElementById(config.dagCanvasId);
     const fullCanvas = document.getElementById(config.fullCanvasId);
@@ -45,9 +47,14 @@ export function initBerksonParadox(config) {
             data.push({ location, taste, selected });
         }
 
-        // Keep last 200 points
-        if (data.length > 200) {
-            data = data.slice(-200);
+        // Stop simulation when we reach 200 points
+        if (data.length >= 200) {
+            running = false;
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            runBtn.textContent = 'Run';
         }
 
         drawScatterplots();
@@ -70,20 +77,7 @@ export function initBerksonParadox(config) {
         return { slope, intercept };
     }
 
-    function getColors() {
-        const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            bg: isDark ? '#1d2021' : '#fbf1c7',
-            fg: isDark ? '#ebdbb2' : '#3c3836',
-            fg2: isDark ? '#a89984' : '#7c6f64',
-            rejected: isDark ? '#504945' : '#bdae93',
-            selected: isDark ? '#b8bb26' : '#79740e',
-            threshold: isDark ? '#d79921' : '#d65d0e',
-            trendLine: isDark ? '#cc241d' : '#9d0006',
-            node: isDark ? '#458588' : '#076678',
-            edge: isDark ? '#a89984' : '#7c6f64'
-        };
-    }
+    // getColors removed, using getThemeColors from utils.js
 
     function setupCanvas(canvas, aspectRatio) {
         const dpr = window.devicePixelRatio || 1;
@@ -106,7 +100,7 @@ export function initBerksonParadox(config) {
     function drawDAG() {
         const dims = setupCanvas(dagCanvas, 3);
         const { width, height } = dims;
-        const colors = getColors();
+        const colors = getThemeColors();
 
         dagCtx.clearRect(0, 0, width, height);
         dagCtx.fillStyle = colors.bg;
@@ -179,9 +173,9 @@ export function initBerksonParadox(config) {
         ctx.beginPath();
         ctx.moveTo(x2, y2);
         ctx.lineTo(x2 - headLength * Math.cos(angle - Math.PI / 6),
-                   y2 - headLength * Math.sin(angle - Math.PI / 6));
+            y2 - headLength * Math.sin(angle - Math.PI / 6));
         ctx.lineTo(x2 - headLength * Math.cos(angle + Math.PI / 6),
-                   y2 - headLength * Math.sin(angle + Math.PI / 6));
+            y2 - headLength * Math.sin(angle + Math.PI / 6));
         ctx.closePath();
         ctx.fill();
     }
@@ -189,7 +183,8 @@ export function initBerksonParadox(config) {
     function drawScatterplot(canvas, ctx, dataPoints, title, showSelected) {
         const dims = setupCanvas(canvas, 1.5);
         const { width, height } = dims;
-        const colors = getColors();
+        const colors = getThemeColors();
+
         const padding = { top: 50, right: 20, bottom: 50, left: 60 };
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
@@ -205,7 +200,7 @@ export function initBerksonParadox(config) {
         ctx.fillText(title, width / 2, 20);
 
         if (dataPoints.length === 0) {
-            ctx.fillStyle = colors.fg2;
+            ctx.fillStyle = colors.fg;
             ctx.font = '12px sans-serif';
             ctx.fillText('Press Step or Run to generate data', width / 2, height / 2);
             return;
@@ -217,7 +212,7 @@ export function initBerksonParadox(config) {
         const scaleY = (y) => height - padding.bottom - (y / maxVal) * plotH;
 
         // Draw axes
-        ctx.strokeStyle = colors.fg2;
+        ctx.strokeStyle = colors.fg;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(padding.left, padding.top);
@@ -369,11 +364,9 @@ export function initBerksonParadox(config) {
             if (showSelected) {
                 // Right plot: only selected points, visible
                 ctx.fillStyle = colors.selected;
-                ctx.globalAlpha = 0.7;
             } else {
                 // Left plot: all points, uniform appearance
                 ctx.fillStyle = colors.node;
-                ctx.globalAlpha = 0.5;
             }
             const px = scaleX(d.location);
             const py = scaleY(d.taste);
@@ -381,7 +374,6 @@ export function initBerksonParadox(config) {
             ctx.arc(px, py, 3, 0, Math.PI * 2);
             ctx.fill();
         }
-        ctx.globalAlpha = 1;
     }
 
     function drawScatterplots() {
@@ -429,6 +421,13 @@ export function initBerksonParadox(config) {
         });
     }
 
-    // Initialize
-    reset();
+    // Initialize - defer to ensure theme is loaded
+    setTimeout(() => {
+        reset();
+    }, 0);
+
+    listenForThemeChange(() => {
+        drawDAG();
+        drawScatterplots();
+    });
 }

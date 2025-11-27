@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design-Patterns on BonnyCode</title>
-    <link>http://localhost:49476/tags/design-patterns/</link>
+    <link>http://localhost:1313/tags/design-patterns/</link>
     <description>Recent content in Design-Patterns on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Feb 2009 22:51:50 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Feb 2009 22:51:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/design-patterns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Timeless Way of Coding</title>
-      <link>http://localhost:49476/posts/a-timeless-way-of-coding/</link>
+      <link>http://localhost:1313/posts/a-timeless-way-of-coding/</link>
       <pubDate>Sun, 22 Feb 2009 22:51:50 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/a-timeless-way-of-coding/</guid>
+      <guid>http://localhost:1313/posts/a-timeless-way-of-coding/</guid>
       <description>&lt;p&gt;What do the Macarena and the GoF&amp;rsquo;s &lt;a href=&#34;http://www.amazon.com/Design-Patterns-Object-Oriented-Addison-Wesley-Professional/dp/0201633612/&#34;&gt;Design Patterns&lt;/a&gt; have in common? They all became wildly popular in 1995 but in the following years experienced a large backlash from overexposure. There have been many arguments against Design Patterns as practiced in software development, chiefly that they promote over complicated code and that they really just paper over what should be seen as core deficiencies in mainstream object oriented languages.&lt;/p&gt;
 &lt;p&gt;The original inspiration for the design patterns movement in software was Christopher Alexander&amp;rsquo;s &lt;a href=&#34;http://www.amazon.com/Timeless-Way-Building-Christopher-Alexander/dp/0195024028/&#34;&gt;The Timeless Way of Building&lt;/a&gt;. Somewhere from Christopher Alexander&amp;rsquo;s original text to the software industries adoption of design patterns, the very soul of his meaning was left behind. Envision for a moment the stereotype of a hard core believer in software design patterns. Their code is designed all up front using UML and every class is named after one design pattern or another. Often times even multiple of them, such as the FooBarStrategyAbstractFactorySingleton. They create big inorganic design, suitable to distinct job roles where one can be an architect that doesn&amp;rsquo;t design, a designer who doesn&amp;rsquo;t code and a coder who does as they are told.&lt;/p&gt;
 &lt;p&gt;The spirit of the timeless way of building is to evoke that quality without a name. Some buildings are just lifeless, cold and somehow wrong. Others have a cozy liveliness that just feels comfortable and right. To obtain the quality without a name, one has to look at how such designs organically arose and the micro principles and patterns they applied. The centrally planned cities, strip malls and cookie cutter suburban homes all lack this organically grown life.&lt;/p&gt;
 &lt;p&gt;This is the central problem with how design patterns are applied. They are used to dictate design as if it is something that can be rigorously planned rather than something that is adapted to. This is why so much enterprise code feels so bloated and lifeless, it lacks the natural flow and elegance of code that is designed to fit a specific problem rather than trying to fit into a wholly consistent uber architecture.&lt;/p&gt;
-&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;http://localhost:49476/posts/the-bad-programmer/&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
+&lt;p&gt;How does a developer achieve that quality without a name though? No one intends to write bad lifeless code and please don&amp;rsquo;t tell me this is just a problem for &lt;a href=&#34;http://localhost:1313/posts/the-bad-programmer/&#34;&gt;bad programmers&lt;/a&gt;. I&amp;rsquo;d like to know what people think. Have you ever written code that was great and had that quality without a name, not only at initial conception, but actually got better and more elegant over time? How did you do it? What about code that you thought was great at first, but quickly showed its age as the requirements shifted? What went wrong?&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Continued Slander against the Noble If</title>
-      <link>http://localhost:49476/posts/continued-sland/</link>
+      <link>http://localhost:1313/posts/continued-sland/</link>
       <pubDate>Sun, 16 Mar 2008 13:26:43 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/continued-sland/</guid>
+      <guid>http://localhost:1313/posts/continued-sland/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve often said that &lt;strong&gt;if&lt;/strong&gt; statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm&lt;a href=&#34;#disclaimer&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Money&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;calculateAutoInsurance&lt;/span&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;person&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;is&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;Man&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  
@@ -78,10 +78,10 @@
     
     <item>
       <title>Tactical Polymorphism</title>
-      <link>http://localhost:49476/posts/tactical-polymo/</link>
+      <link>http://localhost:1313/posts/tactical-polymo/</link>
       <pubDate>Sun, 02 Mar 2008 00:46:46 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/tactical-polymo/</guid>
+      <guid>http://localhost:1313/posts/tactical-polymo/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Room&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;roomType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;roomType&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  

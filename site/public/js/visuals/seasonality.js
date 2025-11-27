@@ -1,5 +1,6 @@
 import { valueAt, catmull } from "./math.js";
 import { COLORS, STYLE } from "./constants.js";
+import { getThemeColors, listenForThemeChange } from "./utils.js";
 
 // Periodic Catmull-Rom sampling that wraps cleanly around [0, 1]
 function valueAtPeriodic(points, t) {
@@ -174,7 +175,11 @@ export function initSeasonality() {
         ctx.fill();
 
         // Draw draggable points
-        ctx.fillStyle = "#222";
+        const colors = getThemeColors();
+        ctx.fillStyle = colors.fg; // Dark/Light text color for points? No, points are usually dark/light contrast
+        // Actually, points are #222 (dark) in original.
+        // Let's make them theme aware: dark on light bg, light on dark bg
+        ctx.fillStyle = colors.fg;
         points.forEach(p => {
             const x = p.x * width;
             const norm = Math.max(0, Math.min(1, (p.y - yMin) / ySpan));
@@ -200,7 +205,8 @@ export function initSeasonality() {
         const vals = [];
 
         // Light vertical guides for year boundaries (3-year span)
-        const guideColor = "rgba(120,120,120,0.35)";
+        const colors = getThemeColors();
+        const guideColor = colors.grid; // Use grid color
         comboCtx.strokeStyle = guideColor;
         comboCtx.lineWidth = 1;
         for (let yr = 0; yr <= 3; yr++) {
@@ -267,7 +273,7 @@ export function initSeasonality() {
         comboCtx.fill();
 
         // Year labels along bottom (Year 1/2/3)
-        comboCtx.fillStyle = guideColor;
+        comboCtx.fillStyle = colors.fg;
         comboCtx.font = "11px system-ui, sans-serif";
         comboCtx.textAlign = "center";
         comboCtx.textBaseline = "bottom";
@@ -277,7 +283,7 @@ export function initSeasonality() {
         }
 
         // Draw trend line - extrapolate to edges even though control points are inset
-        comboCtx.strokeStyle = "#666";
+        comboCtx.strokeStyle = colors.fg;
         comboCtx.lineWidth = 2;
         comboCtx.setLineDash([5, 5]);
         comboCtx.beginPath();
@@ -384,4 +390,8 @@ export function initSeasonality() {
 
     // Initial setup
     resizeAll();
+
+    listenForThemeChange(() => {
+        renderAll();
+    });
 }

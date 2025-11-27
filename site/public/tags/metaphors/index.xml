@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Metaphors on BonnyCode</title>
-    <link>http://localhost:49476/tags/metaphors/</link>
+    <link>http://localhost:1313/tags/metaphors/</link>
     <description>Recent content in Metaphors on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Mar 2009 22:37:49 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/metaphors/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Mar 2009 22:37:49 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/metaphors/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Software is not like Dirt</title>
-      <link>http://localhost:49476/posts/software-is-not-like-dirt/</link>
+      <link>http://localhost:1313/posts/software-is-not-like-dirt/</link>
       <pubDate>Sun, 01 Mar 2009 22:37:49 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/software-is-not-like-dirt/</guid>
-      <description>&lt;p&gt;Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with &lt;a href=&#34;http://localhost:49476/posts/in-defense-of-duplicated-code/&#34;&gt;good King DRY&lt;/a&gt; by throwing more metaphors in the mix.&lt;/p&gt;
+      <guid>http://localhost:1313/posts/software-is-not-like-dirt/</guid>
+      <description>&lt;p&gt;Metaphors are way too overused when people talk about software development. The process of creating software has been compared to building a house, planning a city, growing a garden and creating new life (think Dr. Frankenstein, not boom chiki wow wow). Software can look like spaghetti (yum!) or it can be as elegant as Audrey Hepburn in My Fair Lady. I promise not to add to this mess anymore than I already have with &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-duplicated-code/&#34;&gt;good King DRY&lt;/a&gt; by throwing more metaphors in the mix.&lt;/p&gt;
 &lt;p&gt;Instead, I wish to cast away the most evil of metaphors: that software is like dirt and that software is like trying to make the biggest pile of dirt you possibly can. Now I can tell you as someone who has experience both in software development and who has created big piles of dirt on beaches, in backyards and in wooded areas that they are nothing alike.&lt;/p&gt;
 &lt;p&gt;The first difference is you can easily estimate with some precision how long it will take to make your pile of dirt. Imagine having 10 years experience making piles of dirt and you still have some dirt piling projects that you misestimate by a factor of 2. It just doesn&amp;rsquo;t happen. Or imagine you are managing a team of dirt pilers and it looks like they are 90% done piling their dirt but then it turns out they are only half done. Or even worse, in your team of dirt pilers, there is this one guy that is unknowingly working against the rest of the team and accidently putting the dirt back in the hole without even knowing it. Or the more people you put piling up the dirt, the slower and slower everyone seems to go. These things don&amp;rsquo;t happen when making piles of dirt, but they all happen when making software.&lt;/p&gt;
 &lt;p&gt;The second difference is that when you make a pile of dirt you have a clear understanding of your goal as you work, but when making software the entire process is about understanding what you are trying to build. I make piles of dirt mostly because it is fun, that is my goal. With software though, you only understand what you are trying to build when you have finished building it. When I make a pile of dirt I come up with a plan, I will take either a shovel, a spoon, or my hands and start digging out dirt and put it in a pile. If dirt were like software, the ground would be magically turning into marshmallows, dingoes and molten lava every time the shovel hit the ground, requiring you to come up with new plans of attack at every step.&lt;/p&gt;

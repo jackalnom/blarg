@@ -1,4 +1,4 @@
-import { COLORS } from "./constants.js";
+import { getThemeColors, listenForThemeChange } from "./utils.js";
 
 export function initBoids(ids) {
     const canvas = document.getElementById(ids.canvasId);
@@ -182,6 +182,7 @@ export function initBoids(ids) {
         draw(ctx) {
             const angle = Math.atan2(this.velocity.y, this.velocity.x);
             const size = 8;
+            const colors = getThemeColors();
 
             ctx.save();
             ctx.translate(this.position.x, this.position.y);
@@ -194,7 +195,7 @@ export function initBoids(ids) {
             ctx.lineTo(-size * 0.6, -size * 0.4);
             ctx.closePath();
 
-            ctx.fillStyle = `hsla(${COLORS.clt}, 70%, 50%, 0.8)`;
+            ctx.fillStyle = colors.node;
             ctx.fill();
 
             ctx.restore();
@@ -234,7 +235,8 @@ export function initBoids(ids) {
     }
 
     function draw() {
-        ctx.fillStyle = '#fafafa';
+        const colors = getThemeColors();
+        ctx.fillStyle = colors.bg_h;
         ctx.fillRect(0, 0, width, height);
 
         for (const boid of boids) {

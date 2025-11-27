@@ -1,4 +1,5 @@
 import { COLORS, STYLE } from "./constants.js";
+import { getThemeColors, listenForThemeChange } from "./utils.js";
 
 export function initDAG(ids) {
     const dagCanvas = document.getElementById(ids.dagCanvasId);
@@ -72,11 +73,14 @@ export function initDAG(ids) {
             data.C.push(values.C);
         }
 
-        // Keep last 500 samples to prevent performance issues
-        if (data.A.length > 500) {
-            data.A = data.A.slice(-500);
-            data.B = data.B.slice(-500);
-            data.C = data.C.slice(-500);
+        // Stop simulation when we reach 500 samples
+        if (data.A.length >= 500) {
+            isRunning = false;
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+            if (runBtn) runBtn.textContent = 'Run';
         }
 
         drawDAG();
@@ -166,16 +170,7 @@ export function initDAG(ids) {
         });
     }
 
-    function getColors() {
-        const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            bg: isDark ? '#1d2021' : '#fbf1c7',
-            fg: isDark ? '#ebdbb2' : '#3c3836',
-            fg2: isDark ? '#a89984' : '#7c6f64',
-            node: isDark ? '#458588' : '#076678',
-            edge: isDark ? '#a89984' : '#7c6f64'
-        };
-    }
+    // getColors removed, using getThemeColors from utils.js
 
     function setupCanvas(canvas, aspectRatio) {
         const dpr = window.devicePixelRatio || 1;
@@ -198,7 +193,7 @@ export function initDAG(ids) {
     function drawDAG() {
         const dims = setupCanvas(dagCanvas, 3); // 3:1 aspect ratio like berkson
         const { width, height } = dims;
-        const colors = getColors();
+        const colors = getThemeColors();
 
         dagCtx.clearRect(0, 0, width, height);
         dagCtx.fillStyle = colors.bg;
@@ -244,9 +239,9 @@ export function initDAG(ids) {
             dagCtx.beginPath();
             dagCtx.moveTo(endX, endY);
             dagCtx.lineTo(endX - headLength * Math.cos(angle - Math.PI / 6),
-                       endY - headLength * Math.sin(angle - Math.PI / 6));
+                endY - headLength * Math.sin(angle - Math.PI / 6));
             dagCtx.lineTo(endX - headLength * Math.cos(angle + Math.PI / 6),
-                       endY - headLength * Math.sin(angle + Math.PI / 6));
+                endY - headLength * Math.sin(angle + Math.PI / 6));
             dagCtx.closePath();
             dagCtx.fill();
         }
@@ -277,7 +272,7 @@ export function initDAG(ids) {
     function drawScatter() {
         const dims = setupCanvas(scatterCanvas, 1.5); // 1.5:1 aspect ratio like berkson scatterplots
         const { width, height } = dims;
-        const colors = getColors();
+        const colors = getThemeColors();
 
         const labels = nodeLabels[structure] || nodeLabels['default'];
         const labelA = labels['A'];
@@ -301,7 +296,7 @@ export function initDAG(ids) {
         ctx.fillText(label, width / 2, 20);
 
         if (xData.length === 0) {
-            ctx.fillStyle = colors.fg2;
+            ctx.fillStyle = colors.fg;
             ctx.font = '12px sans-serif';
             ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
@@ -327,15 +322,64 @@ export function initDAG(ids) {
         ctx.lineTo(width - padding.right, height - padding.bottom);
         ctx.stroke();
 
-        // Draw points at 20% opacity
+        // Extract axis labels from title (e.g., "Ice Cream vs Crime")
+        const labels = nodeLabels[structure] || nodeLabels['default'];
+        const xLabel = labels['A'] || 'A';
+        const yLabel = labels['C'] || 'C';
+
+        // X-axis label
+        ctx.fillStyle = colors.fg;
+        ctx.font = '12px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillText(xLabel, padding.left + plotW / 2, height - padding.bottom + 25);
+
+        // Y-axis label (rotated)
+        ctx.save();
+        ctx.translate(15, padding.top + plotH / 2);
+        ctx.rotate(-Math.PI / 2);
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillText(yLabel, 0, 0);
+        ctx.restore();
+
+        // Draw points
         const n = xData.length;
-        ctx.fillStyle = 'rgba(74, 144, 226, 0.2)';
+        ctx.fillStyle = colors.node;
         for (let i = 0; i < n; i++) {
             const x = padding.left + ((xData[i] - xMin) / (xMax - xMin)) * plotW;
             const y = height - padding.bottom - ((yData[i] - yMin) / (yMax - yMin)) * plotH;
             ctx.beginPath();
-            ctx.arc(x, y, 2, 0, 2 * Math.PI);
+            ctx.arc(x, y, 3, 0, 2 * Math.PI);
             ctx.fill();
+        }
+
+        // Calculate and draw regression line
+        if (n > 1) {
+            let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+            for (let i = 0; i < n; i++) {
+                sumX += xData[i];
+                sumY += yData[i];
+                sumXY += xData[i] * yData[i];
+                sumX2 += xData[i] * xData[i];
+            }
+            const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+            const intercept = (sumY - slope * sumX) / n;
+
+            // Draw regression line
+            const y1 = slope * xMin + intercept;
+            const y2 = slope * xMax + intercept;
+            const px1 = padding.left;
+            const py1 = height - padding.bottom - ((y1 - yMin) / (yMax - yMin)) * plotH;
+            const px2 = padding.left + plotW;
+            const py2 = height - padding.bottom - ((y2 - yMin) / (yMax - yMin)) * plotH;
+
+            ctx.strokeStyle = colors.trendLine;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(px1, py1);
+            ctx.lineTo(px2, py2);
+            ctx.stroke();
         }
 
         // R² display
@@ -393,7 +437,16 @@ export function initDAG(ids) {
 
     // Initialize
     buildWeightControls();
-    drawDAG();
-    drawScatter();
-    updateCorrelations();
+
+    // Defer initial draw to ensure theme is loaded
+    setTimeout(() => {
+        drawDAG();
+        drawScatter();
+        updateCorrelations();
+    }, 0);
+
+    listenForThemeChange(() => {
+        drawDAG();
+        drawScatter();
+    });
 }

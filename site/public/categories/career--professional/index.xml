@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Career &amp; Professional on BonnyCode</title>
-    <link>http://localhost:49476/categories/career--professional/</link>
+    <link>http://localhost:1313/categories/career--professional/</link>
     <description>Recent content in Career &amp; Professional on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:49476/categories/career--professional/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/career--professional/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>If managers were angels</title>
-      <link>http://localhost:49476/posts/if-managers-were-angels/</link>
+      <link>http://localhost:1313/posts/if-managers-were-angels/</link>
       <pubDate>Tue, 21 Oct 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/if-managers-were-angels/</guid>
+      <guid>http://localhost:1313/posts/if-managers-were-angels/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&amp;ldquo;If managers were angels, no upward management would be necessary. In a career administered by people over people, the great difficulty lies in this: a manager must be allowed to manage the managed; and in the next place, the managed must, in turn, also manage upwards.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;— Jim Madison, ex-VP BigCo, 3x Founder, Board Director, Executive Coach, Author of &lt;em&gt;Jim’s Federalist Newsletter&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
@@ -82,7 +82,7 @@ Alleigh&lt;/p&gt;
 &lt;p&gt;An hour later, Sammi finally replies:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Al, yeahhh… I assumed when you said it would only be one point you had no idea haha. So the thing is don’t mess with &lt;code&gt;uber_controller&lt;/code&gt;. This is all domain-driven. You need to look in the FUON files, which contain our CSS derivatives. The whole thing is crazy over-architected and honestly the worst.&lt;/p&gt;
-&lt;p&gt;Let me just point you toward some similar tasks, and that might be enough to get PAT cooking. &lt;a href=&#34;http://localhost:49476/posts/rawr/&#34;&gt;Task 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:49476/posts/rawr/&#34;&gt;Task 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:49476/posts/rawr/&#34;&gt;Task 3&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let me just point you toward some similar tasks, and that might be enough to get PAT cooking. &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Task 1&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Task 2&lt;/a&gt;, &lt;a href=&#34;http://localhost:1313/posts/rawr/&#34;&gt;Task 3&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Cheers, SM.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Alleigh opens up the links; she’s both horrified at how the system works and, honestly, so relieved she could cry. She drops PAT the tasks for reference. PAT is also horrified (&amp;ldquo;It hurts, Boss 🫠🫥&amp;rdquo;), but PAT finally, if reluctantly, knows what to do. Alleigh works with PAT the rest of the afternoon to craft the perfect elegant sheen on the checkout button. It&amp;rsquo;s the first time she&amp;rsquo;s felt accomplished at BigCo.&lt;/p&gt;
 &lt;p&gt;When she finishes, Alleigh walks to Sammi’s desk. Sammi’s vibing behind her bulky headphones, locked in, typing like an actual menace. Alleigh waves to get her attention, and Sammi oh-so-slowly slides the headphones off. Alleigh gushes a stream of thank-yous. Sammi averts her eyes, turns a shade of red under the praise, and manages the most awkward, forced smile. Alleigh doesn’t care; Sammi is her savior, and she’s going to suffer through some well-deserved adulation.&lt;/p&gt;
@@ -104,10 +104,10 @@ Alleigh&lt;/p&gt;
     
     <item>
       <title>Work Hard, Have Fun, Go Home</title>
-      <link>http://localhost:49476/posts/work-hard-have-fun-go-home/</link>
+      <link>http://localhost:1313/posts/work-hard-have-fun-go-home/</link>
       <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/work-hard-have-fun-go-home/</guid>
+      <guid>http://localhost:1313/posts/work-hard-have-fun-go-home/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;hus·tle cul·ture&lt;/strong&gt;  ˈhə-səl ˈkəl-chər&lt;br&gt;
 &lt;em&gt;noun&lt;/em&gt;&lt;/p&gt;
@@ -178,10 +178,10 @@ Alleigh&lt;/p&gt;
     
     <item>
       <title>Just people in a room</title>
-      <link>http://localhost:49476/posts/just-people-in-a-room/</link>
+      <link>http://localhost:1313/posts/just-people-in-a-room/</link>
       <pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/just-people-in-a-room/</guid>
+      <guid>http://localhost:1313/posts/just-people-in-a-room/</guid>
       <description>&lt;p&gt;In the early 2000s, I worked for a digital video processing startup that Autodesk acquired. We were merged with another acquisition. Our team became the developers, their team (the &amp;ldquo;others&amp;rdquo;) became management. The others were clueless. They didn&amp;rsquo;t understand the technical domain, our customers, or the product. Naturally, I hated them. Their meetings were always pointless; I learned to skip them. Their product plan was a disaster. We secretly built our own, supposedly better version. We believed once upper management saw how superior ours was, we&amp;rsquo;d finally get rid of the others and everything would be good again.&lt;/p&gt;
 &lt;p&gt;One morning, we were all called into a conference room. I tried to skip, assuming it was another pointless meeting from the others, but HR said it was mandatory. Everyone was there. We were all laid off, effective immediately. The whole department shut down. Us, the others, everyone.&lt;/p&gt;
 &lt;p&gt;All the hate and politics evaporated. We were just people sitting in a room together. I felt silly and embarrassed for how I&amp;rsquo;d felt moments before.&lt;/p&gt;
@@ -230,10 +230,10 @@ Alleigh&lt;/p&gt;
     
     <item>
       <title>Are we cooked?</title>
-      <link>http://localhost:49476/posts/are-we-cooked/</link>
+      <link>http://localhost:1313/posts/are-we-cooked/</link>
       <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/are-we-cooked/</guid>
+      <guid>http://localhost:1313/posts/are-we-cooked/</guid>
       <description>&lt;p&gt;My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of &amp;ldquo;low-key, are we cooked?&amp;rdquo;. The last one, if you are not one of my students, translates in millennial to &amp;ldquo;good esteemed professor, tell me true, are we f#@ked?&amp;rdquo; While I&amp;rsquo;ve given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.&lt;/p&gt;
 &lt;h1 id=&#34;some-personal-background&#34;&gt;Some personal background&lt;/h1&gt;
 &lt;p&gt;I want to start by giving a little personal history and just saying I understand the anxiety. I started my freshman year at CalPoly San Luis Obispo in Computer Science in September 1999. Like many of us older millennials that got into tech, I had been programming since elementary school (QBasic!) and computer science seemed a natural path. I always loved reading philosophy though and I seriously considered getting a philosophy degree instead. It was a choice between something I figured I was pretty decent at and could make money doing (computer science) and something that I was personally invested in but probably couldn&amp;rsquo;t make money with (philosophy). Earning a living won out over passion. I stuck with computer science, but I took as many philosophy classes as I could get into. To the extent that I was put on academic probation, not because my grades were too low, but because in the words of the admin &amp;ldquo;stop taking so many philosophy classes and just graduate!&amp;rdquo;. Good times…&lt;/p&gt;
@@ -258,10 +258,10 @@ Alleigh&lt;/p&gt;
     
     <item>
       <title>A time to dream</title>
-      <link>http://localhost:49476/posts/a-time-to-dream/</link>
+      <link>http://localhost:1313/posts/a-time-to-dream/</link>
       <pubDate>Sun, 27 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/a-time-to-dream/</guid>
+      <guid>http://localhost:1313/posts/a-time-to-dream/</guid>
       <description>&lt;p&gt;My success in life is based on my love and respect for daydreaming. I&amp;rsquo;ve always been a daydreamer. At the age of seven, I envisioned a space opera of powerful Lizians, Heart Monkeys and Star People who fought against the tyrannical Lizard Men. I loved this world and I visited every chance I got. I spent so much time fleshing out my world rather than school work that by the end of high school I had a written a truly intricate science fiction novel and I had the poor grades to show it. It was also an amazingly horrible novel. When I showed it to a girl I liked in high school, because high school chicks dig sci-fi authors, I couldn&amp;rsquo;t have anticipated the reaction, “I can&amp;rsquo;t believe you waste your time dreaming about stupid stuff like this.”&lt;/p&gt;
 &lt;p&gt;To this day, I still waste most of my time “dreaming about stupid stuff.” Most of those dreams now involve my work rather than fantastical worlds, but the love is still there. I set aside several hours every week to dream about what could be. I sprawl out in these dreams, I linger, and I set no goals for myself in what I hope to accomplish. I ask myself, what would make this amazing? Why would that be amazing? What is the essence of amazingness? I go down every corridor, until I get to the essence of the problem and the solution. This isn&amp;rsquo;t work that can measured; this is my time to enjoy myself and untangle life&amp;rsquo;s truly difficult puzzles. It is during these times that I get excited about the potential of what could be.&lt;/p&gt;
 &lt;p&gt;Without this time to dream, my work would have no direction. I would be subject to the whims of whomever is yelling the most at a particular moment or whatever crisis of the week has sprung up. Dreaming builds a vision and a vision creates purpose. When something urgent comes up, I can keep it in the context of whether it is truly more important than the great things I&amp;rsquo;ve envisioned.&lt;/p&gt;
@@ -271,11 +271,11 @@ Alleigh&lt;/p&gt;
     
     <item>
       <title>The Bad Programmer</title>
-      <link>http://localhost:49476/posts/the-bad-programmer/</link>
+      <link>http://localhost:1313/posts/the-bad-programmer/</link>
       <pubDate>Sat, 13 Dec 2008 21:25:04 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/the-bad-programmer/</guid>
-      <description>&lt;p&gt;Nick makes a &lt;a href=&#34;http://localhost:49476/posts/in-defense-of-go-to/&#34;&gt;good argument&lt;/a&gt; for why go to should not be used. His closing argument is that zealous programmers will abuse go to. Pete makes a similar argument that go to has too much potential for abuse from programmers that we can&amp;rsquo;t be bothered to explain the use of to and you are better off banning them.&lt;/p&gt;
+      <guid>http://localhost:1313/posts/the-bad-programmer/</guid>
+      <description>&lt;p&gt;Nick makes a &lt;a href=&#34;http://localhost:1313/posts/in-defense-of-go-to/&#34;&gt;good argument&lt;/a&gt; for why go to should not be used. His closing argument is that zealous programmers will abuse go to. Pete makes a similar argument that go to has too much potential for abuse from programmers that we can&amp;rsquo;t be bothered to explain the use of to and you are better off banning them.&lt;/p&gt;
 &lt;p&gt;It is a similar argument people make when arguing for gun restrictions. As the politicians will tell you, &amp;ldquo;Sure we trust you with a gun, but do you trust your neighbor or the guys from across town with them?&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;The difference though is that you have a lot of choice over who you work with. If you are limiting your choice of language or features based on the fact that you work with bad programmers I think you are trading off against the wrong factor. Do you want to work with bad programmers? Removing dangerous features from a language will certainly remove possibilities from bad programmers shooting themselves in the foot. They still won&amp;rsquo;t be good programmers though.&lt;/p&gt;
 &lt;p&gt;How many bad programmers will you even work with? Companies tend to have fairly regular hiring standards, at least at any departmental level and in my experience good programmers tend to work in the same place and bad programmers equally congregate. Indeed, in &lt;a href=&#34;http://www.amazon.com/Peopleware-Productive-Projects-Teams-Second/dp/0932633439/ref=sr_1_1?ie=UTF8&amp;amp;s=books&amp;amp;qid=1229231876&amp;amp;sr=1-1&#34;&gt;PeopleWare&lt;/a&gt; they demonstrated a strong correlation between programming ability and the layout of the office where they worked. If there is a strong correlation between office layout and ability then programmers in the same office will have a strong correlation in programming ability amongst themselves.&lt;/p&gt;
@@ -285,30 +285,30 @@ Alleigh&lt;/p&gt;
     
     <item>
       <title>Persistence: The long lost virtue of fixing a bug</title>
-      <link>http://localhost:49476/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/</link>
+      <link>http://localhost:1313/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/</link>
       <pubDate>Sun, 23 Nov 2008 18:12:12 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/</guid>
+      <guid>http://localhost:1313/posts/persistence-the-long-lost-virtue-of-fixing-a-bug/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;The heights by great men reached and kept&lt;br&gt;
 Were not attained by sudden flight,&lt;br&gt;
 But they, while their companions slept,&lt;br&gt;
 Were toiling upward in the night.&lt;/p&gt;
 &lt;p&gt;&amp;ndash; Henry Wadsworth Longfellow&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;You&amp;rsquo;re working on a difficult bug. A strange log message showing that your program fails every once in a while. Looking at your watch you see you&amp;rsquo;ve already been working on it for half an hour. You put the bug back on the router thinking to yourself maybe someone else will have better luck. And then a man from the future appears behind you&amp;hellip; oh never mind I won&amp;rsquo;t subject you to that torture &lt;a href=&#34;http://localhost:49476/posts/do-not-fix-what-you-dont-understand/&#34;&gt;again&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;[&lt;img src=&#34;http://localhost:49476/bug2hard.png&#34; alt=&#34;Developer_bug_conversation&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;re working on a difficult bug. A strange log message showing that your program fails every once in a while. Looking at your watch you see you&amp;rsquo;ve already been working on it for half an hour. You put the bug back on the router thinking to yourself maybe someone else will have better luck. And then a man from the future appears behind you&amp;hellip; oh never mind I won&amp;rsquo;t subject you to that torture &lt;a href=&#34;http://localhost:1313/posts/do-not-fix-what-you-dont-understand/&#34;&gt;again&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;[&lt;img src=&#34;http://localhost:1313/bug2hard.png&#34; alt=&#34;Developer_bug_conversation&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are like most software developers you&amp;rsquo;ve been in the situation above. Maybe instead you mark the bug as &amp;ldquo;Cannot Reproduce&amp;rdquo; or you instead assign it to your resident expert. Regardless of the means you use to escape from fixing the bug, you are dodging an important opportunity. This is normally when I start hearing the excuses. The bug is too hard. Someone else could fix it sooo much faster. There are too many bugs to waste time on just one. Forget the excuses, it is worth it both to you and the product you are creating. Oh let me count the ways.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;You are actually learning something deep about the technology you work with. Sure the first time you are learning something you are slow. Really slow. But you are learning. You are dissecting the technology and learning how it really works. In the future with this deep knowledge you will be able to quickly solve problems. You are increasing your skill set as a developer which is good for the company you work for now and for your future marketability later. See Figure 1 below.&lt;/li&gt;
 &lt;li&gt;You are wasting the time you spent getting up to speed on the problem. You pick up the bug, spend 30 minutes and then put it back on the router. The next person picks it up, spends 30 minutes and then puts it back on the router. yadda yadda. This is a huge waste of everyone&amp;rsquo;s time. The same if you mark it as cannot reproduce, but instead you are wasting the time of the customer or testers and then more developers later when they bring up the bug again in a new form.&lt;/li&gt;
 &lt;li&gt;Not only is the bug noise on the router, it is also noise in the logs (hopefully you do have some means of tracking errors from your system). It is a common tradition in too many software shops to have their set of ignorable errors that just seem to happen and nobody really knows why but they seem fairly harmless so nobody fixes them. Not to say people didn&amp;rsquo;t try, I&amp;rsquo;m sure at least 5 people spent their 30 minutes on trying to fix it. Noise in the logs is not a good thing though. It could actually be a problem that will only manifest itself at an inopportune time. Even if it is genuinely harmless, it is still one more thing for humans to mentally parse and ignore and distracts away from seeing the real bugs.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;[&lt;img src=&#34;http://localhost:49476/figure1.png&#34; alt=&#34;Figure1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;[&lt;img src=&#34;http://localhost:1313/figure1.png&#34; alt=&#34;Figure1&#34;&gt;&lt;/p&gt;
 &lt;p&gt;At this point you maybe be telling yourself &amp;ldquo;Great I&amp;rsquo;m going to fix all the bugs&amp;rdquo;. Look a null pointer exception, all I need is a little if statement null check and I&amp;rsquo;m good.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Hold On!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Resist the urge to cut off the investigation early. Fixing the symptoms of a bug is NOT fixing the bug. Why is that variable null? Is it supposed to be nullable even? You must find the root cause even if it takes you 10 or 20 times longer. Treat the bug as if it was a memory corruption bug. You can try treating each of the various symptoms of the memory corruption and varied they will be. Or you can hit that one spot where it is actually occurring and fix it for good.&lt;/p&gt;
 &lt;p&gt;The trade off is really this, you can either spend 2 days going deep, really understanding how something works and understanding the core of the issue, or you can spend the next month making tiny one off fixes that treat just the symptoms. In the end sticking with it and finding the real problem is 95% of the time more cost effective than just treating the symptoms. And speaking from experience, it is much more gratifying as well. Figure 2 shows a comparison between fixing the root cause and just fixing the first symptom you can patch over.&lt;br&gt;
-[&lt;img src=&#34;http://localhost:49476/figure2.png&#34; alt=&#34;Figure2&#34;&gt;&lt;/p&gt;
+[&lt;img src=&#34;http://localhost:1313/figure2.png&#34; alt=&#34;Figure2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Persistence does not equal stupidity. Banging your head against a problem and making no progress is not persistence anymore than running on a treadmill is a form of transportation. Well&amp;hellip; &lt;a href=&#34;http://www.heavy.com/video/61095&#34;&gt;not normally at least&lt;/a&gt;. I see lack of persistence as the biggest thing that holds people back, but many people don&amp;rsquo;t even know how to go about fixing the hard problems. It is a skill and I could go on about divide and conquer, how to actually use google and a million other tidbits. As an honest to goodness skill though, my best advice is to pair up with the best, most knowledgeable bug fixer you know. Who is the developer that ends up actually fixing the really hard problems when they come up? Tackle a really hard problem with them. When you get stuck on a really hard bug, don&amp;rsquo;t give up, but do ask for advice explaining your progress so far. Don&amp;rsquo;t ask them to do the work for you, but do ask for pointers on where to look next. Often times you&amp;rsquo;ll find the act of just explaining what you&amp;rsquo;ve discovered will lead you to the solution on your own.&lt;/p&gt;
 &lt;p&gt;Remember this. Any script kiddie can copy and paste some code, tweak some values and get a system they barely understand to kinda work. If you want to distinguish yourself as a software developer, work to truly understand the system you are building, don&amp;rsquo;t shy away from the difficult problems and don&amp;rsquo;t stop until you really know what is going on.&lt;/p&gt;
 </description>
@@ -316,10 +316,10 @@ Were toiling upward in the night.&lt;/p&gt;
     
     <item>
       <title>Do not fix what you don&#39;t understand</title>
-      <link>http://localhost:49476/posts/do-not-fix-what-you-dont-understand/</link>
+      <link>http://localhost:1313/posts/do-not-fix-what-you-dont-understand/</link>
       <pubDate>Sun, 16 Nov 2008 23:31:44 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/do-not-fix-what-you-dont-understand/</guid>
+      <guid>http://localhost:1313/posts/do-not-fix-what-you-dont-understand/</guid>
       <description>&lt;p&gt;It&amp;rsquo;s monday at 2pm and you are working on another bug report. It is a null pointer exception in a class you aren&amp;rsquo;t familiar with.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Nose&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
@@ -336,7 +336,7 @@ Were toiling upward in the night.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hose&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;||&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;hose&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;diameter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;inch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Awesome&amp;hellip; bug fixed&amp;hellip; just need to commit. &amp;ldquo;Fixed NPE in upYourNoseWithARubberHose&amp;rdquo; you type into the comment box.&lt;/p&gt;
 &lt;p&gt;Just before clicking the commit button a whooshing sound comes from behind you. Whirling around you see a huge man with a large gun.&lt;/p&gt;
-&lt;p&gt;[&lt;img src=&#34;http://localhost:49476/terminator.jpg&#34; alt=&#34;Arnold-schwarzenegger-the-terminator&#34;&gt;]&lt;/p&gt;
+&lt;p&gt;[&lt;img src=&#34;http://localhost:1313/terminator.jpg&#34; alt=&#34;Arnold-schwarzenegger-the-terminator&#34;&gt;]&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;I&amp;rsquo;ve come from the future and I must stop your bug fix. You have no idea what will happen when you make this change. You didn&amp;rsquo;t reproduce the problem. You didn&amp;rsquo;t find the &lt;a href=&#34;http://en.wikipedia.org/wiki/Root_cause_analysis&#34;&gt;root cause&lt;/a&gt;. You didn&amp;rsquo;t talk to someone knowledgeable in this part of the code. You didn&amp;rsquo;t find the person who caused the bug and ask them about the fix. You didn&amp;rsquo;t even test your fix. I&amp;rsquo;m sorry but for the sake of the future I can&amp;rsquo;t let you commit that change.&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;The man lowers the gun and fires.&lt;/p&gt;
 &lt;p&gt;Your monitor disintegrates into a thousand shards of glass and plastic. Next he shoots your keyboard, the letter q smacks you in the forehead as it flies away from the carnage. Your brand new laser mouse is next. You begin to move your hand to shield it from the oversized rounds this future man is shooting but thinking again you pull it back just before he fires. Finally, he takes aim at your computer. At this point you&amp;rsquo;ve resigned yourself. This man has travelled back in time to stop you from checking in this horribly stupid bug fix and he means to finish the job. He fires and the hard drives spins for its last time.&lt;/p&gt;
@@ -349,10 +349,10 @@ Were toiling upward in the night.&lt;/p&gt;
     
     <item>
       <title>Ninety Percent Confident</title>
-      <link>http://localhost:49476/posts/ninety-percent-confident/</link>
+      <link>http://localhost:1313/posts/ninety-percent-confident/</link>
       <pubDate>Sun, 24 Aug 2008 21:38:25 +0000</pubDate>
       
-      <guid>http://localhost:49476/posts/ninety-percent-confident/</guid>
+      <guid>http://localhost:1313/posts/ninety-percent-confident/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;I know nothing except the fact of my ignorance.&lt;/p&gt;
 &lt;p&gt;&amp;ndash; Socrates&lt;/p&gt;&lt;/blockquote&gt;

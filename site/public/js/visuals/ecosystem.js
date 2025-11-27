@@ -4,6 +4,7 @@
  */
 
 import { setupResponsiveCanvas } from "./simulation.js";
+import { getThemeColors, listenForThemeChange } from "./utils.js";
 
 export function initEcosystem(config) {
     const canvas = document.getElementById(config.canvasId);
@@ -352,7 +353,8 @@ export function initEcosystem(config) {
         const height = canvas.height / (window.devicePixelRatio || 1); // Logical height
 
         // Clear
-        ctx.fillStyle = '#f5f5dc'; // Beige background
+        const colors = getThemeColors();
+        ctx.fillStyle = colors.bg_h; // Use canvas background color
         ctx.fillRect(0, 0, width, height);
 
         if (!grid || grid.length === 0) return;
@@ -433,6 +435,8 @@ export function initEcosystem(config) {
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
 
+        const colors = getThemeColors();
+
         chartCtx.clearRect(0, 0, width, height);
 
         if (history.length < 2) return;
@@ -450,7 +454,7 @@ export function initEcosystem(config) {
         const maxTransformed = transform(maxVal);
 
         // Draw axes
-        chartCtx.strokeStyle = '#666';
+        chartCtx.strokeStyle = colors.grid;
         chartCtx.lineWidth = 1;
         chartCtx.beginPath();
         chartCtx.moveTo(padding.left, padding.top);
@@ -459,7 +463,7 @@ export function initEcosystem(config) {
         chartCtx.stroke();
 
         // Y-axis labels
-        chartCtx.fillStyle = '#333';
+        chartCtx.fillStyle = colors.fg;
         chartCtx.font = '10px sans-serif';
         chartCtx.textAlign = 'right';
         chartCtx.textBaseline = 'middle';
@@ -468,6 +472,16 @@ export function initEcosystem(config) {
             const py = height - padding.bottom - (transform(val) / maxTransformed) * plotH;
             chartCtx.fillText(val, padding.left - 5, py);
         }
+
+        // Y-axis title
+        chartCtx.save();
+        chartCtx.translate(12, padding.top + plotH / 2);
+        chartCtx.rotate(-Math.PI / 2);
+        chartCtx.textAlign = 'center';
+        chartCtx.font = '12px sans-serif';
+        chartCtx.fillStyle = colors.fg;
+        chartCtx.fillText('Population', 0, 0);
+        chartCtx.restore();
 
         // Draw lines
         const drawLine = (data, color) => {
@@ -608,6 +622,16 @@ export function initEcosystem(config) {
         });
     }
 
+    // Initial setup
+    initGrid();
+    drawChart();
+    draw();
+
+    listenForThemeChange(() => {
+        drawChart();
+        draw();
+    });
+
     // Hover detection for entities
     canvas.addEventListener('mousemove', (e) => {
         const rect = canvas.getBoundingClientRect();
@@ -652,6 +676,8 @@ export function initEcosystem(config) {
         }
     });
 
-    // Initialize
-    reset();
+    // Initialize - defer to ensure theme is loaded
+    setTimeout(() => {
+        reset();
+    }, 0);
 }

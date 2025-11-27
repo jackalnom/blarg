@@ -55,7 +55,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-11-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-11-24T15:25:15-08:00">
+    <meta property="article:modified_time" content="2025-11-26T16:25:48-08:00">
 
 
   
@@ -67,8 +67,8 @@
   <meta itemprop="name" content="Teaching Real Lessons with Fake Worlds">
   <meta itemprop="description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
   <meta itemprop="datePublished" content="2025-11-23T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-11-24T15:25:15-08:00">
-  <meta itemprop="wordCount" content="3405">
+  <meta itemprop="dateModified" content="2025-11-26T16:25:48-08:00">
+  <meta itemprop="wordCount" content="3565">
   <meta itemprop="keywords" content="Career &amp; Professional">
 
   
@@ -226,7 +226,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          3405 words
+          3565 words
         </span>
       
       
@@ -239,7 +239,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ~16 mins
+          ~17 mins
         </span>
       
     </div>
@@ -255,21 +255,22 @@
   <article class="content ">
     
     <p>When I transitioned from industry to teaching, the biggest gap I sought to close was the disconnect between the problems students face in class and the actual challenges I saw in the real world.</p>
-<p>Too often, I saw new-grads who only had exposure to toy problems that bear only a passing resemblance to what makes technical work difficult. In the wild, solving a technical problem is a cycle:</p>
+<p>Too often, I saw new grads who only had exposure to toy problems that bear only a passing resemblance to the things that make technical work difficult. In the wild, solving a technical problem looks more like a cycle:</p>
 <ol>
 <li><strong>Formulate:</strong> Translate an unbounded, ambiguous real-world situation into a technical problem.</li>
 <li><strong>Solve:</strong> Execute the technical solution.</li>
 <li><strong>Interpret:</strong> Evaluate whether your solution actually solved the problem.</li>
 </ol>
-<p>Even when toy problems attempt steps 1 and 3, it is often just a sort of thinly wrapped pseudo-context. There isn’t enough noise. There isn&rsquo;t enough mess. It is painfully obvious what technical thing needs to be done.</p>
-<p>LLMs have significantly exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. In the same way calculators solved the “how do I perform arithmetic on these numbers” problem, but didn’t solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren&rsquo;t just working on problems that don’t match the real world; they aren’t building any fundamental skills at all.</p>
-<p>My answer to this problem has been making the classroom look more like the real world through simulation.</p>
+<p>Even when toy problems attempt steps 1 and 3, it is often just a sort of thinly wrapped pseudo-context. There isn’t enough noise and it is painfully obvious what technical thing needs to be done.</p>
+<p>LLMs have significantly exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. It’s similar to how calculators solved the “how do I perform arithmetic on these numbers” problem, but didn’t solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren&rsquo;t just working on problems that don’t match the real world; they aren’t building any fundamental skills at all.</p>
+<p>My answer to this problem has been making the classroom (specifically, in my case, upper-division computer science classes) look more like the real world through simulation.</p>
 <h2 id="why-simulation">Why Simulation?</h2>
 <p>I’ve always loved simulation-style games. Ever since playing the gold-cartridge <em>Legend of Zelda</em> on the NES, I’ve been fascinated by the idea that the little characters in those worlds might have lives of their own—that they might keep moving even when the player isn’t looking.</p>
 <p>That notion is the seed of my classroom simulations: worlds that run on their own, where students must reason about living systems rather than static puzzles.</p>
 <p>My first classroom simulation-game came out of a databases course. Early on, I realized students weren’t really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about. The kind of thing that breaks at 3 a.m.</p>
+<p>For example:</p>
 <ul>
-<li>Teaching concurrency errors: Let students run into them naturally. As “customers” fire off parallel calls that collide in unpredictable ways, things break. Sorry your inventory is out of sync. You had a lost update. The week after, when we lecture on transactions, you are excited when it solves your problem.</li>
+<li>Teaching concurrency errors: As “customers” fire off parallel cart checkouts, students code now runs into fun and unpredictable race conditions. Sorry your inventory is out of sync. You had a lost update. The week after, when we lecture on transactions, you are excited when it solves your problem.</li>
 <li>Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, and systems designed for observability and debugging. That’s how many experienced developers come to care about those principles: not from theory, but from scars.</li>
 </ul>
 <p>Teaching SQL is one thing. Teaching the principles behind real systems is much harder without first letting students experience the pain, then walking them through how we solve it.</p>
@@ -365,7 +366,8 @@
     });
 </script>
 
-<p>Lastly, and perhaps most trickily, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363">a hospital in Canada</a> noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were 52% more likely to have a serious injury compared to not wearing a helmet. That seems wrong? This is a case of a specific selection bias called a collider bias (or Berkson&rsquo;s paradox). The hospital isn&rsquo;t seeing all bike riders and all bike accidents. They don&rsquo;t see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.</p>
+<p>Lastly, and perhaps most trickily, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363">a hospital in Canada</a> noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were ~50% more likely to have a serious injury compared to not wearing a helmet. That seems wrong doesn&rsquo;t it?</p>
+<p>This is a case of a specific selection bias called a collider bias (or Berkson&rsquo;s paradox). The hospital isn&rsquo;t seeing all bike riders and all bike accidents; they don&rsquo;t see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.</p>
 <p>You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It’s a kind of selection echo: the world you see isn’t the world as it is, but the world that lasted.</p>
 <p>In the simulation below, I show how food quality and location can become inversely correlated, even if they start out completely independent. This happens because survival is a filter: a restaurant can survive with bad food if it has high foot traffic (a tourist trap), and it can survive in a bad location if the food is amazing. But if it has bad food and a bad location, it goes out of business and disappears from the dataset. We only see the survivors.</p>
 <div class="berkson-param">
@@ -540,7 +542,7 @@ are generally right-skewed, largely because each property’s value grows throug
   initGenerateSamples("pa", "preferential-attachment");
 </script>
 
-<p>The sigmoid, or S-curve, has a way of spontaneously appearing on its own. Start with exponential growth—your babies have babies, and theirs do too—and sooner or later a carrying capacity reins things in, bending the curve into a smooth logistic shape. A different route to the same S appears if your agents each have a normally distributed threshold: as the value rises, the cumulative number who cross that line climbs along a probit curve that looks much the same.</p>
+<p>The sigmoid, or S-curve, has a way of spontaneously appearing on its own. Start with exponential growth—your babies have babies, and theirs do too—and sooner or later a carrying capacity reins things in, bending the curve into a smooth logistic shape. A different route to a sigmoid is if your agents each have a normally distributed threshold: as the value rises, the cumulative number who cross that line climbs along a probit curve that looks much the same. This probit curve is what I demonstrate through simulation below.</p>
 <div class="sim-controls">
     
     <label class="sim-param-label">Dice per roll
@@ -673,8 +675,10 @@ are generally right-skewed, largely because each property’s value grows throug
     });
 </script>
 
-<p>My agents are generally utility-driven. They have a utility function they’re trying to greedily maximize over time. They’re single-minded, simple, sometimes stupid, but consistently so. Stupid agents make for smart systems, as long as their stupidity is sufficiently diverse and independent. It is the same power you get from wisdom of the crowds; uncorrelated dumb guesses when aggregated together can create surprisingly accurate guesses.</p>
-<p>I create balance in the system without hard-coded limits by putting agents in tension with one another. Think of a predator–prey simulation: the prey eat grass, predators eat the prey. When there are too many prey, the grass thins and predators thrive; when there are too many predators, they starve. The system naturally ebbs and flows as everyone does their part to keep it in rhythmic balance.</p>
+<p>My agents are generally utility-driven: each has a simple utility function that it tries to maximize at every step. Individually, they’re single-minded and unintelligent, and if I relied on any one of them alone, the simulation would quickly collapse into some pathological or divergent behavior.</p>
+<p>To avoid that, I build a range of intentionally simple strategies. One set of agents repeats whatever was most profitable in the past; another acts randomly; another imitates whatever has been most popular recently.</p>
+<p>What I’ve discovered over years of building these systems is that when I combine many such agents—each using different but simple heuristics—the overall system becomes surprisingly robust and often appears intelligent. It’s a form of the wisdom of the crowds: a collection of uncorrelated, naïve guesses can, when aggregated, produce remarkably accurate behavior.</p>
+<p>I create balance in the system without hard-coded limits by putting agents in tension with one another. As an example, I have a simple predator-prey simulation below: the prey eat grass, predators eat the prey. When there are too many prey, the grass thins and predators thrive; when there are too many predators, they starve. The system naturally ebbs and flows as everyone does their part to keep it in rhythmic balance. You can play around with the levers to see if you can make the system stay in balance without the ecosystem collapsing.</p>
 <div class="ecosystem-params">
     <div class="ecosystem-param">
         <label>Cat Speed: <span id="ecosystemCatSpeedValue">1.5</span></label>
@@ -758,10 +762,10 @@ are generally right-skewed, largely because each property’s value grows throug
         starvationValueId: "ecosystemStarvationValue"
     });
 </script>
-<p>I usually introduce some form of survival of the fittest to stabilize things. I’m not afraid to let agents die if they can’t achieve their utility, but I’m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.
-Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. It feels less like engineering and more like gardening, an organic process. I tend to my simulation as much as I build it.</p>
+<p>I usually introduce some form of survival of the fittest to stabilize things. I’m not afraid to let agents die if they can’t achieve their utility, but I’m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.</p>
+<p>Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. For many processes, I already have strong expectations on what everything should look like, because I&rsquo;ve seen the equivalent real data many times over. When I haven&rsquo;t, it becomes a fun exercise to look up papers and see what the real curves look like so I can ensure my simulation matches the spirit. It feels less like engineering and more like gardening, an organic process. I tend to my simulation as much as I build it.</p>
 <p>That’s it; mostly&hellip; I&rsquo;m showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.</p>
-<p>I keep the agents simple and let their interactions produce the messy, rhythmic complexity I’ve seen in the real world. When students engage with these living systems, they stop treating data as just numbers for homework and start treating it as traces of a world to be discovered. They learn to formulate problems from ambiguity, interpret messy results, and build resilience—the real, fundamental skills that no AI today can simply solve for them. Sparking that curiosity is the most real lesson I can hope to teach.</p>
+<p>My hope when students engage with these living systems is that they stop treating data as just numbers for homework and start treating it as traces of a world to be discovered. That they learn to formulate problems from ambiguity, interpret messy results, and build resilience—the real, fundamental skills that no AI today can simply solve for them. Sparking that curiosity, even if I use fake worlds, is the most real lesson I can hope to teach.</p>
 
     
   </article>

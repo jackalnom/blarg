@@ -1,3 +1,5 @@
+import { getThemeColors, listenForThemeChange } from "./utils.js";
+
 /**
  * California Electricity Demand - Three years of daily data
  * Data source: EIA Form 930, California region
@@ -45,7 +47,7 @@ export async function initElectricityDemand(containerId) {
                 const year = parseInt(dateStr.slice(5));
 
                 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                               'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
                 const month = months.indexOf(monthStr);
 
                 const date = new Date(year, month, day);
@@ -60,19 +62,6 @@ export async function initElectricityDemand(containerId) {
     if (dataPoints.length === 0) {
         container.innerHTML = '<p>No electricity data available</p>';
         return;
-    }
-
-    function getColors() {
-        const isDark = document.documentElement.classList.contains('darkmode') ||
-                       window.matchMedia('(prefers-color-scheme: dark)').matches;
-        return {
-            axis: isDark ? '#a89984' : '#7c6f64',
-            text: isDark ? '#d5c4a1' : '#504945',
-            line: isDark ? 'rgba(131, 165, 152, 1)' : 'rgba(66, 123, 88, 1)',
-            fill: isDark ? 'rgba(131, 165, 152, 0.25)' : 'rgba(66, 123, 88, 0.18)',
-            grid: isDark ? 'rgba(168, 153, 132, 0.3)' : 'rgba(124, 111, 100, 0.2)',
-            weekend: isDark ? 'rgba(211, 134, 155, 0.15)' : 'rgba(211, 134, 155, 0.12)'
-        };
     }
 
     function setupCanvas(canvas, aspectRatio) {
@@ -94,10 +83,10 @@ export async function initElectricityDemand(containerId) {
     }
 
     function draw() {
-        const colors = getColors();
-        // Use shorter aspect ratio on mobile for better visibility
+        const colors = getThemeColors();
+        // Use shorter aspect ratio on mobile for better visibility (30% taller than before)
         const isMobile = window.innerWidth < 600;
-        const aspectRatio = isMobile ? 2 : 3.5;
+        const aspectRatio = isMobile ? 1.54 : 2.5;
         const dims = setupCanvas(mainCanvas, aspectRatio);
         const { width, height } = dims;
         const padding = { top: 50, right: 20, bottom: 60, left: 70 };
@@ -114,12 +103,12 @@ export async function initElectricityDemand(containerId) {
         const yMax = Math.ceil(maxVal / 50000) * 50000;
 
         // Draw axes
-        ctx.strokeStyle = colors.axis;
+        ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
         ctx.strokeRect(padding.left, padding.top, plotW, plotH);
 
         // Y-axis labels and grid
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'right';
         ctx.textBaseline = 'middle';
@@ -127,7 +116,7 @@ export async function initElectricityDemand(containerId) {
         for (let i = 0; i <= numYTicks; i++) {
             const val = yMin + (yMax - yMin) * (i / numYTicks);
             const py = padding.top + plotH - ((val - yMin) / (yMax - yMin)) * plotH;
-            ctx.fillText(`${(val/1000).toFixed(0)}k`, padding.left - 8, py);
+            ctx.fillText(`${(val / 1000).toFixed(0)}k`, padding.left - 8, py);
 
             // Horizontal grid line
             ctx.strokeStyle = colors.grid;
@@ -143,7 +132,7 @@ export async function initElectricityDemand(containerId) {
         ctx.rotate(-Math.PI / 2);
         ctx.textAlign = 'center';
         ctx.font = '12px system-ui, sans-serif';
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.fillText('Daily Demand (MWh)', 0, 0);
         ctx.restore();
 
@@ -155,7 +144,7 @@ export async function initElectricityDemand(containerId) {
         // Draw vertical grid at start of each year
         ctx.strokeStyle = colors.grid;
         ctx.lineWidth = 1;
-        ctx.fillStyle = colors.text;
+        ctx.fillStyle = colors.fg;
         ctx.font = '11px system-ui, sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
@@ -178,7 +167,7 @@ export async function initElectricityDemand(containerId) {
                 const yearMid = yearEnd === -1 ? (yearStart + dataPoints.length) / 2 : (yearStart + yearEnd) / 2;
                 const midPx = padding.left + (yearMid / totalDays) * plotW;
 
-                ctx.fillStyle = colors.text;
+                ctx.fillStyle = colors.fg;
                 ctx.fillText(year.toString(), midPx, height - padding.bottom + 8);
             }
         });
@@ -191,7 +180,7 @@ export async function initElectricityDemand(containerId) {
             if (i === 0) ctx.moveTo(px, py);
             else ctx.lineTo(px, py);
         }
-        ctx.strokeStyle = colors.line;
+        ctx.strokeStyle = colors.barStroke;
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
@@ -199,7 +188,7 @@ export async function initElectricityDemand(containerId) {
         ctx.lineTo(padding.left + plotW, height - padding.bottom);
         ctx.lineTo(padding.left, height - padding.bottom);
         ctx.closePath();
-        ctx.fillStyle = colors.fill;
+        ctx.fillStyle = colors.chartFill;
         ctx.fill();
 
         // Draw hover tooltip
@@ -209,7 +198,7 @@ export async function initElectricityDemand(containerId) {
             const py = padding.top + plotH - ((point.demand - yMin) / (yMax - yMin)) * plotH;
 
             // Draw vertical line at hover point
-            ctx.strokeStyle = colors.axis;
+            ctx.strokeStyle = colors.grid;
             ctx.lineWidth = 1;
             ctx.setLineDash([3, 3]);
             ctx.beginPath();
@@ -219,14 +208,14 @@ export async function initElectricityDemand(containerId) {
             ctx.setLineDash([]);
 
             // Draw point
-            ctx.fillStyle = colors.line;
+            ctx.fillStyle = colors.barStroke;
             ctx.beginPath();
             ctx.arc(px, py, 4, 0, Math.PI * 2);
             ctx.fill();
 
             // Format date
             const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                               'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             const dateStr = `${monthNames[point.date.getMonth()]} ${point.date.getDate()}, ${point.date.getFullYear()}`;
             const valueStr = `${(point.demand / 1000).toFixed(1)}k MWh`;
 
@@ -296,7 +285,6 @@ export async function initElectricityDemand(containerId) {
         } else {
             hoveredDay = null;
         }
-
         draw();
     });
 
@@ -305,5 +293,6 @@ export async function initElectricityDemand(containerId) {
         draw();
     });
 
+    // Initial draw
     draw();
 }

@@ -104,3 +104,62 @@ export function drawStackLineByPositions(ctx, stacks, positions, blockPx, height
 export function setInfo(el, sides, count) {
     if (el) el.textContent = `d${sides} × ${count}`;
 }
+
+export function getThemeColors() {
+    const style = getComputedStyle(document.body);
+    const bg = style.getPropertyValue('--bg').trim();
+
+    // Primary dark mode detection: check if darkmode class exists on html element
+    // This is more reliable than checking computed CSS values
+    let isDark = document.documentElement.classList.contains('darkmode');
+
+    // Fallback: if no class, try detecting from bg color
+    if (!isDark && bg) {
+        isDark = bg === '#1d2021' || bg === '#282828' ||
+                 bg.includes('40, 40, 40') || bg.includes('29, 32, 33');
+    }
+
+    return {
+        bg: bg || (isDark ? '#282828' : '#fbf1c7'),
+        bg_h: style.getPropertyValue('--bg_h').trim() || (isDark ? '#1d2021' : '#f9f5d7'),
+        fg: style.getPropertyValue('--fg').trim() || (isDark ? '#fbf1c7' : '#282828'),
+        fg2: style.getPropertyValue('--fg4').trim() || (isDark ? '#a89984' : '#7c6f64'),
+        fg3: style.getPropertyValue('--fg3').trim() || (isDark ? '#bdae93' : '#665c54'),
+        grid: style.getPropertyValue('--grid-color').trim() || (isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'),
+        node: style.getPropertyValue('--dag-node').trim() || (isDark ? '#458588' : '#4A90E2'),
+        edge: style.getPropertyValue('--dag-edge').trim() || (isDark ? '#a89984' : '#666'),
+        point: style.getPropertyValue('--dag-point').trim() || (isDark ? 'rgba(69, 133, 136, 0.5)' : 'rgba(74, 144, 226, 0.5)'),
+        isDark: isDark,  // Export isDark so charts don't have to re-detect it
+        // Semantic colors
+        threshold: isDark ? '#d79921' : '#d65d0e',
+        trendLine: isDark ? '#cc241d' : '#9d0006',
+        bar: isDark ? 'rgba(104, 157, 106, 0.7)' : 'rgba(76, 175, 80, 0.7)',
+        barStroke: isDark ? 'rgba(104, 157, 106, 1)' : 'rgba(76, 175, 80, 1)',
+        chartFill: isDark ? 'rgba(131, 165, 152, 0.25)' : 'rgba(66, 123, 88, 0.18)',
+        weekend: isDark ? 'rgba(211, 134, 155, 0.15)' : 'rgba(211, 134, 155, 0.12)',
+        // Berkson/DAG specific colors
+        rejected: isDark ? '#504945' : '#bdae93',
+        selected: isDark ? '#b8bb26' : '#79740e'
+    };
+}
+
+export function listenForThemeChange(callback) {
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                // Wait for CSS to update
+                setTimeout(callback, 50);
+            }
+        });
+    });
+
+    observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+    });
+
+    // Also listen for system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        setTimeout(callback, 50);
+    });
+}
