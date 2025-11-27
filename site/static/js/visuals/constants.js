@@ -15,7 +15,6 @@ export const DEFAULTS = {
 
 export const COLORS = {
     // Base hues for different visualization types
-    uniform: 210,      // Blue
     clt: 140,          // Green
     lognormal: 28,     // Orange
     sigmoid: 340,      // Pink/Magenta

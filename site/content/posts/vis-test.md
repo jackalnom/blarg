@@ -8,10 +8,6 @@ _build:
   publishResources: true
 ---
 
-## Uniform Distribution
-
-{{< generate-samples id="uniform" type="uniform" >}}
-
 ## Central Limit Theorem
 
 {{< generate-samples id="normal" type="normal" >}}
