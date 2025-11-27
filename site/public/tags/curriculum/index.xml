@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Curriculum on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/curriculum/</link>
+    <link>http://localhost:49476/tags/curriculum/</link>
     <description>Recent content in Curriculum on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Nov 2008 22:42:11 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/curriculum/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 02 Nov 2008 22:42:11 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/curriculum/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Syllabus</title>
-      <link>https://www.bonnycode.com/posts/the-syllabus/</link>
+      <link>http://localhost:49476/posts/the-syllabus/</link>
       <pubDate>Sun, 02 Nov 2008 22:42:11 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/the-syllabus/</guid>
+      <guid>http://localhost:49476/posts/the-syllabus/</guid>
       <description>&lt;p&gt;I explained before why I thought &amp;ldquo;programology&amp;rdquo; should be taught, but I didn&amp;rsquo;t go into detail on what I would teach.&lt;/p&gt;
 &lt;p&gt;To start, there would need to be at least a cursory mention of &lt;a href=&#34;http://en.wikipedia.org/wiki/Literate_Programming&#34;&gt;Literate Programming&lt;/a&gt;. Just like many English Literature classes start with Beowulf, we could start with a reading of &lt;a href=&#34;ftp://tug.ctan.org/pub/tex-archive/systems/knuth/dist/tex/tex.web&#34;&gt;TeX&lt;/a&gt;. Donald Knuth has a little sensor implanted in his brain that tells him every time someone reads his code; make the professor happy and at least try to read some of it.&lt;/p&gt;
 &lt;p&gt;I wouldn&amp;rsquo;t dwell very long on Literate Programming. To do so would, sadly, lead to a place where we focus on finding the best source code and studying that. Instead the point is to find the best programs and study their source code. Now given, there should be some correlation between quality of source code and quality of program, but I want that correlation to be discovered in its true form and not the usual manifestation of neophytes arguing over number of comments or spaces vs. tabs.&lt;/p&gt;

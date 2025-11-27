@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Polymorphism on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/polymorphism/</link>
+    <link>http://localhost:49476/tags/polymorphism/</link>
     <description>Recent content in Polymorphism on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Mar 2008 13:26:43 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/polymorphism/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Mar 2008 13:26:43 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/polymorphism/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Continued Slander against the Noble If</title>
-      <link>https://www.bonnycode.com/posts/continued-sland/</link>
+      <link>http://localhost:49476/posts/continued-sland/</link>
       <pubDate>Sun, 16 Mar 2008 13:26:43 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/continued-sland/</guid>
+      <guid>http://localhost:49476/posts/continued-sland/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve often said that &lt;strong&gt;if&lt;/strong&gt; statements are good indicators of poorly designed code. To illustrate my point, here is some code I recently stole from a major auto insurance firm&lt;a href=&#34;#disclaimer&#34;&gt;1&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Money&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;calculateAutoInsurance&lt;/span&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;person&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;is&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;no&#34;&gt;Man&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  
@@ -64,10 +64,10 @@
     
     <item>
       <title>Tactical Polymorphism</title>
-      <link>https://www.bonnycode.com/posts/tactical-polymo/</link>
+      <link>http://localhost:49476/posts/tactical-polymo/</link>
       <pubDate>Sun, 02 Mar 2008 00:46:46 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/tactical-polymo/</guid>
+      <guid>http://localhost:49476/posts/tactical-polymo/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Room&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;roomType&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;roomType&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  

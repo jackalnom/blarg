@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Performance on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/performance/</link>
+    <link>http://localhost:49476/tags/performance/</link>
     <description>Recent content in Performance on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 22 Jun 2008 20:50:50 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/performance/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Jun 2008 20:50:50 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/performance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Depressing, All Too Common Tale of OO Programmer meets Database</title>
-      <link>https://www.bonnycode.com/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</link>
+      <link>http://localhost:49476/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</link>
       <pubDate>Sun, 22 Jun 2008 20:50:50 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</guid>
+      <guid>http://localhost:49476/posts/a-depressing-all-too-common-tale-of-oo-programmer-meets-database/</guid>
       <description>&lt;p&gt;You&amp;rsquo;ve just been hired for your first job as an astronomical programmer. You have a graduate degree from CalTech in computer science and you regularly check your horoscope so you feel imminently qualified. Your first assignment is to write a method to count all the red giants in the universe. They use an object relational mapping framework so that you can put all your object oriented design skills to work and not need to worry anything about databases which is awesome because you know nothing about databases.&lt;/p&gt;
 &lt;p&gt;You feel well trained in the arts of test driven development so you start out by writing a little test:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-ruby&#34; data-lang=&#34;ruby&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;test_count_red_giants&lt;/span&gt;  
@@ -61,10 +61,10 @@
     
     <item>
       <title>N&#43;1 Select</title>
-      <link>https://www.bonnycode.com/posts/n1-select/</link>
+      <link>http://localhost:49476/posts/n1-select/</link>
       <pubDate>Tue, 17 Jun 2008 21:42:16 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/n1-select/</guid>
+      <guid>http://localhost:49476/posts/n1-select/</guid>
       <description>&lt;p&gt;You can forget about the performance of synchronized vs. unsynchronized, when you write code hitting your database that looks like this:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;peeps&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Database&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findMyPeeps&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;each&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;peep&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;in&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;peeps&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
@@ -83,10 +83,10 @@
     
     <item>
       <title>Databases from the Battlefield</title>
-      <link>https://www.bonnycode.com/posts/databases-from-the-battlefield/</link>
+      <link>http://localhost:49476/posts/databases-from-the-battlefield/</link>
       <pubDate>Sun, 15 Jun 2008 23:15:07 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/databases-from-the-battlefield/</guid>
+      <guid>http://localhost:49476/posts/databases-from-the-battlefield/</guid>
       <description>&lt;p&gt;There is a ladder of knowledge in learning about databases. Step one is learning the basic commands SELECT, INSERT, UPDATE and DELETE. After that you learn about Subselects and the various JOINs. Eventually you learn about creating your own schema, many to many relationships and database indexes. Eventually you might even learn about &lt;a href=&#34;http://en.wikipedia.org/wiki/Database_normalization&#34;&gt;database normal forms&lt;/a&gt; which are similar to the Ten Commandments: people think they know what they are but when pressed can normally only name one or two (killing and stealing are bad right?).&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m going to assume you already know all of this or if you don&amp;rsquo;t that you can easily learn it on your own. At the very least you should learn the database normal forms so you can impress in a job interview some day.&lt;/p&gt;
 &lt;p&gt;Instead, I&amp;rsquo;m going to teach you the zen secrets of databases that they don&amp;rsquo;t teach you in school. My next post will start with the infamous N+1 Select.&lt;/p&gt;
@@ -95,10 +95,10 @@
     
     <item>
       <title>Synchronized Performance</title>
-      <link>https://www.bonnycode.com/posts/synchronized-performance/</link>
+      <link>http://localhost:49476/posts/synchronized-performance/</link>
       <pubDate>Tue, 10 Jun 2008 00:39:10 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/synchronized-performance/</guid>
+      <guid>http://localhost:49476/posts/synchronized-performance/</guid>
       <description>&lt;p&gt;In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;SynchronizedTest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  

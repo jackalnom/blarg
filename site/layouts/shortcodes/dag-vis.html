@@ -11,13 +11,21 @@
 </div>
 
 <div id="{{ $base }}Correlation" class="dag-correlation"></div>
-<div class="dag-container">
-    <canvas id="{{ $base }}Canvas" class="dag-canvas"></canvas>
+<div class="berkson-dag">
+    <canvas id="{{ $base }}DAG" class="berkson-dag-canvas"></canvas>
 </div>
+
+<div class="berkson-charts">
+    <div class="berkson-chart">
+        <canvas id="{{ $base }}Scatter" class="berkson-scatter-canvas"></canvas>
+    </div>
+</div>
+
 <script type="module">
     import { initDAG } from "/js/teaching-visuals.js";
     initDAG({
-        canvasId: "{{ $base }}Canvas",
+        dagCanvasId: "{{ $base }}DAG",
+        scatterCanvasId: "{{ $base }}Scatter",
         structure: "{{ $structure }}",
         correlationId: "{{ $base }}Correlation",
         weightsId: "{{ $base }}Weights",

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Autoboxing on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/autoboxing/</link>
+    <link>http://localhost:49476/tags/autoboxing/</link>
     <description>Recent content in Autoboxing on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 May 2008 19:35:45 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/autoboxing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 08 May 2008 19:35:45 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/autoboxing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Integer Boxing Quiz</title>
-      <link>https://www.bonnycode.com/posts/integer-boxing/</link>
+      <link>http://localhost:49476/posts/integer-boxing/</link>
       <pubDate>Thu, 08 May 2008 19:35:45 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/integer-boxing/</guid>
+      <guid>http://localhost:49476/posts/integer-boxing/</guid>
       <description>&lt;p&gt;Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of &lt;code&gt;the_black_box&lt;/code&gt; will the statement on line 11 print &amp;ldquo;Jonathan Kelly is really a robot!&amp;rdquo;? The only import allowed is &lt;code&gt;java.lang.reflect.Field&lt;/code&gt;. 15 points will be awarded for the first correct answer.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.lang.reflect.Field&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;

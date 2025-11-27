@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Professional-Development on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/professional-development/</link>
+    <link>http://localhost:49476/tags/professional-development/</link>
     <description>Recent content in Professional-Development on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 11 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/professional-development/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/professional-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Work Hard, Have Fun, Go Home</title>
-      <link>https://www.bonnycode.com/posts/work-hard-have-fun-go-home/</link>
+      <link>http://localhost:49476/posts/work-hard-have-fun-go-home/</link>
       <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/work-hard-have-fun-go-home/</guid>
+      <guid>http://localhost:49476/posts/work-hard-have-fun-go-home/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;hus·tle cul·ture&lt;/strong&gt;  ˈhə-səl ˈkəl-chər&lt;br&gt;
 &lt;em&gt;noun&lt;/em&gt;&lt;/p&gt;
@@ -83,10 +83,10 @@
     
     <item>
       <title>Are we cooked?</title>
-      <link>https://www.bonnycode.com/posts/are-we-cooked/</link>
+      <link>http://localhost:49476/posts/are-we-cooked/</link>
       <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/are-we-cooked/</guid>
+      <guid>http://localhost:49476/posts/are-we-cooked/</guid>
       <description>&lt;p&gt;My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of &amp;ldquo;low-key, are we cooked?&amp;rdquo;. The last one, if you are not one of my students, translates in millennial to &amp;ldquo;good esteemed professor, tell me true, are we f#@ked?&amp;rdquo; While I&amp;rsquo;ve given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.&lt;/p&gt;
 &lt;h1 id=&#34;some-personal-background&#34;&gt;Some personal background&lt;/h1&gt;
 &lt;p&gt;I want to start by giving a little personal history and just saying I understand the anxiety. I started my freshman year at CalPoly San Luis Obispo in Computer Science in September 1999. Like many of us older millennials that got into tech, I had been programming since elementary school (QBasic!) and computer science seemed a natural path. I always loved reading philosophy though and I seriously considered getting a philosophy degree instead. It was a choice between something I figured I was pretty decent at and could make money doing (computer science) and something that I was personally invested in but probably couldn&amp;rsquo;t make money with (philosophy). Earning a living won out over passion. I stuck with computer science, but I took as many philosophy classes as I could get into. To the extent that I was put on academic probation, not because my grades were too low, but because in the words of the admin &amp;ldquo;stop taking so many philosophy classes and just graduate!&amp;rdquo;. Good times…&lt;/p&gt;
@@ -111,10 +111,10 @@
     
     <item>
       <title>A time to dream</title>
-      <link>https://www.bonnycode.com/posts/a-time-to-dream/</link>
+      <link>http://localhost:49476/posts/a-time-to-dream/</link>
       <pubDate>Sun, 27 Oct 2013 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/a-time-to-dream/</guid>
+      <guid>http://localhost:49476/posts/a-time-to-dream/</guid>
       <description>&lt;p&gt;My success in life is based on my love and respect for daydreaming. I&amp;rsquo;ve always been a daydreamer. At the age of seven, I envisioned a space opera of powerful Lizians, Heart Monkeys and Star People who fought against the tyrannical Lizard Men. I loved this world and I visited every chance I got. I spent so much time fleshing out my world rather than school work that by the end of high school I had a written a truly intricate science fiction novel and I had the poor grades to show it. It was also an amazingly horrible novel. When I showed it to a girl I liked in high school, because high school chicks dig sci-fi authors, I couldn&amp;rsquo;t have anticipated the reaction, “I can&amp;rsquo;t believe you waste your time dreaming about stupid stuff like this.”&lt;/p&gt;
 &lt;p&gt;To this day, I still waste most of my time “dreaming about stupid stuff.” Most of those dreams now involve my work rather than fantastical worlds, but the love is still there. I set aside several hours every week to dream about what could be. I sprawl out in these dreams, I linger, and I set no goals for myself in what I hope to accomplish. I ask myself, what would make this amazing? Why would that be amazing? What is the essence of amazingness? I go down every corridor, until I get to the essence of the problem and the solution. This isn&amp;rsquo;t work that can measured; this is my time to enjoy myself and untangle life&amp;rsquo;s truly difficult puzzles. It is during these times that I get excited about the potential of what could be.&lt;/p&gt;
 &lt;p&gt;Without this time to dream, my work would have no direction. I would be subject to the whims of whomever is yelling the most at a particular moment or whatever crisis of the week has sprung up. Dreaming builds a vision and a vision creates purpose. When something urgent comes up, I can keep it in the context of whether it is truly more important than the great things I&amp;rsquo;ve envisioned.&lt;/p&gt;
@@ -124,11 +124,11 @@
     
     <item>
       <title>The Bad Programmer</title>
-      <link>https://www.bonnycode.com/posts/the-bad-programmer/</link>
+      <link>http://localhost:49476/posts/the-bad-programmer/</link>
       <pubDate>Sat, 13 Dec 2008 21:25:04 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/the-bad-programmer/</guid>
-      <description>&lt;p&gt;Nick makes a &lt;a href=&#34;https://www.bonnycode.com/posts/in-defense-of-go-to/&#34;&gt;good argument&lt;/a&gt; for why go to should not be used. His closing argument is that zealous programmers will abuse go to. Pete makes a similar argument that go to has too much potential for abuse from programmers that we can&amp;rsquo;t be bothered to explain the use of to and you are better off banning them.&lt;/p&gt;
+      <guid>http://localhost:49476/posts/the-bad-programmer/</guid>
+      <description>&lt;p&gt;Nick makes a &lt;a href=&#34;http://localhost:49476/posts/in-defense-of-go-to/&#34;&gt;good argument&lt;/a&gt; for why go to should not be used. His closing argument is that zealous programmers will abuse go to. Pete makes a similar argument that go to has too much potential for abuse from programmers that we can&amp;rsquo;t be bothered to explain the use of to and you are better off banning them.&lt;/p&gt;
 &lt;p&gt;It is a similar argument people make when arguing for gun restrictions. As the politicians will tell you, &amp;ldquo;Sure we trust you with a gun, but do you trust your neighbor or the guys from across town with them?&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;The difference though is that you have a lot of choice over who you work with. If you are limiting your choice of language or features based on the fact that you work with bad programmers I think you are trading off against the wrong factor. Do you want to work with bad programmers? Removing dangerous features from a language will certainly remove possibilities from bad programmers shooting themselves in the foot. They still won&amp;rsquo;t be good programmers though.&lt;/p&gt;
 &lt;p&gt;How many bad programmers will you even work with? Companies tend to have fairly regular hiring standards, at least at any departmental level and in my experience good programmers tend to work in the same place and bad programmers equally congregate. Indeed, in &lt;a href=&#34;http://www.amazon.com/Peopleware-Productive-Projects-Teams-Second/dp/0932633439/ref=sr_1_1?ie=UTF8&amp;amp;s=books&amp;amp;qid=1229231876&amp;amp;sr=1-1&#34;&gt;PeopleWare&lt;/a&gt; they demonstrated a strong correlation between programming ability and the layout of the office where they worked. If there is a strong correlation between office layout and ability then programmers in the same office will have a strong correlation in programming ability amongst themselves.&lt;/p&gt;

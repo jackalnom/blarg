@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programming Languages on BonnyCode</title>
-    <link>https://www.bonnycode.com/categories/programming-languages/</link>
+    <link>http://localhost:49476/categories/programming-languages/</link>
     <description>Recent content in Programming Languages on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Jul 2008 19:28:30 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/categories/programming-languages/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jul 2008 19:28:30 +0000</lastBuildDate><atom:link href="http://localhost:49476/categories/programming-languages/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threading Quiz Results</title>
-      <link>https://www.bonnycode.com/posts/threading-quiz-results/</link>
+      <link>http://localhost:49476/posts/threading-quiz-results/</link>
       <pubDate>Sun, 13 Jul 2008 19:28:30 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/threading-quiz-results/</guid>
+      <guid>http://localhost:49476/posts/threading-quiz-results/</guid>
       <description>&lt;p&gt;Congratulations to Peter and Michael for together coming up with the correct answer. They have both been awarded 5 points.&lt;/p&gt;
 &lt;p&gt;The target &amp;ldquo;-server&amp;rdquo; is an instruction to use the server JVM. The reason this can affect the behavior of the program in the quiz is that the server JVM does more aggressive optimizations than the standard client JVM. Without setting foo to volatile, the compiler optimizes out foo in the first loop because it never changes and it can never possibly change in that loop.&lt;/p&gt;
 &lt;p&gt;When you set a variable as volatile, it instructs the JVM that the variable can be modified/read from multiple threads. This prevents the server JVM from optimizing out foo because it now knows it can be modified by some other thread even though this thread doesn&amp;rsquo;t touch foo.&lt;/p&gt;
@@ -22,10 +22,10 @@
     
     <item>
       <title>Threading Quiz</title>
-      <link>https://www.bonnycode.com/posts/threading-quiz/</link>
+      <link>http://localhost:49476/posts/threading-quiz/</link>
       <pubDate>Mon, 30 Jun 2008 21:37:40 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/threading-quiz/</guid>
+      <guid>http://localhost:49476/posts/threading-quiz/</guid>
       <description>&lt;p&gt;This is a little baby quiz on threading. The program below works&amp;hellip; kind of. Looking to award points to the first person who can come up with the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Without modifying the program on a Java 1.5 SDK, what VM argument will make the program never terminate.&lt;/li&gt;
@@ -55,10 +55,10 @@
     
     <item>
       <title>Winner of Garbage Collection Quiz</title>
-      <link>https://www.bonnycode.com/posts/winner-of-garbage-collection-quiz/</link>
+      <link>http://localhost:49476/posts/winner-of-garbage-collection-quiz/</link>
       <pubDate>Sat, 31 May 2008 16:19:27 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/winner-of-garbage-collection-quiz/</guid>
+      <guid>http://localhost:49476/posts/winner-of-garbage-collection-quiz/</guid>
       <description>&lt;p&gt;Congratulations to Evan Rosson for his correct answer which I have reposted here for posterity. The only real difference between my answer and Evan&amp;rsquo;s is that I didn&amp;rsquo;t pass in the current thread to the Object Tracker thread and I only used the non-timeout version of &lt;code&gt;ReferenceQueue.remove()&lt;/code&gt;. I also didn&amp;rsquo;t use &lt;code&gt;ReferenceQueue.poll&lt;/code&gt; in case you wanted to throw that in there somehow. How did my program still work? 5 and a half points for the first person to answer.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.lang.ref.*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.util.*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -164,10 +164,10 @@
     
     <item>
       <title>Garbage Collector Quiz</title>
-      <link>https://www.bonnycode.com/posts/garbage-collector-quiz/</link>
+      <link>http://localhost:49476/posts/garbage-collector-quiz/</link>
       <pubDate>Sat, 24 May 2008 16:49:31 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/garbage-collector-quiz/</guid>
+      <guid>http://localhost:49476/posts/garbage-collector-quiz/</guid>
       <description>&lt;p&gt;As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I&amp;rsquo;ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.lang.ref.*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.util.*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -213,20 +213,20 @@
     
     <item>
       <title>Integer Boxing Quiz Results</title>
-      <link>https://www.bonnycode.com/posts/integer-boxin-1/</link>
+      <link>http://localhost:49476/posts/integer-boxin-1/</link>
       <pubDate>Mon, 12 May 2008 08:59:35 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/integer-boxin-1/</guid>
+      <guid>http://localhost:49476/posts/integer-boxin-1/</guid>
       <description>&lt;p&gt;Brent Hill came in with the first correct answer and has been awarded 15 points. I plan on the next quiz being something to do with the generational garbage collection so study up if you don&amp;rsquo;t have any idea what that is.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Integer Boxing Quiz</title>
-      <link>https://www.bonnycode.com/posts/integer-boxing/</link>
+      <link>http://localhost:49476/posts/integer-boxing/</link>
       <pubDate>Thu, 08 May 2008 19:35:45 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/integer-boxing/</guid>
+      <guid>http://localhost:49476/posts/integer-boxing/</guid>
       <description>&lt;p&gt;Here is another fun little quiz I came up with to test your elite Java Integer autoboxing skills. With what implementation of &lt;code&gt;the_black_box&lt;/code&gt; will the statement on line 11 print &amp;ldquo;Jonathan Kelly is really a robot!&amp;rdquo;? The only import allowed is &lt;code&gt;java.lang.reflect.Field&lt;/code&gt;. 15 points will be awarded for the first correct answer.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.lang.reflect.Field&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
@@ -251,21 +251,21 @@
     
     <item>
       <title>Quiz Results</title>
-      <link>https://www.bonnycode.com/posts/quiz-results/</link>
+      <link>http://localhost:49476/posts/quiz-results/</link>
       <pubDate>Mon, 14 Apr 2008 19:11:26 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/quiz-results/</guid>
-      <description>&lt;p&gt;The winner of the &lt;a href=&#34;https://www.bonnycode.com/posts/java-mutability/&#34;&gt;Java Mutabiity Pop Quiz&lt;/a&gt; was Casey Klein. Casey has been awarded 10 points for his answer (see the &lt;a href=&#34;https://www.bonnycode.com/posts/points-ranking/&#34;&gt;Points Ranking&lt;/a&gt;). Jonathan Kelly submitted his answer after Casey, but I want to stay on the good side of our robot overlords so I am awarding Jonathan 10 points as well. Jonathan&amp;rsquo;s answer was also interesting in that he also dealt with a string of a different length, which meant he needed to override the count method as well. Finally, Dan Ford is awarded 10 points for his clever alternate solution which involved redefining the behavior of System.out to replace all humans with robots.&lt;/p&gt;
+      <guid>http://localhost:49476/posts/quiz-results/</guid>
+      <description>&lt;p&gt;The winner of the &lt;a href=&#34;http://localhost:49476/posts/java-mutability/&#34;&gt;Java Mutabiity Pop Quiz&lt;/a&gt; was Casey Klein. Casey has been awarded 10 points for his answer (see the &lt;a href=&#34;http://localhost:49476/posts/points-ranking/&#34;&gt;Points Ranking&lt;/a&gt;). Jonathan Kelly submitted his answer after Casey, but I want to stay on the good side of our robot overlords so I am awarding Jonathan 10 points as well. Jonathan&amp;rsquo;s answer was also interesting in that he also dealt with a string of a different length, which meant he needed to override the count method as well. Finally, Dan Ford is awarded 10 points for his clever alternate solution which involved redefining the behavior of System.out to replace all humans with robots.&lt;/p&gt;
 &lt;p&gt;Congratulations everyone!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Java Mutability Pop Quiz</title>
-      <link>https://www.bonnycode.com/posts/java-mutability/</link>
+      <link>http://localhost:49476/posts/java-mutability/</link>
       <pubDate>Sat, 12 Apr 2008 19:57:26 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/java-mutability/</guid>
+      <guid>http://localhost:49476/posts/java-mutability/</guid>
       <description>&lt;p&gt;Can Java &lt;a href=&#34;http://java.sun.com/j2se/1.5.0/docs/api/java/lang/String.html&#34;&gt;strings&lt;/a&gt; actually be mutable? I will award 10 points for the first person to give me an implementation of robotocize that makes the println on line 2 of the main method print &amp;ldquo;Jonathan Kelly is a robot!&amp;rdquo; instead of &amp;ldquo;Jonathan Kelly is a human.&amp;rdquo;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;WantToBet&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;static&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Concurrency on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/concurrency/</link>
+    <link>http://localhost:49476/tags/concurrency/</link>
     <description>Recent content in Concurrency on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 13 Jul 2008 19:28:30 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jul 2008 19:28:30 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/concurrency/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Threading Quiz Results</title>
-      <link>https://www.bonnycode.com/posts/threading-quiz-results/</link>
+      <link>http://localhost:49476/posts/threading-quiz-results/</link>
       <pubDate>Sun, 13 Jul 2008 19:28:30 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/threading-quiz-results/</guid>
+      <guid>http://localhost:49476/posts/threading-quiz-results/</guid>
       <description>&lt;p&gt;Congratulations to Peter and Michael for together coming up with the correct answer. They have both been awarded 5 points.&lt;/p&gt;
 &lt;p&gt;The target &amp;ldquo;-server&amp;rdquo; is an instruction to use the server JVM. The reason this can affect the behavior of the program in the quiz is that the server JVM does more aggressive optimizations than the standard client JVM. Without setting foo to volatile, the compiler optimizes out foo in the first loop because it never changes and it can never possibly change in that loop.&lt;/p&gt;
 &lt;p&gt;When you set a variable as volatile, it instructs the JVM that the variable can be modified/read from multiple threads. This prevents the server JVM from optimizing out foo because it now knows it can be modified by some other thread even though this thread doesn&amp;rsquo;t touch foo.&lt;/p&gt;
@@ -22,10 +22,10 @@
     
     <item>
       <title>Threading Quiz</title>
-      <link>https://www.bonnycode.com/posts/threading-quiz/</link>
+      <link>http://localhost:49476/posts/threading-quiz/</link>
       <pubDate>Mon, 30 Jun 2008 21:37:40 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/threading-quiz/</guid>
+      <guid>http://localhost:49476/posts/threading-quiz/</guid>
       <description>&lt;p&gt;This is a little baby quiz on threading. The program below works&amp;hellip; kind of. Looking to award points to the first person who can come up with the following:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Without modifying the program on a Java 1.5 SDK, what VM argument will make the program never terminate.&lt;/li&gt;

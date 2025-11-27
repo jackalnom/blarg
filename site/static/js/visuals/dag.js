@@ -1,19 +1,21 @@
 import { COLORS, STYLE } from "./constants.js";
 
 export function initDAG(ids) {
-    const canvas = document.getElementById(ids.canvasId);
+    const dagCanvas = document.getElementById(ids.dagCanvasId);
+    const scatterCanvas = document.getElementById(ids.scatterCanvasId);
     const correlationDiv = document.getElementById(ids.correlationId);
     const weightsDiv = document.getElementById(ids.weightsId);
     const stepBtn = document.getElementById(ids.stepId);
     const runBtn = document.getElementById(ids.runId);
     const resetBtn = document.getElementById(ids.resetId);
-    const stepCountName = ids.stepCountName; // Unused now
-    const sampleCountEl = document.getElementById(ids.sampleCountId); // Unused now
+
+    if (!dagCanvas || !scatterCanvas) return;
 
     // Structure is now passed as a parameter
     const structure = ids.structure || 'chain';
 
-    const ctx = canvas.getContext('2d');
+    const dagCtx = dagCanvas.getContext('2d');
+    const scatterCtx = scatterCanvas.getContext('2d');
     let data = { A: [], B: [], C: [] };
     let edgeWeights = {};
     let isRunning = false;
@@ -77,7 +79,8 @@ export function initDAG(ids) {
             data.C = data.C.slice(-500);
         }
 
-        draw();
+        drawDAG();
+        drawScatter();
         updateCorrelations();
     }
 
@@ -89,7 +92,8 @@ export function initDAG(ids) {
         }
         if (runBtn) runBtn.textContent = 'Run';
         data = { A: [], B: [], C: [] };
-        draw();
+        drawDAG();
+        drawScatter();
         updateCorrelations();
     }
 
@@ -162,9 +166,6 @@ export function initDAG(ids) {
         });
     }
 
-    let canvasLogicalWidth = 0;
-    let canvasLogicalHeight = 0;
-
     function getColors() {
         const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         return {
@@ -176,32 +177,50 @@ export function initDAG(ids) {
         };
     }
 
-    function draw() {
-        const w = canvasLogicalWidth;
-        const h = canvasLogicalHeight;
-        const colors = getColors();
-        ctx.clearRect(0, 0, w, h);
-        ctx.fillStyle = colors.bg;
-        ctx.fillRect(0, 0, w, h);
+    function setupCanvas(canvas, aspectRatio) {
+        const dpr = window.devicePixelRatio || 1;
+        const container = canvas.parentElement;
+        const displayWidth = container.clientWidth;
+        const displayHeight = Math.round(displayWidth / aspectRatio);
 
-        // Node positions - use same aspect ratio as berkson (3:1)
+        canvas.width = displayWidth * dpr;
+        canvas.height = displayHeight * dpr;
+        canvas.style.width = displayWidth + 'px';
+        canvas.style.height = displayHeight + 'px';
+
+        const ctx = canvas.getContext('2d');
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
+
+        return { width: displayWidth, height: displayHeight };
+    }
+
+    function drawDAG() {
+        const dims = setupCanvas(dagCanvas, 3); // 3:1 aspect ratio like berkson
+        const { width, height } = dims;
+        const colors = getColors();
+
+        dagCtx.clearRect(0, 0, width, height);
+        dagCtx.fillStyle = colors.bg;
+        dagCtx.fillRect(0, 0, width, height);
+
+        // Node positions
         const nodeRadius = 30;
-        const centerX = w / 2;
+        const centerX = width / 2;
         const spacing = 150;
-        const dagHeight = Math.round(w / 3); // Same aspect ratio as berkson
 
         const nodes = {
-            A: { x: centerX - spacing / 2, y: dagHeight * 0.65 },
-            B: { x: centerX, y: dagHeight * 0.35 },
-            C: { x: centerX + spacing / 2, y: dagHeight * 0.65 }
+            A: { x: centerX - spacing / 2, y: height * 0.65 },
+            B: { x: centerX, y: height * 0.35 },
+            C: { x: centerX + spacing / 2, y: height * 0.65 }
         };
 
         const edges = structures[structure].edges;
 
         // Draw edges with arrows
-        ctx.strokeStyle = colors.edge;
-        ctx.fillStyle = colors.edge;
-        ctx.lineWidth = 2;
+        dagCtx.strokeStyle = colors.edge;
+        dagCtx.fillStyle = colors.edge;
+        dagCtx.lineWidth = 2;
 
         for (const [from, to] of edges) {
             const start = nodes[from];
@@ -215,80 +234,78 @@ export function initDAG(ids) {
             const endY = end.y - nodeRadius * Math.sin(angle);
 
             // Draw line
-            ctx.beginPath();
-            ctx.moveTo(startX, startY);
-            ctx.lineTo(endX, endY);
-            ctx.stroke();
+            dagCtx.beginPath();
+            dagCtx.moveTo(startX, startY);
+            dagCtx.lineTo(endX, endY);
+            dagCtx.stroke();
 
             // Draw arrowhead
             const headLength = 10;
-            ctx.beginPath();
-            ctx.moveTo(endX, endY);
-            ctx.lineTo(endX - headLength * Math.cos(angle - Math.PI / 6),
+            dagCtx.beginPath();
+            dagCtx.moveTo(endX, endY);
+            dagCtx.lineTo(endX - headLength * Math.cos(angle - Math.PI / 6),
                        endY - headLength * Math.sin(angle - Math.PI / 6));
-            ctx.lineTo(endX - headLength * Math.cos(angle + Math.PI / 6),
+            dagCtx.lineTo(endX - headLength * Math.cos(angle + Math.PI / 6),
                        endY - headLength * Math.sin(angle + Math.PI / 6));
-            ctx.closePath();
-            ctx.fill();
+            dagCtx.closePath();
+            dagCtx.fill();
         }
 
         // Draw nodes
         const labels = nodeLabels[structure] || nodeLabels['default'];
         for (const [name, pos] of Object.entries(nodes)) {
-            ctx.beginPath();
-            ctx.arc(pos.x, pos.y, nodeRadius, 0, 2 * Math.PI);
-            ctx.fillStyle = colors.node;
-            ctx.fill();
+            dagCtx.beginPath();
+            dagCtx.arc(pos.x, pos.y, nodeRadius, 0, 2 * Math.PI);
+            dagCtx.fillStyle = colors.node;
+            dagCtx.fill();
 
-            ctx.fillStyle = colors.bg;
-            ctx.font = '12px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+            dagCtx.fillStyle = colors.bg;
+            dagCtx.font = '12px sans-serif';
+            dagCtx.textAlign = 'center';
+            dagCtx.textBaseline = 'middle';
             const label = labels[name] || name;
-            ctx.fillText(label, pos.x, pos.y);
+            dagCtx.fillText(label, pos.x, pos.y);
         }
 
         // Add explanation text
-        ctx.fillStyle = colors.fg;
-        ctx.font = '11px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText('Ice cream and crime appear correlated, but summer causes both', w / 2, dagHeight + 10);
-
-        // Draw single scatterplot - Ice Cream vs Crime
-        const maxPlotSize = 240; // Larger since it's just one plot
-        const plotSize = Math.min(maxPlotSize, Math.floor(w * 0.5));
-        const plotY = dagHeight + 30 + plotSize / 2; // Start after DAG and explanation text
-
-        const labelA = labels['A'];
-        const labelC = labels['C'];
-        drawScatterplot(data.A, data.C, w / 2, plotY, plotSize, plotSize, `${labelA} vs ${labelC}`);
+        dagCtx.fillStyle = colors.fg;
+        dagCtx.font = '11px sans-serif';
+        dagCtx.textAlign = 'center';
+        dagCtx.fillText('Ice cream and crime appear correlated, but summer causes both', width / 2, height - 15);
     }
 
-    function drawScatterplot(xData, yData, centerX, centerY, width, height, label) {
-        const padding = 10;
-        const plotW = width - 2 * padding;
-        const plotH = height - 2 * padding;
+    function drawScatter() {
+        const dims = setupCanvas(scatterCanvas, 1.5); // 1.5:1 aspect ratio like berkson scatterplots
+        const { width, height } = dims;
+        const colors = getColors();
 
-        // Draw background
-        ctx.fillStyle = '#f5f5f5';
-        ctx.fillRect(centerX - width / 2, centerY - height / 2, width, height);
+        const labels = nodeLabels[structure] || nodeLabels['default'];
+        const labelA = labels['A'];
+        const labelC = labels['C'];
+        drawScatterplot(scatterCtx, data.A, data.C, width, height, `${labelA} vs ${labelC}`, colors);
+    }
 
-        ctx.font = STYLE.font.medium;
+    function drawScatterplot(ctx, xData, yData, width, height, label, colors) {
+        const padding = { top: 50, right: 20, bottom: 50, left: 60 };
+        const plotW = width - padding.left - padding.right;
+        const plotH = height - padding.top - padding.bottom;
+
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = colors.bg;
+        ctx.fillRect(0, 0, width, height);
+
+        // Title
+        ctx.fillStyle = colors.fg;
+        ctx.font = '14px sans-serif';
         ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const labelColor = isDark ? '#fff' : '#333';
+        ctx.fillText(label, width / 2, 20);
 
         if (xData.length === 0) {
-            ctx.fillStyle = '#999';
+            ctx.fillStyle = colors.fg2;
+            ctx.font = '12px sans-serif';
+            ctx.textAlign = 'center';
             ctx.textBaseline = 'middle';
-            ctx.fillText('Press Run', centerX, centerY);
-            // Label underneath
-            ctx.fillStyle = labelColor;
-            ctx.font = 'bold 13px sans-serif';
-            ctx.textBaseline = 'top';
-            ctx.fillText(label, centerX, centerY + height / 2 + 8);
+            ctx.fillText('Press Run', width / 2, height / 2);
             return;
         }
 
@@ -301,46 +318,34 @@ export function initDAG(ids) {
         if (xMax === xMin) { xMin -= 1; xMax += 1; }
         if (yMax === yMin) { yMin -= 1; yMax += 1; }
 
+        // Draw axes
+        ctx.strokeStyle = colors.fg2;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(padding.left, padding.top);
+        ctx.lineTo(padding.left, height - padding.bottom);
+        ctx.lineTo(width - padding.right, height - padding.bottom);
+        ctx.stroke();
+
         // Draw points at 20% opacity
         const n = xData.length;
         ctx.fillStyle = 'rgba(74, 144, 226, 0.2)';
         for (let i = 0; i < n; i++) {
-            const x = centerX - width / 2 + padding + ((xData[i] - xMin) / (xMax - xMin)) * plotW;
-            const y = centerY + height / 2 - padding - ((yData[i] - yMin) / (yMax - yMin)) * plotH;
+            const x = padding.left + ((xData[i] - xMin) / (xMax - xMin)) * plotW;
+            const y = height - padding.bottom - ((yData[i] - yMin) / (yMax - yMin)) * plotH;
             ctx.beginPath();
             ctx.arc(x, y, 2, 0, 2 * Math.PI);
             ctx.fill();
         }
 
-        // Label and R² underneath
+        // R² display
         const corr = correlation(xData, yData);
         const rSquared = corr * corr;
-        ctx.fillStyle = labelColor;
-        ctx.font = 'bold 13px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        ctx.fillText(label, centerX, centerY + height / 2 + 8);
+        ctx.fillStyle = colors.fg;
         ctx.font = '12px sans-serif';
-        ctx.fillText(`R² = ${rSquared.toFixed(2)}`, centerX, centerY + height / 2 + 24);
-    }
-
-    function resizeCanvas() {
-        const rect = canvas.getBoundingClientRect();
-        const dpr = window.devicePixelRatio || 1;
-        canvasLogicalWidth = rect.width;
-
-        // Calculate height to fit: DAG (width/3) + explanation text (30) + single plot + labels (50)
-        const dagHeight = Math.round(rect.width / 3);
-        const maxPlotSize = 240;
-        const plotSize = Math.min(maxPlotSize, Math.floor(rect.width * 0.5));
-        canvasLogicalHeight = dagHeight + 30 + plotSize + 50;
-
-        canvas.style.height = `${canvasLogicalHeight}px`;
-        canvas.width = Math.floor(rect.width * dpr);
-        canvas.height = Math.floor(canvasLogicalHeight * dpr);
-        ctx.resetTransform();
-        ctx.scale(dpr, dpr);
-        draw();
+        ctx.textAlign = 'right';
+        ctx.textBaseline = 'top';
+        ctx.fillText(`R² = ${rSquared.toFixed(2)}`, width - padding.right - 10, padding.top + 10);
     }
 
     function runLoop() {
@@ -380,11 +385,15 @@ export function initDAG(ids) {
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(resizeCanvas, 100);
+        resizeTimeout = setTimeout(() => {
+            drawDAG();
+            drawScatter();
+        }, 100);
     });
 
     // Initialize
     buildWeightControls();
-    resizeCanvas();
+    drawDAG();
+    drawScatter();
     updateCorrelations();
 }

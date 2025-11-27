@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Boxing on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/boxing/</link>
+    <link>http://localhost:49476/tags/boxing/</link>
     <description>Recent content in Boxing on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 12 May 2008 08:59:35 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/boxing/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 May 2008 08:59:35 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/boxing/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Integer Boxing Quiz Results</title>
-      <link>https://www.bonnycode.com/posts/integer-boxin-1/</link>
+      <link>http://localhost:49476/posts/integer-boxin-1/</link>
       <pubDate>Mon, 12 May 2008 08:59:35 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/integer-boxin-1/</guid>
+      <guid>http://localhost:49476/posts/integer-boxin-1/</guid>
       <description>&lt;p&gt;Brent Hill came in with the first correct answer and has been awarded 15 points. I plan on the next quiz being something to do with the generational garbage collection so study up if you don&amp;rsquo;t have any idea what that is.&lt;/p&gt;
 </description>
     </item>

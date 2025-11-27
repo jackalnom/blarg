@@ -95,7 +95,10 @@ export async function initElectricityDemand(containerId) {
 
     function draw() {
         const colors = getColors();
-        const dims = setupCanvas(mainCanvas, 3.5); // Wider aspect for 3 years
+        // Use shorter aspect ratio on mobile for better visibility
+        const isMobile = window.innerWidth < 600;
+        const aspectRatio = isMobile ? 2 : 3.5;
+        const dims = setupCanvas(mainCanvas, aspectRatio);
         const { width, height } = dims;
         const padding = { top: 50, right: 20, bottom: 60, left: 70 };
         const plotW = width - padding.left - padding.right;

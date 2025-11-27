@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Failure on BonnyCode</title>
-    <link>https://www.bonnycode.com/tags/failure/</link>
+    <link>http://localhost:49476/tags/failure/</link>
     <description>Recent content in Failure on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/failure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:49476/tags/failure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Just people in a room</title>
-      <link>https://www.bonnycode.com/posts/just-people-in-a-room/</link>
+      <link>http://localhost:49476/posts/just-people-in-a-room/</link>
       <pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
       
-      <guid>https://www.bonnycode.com/posts/just-people-in-a-room/</guid>
+      <guid>http://localhost:49476/posts/just-people-in-a-room/</guid>
       <description>&lt;p&gt;In the early 2000s, I worked for a digital video processing startup that Autodesk acquired. We were merged with another acquisition. Our team became the developers, their team (the &amp;ldquo;others&amp;rdquo;) became management. The others were clueless. They didn&amp;rsquo;t understand the technical domain, our customers, or the product. Naturally, I hated them. Their meetings were always pointless; I learned to skip them. Their product plan was a disaster. We secretly built our own, supposedly better version. We believed once upper management saw how superior ours was, we&amp;rsquo;d finally get rid of the others and everything would be good again.&lt;/p&gt;
 &lt;p&gt;One morning, we were all called into a conference room. I tried to skip, assuming it was another pointless meeting from the others, but HR said it was mandatory. Everyone was there. We were all laid off, effective immediately. The whole department shut down. Us, the others, everyone.&lt;/p&gt;
 &lt;p&gt;All the hate and politics evaporated. We were just people sitting in a room together. I felt silly and embarrassed for how I&amp;rsquo;d felt moments before.&lt;/p&gt;
