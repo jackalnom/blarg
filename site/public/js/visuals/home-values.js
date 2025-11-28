@@ -1,228 +1,190 @@
 import { getThemeColors, listenForThemeChange } from "./utils.js";
 
 /**
- * Milwaukee Home Sale Prices - Real transaction data
- * Shows right-skewed distribution of actual home sales
- * Source: City of Milwaukee Open Data Portal, 2024 Property Sales
+ * England & Wales House Prices - Real transaction data
+ * Shows right-skewed distribution of actual property sales
+ * Source: HM Land Registry Price Paid Data, 2024
+ * https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads
  */
 export async function initHomeValues(containerId, logCheckboxId) {
-    const container = document.getElementById(containerId);
-    const logCheckbox = document.getElementById(logCheckboxId);
-    if (!container) return;
+  const container = document.getElementById(containerId);
+  const logCheckbox = document.getElementById(logCheckboxId);
+  if (!container) return;
 
-    // Create canvas
-    const canvas = document.createElement('canvas');
-    canvas.className = 'static-chart-canvas';
-    container.appendChild(canvas);
+  const canvas = document.createElement("canvas");
+  canvas.className = "static-chart-canvas";
+  container.appendChild(canvas);
+  const ctx = canvas.getContext("2d");
 
-    const ctx = canvas.getContext('2d');
+  async function loadData() {
+    const res = await fetch("/data/uk_house_prices.json");
+    const json = await res.json();
+    // Convert bins to point data (using midpoint of each bracket)
+    return json.bins
+      .map((b) => ({
+        price: (b.min + b.max) / 2,
+        count: b.count
+      }))
+      .filter((d) => d.count > 0 && d.price > 0);
+  }
 
-    // Load data
-    let data;
-    try {
-        const resp = await fetch('/data/milwaukee_binned.json');
-        data = await resp.json();
-    } catch (e) {
-        container.innerHTML = '<p>Failed to load home sales data</p>';
-        return;
+  let data = await loadData();
+  let width = 0,
+    height = 0;
+
+  function resize() {
+    const rect = container.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    width = rect.width;
+    height = Math.max(260, Math.min(480, rect.width * 0.5));
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.resetTransform();
+    ctx.scale(dpr, dpr);
+    draw();
+  }
+
+  function draw() {
+    const c = getThemeColors();
+    const padding = { top: 30, right: 24, bottom: 50, left: 70 };
+    const plotW = width - padding.left - padding.right;
+    const plotH = height - padding.top - padding.bottom;
+    ctx.clearRect(0, 0, width, height);
+
+    const useLog = logCheckbox?.checked;
+    const xMin = Math.min(...data.map((d) => d.price));
+    const xMax = Math.max(...data.map((d) => d.price));
+    const yMax = Math.max(...data.map((d) => d.count));
+
+    function xScale(v) {
+      if (useLog) {
+        const lv = Math.log10(v);
+        const lmin = Math.log10(xMin);
+        const lmax = Math.log10(xMax);
+        return padding.left + ((lv - lmin) / (lmax - lmin)) * plotW;
+      }
+      return padding.left + ((v - xMin) / (xMax - xMin)) * plotW;
+    }
+    function yScale(v) {
+      // Y-axis is always linear
+      return padding.top + (1 - v / yMax) * plotH;
     }
 
-    const brackets = data.bins;
-    const totalHomes = data.total;
-    const medianValue = 225000;  // From data analysis
-
-    let width, height;
-    let useLogScale = false;
-
-    function resize() {
-        const rect = container.getBoundingClientRect();
-        const dpr = window.devicePixelRatio || 1;
-        width = rect.width;
-        height = width / 2.5;
-
-        canvas.style.width = `${width}px`;
-        canvas.style.height = `${height}px`;
-        canvas.width = Math.floor(width * dpr);
-        canvas.height = Math.floor(height * dpr);
-        ctx.resetTransform();
-        ctx.scale(dpr, dpr);
-        draw();
+    function formatMoney(v) {
+      if (v >= 1e6) return `£${Math.round(v / 1e5) / 10}M`;
+      if (v >= 1e3) return `£${Math.round(v / 1e2) / 10}k`;
+      return `£${v}`;
     }
 
-    function formatMoney(value) {
-        if (value >= 1000000) return `$${(value / 1000000).toFixed(1)}M`;
-        if (value >= 1000) return `$${(value / 1000).toFixed(0)}k`;
-        return `$${value}`;
+    function linearTicks(min, max, desired = 5) {
+      const span = max - min;
+      if (span <= 0) return [min];
+      const rawStep = span / desired;
+      const step = Math.pow(10, Math.floor(Math.log10(rawStep)));
+      const niceStep = rawStep / step >= 5 ? 5 * step : rawStep / step >= 2 ? 2 * step : step;
+      const start = Math.ceil(min / niceStep) * niceStep;
+      const ticks = [];
+      for (let t = start; t <= max; t += niceStep) ticks.push(t);
+      if (ticks.length === 0) ticks.push(max);
+      return ticks;
     }
 
-    function draw() {
-        const colors = getThemeColors();
-        const padding = { top: 20, right: 20, bottom: 50, left: 50 };
-        const plotW = width - padding.left - padding.right;
-        const plotH = height - padding.top - padding.bottom;
+    // axes
+    ctx.strokeStyle = c.grid;
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(padding.left, padding.top);
+    ctx.lineTo(padding.left, height - padding.bottom);
+    ctx.lineTo(width - padding.right, height - padding.bottom);
+    ctx.stroke();
 
-        ctx.clearRect(0, 0, width, height);
+    // grid + ticks x
+    ctx.fillStyle = c.fg;
+    ctx.font = "11px system-ui, sans-serif";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "top";
+    const xTicks = useLog
+      ? [10000, 100000, 1000000, 10000000, 100000000].filter((t) => t >= xMin && t <= xMax)
+      : linearTicks(xMin, xMax);
+    xTicks.forEach((t) => {
+      const px = xScale(t);
+      ctx.strokeStyle = c.grid;
+      ctx.beginPath();
+      ctx.moveTo(px, padding.top);
+      ctx.lineTo(px, height - padding.bottom);
+      ctx.stroke();
+      ctx.strokeStyle = c.grid;
+      ctx.beginPath();
+      ctx.moveTo(px, height - padding.bottom);
+      ctx.lineTo(px, height - padding.bottom + 4);
+      ctx.stroke();
+      ctx.fillText(useLog ? `£1e${Math.round(Math.log10(t))}` : formatMoney(t), px, height - padding.bottom + 6);
+    });
+    ctx.fillStyle = c.fg;
+    ctx.font = "12px system-ui, sans-serif";
+    ctx.fillText("Home Value", padding.left + plotW / 2, height - 12);
 
-        // Convert counts to density (count per $1000 range for fair comparison)
-        const densities = brackets.map(b => ({
-            ...b,
-            mid: (b.min + b.max) / 2,
-            density: b.count / ((b.max - b.min) / 1000)
-        }));
+    // y ticks (always linear)
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+    const yTicks = linearTicks(0, yMax);
+    yTicks.forEach((t) => {
+      const py = yScale(t);
+      ctx.strokeStyle = c.grid;
+      ctx.beginPath();
+      ctx.moveTo(padding.left, py);
+      ctx.lineTo(width - padding.right, py);
+      ctx.stroke();
+      ctx.strokeStyle = c.grid;
+      ctx.beginPath();
+      ctx.moveTo(padding.left - 4, py);
+      ctx.lineTo(padding.left, py);
+      ctx.stroke();
+      ctx.fillStyle = c.fg;
+      ctx.font = "11px system-ui, sans-serif";
+      ctx.fillText(formatMoney(t), padding.left - 8, py);
+    });
+    ctx.save();
+    ctx.translate(18, padding.top + plotH / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = "center";
+    ctx.font = "12px system-ui, sans-serif";
+    ctx.fillStyle = c.fg;
+    ctx.fillText("Properties sold", 0, 0);
+    ctx.restore();
 
-        const maxDensity = Math.max(...densities.map(d => d.density));
-
-        let xMin, xMax;
-        if (useLogScale) {
-            xMin = Math.log10(10000);   // $10k
-            xMax = Math.log10(3000000); // $3M
-        } else {
-            xMin = 0;
-            xMax = 1500000; // $1.5M to show main distribution
-        }
-
-        // Draw axes
-        ctx.strokeStyle = colors.grid;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(padding.left, padding.top);
-        ctx.lineTo(padding.left, height - padding.bottom);
-        ctx.lineTo(width - padding.right, height - padding.bottom);
-        ctx.stroke();
-
-        // X-axis labels
-        ctx.fillStyle = colors.fg;
-        ctx.font = '11px system-ui, sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-
-        if (useLogScale) {
-            const logTicks = [10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2000000];
-            for (const val of logTicks) {
-                const logVal = Math.log10(val);
-                if (logVal < xMin || logVal > xMax) continue;
-                const px = padding.left + ((logVal - xMin) / (xMax - xMin)) * plotW;
-                ctx.fillText(formatMoney(val), px, height - padding.bottom + 8);
-                ctx.beginPath();
-                ctx.moveTo(px, height - padding.bottom);
-                ctx.lineTo(px, height - padding.bottom + 4);
-                ctx.stroke();
-            }
-        } else {
-            for (let val = 0; val <= xMax; val += 250000) {
-                const px = padding.left + ((val - xMin) / (xMax - xMin)) * plotW;
-                ctx.fillText(formatMoney(val), px, height - padding.bottom + 8);
-                ctx.beginPath();
-                ctx.moveTo(px, height - padding.bottom);
-                ctx.lineTo(px, height - padding.bottom + 4);
-                ctx.stroke();
-            }
-        }
-
-        ctx.font = '12px system-ui, sans-serif';
-        const xLabel = useLogScale ? 'Home Value (log scale)' : 'Home Value';
-        ctx.fillText(xLabel, padding.left + plotW / 2, height - 12);
-
-        // Y-axis title
-        ctx.save();
-        ctx.translate(15, padding.top + plotH / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.textAlign = 'center';
-        ctx.fillText('Homes (millions)', 0, 0);
-        ctx.restore();
-
-        // Y-axis labels
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'middle';
-        ctx.font = '10px system-ui, sans-serif';
-
-        // Draw bars
-        ctx.fillStyle = colors.bar;
-        ctx.strokeStyle = colors.barStroke;
-        ctx.lineWidth = 1;
-
-        for (const bracket of brackets) {
-            let barLeft, barRight;
-
-            if (useLogScale) {
-                const logMin = Math.log10(Math.max(bracket.min, 1000));
-                const logMax = Math.log10(bracket.max);
-                barLeft = padding.left + ((logMin - xMin) / (xMax - xMin)) * plotW;
-                barRight = padding.left + ((logMax - xMin) / (xMax - xMin)) * plotW;
-            } else {
-                barLeft = padding.left + ((bracket.min - xMin) / (xMax - xMin)) * plotW;
-                barRight = padding.left + ((bracket.max - xMin) / (xMax - xMin)) * plotW;
-            }
-
-            // Skip if off screen
-            if (barRight < padding.left || barLeft > padding.left + plotW) continue;
-
-            // Clamp to visible area
-            barLeft = Math.max(barLeft, padding.left);
-            barRight = Math.min(barRight, padding.left + plotW);
-
-            const barWidth = barRight - barLeft;
-            const barHeight = (bracket.count / totalHomes) * plotH * 8; // Scale for visibility
-
-            ctx.fillRect(barLeft, height - padding.bottom - barHeight, barWidth, barHeight);
-            ctx.strokeRect(barLeft, height - padding.bottom - barHeight, barWidth, barHeight);
-        }
-
-        // Draw median line
-        ctx.setLineDash([5, 5]);
-        ctx.strokeStyle = colors.threshold;
-        ctx.lineWidth = 2;
-
-        let medianPx;
-        if (useLogScale) {
-            medianPx = padding.left + ((Math.log10(medianValue) - xMin) / (xMax - xMin)) * plotW;
-        } else {
-            medianPx = padding.left + ((medianValue - xMin) / (xMax - xMin)) * plotW;
-        }
-
-        ctx.beginPath();
-        ctx.moveTo(medianPx, padding.top);
-        ctx.lineTo(medianPx, height - padding.bottom);
-        ctx.stroke();
-        ctx.setLineDash([]);
-
-        // Legend
-        ctx.font = '11px system-ui, sans-serif';
-        ctx.textAlign = 'left';
-        ctx.textBaseline = 'middle';
-
-        const legendX = width - padding.right - 130;
-        const legendY = padding.top + 15;
-
-        ctx.strokeStyle = colors.threshold;
-        ctx.setLineDash([5, 5]);
-        ctx.beginPath();
-        ctx.moveTo(legendX, legendY);
-        ctx.lineTo(legendX + 20, legendY);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.fillStyle = colors.fg;
-        ctx.fillText(`Median: ${formatMoney(medianValue)}`, legendX + 26, legendY);
-    }
-
-    // Checkbox handler
-    if (logCheckbox) {
-        logCheckbox.addEventListener('change', () => {
-            useLogScale = logCheckbox.checked;
-            draw();
-        });
-    }
-
-    // Handle resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(resize, 100);
+    // bars
+    ctx.fillStyle = c.point; // Use transparent color
+    const baseline = height - padding.bottom;
+    data.forEach((d) => {
+      const x = xScale(d.price);
+      const barW = useLog ? (plotW / data.length) * 0.8 : Math.max(2, plotW / data.length);
+      const y = yScale(d.count);
+      const barHeight = Math.max(0, baseline - y); // Ensure non-negative height
+      ctx.fillRect(x - barW / 2, y, barW, barHeight);
     });
 
-    resize();
-
-    listenForThemeChange(() => {
-        draw();
+    // outline (as a loose line)
+    ctx.beginPath();
+    data.forEach((d, i) => {
+      const x = xScale(d.price);
+      const y = Math.min(yScale(d.count), baseline); // Clamp to not go below baseline
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
     });
+    ctx.strokeStyle = c.node; // Use solid color
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }
+
+  resize();
+
+  listenForThemeChange(() => {
+    draw();
+  });
+
+  logCheckbox?.addEventListener("change", draw);
+  window.addEventListener("resize", resize);
 }

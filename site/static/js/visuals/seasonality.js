@@ -88,7 +88,7 @@ export function initSeasonality() {
             label: "Weekly",
             color: COLORS.seasonality.weekly,
             periodic: true,
-            points: makeEquidistantPoints([0.5, 0.62, 0.52, 0.35, 0.6, 0.7, 0.5], 0.08),
+            points: makeEquidistantPoints([0.5, 0.5, 0.5, 0.5, 0.5, 0.7, 0.7], 0.08),
             yClamp: [0, 1],
             yDomain: [0, 1]
         },
@@ -119,6 +119,7 @@ export function initSeasonality() {
     // Noise control
     const noiseSlider = document.getElementById("seasonalityNoise");
     let noiseLevel = noiseSlider ? parseFloat(noiseSlider.value) : 0;
+    const maxNoisePeriod = 48; // Fixed noise period in days
 
     if (noiseSlider) {
         noiseSlider.addEventListener("input", () => {
@@ -228,6 +229,37 @@ export function initSeasonality() {
         const trendSlope = (trendPoints[1].y - trendPoints[0].y) / (trendPoints[1].x - trendPoints[0].x);
         const trendIntercept = trendPoints[0].y - trendSlope * trendPoints[0].x;
 
+        // Pre-generate noise segments with random durations and amplitudes
+        const noiseSegments = [];
+        if (noiseLevel > 0) {
+            let i = 0;
+            while (i <= steps) {
+                const duration = Math.floor(Math.random() * maxNoisePeriod) + 1; // 1 to maxNoisePeriod days
+                // More chaotic amplitudes with varying magnitudes
+                const scaleFactor = 0.3 + Math.random() * 1.7; // 0.3x to 2.0x variation
+                const amplitude = (Math.random() - 0.5) * noiseLevel * scaleFactor;
+                noiseSegments.push({ start: i, duration, amplitude });
+                i += duration;
+            }
+        }
+
+        // Helper to get noise value for a given step
+        function getNoiseAtStep(step) {
+            if (noiseLevel === 0) return 0;
+            for (const segment of noiseSegments) {
+                if (step >= segment.start && step < segment.start + segment.duration) {
+                    // Use a normal distribution curve within the segment
+                    // Peak at the middle, taper off at edges
+                    const relativePos = (step - segment.start) / segment.duration; // 0 to 1
+                    const center = 0.5;
+                    const sigma = 0.25; // Width of the bell curve
+                    const gaussian = Math.exp(-Math.pow(relativePos - center, 2) / (2 * sigma * sigma));
+                    return segment.amplitude * gaussian;
+                }
+            }
+            return 0;
+        }
+
         // Span 3 years instead of 1
         for (let i = 0; i <= steps; i++) {
             const t = i / steps; // 0 to 1 over 3 years
@@ -246,11 +278,10 @@ export function initSeasonality() {
             // Multiplicative composition
             let v = Math.max(0, trend * weekly * annual);
 
-            // Add noise
-            if (noiseLevel > 0) {
-                v += (Math.random() - 0.5) * noiseLevel;
-                v = Math.max(0, v);
-            }
+            // Add noise (persistent segments of 1-15 days)
+            v += getNoiseAtStep(i);
+            v = Math.max(0, v);
+
             vals.push(v);
             if (v > maxVal) maxVal = v;
         }

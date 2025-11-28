@@ -10,8 +10,7 @@ function normalizeIds(ids) {
             runId: `${base}Run`,
             stepCountName: `${base}StepCount`,
             resetId: `${base}Reset`,
-            logXId: `${base}LogX`,
-            logYId: `${base}LogY`
+            logId: `${base}Log`
         };
     }
     return ids;

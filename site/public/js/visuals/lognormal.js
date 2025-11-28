@@ -13,7 +13,6 @@ function normalizeIds(ids) {
             resetId: `${base}Reset`,
             countId: `${base}Count`,
             logXId: `${base}LogX`,
-            logYId: `${base}LogY`,
             infoId: `${base}Info`
         };
     }

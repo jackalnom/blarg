@@ -273,7 +273,7 @@ export class SimulationRunner {
 }
 
 export class StandardSimulation {
-    constructor({ canvasId, stepId, runId, stepCountName, resetId, buttonId, playPauseId, sidesId, countId, logXId, logYId, infoId, config, onStart, onRecompute, onStep }) {
+    constructor({ canvasId, stepId, runId, stepCountName, resetId, buttonId, playPauseId, sidesId, countId, logXId, logYId, logId, infoId, config, onStart, onRecompute, onStep }) {
         this.canvas = document.getElementById(canvasId);
         this.stepBtn = document.getElementById(stepId);
         this.runBtn = document.getElementById(runId);
@@ -282,8 +282,18 @@ export class StandardSimulation {
         this.resetBtn = document.getElementById(resetId);
         this.sidesSelect = document.getElementById(sidesId);
         this.countInput = document.getElementById(countId);
-        this.logXToggle = document.getElementById(logXId);
-        this.logYToggle = document.getElementById(logYId);
+
+        // Support both separate log toggles and combined log toggle
+        if (logId) {
+            // Combined log toggle for both axes (e.g., preferential-attachment)
+            this.logToggle = document.getElementById(logId);
+            this.logXToggle = this.logToggle;
+            this.logYToggle = this.logToggle;
+        } else {
+            // Separate log toggles
+            this.logXToggle = document.getElementById(logXId);
+            this.logYToggle = document.getElementById(logYId);
+        }
         this.infoEl = document.getElementById(infoId);
 
         // Backward compatibility: support old playPauseId if stepId not provided

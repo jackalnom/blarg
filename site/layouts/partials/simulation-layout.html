@@ -1,6 +1,6 @@
 {{- /* Force rebuild */ -}}
 {{- $base := .base -}}
-{{- $hasLog := .hasLog | default false -}}
+{{- $logMode := .logMode | default "" -}}
 
 <div class="sim-controls">
     {{ if .hasCount }}
@@ -15,10 +15,13 @@
     <button id="{{ $base }}Reset" class="sim-reset-btn">Reset</button>
 </div>
 
-{{ if $hasLog }}
+{{ if eq $logMode "x-only" }}
 <div class="sim-log-options">
-    <label><input type="checkbox" id="{{ $base }}LogX"> Log scale X</label>
-    <label><input type="checkbox" id="{{ $base }}LogY"> Log scale Y</label>
+    <label><input type="checkbox" id="{{ $base }}LogX"> Log x-axis</label>
+</div>
+{{ else if eq $logMode "both-together" }}
+<div class="sim-log-options">
+    <label><input type="checkbox" id="{{ $base }}Log"> Log axes</label>
 </div>
 {{ end }}
 
