@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Systems-Thinking on BonnyCode</title>
-    <link>http://localhost:1313/tags/systems-thinking/</link>
+    <link>https://www.bonnycode.com/tags/systems-thinking/</link>
     <description>Recent content in Systems-Thinking on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Aug 2025 12:27:25 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/systems-thinking/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Aug 2025 12:27:25 -0700</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/systems-thinking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Short-term metrics, long-term harm</title>
-      <link>http://localhost:1313/posts/short-term-metrics-long-term-harm/</link>
+      <link>https://www.bonnycode.com/posts/short-term-metrics-long-term-harm/</link>
       <pubDate>Mon, 04 Aug 2025 12:27:25 -0700</pubDate>
       
-      <guid>http://localhost:1313/posts/short-term-metrics-long-term-harm/</guid>
+      <guid>https://www.bonnycode.com/posts/short-term-metrics-long-term-harm/</guid>
       <description>&lt;p&gt;In the early 90s, I first discovered &lt;a href=&#34;https://en.wikipedia.org/wiki/Multi-user_dungeon&#34;&gt;MUDs&lt;/a&gt;: amazing text-based, multiplayer roleplaying-games before the web or silly things like graphics. I was one of those cool kids who played Advanced Dungeons &amp;amp; Dragons (AD&amp;amp;D) and this was like that but you played with randos on the internet instead.&lt;/p&gt;
 &lt;p&gt;You started at level 1 killing rats for experience points. After you gained enough experience points, you leveled up, and your character became more powerful. Then you killed slimes, and goblins, and later trolls and dragons as your power grew. Unlike AD&amp;amp;D, which required walking to a friend&amp;rsquo;s house and coordinating schedules, MUDs were always there. Always waiting. Just one more level&amp;hellip; I feigned illness to skip school and grind all day. My grades suffered. School was boring anyway though. Completing one more dungeon, getting better gear, just one more level; so much more satisfying than learning about arctangents.&lt;/p&gt;
 &lt;h1 id=&#34;how-big-tech-launches-features-through-ab-testing&#34;&gt;How big tech launches features through A/B testing&lt;/h1&gt;

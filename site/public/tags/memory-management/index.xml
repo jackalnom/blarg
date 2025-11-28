@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Memory-Management on BonnyCode</title>
-    <link>http://localhost:1313/tags/memory-management/</link>
+    <link>https://www.bonnycode.com/tags/memory-management/</link>
     <description>Recent content in Memory-Management on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 May 2008 16:49:31 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/memory-management/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 May 2008 16:49:31 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/memory-management/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Garbage Collector Quiz</title>
-      <link>http://localhost:1313/posts/garbage-collector-quiz/</link>
+      <link>https://www.bonnycode.com/posts/garbage-collector-quiz/</link>
       <pubDate>Sat, 24 May 2008 16:49:31 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/garbage-collector-quiz/</guid>
+      <guid>https://www.bonnycode.com/posts/garbage-collector-quiz/</guid>
       <description>&lt;p&gt;As promised, here is a little quiz related to the Java Garbage Collector. This one is a little more difficult than my previous quizzes so I&amp;rsquo;ve left a fairly large hint in the code. First person to get the correct answer gets 25 points.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.lang.ref.*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nn&#34;&gt;java.util.*&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;

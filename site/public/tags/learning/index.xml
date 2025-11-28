@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Learning on BonnyCode</title>
-    <link>http://localhost:1313/tags/learning/</link>
+    <link>https://www.bonnycode.com/tags/learning/</link>
     <description>Recent content in Learning on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 12 Oct 2008 13:03:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/learning/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Oct 2008 13:03:39 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Programology</title>
-      <link>http://localhost:1313/posts/programology/</link>
+      <link>https://www.bonnycode.com/posts/programology/</link>
       <pubDate>Sun, 12 Oct 2008 13:03:39 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/programology/</guid>
+      <guid>https://www.bonnycode.com/posts/programology/</guid>
       <description>&lt;p&gt;If I were to teach a course at the University level, I would teach programology. Not the study of programming, but the study of existing computer programs. In the entire course, we would only read source code. Not small snippets of algorithms, and not trivialized polished examples of code created just for class. I&amp;rsquo;m talking about the industrial gritty always evolving code that actually runs a good part of the industrialized world now. Just as in cultural anthropology you study tribes from New Guinea to understand the various ways in which human society has evolved, we would study old programs, new programs, large programs, and small programs. We would study programs developed under a variety of different paradigms.&lt;/p&gt;
 &lt;p&gt;It would be a weeder class. Writing code is hard; reading code is harder. But that is the point, being able to take an existing code base and quickly conceptualize the architecture and its design elements is what separates the software developer who can make the trivial one line fix to a problem and the one who bolts on three hundred lines of monstrous code because they didn&amp;rsquo;t quite get it.&lt;/p&gt;
 &lt;p&gt;It will also help us not repeat the same mistakes that the majority of software developers have made before us. Most new software developers start out writing spaghetti code, code without known structure, features organically tacked on and general anarchy. Most developers eventually learn from their mistake, but when given the chance to rewrite their original software they swing too far the other way. They create a huge over-designed Frankenstein creation that is fully table driven, has an intricate inheritance tree and incorporates god knows how many design patterns. If we are lucky, the developer spends enough time in the field to eventually learn from this mistake as well and finds a happy medium.&lt;/p&gt;
@@ -23,10 +23,10 @@
     
     <item>
       <title>The Ambiguous Null</title>
-      <link>http://localhost:1313/posts/the-ambiguous-n/</link>
+      <link>https://www.bonnycode.com/posts/the-ambiguous-n/</link>
       <pubDate>Sun, 24 Feb 2008 22:50:54 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/the-ambiguous-n/</guid>
+      <guid>https://www.bonnycode.com/posts/the-ambiguous-n/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;paintColor&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Room is wall papered.&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  

@@ -12,9 +12,9 @@ tags: []
 
 ---
 
-When I transitioned from industry to teaching, the biggest gap I sought to close was the disconnect between the problems students face in class and the actual challenges I saw in the real world.
+I build little worlds full of adventurers, potions, and dragons. Students run potion shops where they manage magical supply chains for demanding fighters and wizards. They run media companies providing entertainment to dragons, frog-folk, and discerning gnomes. And, in the process, they often become curious about how the worlds themselves work and come alive.
 
-Too often, I saw new grads who only had exposure to toy problems that bear only a passing resemblance to the things that make technical work difficult. In the wild, solving a technical problem looks more like a cycle:
+I worked in tech for a long time, most of it leading technical teams. And I kept noticing the same thing: new grads who struggled with problems that looked nothing like their coursework. They knew how to do the work, but only if it was carefully packaged up for them in a neat package. In the wild, solving a technical problem looks more like a cycle:
 
 1. **Formulate:** Translate an unbounded, ambiguous real-world situation into a technical problem.
 2. **Solve:** Execute the technical solution.
@@ -47,7 +47,7 @@ The reality, as I know all too well, is that offline evaluation metrics often fa
 
 ## How I Build Simulations
 
-My goal when designing a simulation is for it to mimic the real-world in the ways that matter. It has to feel real, even when the subject matter of the simulation is obviously fantastical. For my purposes, I build worlds full of adventurers, potions, and dragons. But the data feels real otherwise.
+My goal when designing a simulation is for it to mimic the real-world in the ways that matter. It has to feel real, even when the subject matter of the simulation is obviously fantastical. But the data feels real otherwise.
 
 Fake data often looks fake to me.
 
@@ -178,8 +178,10 @@ I create balance in the system without hard-coded limits by putting agents in te
 
 I usually introduce some form of survival of the fittest to stabilize things. I’m not afraid to let agents die if they can’t achieve their utility, but I’m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.
 
-Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. For many processes, I already have strong expectations on what everything should look like, because I've seen the equivalent real data many times over. When I haven't, it becomes a fun exercise to look up papers and see what the real curves look like so I can ensure my simulation matches the spirit. It feels less like engineering and more like gardening, an organic process. I tend to my simulation as much as I build it. 
+Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. For many processes, I already have strong expectations on what everything should look like, because I've seen the equivalent real data many times over. When I haven't, I search through papers and what real data I can find to see the real curves so I can ensure my simulation matches the same generative spirit. It is less pure engineering and more like gardening, an organic process. I tend to my simulation as much as I build it. 
 
 That’s it; mostly... I'm showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.
 
-My hope when students engage with these living systems is that they stop treating data as just numbers for homework and start treating it as traces of a world to be discovered. That they learn to formulate problems from ambiguity, interpret messy results, and build resilience—the real, fundamental skills that no AI today can simply solve for them. Sparking that curiosity, even if I use fake worlds, is the most real lesson I can hope to teach.
+Is that really it though? Maybe like grandma's pancakes, there is still some ineffable element that is still necessary to make it all work in the classroom. Or maybe it isn't ineffable, we simply don't like to describe serious things using words like play, love, and wonder? I spend as much time on these simulations because it is fun. It is creative. It is a chance to build a world you can share with others to explore in.
+
+I take the same leap of faith when building simulations that I do when teaching. All the necessary elements are put into place with great care. You can't prove ahead of time what result will happen. Observation takes priority over control, nudges over micromanaging. It is more about the system you've created for learning than it is about you. And you the greatest joy is the pleasant suprise of what emerges.

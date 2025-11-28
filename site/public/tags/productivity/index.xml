@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Productivity on BonnyCode</title>
-    <link>http://localhost:1313/tags/productivity/</link>
+    <link>https://www.bonnycode.com/tags/productivity/</link>
     <description>Recent content in Productivity on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 24 Jun 2012 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Jun 2012 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How feature estimates killed Bobo</title>
-      <link>http://localhost:1313/posts/feature-estimates/</link>
+      <link>https://www.bonnycode.com/posts/feature-estimates/</link>
       <pubDate>Sun, 24 Jun 2012 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/feature-estimates/</guid>
+      <guid>https://www.bonnycode.com/posts/feature-estimates/</guid>
       <description>&lt;p&gt;Software development lacks a single meaningful, objective productivity metric. This is not for lack of trying. A productivity metric would make the life of a software development manager dramatically easier. Performance reviews? Just see who has the highest number. Need to find out how to boost productivity? Find the developer with the best process and have your other developers adopt it as a best practice. And so, managers grasp for measurement. Lines of code is so obviously wrong as a measurement that I&amp;rsquo;ve mostly heard it brought up for its comedic value. I&amp;rsquo;m not saying that in the history of software there hasn&amp;rsquo;t been some misguided manager who actually reviewed their developers by lines of code, but it is certainly more myth than reality in the modern era.&lt;/p&gt;
 &lt;p&gt;I can&amp;rsquo;t say the same for effort estimation accuracy. Many otherwise intelligent managers have embraced the accuracy of their developers estimates as a defining measure of their developers worth. There are varying degrees of vigor attached  to this review. The energetic manager maintains a spreadsheet (or enlists a task tracking tool) to calculate every estimate given by their developer and then what the task actually came in at. At its most simplistic they might just divide the two numbers at that point and shoot see who deviates the most from 1 and apply the appropriate corrective action.&lt;/p&gt;
 &lt;p&gt;Most managers aren&amp;rsquo;t quite so vigorous though. The belief in holding developers accountable to effort estimate accuracy is frequently enforced more subjectively.&lt;/p&gt;
@@ -30,10 +30,10 @@
     
     <item>
       <title>Points Ranking</title>
-      <link>http://localhost:1313/posts/points-ranking/</link>
+      <link>https://www.bonnycode.com/posts/points-ranking/</link>
       <pubDate>Mon, 14 Apr 2008 19:03:41 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/points-ranking/</guid>
+      <guid>https://www.bonnycode.com/posts/points-ranking/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Evan Rosson - 25 Points&lt;/li&gt;
 &lt;li&gt;Brent Hill - 15 Points&lt;/li&gt;

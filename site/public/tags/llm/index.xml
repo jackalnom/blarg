@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Llm on BonnyCode</title>
-    <link>http://localhost:1313/tags/llm/</link>
+    <link>https://www.bonnycode.com/tags/llm/</link>
     <description>Recent content in Llm on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 04 Aug 2025 12:27:25 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/llm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Aug 2025 12:27:25 -0700</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Short-term metrics, long-term harm</title>
-      <link>http://localhost:1313/posts/short-term-metrics-long-term-harm/</link>
+      <link>https://www.bonnycode.com/posts/short-term-metrics-long-term-harm/</link>
       <pubDate>Mon, 04 Aug 2025 12:27:25 -0700</pubDate>
       
-      <guid>http://localhost:1313/posts/short-term-metrics-long-term-harm/</guid>
+      <guid>https://www.bonnycode.com/posts/short-term-metrics-long-term-harm/</guid>
       <description>&lt;p&gt;In the early 90s, I first discovered &lt;a href=&#34;https://en.wikipedia.org/wiki/Multi-user_dungeon&#34;&gt;MUDs&lt;/a&gt;: amazing text-based, multiplayer roleplaying-games before the web or silly things like graphics. I was one of those cool kids who played Advanced Dungeons &amp;amp; Dragons (AD&amp;amp;D) and this was like that but you played with randos on the internet instead.&lt;/p&gt;
 &lt;p&gt;You started at level 1 killing rats for experience points. After you gained enough experience points, you leveled up, and your character became more powerful. Then you killed slimes, and goblins, and later trolls and dragons as your power grew. Unlike AD&amp;amp;D, which required walking to a friend&amp;rsquo;s house and coordinating schedules, MUDs were always there. Always waiting. Just one more level&amp;hellip; I feigned illness to skip school and grind all day. My grades suffered. School was boring anyway though. Completing one more dungeon, getting better gear, just one more level; so much more satisfying than learning about arctangents.&lt;/p&gt;
 &lt;h1 id=&#34;how-big-tech-launches-features-through-ab-testing&#34;&gt;How big tech launches features through A/B testing&lt;/h1&gt;
@@ -54,10 +54,10 @@
     
     <item>
       <title>Are we cooked?</title>
-      <link>http://localhost:1313/posts/are-we-cooked/</link>
+      <link>https://www.bonnycode.com/posts/are-we-cooked/</link>
       <pubDate>Wed, 16 Jul 2025 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/are-we-cooked/</guid>
+      <guid>https://www.bonnycode.com/posts/are-we-cooked/</guid>
       <description>&lt;p&gt;My students frequently ask me what LLMs mean for them as future software developers and data scientists. With little exaggeration it often comes across something along the lines of &amp;ldquo;low-key, are we cooked?&amp;rdquo;. The last one, if you are not one of my students, translates in millennial to &amp;ldquo;good esteemed professor, tell me true, are we f#@ked?&amp;rdquo; While I&amp;rsquo;ve given various off-the-cuff answers, I feel inspired to be more thoughtful in putting down more complete thoughts.&lt;/p&gt;
 &lt;h1 id=&#34;some-personal-background&#34;&gt;Some personal background&lt;/h1&gt;
 &lt;p&gt;I want to start by giving a little personal history and just saying I understand the anxiety. I started my freshman year at CalPoly San Luis Obispo in Computer Science in September 1999. Like many of us older millennials that got into tech, I had been programming since elementary school (QBasic!) and computer science seemed a natural path. I always loved reading philosophy though and I seriously considered getting a philosophy degree instead. It was a choice between something I figured I was pretty decent at and could make money doing (computer science) and something that I was personally invested in but probably couldn&amp;rsquo;t make money with (philosophy). Earning a living won out over passion. I stuck with computer science, but I took as many philosophy classes as I could get into. To the extent that I was put on academic probation, not because my grades were too low, but because in the words of the admin &amp;ldquo;stop taking so many philosophy classes and just graduate!&amp;rdquo;. Good times…&lt;/p&gt;

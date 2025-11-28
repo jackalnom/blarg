@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code-Style on BonnyCode</title>
-    <link>http://localhost:1313/tags/code-style/</link>
+    <link>https://www.bonnycode.com/tags/code-style/</link>
     <description>Recent content in Code-Style on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Mar 2008 09:23:37 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/code-style/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Mar 2008 09:23:37 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/code-style/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Register Style Programming</title>
-      <link>http://localhost:1313/posts/register-style/</link>
+      <link>https://www.bonnycode.com/posts/register-style/</link>
       <pubDate>Sun, 09 Mar 2008 09:23:37 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/register-style/</guid>
+      <guid>https://www.bonnycode.com/posts/register-style/</guid>
       <description>&lt;p&gt;Register style programming is when a coder of a high level language treats variables as if they were programming in assembly with registers.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;room&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;RoomDAO&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findLivingRoom&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;room&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;nil&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  
