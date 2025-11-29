@@ -231,7 +231,7 @@ export function initBerksonParadox(config) {
         ctx.font = '12px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
-        ctx.fillText('Location Quality', width / 2, height - 20);
+        ctx.fillText('Location Quality', width / 2, height - padding.bottom / 2 + 3);
 
         ctx.save();
         ctx.translate(15, height / 2);
@@ -418,5 +418,15 @@ export function initBerksonParadox(config) {
     listenForThemeChange(() => {
         drawDAG();
         drawScatterplots();
+    });
+
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            drawDAG();
+            drawScatterplots();
+        }, 100);
     });
 }

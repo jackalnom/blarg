@@ -89,7 +89,7 @@ export async function initElectricityDemand(containerId) {
         const aspectRatio = isMobile ? 1.54 : 2.5;
         const dims = setupCanvas(mainCanvas, aspectRatio);
         const { width, height } = dims;
-        const padding = { top: 50, right: 20, bottom: 60, left: 70 };
+        const padding = { top: 30, right: 20, bottom: 50, left: 70 };
         const plotW = width - padding.left - padding.right;
         const plotH = height - padding.top - padding.bottom;
 
@@ -273,7 +273,7 @@ export async function initElectricityDemand(containerId) {
         // Get current dimensions
         const width = rect.width;
         const height = rect.height;
-        const padding = { top: 50, right: 20, bottom: 60, left: 70 };
+        const padding = { top: 30, right: 20, bottom: 50, left: 70 };
         const plotW = width - padding.left - padding.right;
 
         // Check if mouse is in plot area

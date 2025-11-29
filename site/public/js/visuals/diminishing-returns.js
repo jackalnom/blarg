@@ -170,7 +170,7 @@ export function initDiminishingReturns(config) {
         ctx.font = '12px sans-serif';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'top';
-        ctx.fillText('Input (e.g., Study Hours, Ad Spend)', width / 2, height - 20);
+        ctx.fillText('Input (e.g., Study Hours, Ad Spend)', width / 2, height - padding.bottom / 2 + 3);
 
         ctx.save();
         ctx.translate(15, height / 2);

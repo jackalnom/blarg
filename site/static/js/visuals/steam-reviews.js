@@ -128,7 +128,7 @@ export async function initSteamReviews(containerId, logCheckboxId) {
     });
     ctx.fillStyle = c.fg;
     ctx.font = "12px system-ui, sans-serif";
-    ctx.fillText("Number of reviews", padding.left + plotW / 2, height - 12);
+    ctx.fillText("Number of reviews", padding.left + plotW / 2, height - padding.bottom / 2 + 3);
 
     // y ticks
     ctx.textAlign = "right";

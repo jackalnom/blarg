@@ -124,7 +124,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
     });
     ctx.fillStyle = c.fg;
     ctx.font = "12px system-ui, sans-serif";
-    ctx.fillText("Home Value", padding.left + plotW / 2, height - 12);
+    ctx.fillText("Home Value", padding.left + plotW / 2, height - padding.bottom / 2 + 3);
 
     // y ticks (always linear)
     ctx.textAlign = "right";

@@ -200,23 +200,16 @@ export function initSeasonality() {
         if (w === 0 || h === 0) return;
 
         comboCtx.clearRect(0, 0, w, h);
+
+        const colors = getThemeColors();
+        const padding = { top: 30, right: 20, bottom: 50, left: 20 };
+        const plotW = w - padding.left - padding.right;
+        const plotH = h - padding.top - padding.bottom;
+
         // Use a high sample count to avoid aliasing the high-frequency weekly component
         const steps = Math.max(1200, Math.floor(w * 4));
         let maxVal = 0;
         const vals = [];
-
-        // Light vertical guides for year boundaries (3-year span)
-        const colors = getThemeColors();
-        const guideColor = colors.grid; // Use grid color
-        comboCtx.strokeStyle = guideColor;
-        comboCtx.lineWidth = 1;
-        for (let yr = 0; yr <= 3; yr++) {
-            const x = (yr / 3) * w;
-            comboCtx.beginPath();
-            comboCtx.moveTo(x, 0);
-            comboCtx.lineTo(x, h);
-            comboCtx.stroke();
-        }
 
         const weeklyCfg = controlCfgs.find(c => c.id === "weeklyCanvas");
         const annualCfg = controlCfgs.find(c => c.id === "annualCanvas");
@@ -285,59 +278,68 @@ export function initSeasonality() {
             vals.push(v);
             if (v > maxVal) maxVal = v;
         }
-        const scale = maxVal || 1;
+
+        // Find scale - use nice rounded values
+        const minVal = 0;
+        const yMax = Math.ceil(maxVal * 1.1 * 10) / 10; // Round up to nearest 0.1
+
+        // Draw axes box (left, top, right, bottom)
+        comboCtx.strokeStyle = colors.grid;
+        comboCtx.lineWidth = 1;
+        comboCtx.beginPath();
+        comboCtx.moveTo(padding.left, padding.top);
+        comboCtx.lineTo(w - padding.right, padding.top);
+        comboCtx.lineTo(w - padding.right, h - padding.bottom);
+        comboCtx.lineTo(padding.left, h - padding.bottom);
+        comboCtx.stroke();
+
+        // X-axis: Year labels and vertical grid lines
+        comboCtx.strokeStyle = colors.grid;
+        comboCtx.lineWidth = 1;
+        comboCtx.fillStyle = colors.fg;
+        comboCtx.font = '11px system-ui, sans-serif';
+        comboCtx.textAlign = 'center';
+        comboCtx.textBaseline = 'top';
+
+        for (let yr = 0; yr <= 3; yr++) {
+            const px = padding.left + (yr / 3) * plotW;
+            comboCtx.strokeStyle = colors.grid;
+            comboCtx.beginPath();
+            comboCtx.moveTo(px, padding.top);
+            comboCtx.lineTo(px, h - padding.bottom);
+            comboCtx.stroke();
+
+            if (yr < 3) {
+                // Label at middle of year
+                const midPx = padding.left + ((yr + 0.5) / 3) * plotW;
+                comboCtx.fillStyle = colors.fg;
+                comboCtx.fillText(`Year ${yr + 1}`, midPx, h - padding.bottom + 8);
+            }
+        }
 
         // Draw combined line
         comboCtx.beginPath();
         for (let i = 0; i <= steps; i++) {
-            const x = (i / steps) * w;
-            const y = h - (vals[i] / scale) * (h - 24) - 6;
-            if (i === 0) comboCtx.moveTo(x, y); else comboCtx.lineTo(x, y);
+            const x = padding.left + (i / steps) * plotW;
+            const y = padding.top + plotH - (vals[i] / yMax) * plotH;
+            if (i === 0) comboCtx.moveTo(x, y);
+            else comboCtx.lineTo(x, y);
         }
-        comboCtx.strokeStyle = `hsl(${COLORS.seasonality.combined}, 75%, 58%)`;
-        comboCtx.lineWidth = 2;
+        comboCtx.strokeStyle = colors.barStroke;
+        comboCtx.lineWidth = 1.5;
         comboCtx.stroke();
-        comboCtx.fillStyle = `hsla(${COLORS.seasonality.combined}, 75%, 65%, 0.12)`;
-        comboCtx.lineTo(w, h);
-        comboCtx.lineTo(0, h);
+
+        // Fill under curve
+        comboCtx.lineTo(padding.left + plotW, h - padding.bottom);
+        comboCtx.lineTo(padding.left, h - padding.bottom);
         comboCtx.closePath();
+        comboCtx.fillStyle = colors.chartFill;
         comboCtx.fill();
-
-        // Year labels along bottom (Year 1/2/3)
-        comboCtx.fillStyle = colors.fg;
-        comboCtx.font = "11px system-ui, sans-serif";
-        comboCtx.textAlign = "center";
-        comboCtx.textBaseline = "bottom";
-        for (let yr = 0; yr < 3; yr++) {
-            const x = ((yr + 0.5) / 3) * w;
-            comboCtx.fillText(`Year ${yr + 1}`, x, h - 4);
-        }
-
-        // Draw trend line - extrapolate to edges even though control points are inset
-        comboCtx.strokeStyle = colors.fg;
-        comboCtx.lineWidth = 2;
-        comboCtx.setLineDash([5, 5]);
-        comboCtx.beginPath();
-
-        // Calculate slope
-        const slope = (trendPoints[1].y - trendPoints[0].y) / (trendPoints[1].x - trendPoints[0].x);
-        const intercept = trendPoints[0].y - slope * trendPoints[0].x;
-
-        // Extrapolate to x=0 and x=1
-        const yAt0 = intercept;
-        const yAt1 = slope + intercept;
-
-        const y0 = h - (yAt0 / scale) * (h - 24) - 6;
-        const y1 = h - (yAt1 / scale) * (h - 24) - 6;
-        comboCtx.moveTo(0, y0);
-        comboCtx.lineTo(w, y1);
-        comboCtx.stroke();
-        comboCtx.setLineDash([]);
     }
 
     function resizeAll() {
-        // Resize combo canvas
-        const comboDims = setupCanvas(comboCanvas, 4);
+        // Resize combo canvas - match energy chart aspect ratio
+        const comboDims = setupCanvas(comboCanvas, 2.5);
         comboWidth = comboDims.width;
         comboHeight = comboDims.height;
 

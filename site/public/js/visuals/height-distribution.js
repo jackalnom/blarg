@@ -140,7 +140,7 @@ export async function initHeightDistribution(containerId, checkboxId) {
         }
 
         ctx.font = '12px system-ui, sans-serif';
-        ctx.fillText('Height (cm)', padding.left + plotW / 2, height - 12);
+        ctx.fillText('Height (cm)', padding.left + plotW / 2, height - padding.bottom / 2 + 3);
 
         // Y-axis title
         ctx.save();

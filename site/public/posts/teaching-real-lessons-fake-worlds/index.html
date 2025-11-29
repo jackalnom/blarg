@@ -55,7 +55,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-11-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-11-28T10:09:34-08:00">
+    <meta property="article:modified_time" content="2025-11-28T13:07:09-08:00">
 
 
   
@@ -67,8 +67,8 @@
   <meta itemprop="name" content="Teaching Real Lessons with Fake Worlds">
   <meta itemprop="description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
   <meta itemprop="datePublished" content="2025-11-23T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-11-28T10:09:34-08:00">
-  <meta itemprop="wordCount" content="3732">
+  <meta itemprop="dateModified" content="2025-11-28T13:07:09-08:00">
+  <meta itemprop="wordCount" content="3486">
   <meta itemprop="keywords" content="Career &amp; Professional">
 
   
@@ -226,7 +226,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          3732 words
+          3486 words
         </span>
       
       
@@ -239,7 +239,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          ~18 mins
+          ~17 mins
         </span>
       
     </div>
@@ -261,11 +261,11 @@
 <li><strong>Solve:</strong> Execute the technical solution.</li>
 <li><strong>Interpret:</strong> Evaluate whether your solution actually solved the problem.</li>
 </ol>
-<p>Even when toy problems attempt steps 1 and 3, it is often just a sort of thinly wrapped pseudocontext. There isn&rsquo;t enough noise and it is painfully obvious what technical thing needs to be done.</p>
-<p>LLMs have significantly exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. It&rsquo;s similar to how calculators solved the “how do I perform arithmetic on these numbers” problem, but didn&rsquo;t solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren&rsquo;t just working on problems that don&rsquo;t match the real world; they aren&rsquo;t building any fundamental skills at all.</p>
-<p>My answer has been to make the classroom—specifically my upper-division computer science courses—look more like the real world through simulation. Not as a panacea, but as an essential part of a broader teaching toolkit that builds the metacognitive and epistemic skills students often lack.</p>
+<p>Even when toy problems attempt steps 1 and 3, it is often just a sort of thin pseudocontext. There isn&rsquo;t enough noise and it is painfully obvious what technical thing needs to be done.</p>
+<p>LLMs have exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. It&rsquo;s similar to how calculators solved the “how do I perform arithmetic on these numbers” problem, but didn&rsquo;t solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren&rsquo;t just working on problems that don&rsquo;t match the real world; they often aren&rsquo;t building any fundamental skills at all.</p>
+<p>My answer has been to make the classroom—specifically my upper-division computer science courses—look more like the real world through simulation. Not as a panacea, but as part of a broader teaching toolkit that builds the metacognitive and epistemic skills students often lack.</p>
 <h2 id="why-simulation">Why Simulation?</h2>
-<p>I&rsquo;ve always loved simulation-style games. Ever since playing the gold-cartridge <em>Legend of Zelda</em> on the NES, I&rsquo;ve been fascinated by the idea that the little characters in those worlds might have lives of their own—that they might keep moving even when the player isn&rsquo;t looking.</p>
+<p>I&rsquo;ve always loved simulation-style games. Ever since playing the gold-cartridge <em>Legend of Zelda</em> on the NES, I&rsquo;ve been fascinated by the idea that the little characters in those worlds might have lives of their own; that they might keep moving even when the player isn&rsquo;t looking.</p>
 <p>That notion is the seed of my classroom simulations: worlds that run on their own, where students must reason about living systems rather than static puzzles.</p>
 <p>My first classroom simulation-game came out of a databases course. Early on, I realized students weren&rsquo;t really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about. The kind of thing that breaks at 3 a.m.</p>
 <p>For example:</p>
@@ -273,31 +273,26 @@
 <li>Teaching concurrency errors: As “customers” fire off parallel cart checkouts, students&rsquo; code now runs into fun and unpredictable race conditions. Sorry your inventory is out of sync. You had a lost update. The week after, when I lecture on transactions, you are excited when it solves your problem.</li>
 <li>Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, and systems designed for observability and debugging. That&rsquo;s how many experienced developers come to care about those principles: not from theory, but from scars.</li>
 </ul>
-<p>Teaching SQL is one thing. Teaching the principles behind real systems is much harder without first letting students experience the pain, and then walking them through how we solve it.</p>
 <p>This is even more critical when teaching data science. In my <em>Knowledge Discovery</em> class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it&rsquo;s any good without knowing what would have happened if the person was shown one piece of content vs another?</p>
 <p>The reality is that offline evaluation metrics often fail to capture what only reveals itself in a live, online test. A simulation is the best way I can bring that messy complexity into the classroom.</p>
 <h2 id="how-i-build-simulations">How I Build Simulations</h2>
-<p>My goal when designing a simulation is for it to mimic the real-world in the ways that matter. It has to feel real, even when the subject matter of the simulation is obviously fantastical. But the data feels real otherwise.</p>
-<p>Fake data often looks fake to me.</p>
-<p>If I roll a fair hundred-sided die a million times and plot the results, I will get (if I stand back a bit) a nicely flat line: a uniform distribution. But if I ask a million people to give me a random number between 1 and 100, the shape will be very different. Some numbers—like 7, 37, and 77, which feel random—will peak. So will 42 (<em>thank you, Hitchhiker&rsquo;s Guide fans</em>). And, sadly, so will 67, due to brainrot.</p>
-<p>You can tell, just by the shape in this case, that the “random” numbers weren&rsquo;t truly random.</p>
+<p>My goal when designing a simulation is for it to mimic the real-world in the ways that matter. It has to feel real, even when the subject matter of the simulation is fantastical. Synthetic data too often looks fake.</p>
 <p>There are three ways fake data tends to give itself away:</p>
 <ul>
 <li>
-<p>Correlation: Real data is a web of interesting, interconnected correlations of varying degrees. Fake data tends to be either completely independent or perfectly correlated, at best maintaining simple pairwise correlations without the complex conditional dependencies of real life.</p>
+<p>Correlation: Real data is a web of interesting, interconnected correlations of varying degrees.</p>
 </li>
 <li>
-<p>Shape: Real data has the right shape for its process. Fake data doesn&rsquo;t.</p>
+<p>Shape: Real data has the right shape for its process.</p>
 </li>
 <li>
-<p>Time: Real data has rhythm—trends, seasonality, cycles. It&rsquo;s influenced by the sun, the moon, and the messy patterns of human life.</p>
+<p>Time: Real data both changes over time and is cyclic; it&rsquo;s influenced by the sun, the moon, and the social patterns of human life.</p>
 </li>
 </ul>
 <h3 id="correlation">Correlation</h3>
-<p>Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “well obviously, crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.</p>
-<p>Why are they correlated though? We&rsquo;ve all heard the phrase <em>correlation does not imply causation.</em> When we say that, we mostly mean <em>direct causation</em>. What&rsquo;s happening here is that both violent crime and ice cream consumption rise during the summer months—the confounder is the season.</p>
-<p>If we accept that our highly correlated world results from a web of causes—“this causes this, which causes these two things, and then those in turn cause others”—we can use that fact as the foundation for natural-looking correlations.</p>
-<p>I draw upon <a href="https://www.jstor.org/stable/2337329">Judea Pearl&rsquo;s causal directed acyclic graphs (DAGs)</a> to make this happen. I draw out my causal graph, giving each effect multiple causes, often layers-and-layers deep.</p>
+<p>Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “well obviously! crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.</p>
+<p>Why are they correlated though? We&rsquo;ve all heard the phrase <em>correlation does not imply causation.</em> When we say that, we mostly mean <em>direct causation</em>. If we accept that our highly correlated world results from a web of causes—“this causes this, which causes these two things, and then those in turn cause others”—we can use that fact as the foundation for natural-looking correlations.</p>
+<p>I draw upon <a href="https://www.jstor.org/stable/2337329">Judea Pearl&rsquo;s causal directed acyclic graphs (DAGs)</a> to make this happen. I start by drawing out a causal graph, giving each effect multiple causes, often layers-and-layers deep.</p>
 <p>For example, in the interaction below, we can see how the ice-cream/violent crime correlation could arise via confounding illustrated using a DAG. In this case both ice-cream consumption and violent crime are dependent on season (the confounder). You can see in the scatter plots how ice-cream and violent crime become correlated as a result even without any direct causal link.</p>
 <div id="dagWeights" class="dag-weights"></div>
 
@@ -331,9 +326,9 @@
         resetId: "dagReset"
     });
 </script>
-<p>This is all too neat, though, if we actually let students see all of this. The real world is like <a href="https://en.wikipedia.org/wiki/Blind_men_and_an_elephant">the blind men and an elephant</a> from the <em>Tittha Sutta</em>. One blind man feels the trunk and says “It&rsquo;s a snake!” Another feels a leg and says “It&rsquo;s a tree!” Yet another feels the tusk and says “No, you fools, it&rsquo;s a giant spear!” Each has only a partial view of the underlying truth.</p>
+<p>This is unrealistically transparent, though, if we actually let students see all of this. The real world is like <a href="https://en.wikipedia.org/wiki/Blind_men_and_an_elephant">the blind men and an elephant</a> from the <em>Tittha Sutta</em>. One blind man feels the trunk and says “It&rsquo;s a snake!” Another feels a leg and says “It&rsquo;s a tree!” Yet another feels the tusk and says “No, you fools, it&rsquo;s a giant spear!” Each has only a partial view of the underlying truth.</p>
 <p>I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.</p>
-<p>It isn&rsquo;t just about the strength and reason for correlation, real data is also not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, having a little bit of something is a big deal, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your hundredth friend matters a lot less than your first or your tenth—you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in studying/exam results, income/happiness, marketing spend/impact, and many more such cases. It&rsquo;s what gives real data its characteristic bend—rising fast, then flattening as systems run into limits.</p>
+<p>It isn&rsquo;t just about the strength and reason for correlation, real data is also not limited to linear correlations. This happens for various reasons, but a common one is diminishing returns. In most systems, having a little bit of something is a big deal, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your hundredth friend matters a lot less than your first or your tenth—you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in studying/exam results, income/happiness, marketing spend/impact, and many more such cases. It&rsquo;s what gives a lot of real correlations a characteristic bend when viewed as a scatterplot.</p>
 <div class="diminishing-param">
     <label>Strength of Diminishing Returns: <span id="diminishingExponentValue">Medium</span></label>
     <input type="range" id="diminishingExponent" min="0.2" max="1.0" step="0.05" value="0.5" class="diminishing-slider">
@@ -366,7 +361,7 @@
     });
 </script>
 
-<p>Lastly, and perhaps most trickily, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363">a hospital in Canada</a> noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were ~50% more likely to have a serious injury compared to not wearing a helmet. That seems wrong, doesn&rsquo;t it?</p>
+<p>Lastly, and perhaps most tricky, real data is littered with selection biases; the data we have is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363">a hospital in Canada</a> noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were ~50% more likely to have a serious injury compared to not wearing a helmet. That seems wrong, doesn&rsquo;t it?</p>
 <p>This is a case of a specific selection bias called a collider bias (or Berkson&rsquo;s paradox). The hospital isn&rsquo;t seeing all bike riders and all bike accidents; they don&rsquo;t see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.</p>
 <p>You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It&rsquo;s a kind of selection echo: the world you see isn&rsquo;t the world as it is, but the world that lasted.</p>
 <p>In the simulation below, I show how food quality and location can become inversely correlated, even if they start out completely independent. This happens because survival is a filter: a restaurant can survive with bad food if it has high foot traffic (a tourist trap), and it can survive in a bad location if the food is amazing. But if it has bad food and a bad location, it goes out of business and disappears from the dataset. We only see the survivors.</p>
@@ -411,7 +406,7 @@
 <p>Combine this all together and you get data that is filled with correlations, large and small, inverse and positive, linear and not-so-linear, spurious and true. Or in other words, data that is actually worth analyzing.</p>
 <h3 id="shape">Shape</h3>
 <p>I&rsquo;ve long been fascinated by the beautifully smooth shapes that data makes when generated at scale. Not just systems, but data that is based on human behavior. I had once assumed just because individual humans are so complicated, so individual, so hard to predict individually, that a bunch of humans should be exponentially more complicated to predict. But it is in fact the opposite. When you get lots of people, all the individual differences wash out, and what you are left with is the smooth underlying generative mechanisms that underlie their common behavior.</p>
-<p>Most people are familiar with the bell curve or normal distribution. Plot human height and you&rsquo;ll get something roughly normal. Human height follows this pattern because it&rsquo;s the sum of many small, independent effects: genes, nutrition, environment. But it&rsquo;s not perfectly normal; the curve&rsquo;s a bit too flat and wide. It&rsquo;s multimodal, a blend of overlapping distributions. Split by gender, and each group looks much closer to a proper bell curve.</p>
+<p>Most people are familiar with the bell curve or normal distribution. Plot human height and you&rsquo;ll get something roughly normal. Human height follows this pattern because it&rsquo;s the sum of many small, independent effects: genes, nutrition, environment. You can see below that adult human height is approximately normal; if you split by gender even more so.</p>
 <div class="static-chart-wrapper">
   <div class="static-chart-controls">
     <label>
@@ -453,8 +448,7 @@
 </script>
 
 <p>Most of the data I&rsquo;ve worked with doesn&rsquo;t follow a normal distribution, though. Systems and behaviors rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.</p>
-<p>For example, <a href="https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf">housing prices</a>
-are generally right-skewed, largely because each property&rsquo;s value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because log turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is also common to look at these right-skewed distributions in log space.</p>
+<p>For example, <a href="https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf">housing prices</a> are generally right-skewed, largely because each property&rsquo;s value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because log turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is also common to look at these right-skewed distributions in log space.</p>
 <p>Below, home sales data from <a href="https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads#yearly-file">England and Wales</a> is charted; try viewing in both linear and log-space.</p>
 <div class="static-chart-wrapper">
   <div class="static-chart-controls">
@@ -501,8 +495,8 @@ are generally right-skewed, largely because each property&rsquo;s value grows th
   initGenerateSamples("log", "lognormal");
 </script>
 
-<p>Many human systems aren&rsquo;t just multiplicative—they&rsquo;re compounding. The rich get richer because their money earns more money; popular people attract more popularity simply because they&rsquo;re already popular. Algorithms that surface trending videos, products, or songs amplify these dynamics even further. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.</p>
-<p>When I first started plotting data—any kind of data—on user engagement, I was struck by how often those power-law curves appeared. They looked like the chart below of <a href="https://www.kaggle.com/datasets/andrewmvd/steam-reviews">reviews per game on Steam</a>. Technically, both the reviews per game on Steam and the housing price data above are a mix of log-normal on the left, power-law on the right (I call it the <a href="https://en.wikipedia.org/wiki/Mullet_(haircut)">mullet</a> of distributions). This happens because real data is multi-causal: multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.</p>
+<p>Many human systems aren&rsquo;t just multiplicative—they&rsquo;re self-reinforcing. Popular people attract more popularity simply because they&rsquo;re already popular. Algorithms that surface trending videos, products, or songs push content that is already successful. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.</p>
+<p>When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of <a href="https://www.kaggle.com/datasets/andrewmvd/steam-reviews">reviews per game on Steam</a>. Technically, both the reviews per game on Steam and the housing price data above are a mix of log-normal on the left, power-law on the right (I call it the <a href="https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf">mullet</a> of distributions). This happens because real data is multi-causal: multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.</p>
 <div class="static-chart-wrapper">
   <div class="static-chart-controls" style="display:flex; align-items:center; gap:10px;">
     <strong>Steam reviews per game</strong>
@@ -515,7 +509,7 @@ are generally right-skewed, largely because each property&rsquo;s value grows th
   initSteamReviews("steamContainer", "steamLog");
 </script>
 
-<p>It&rsquo;s surprisingly easy to make preferential attachment appear in a simulation: you simply make prior success increase the odds of future success. Make customers more likely to pick the company that already has a lot of customers (maybe even just because they know someone who is already a customer of the company). Allow the wealthy to reinvest their money and get a return on their investment. And let them use that wealth to get preferential deals or achieve economies of scale. In the simulation below I have an example of a distribution generated purely based on preferential attachment.</p>
+<p>You can make preferential attachment appear in a simulation by simply making prior success increase the odds of future success. Make customers more likely to pick the company that already has a lot of customers. Allow the wealthy to reinvest their money in ways that they get preferential deals. In the simulation below I have an example of a distribution generated purely based on preferential attachment.</p>
 <div class="sim-controls">
     
 
@@ -569,7 +563,7 @@ are generally right-skewed, largely because each property&rsquo;s value grows th
 
 <p>Getting these shapes to emerge naturally is key. When I&rsquo;m building simulations, I never directly sample from these distributions. Instead, I code my agents so that, taken together, they arrive at those shapes honestly. I create the feedback loops that produce power-law distributions. I make processes multiplicative where they should be, and allow for multimodality by giving categories different generative properties.</p>
 <h3 id="time">Time</h3>
-<p>When I worked at Snapchat, I could tell when holidays were happening without ever doing something as prosaic as checking a calendar. I&rsquo;d just look at time-series charts of user engagement, split by region. If people started taking pictures at six or seven in the morning, it was a work or school day. If usage didn&rsquo;t spike until around 10 in the morning, it was a weekend or holiday.</p>
+<p>When I worked at Snap, I could tell when holidays were happening without ever doing something as prosaic as checking a calendar. I&rsquo;d just look at time-series charts of user engagement, split by region. If people started taking pictures at six or seven in the morning, it was a work or school day. If usage didn&rsquo;t spike until around 10 in the morning, it was a weekend or holiday.</p>
 <p>Anyone who has looked at these time-series is familiar with the rhythms of real-data. For example, below is <a href="https://www.eia.gov/electricity/gridmonitor/">daily demand for electricity</a> in California for the past three years. You can see the weekly rhythms plus the greater demand for electricity in summer. Summer strikes again with its many correlations.</p>
 <div class="electricity-demand-container" id="elec"></div>
 
@@ -578,13 +572,13 @@ are generally right-skewed, largely because each property&rsquo;s value grows th
   initElectricityDemand("elec");
 </script>
 
-<p>Real data shows this rhythm and seasonality for several reasons:</p>
+<p>Real data shows this rhythm for several reasons:</p>
 <ul>
 <li>You see it across a day because we sleep, work, and live as the earth spins and brings day and night.</li>
 <li>You see it across a week based on however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.</li>
 <li>And you see it across a year, driven by that same sun: the seasons, and the layers we&rsquo;ve added on top—holidays, festivals, school breaks, and all the rituals that divide our time into meaning.</li>
 </ul>
-<p>In the visualization below, I multiply these temporal components—daily, weekly, and yearly—to approximate the kinds of cycles that appear in real time series. Conceptually, it&rsquo;s similar to seasonal–trend decomposition (like STL), where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I&rsquo;m composing those cycles from the ground up rather than decomposing observed data.</p>
+<p>In the visualization below, I multiply these temporal components—daily, weekly, and yearly—to approximate the kinds of cycles that appear in real time series. Conceptually, it&rsquo;s similar to seasonal–trend decomposition, where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I&rsquo;m composing those cycles from the ground up rather than decomposing observed data.</p>
 <div class="seasonality-grid">
   <div class="seasonality-panel">
     <div class="seasonality-header">
@@ -674,7 +668,7 @@ are generally right-skewed, largely because each property&rsquo;s value grows th
     });
 </script>
 
-<p>My agents are generally utility-driven: each has a simple utility function that it tries to maximize at every step. Individually, they&rsquo;re single-minded and unintelligent, and if I relied on any one of them alone, the simulation would quickly collapse into some pathological or divergent behavior.</p>
+<p>My agents are generally utility-driven; each agent has a utility function that it tries to maximize at every step. Individually, they&rsquo;re single-minded and unintelligent, and if I relied on any one of them alone, the simulation would quickly collapse into some pathological or divergent behavior.</p>
 <p>To avoid that, I build a range of intentionally simple strategies. One set of agents repeats whatever was most profitable in the past; another acts randomly; another imitates whatever has been most popular recently.</p>
 <p>What I&rsquo;ve discovered over years of building these systems is that when I combine many such agents—each using different but simple heuristics—the overall system becomes surprisingly robust and often appears intelligent. It&rsquo;s a form of the wisdom of the crowds: a collection of uncorrelated, naïve guesses can, when aggregated, produce remarkably accurate behavior.</p>
 <p>I create balance in the system without hard-coded limits by putting agents in tension with one another. As an example, I have a simple predator-prey simulation below: the prey eat grass, predators eat the prey. When there are too many prey, the grass thins and predators thrive; when there are too many predators, they starve. The system naturally ebbs and flows as everyone does their part to keep it in rhythmic balance. You can play around with the levers to see if you can make the system stay in balance without the ecosystem collapsing.</p>
@@ -763,8 +757,8 @@ are generally right-skewed, largely because each property&rsquo;s value grows th
 </script>
 <p>I usually introduce some form of survival of the fittest to stabilize things. I&rsquo;m not afraid to let agents die if they can&rsquo;t achieve their utility, but I&rsquo;m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.</p>
 <p>Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. For many processes, I already have strong expectations on what everything should look like, because I&rsquo;ve seen the equivalent real data many times over. When I haven&rsquo;t, I search through papers and what real data I can find to see the real curves so I can ensure my simulation matches the same generative spirit. It is less pure engineering than gardening. I tend to my simulation as much as I build it.</p>
-<p>That&rsquo;s it; mostly&hellip; I&rsquo;m showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.</p>
-<p>Is that really it though? Maybe like grandma&rsquo;s pancakes, there is still some ineffable element that is still necessary to make it all work in the classroom. Or maybe it isn&rsquo;t ineffable, we simply don&rsquo;t like to describe serious things using words like play, love, and wonder? I spend as much time on these simulations because it is fun. It is creative. It is a chance to build a world you can share with others to explore in.</p>
+<p>I&rsquo;m showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.</p>
+<p>Is that really it though? Perhaps, there is still some ineffable element that is still necessary to make it all work in the classroom. Or maybe it isn&rsquo;t ineffable, we simply don&rsquo;t like to describe serious things using words like play, love, and wonder? I spend so much time on these simulations because it is fun. It is creative. It is a chance to build a world you can share with others to explore in.</p>
 <p>I take the same leap of faith when building simulations that I do when teaching. All the necessary elements are put into place with great care. You can&rsquo;t prove ahead of time what result will happen. Observation takes priority over control, nudges over micromanaging. It is more about the system you&rsquo;ve created for learning than it is about you. And the greatest joy is the pleasant surprise of what emerges.</p>
 
     
