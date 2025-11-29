@@ -1,5 +1,6 @@
 import { drawStackLineByOffsets, makeBarLayout, setInfo, getThemeColors, listenForThemeChange } from "./utils.js";
 import { LAYOUT, DEFAULTS } from "./constants.js";
+import { SimulationController } from "./simulation-controller.js";
 
 /**
  * Setup canvas for responsive sizing with DPI support
@@ -345,26 +346,32 @@ export class StandardSimulation {
         // Text overlay removed as per user request
         this.runner.onDraw = null;
 
-        this.runner.onStop = () => {
-            this.isPlaying = false;
-        };
+        this.controller = new SimulationController({
+            stepBtn: this.stepBtn,
+            runBtn: this.runBtn,
+            resetBtn: this.resetBtn,
+            speed: 0, // Run as fast as possible
+            onStart: () => {
+                this.runStartTime = Date.now();
+                // Set up generateFn if not already set
+                if (!this.runner.generateFn) {
+                    const { count } = this.getParams();
+                    this.runner.generateFn = () => {
+                        return this.customOnStart({ count, sim: this });
+                    };
+                }
+            },
+            onStep: () => {
+                // Check duration if running
+                if (this.controller.isRunning && Date.now() - this.runStartTime > 5000) {
+                    this.controller.stop();
+                    return;
+                }
 
-        if (this.resetBtn) {
-            this.resetBtn.addEventListener("click", () => this.reset());
-        }
-
-        // Run button: run for 5 seconds using step size per frame
-        if (this.runBtn) {
-            this.runBtn.addEventListener("click", () => this.startRun());
-        }
-
-        // Step button: generate N samples based on radio button selection
-        if (this.stepBtn) {
-            this.stepBtn.addEventListener("click", () => {
                 // Default to 10 samples
                 const sampleCount = 10;
 
-                // Set up generateFn if not already set
+                // Set up generateFn if not already set (for single step case)
                 if (!this.runner.generateFn) {
                     const { count } = this.getParams();
                     this.runner.generateFn = () => {
@@ -381,15 +388,25 @@ export class StandardSimulation {
                     }
                     this.runner.total++;
 
-                    // Call custom step callback if exists (e.g., for sigmoid cumulative)
+                    // Call custom step callback if exists
                     if (this.customOnStep) {
                         this.customOnStep(this);
                     }
                 }
 
                 this.runner.draw();
-            });
-        }
+            },
+            onReset: () => {
+                this.runner.running = false;
+                this.runner.generateFn = null;
+                this.samples = [];
+                this.recompute();
+                this.runner.draw();
+            },
+            onStop: () => {
+                // Nothing specific needed here as controller handles state
+            }
+        });
 
         // Log toggles
         if (this.logXToggle) {
@@ -412,12 +429,12 @@ export class StandardSimulation {
         // Parameter changes (sides, count) should reset the simulation
         if (this.sidesSelect) {
             this.sidesSelect.addEventListener("change", () => {
-                this.reset();
+                this.controller.reset();
             });
         }
         if (this.countInput) {
             this.countInput.addEventListener("change", () => {
-                this.reset();
+                this.controller.reset();
             });
         }
 
@@ -433,152 +450,16 @@ export class StandardSimulation {
         });
     }
 
-    updateLayout(bins = this.runner.bins) {
-        // Allow custom override (e.g. for pref-attach which has dynamic bins/layout)
-        if (this.config.customUpdateLayout) {
-            this.config.customUpdateLayout(this, bins);
-            return;
-        }
+    // ... (updateLayout, getParams, updateInfo, rollSample, recordSample, valueToBin, recompute remain same)
 
-        // Default layout update
-        const logX = this.logXToggle?.checked || false;
-        const availableWidth = this.runner.width - LAYOUT.leftPadding;
-        this.runner.layout = makeBarLayout(availableWidth, bins, logX);
-
-        // Allow custom step logic to run after layout update if needed
-        if (this.customOnStep) {
-            this.customOnStep(this);
-        }
-    }
-
-    getParams() {
-        return {
-            sides: this.sidesSelect ? parseInt(this.sidesSelect.value) : 6,
-            count: this.countInput ? parseInt(this.countInput.value) : 1,
-            logX: this.logXToggle?.checked || false
-        };
-    }
-
-    updateInfo() {
-        // Info text removed - controls are now self-explanatory
-    }
-
-    rollSample() {
-        return Math.random(); // Continuous [0, 1)
-    }
-
-    recordSample(val) {
-        this.samples.push(val);
-    }
-
-    valueToBin(val) {
-        const bins = this.bins || this.config.bins;
-
-        if (this.config.customValueToBin) {
-            return this.config.customValueToBin(val, this);
-        }
-
-        // Always use linear binning - logX only affects visual layout, not binning
-        const t = (val - this.rangeLow) / (this.rangeHigh - this.rangeLow);
-        return Math.min(Math.floor(t * bins), bins - 1);
-    }
-
-    recompute() {
-        // If custom recompute is provided, use it (legacy support or complex cases like pref-attach)
-        if (this.customOnRecompute) {
-            this.customOnRecompute(this);
-            return;
-        }
-
-        const params = this.getParams();
-        const { sides, count } = params;
-        let bins = this.config.bins;
-
-        // Update range
-        if (this.config.getRange) {
-            const range = this.config.getRange(params);
-            this.rangeLow = range.min;
-            this.rangeHigh = range.max;
-            if (range.bins) bins = range.bins;
-        }
-
-        this.bins = bins; // Store current bins
-
-        // Reset runner layout using updateLayout to respect logX
-        this.updateLayout(bins);
-        this.runner.reset({ bins, layout: this.runner.layout });
-
-        // Re-bin existing samples
-        if (this.samples.length > 0) {
-            for (const val of this.samples) {
-                const bin = this.valueToBin(val);
-                if (bin >= 0 && bin < bins) {
-                    this.runner.counts[bin]++;
-                    this.runner.stacks[bin]++;
-                }
-            }
-            // Update total
-            this.runner.total = this.samples.length;
-
-            // Recalculate max stack for y-scale
-            // (SimulationRunner doesn't track maxStack automatically on reset, 
-            // but it calculates it in getYScale, so we are good)
-        }
-    }
-
-    startRun() {
-        if (this.isPlaying) return;
-        this.isPlaying = true;
-        const runStartTime = Date.now();
-
-        // Set up generateFn if not already set
-        if (!this.runner.generateFn) {
-            const { count } = this.getParams();
-            this.runner.generateFn = () => {
-                return this.customOnStart({ count, sim: this });
-            };
-        }
-
-        const loop = () => {
-            if (!this.isPlaying) return;
-
-            const now = Date.now();
-            if (now - runStartTime > 5000) {
-                this.isPlaying = false;
-                return;
-            }
-
-            // Default to 10 samples per frame
-            const sampleCount = 10;
-
-            // Generate N samples directly
-            for (let i = 0; i < sampleCount; i++) {
-                const idx = this.runner.generateFn();
-                if (idx >= 0 && idx < this.runner.bins) {
-                    this.runner.counts[idx]++;
-                    this.runner.stacks[idx]++;
-                }
-                this.runner.total++;
-
-                if (this.customOnStep) {
-                    this.customOnStep(this);
-                }
-            }
-
-            this.runner.draw();
-            requestAnimationFrame(loop);
-        };
-
-        loop();
-    }
+    // startRun and reset are now handled by controller, but we might keep reset() as a method if called externally?
+    // The controller calls onReset which contains the logic.
+    // But StandardSimulation.reset() might be called by other things (like recompute).
+    // Actually recompute calls runner.reset().
+    // Let's keep a reset method that calls controller.reset().
 
     reset() {
-        this.isPlaying = false;
-        this.runner.running = false;
-        this.runner.generateFn = null; // Clear so it gets recreated with new params
-        this.samples = [];
-        this.recompute();
-        this.runner.draw();
+        this.controller.reset();
     }
 }
 

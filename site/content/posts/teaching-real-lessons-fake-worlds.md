@@ -12,19 +12,19 @@ tags: []
 
 ---
 
-I build little worlds full of adventurers, potions, and dragons. Students run potion shops where they manage magical supply chains for demanding fighters and wizards. They run media companies providing entertainment to dragons, frog-folk, and discerning gnomes. And, in the process, they often become curious about how the worlds themselves work and come alive.
+I build little worlds full of adventurers, potions, and dragons. Students run potion shops where they manage magical supply chains for demanding fighters and wizards. They run media companies providing entertainment to dragons, frog-folk, and discerning gnomes. And in the process, they become curious about how the worlds themselves work and come alive.
 
-I worked in tech for a long time, most of it leading technical teams. And I kept noticing the same thing: new grads who struggled with problems that looked nothing like their coursework. They knew how to do the work, but only if it was carefully packaged up for them. In the wild, solving a technical problem looks more like a cycle:
+I worked in tech for a long time, most of it leading technical teams. I kept noticing the same thing: new grads who struggled with problems that looked nothing like their coursework. They knew how to do the work, but only if it was carefully packaged for them. In the wild, solving a technical problem is a cycle:
 
-1. **Formulate:** Translate an unbounded, ambiguous real world situation into a technical problem.
+1. **Formulate:** Translate an unbounded, ambiguous real-world situation into a technical problem.
 2. **Solve:** Execute the technical solution.
 3. **Interpret:** Evaluate whether your solution actually solved the problem.
 
-Even when toy problems attempt steps 1 and 3, it is often just a sort of thin pseudocontext. There isn't enough noise and it is painfully obvious what technical thing needs to be done.
+Even when toy problems attempt steps 1 and 3, it's often thin pseudocontext. There isn't enough noise, and it's painfully obvious what technical thing needs to be done.
 
-LLMs have exacerbated this problem in the classroom. Step 2—the “doing”—is now often solvable with a copy and a paste. It's similar to how calculators solved the “how do I perform arithmetic on these numbers” problem, but didn't solve the “how do I turn my problem into something I can plug into a calculator” issue. If we only teach Step 2, students aren't just working on problems that don't match the real world; they often aren't building any fundamental skills at all.
+Large language models have exacerbated this in the classroom. Step 2—the "doing"—is now often solvable with a copy and a paste. It's similar to how calculators solved "how do I perform arithmetic on these numbers" but didn't solve "how do I turn my problem into something I can plug into a calculator." If we only teach Step 2, students aren't just working on problems that don't match the real world; they often aren't building any fundamental skills at all.
 
-My answer has been to make the classroom—specifically my upper-division computer science courses—look more like the real world through simulation. Not as a panacea, but as part of a broader teaching toolkit that builds the metacognitive and epistemic skills students often lack.
+I've incorporated simulations into my upper-division computer science courses to teach the metacognitive and epistemic skills necessary to solve difficult problems as they actually exist.
 
 ## Why Simulation?
 
@@ -32,7 +32,7 @@ I've always loved simulation-style games. Ever since playing the gold-cartridge 
 
 That notion is the seed of my classroom simulations: worlds that run on their own, where students must reason about living systems rather than static puzzles.
 
-My first classroom simulation-game came out of a databases course. Early on, I realized students weren't really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about. The kind of thing that breaks at 3 a.m.
+My first classroom simulation-game came out of a databases course. Early on, I realized students weren't really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about.
 
 For example:
 
@@ -57,7 +57,7 @@ There are three ways fake data tends to give itself away:
 
 ### Correlation
 
-Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “well obviously! crime is hard work and you need to treat yourself afterwards.” Hmmm… moving on.
+Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “well obviously! crime is hard work and you need to treat yourself afterwards.” Moving on.
 
 Why are they correlated though? We've all heard the phrase *correlation does not imply causation.* When we say that, we mostly mean *direct causation*. If we accept that our highly correlated world results from a web of causes—“this causes this, which causes these two things, and then those in turn cause others”—we can use that fact as the foundation for natural-looking correlations.
 
@@ -95,7 +95,7 @@ Most people are familiar with the bell curve or normal distribution. Plot human 
 
 {{< height-distribution id="height" >}}
 
-Roll a bunch of dice, **add** them up, record that sum, repeat many times, and you'll get the same shape; that's the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.
+Roll a bunch of dice, add them up, record that sum, repeat many times, and you'll get the same shape; that's the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.
 
 {{< generate-samples id="clt" type="normal" >}}
 
@@ -173,6 +173,4 @@ Over time, the system reaches a kind of equilibrium. I never expose day zero of 
 
 I'm showing all of these inputs largely independently, the fun really happens when I combine all these fundamentals into a single simulation.
 
-Is that really it though? Perhaps, there is still some ineffable element that is still necessary to make it all work in the classroom. Or maybe it isn't ineffable, we simply don't like to describe serious things using words like play, love, and wonder? I spend so much time on these simulations because it is fun. It is creative. It is a chance to build a world you can share with others to explore in.
-
-I take the same leap of faith when building simulations that I do when teaching. All the necessary elements are put into place with great care. You can't prove ahead of time what result will happen. Observation takes priority over control, nudges over micromanaging. It is more about the system you've created for learning than it is about you. And the greatest joy is the pleasant surprise of what emerges.
+Fun is critical. Educational games go wrong when they presume the material itself is boring—like a parent hiding a vitamin in their kid's applesauce. While I call these games, the idea is not to disguise but to unveil. I loved the technical work I did in industry. It was creative. It involved wonder and play. Solving the real puzzles of life is better than any sudoku or crossword. My goal, maybe greater than any other, is to help students see these problems with the same joy I did. I'm building a fake world to let them into mine.

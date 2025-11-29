@@ -1,6 +1,8 @@
 import { COLORS, STYLE } from "./constants.js";
 import { getThemeColors, listenForThemeChange } from "./utils.js";
 import { randn, correlation } from "./stats.js";
+import { ScatterplotRenderer } from "./scatterplot-renderer.js";
+import { SimulationController } from "./simulation-controller.js";
 
 export function initDAG(ids) {
     const dagCanvas = document.getElementById(ids.dagCanvasId);
@@ -20,8 +22,6 @@ export function initDAG(ids) {
     const scatterCtx = scatterCanvas.getContext('2d');
     let data = { A: [], B: [], C: [] };
     let edgeWeights = {};
-    let isRunning = false;
-    let animationId = null;
 
     const structures = {
         'chain': { name: 'Chain: A → B → C', edges: [['A', 'B'], ['B', 'C']] },
@@ -70,28 +70,13 @@ export function initDAG(ids) {
             data.C.push(values.C);
         }
 
-        // Stop simulation when we reach 500 samples
-        if (data.A.length >= 500) {
-            isRunning = false;
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-                animationId = null;
-            }
-            if (runBtn) runBtn.textContent = 'Run';
-        }
-
         drawDAG();
         drawScatter();
         updateCorrelations();
     }
 
     function reset() {
-        isRunning = false;
-        if (animationId) {
-            cancelAnimationFrame(animationId);
-            animationId = null;
-        }
-        if (runBtn) runBtn.textContent = 'Run';
+        if (controller) controller.stop();
         data = { A: [], B: [], C: [] };
         drawDAG();
         drawScatter();
@@ -260,150 +245,46 @@ export function initDAG(ids) {
     }
 
     function drawScatterplot(ctx, xData, yData, width, height, label, colors) {
-        const padding = { top: 50, right: 20, bottom: 50, left: 60 };
-        const plotW = width - padding.left - padding.right;
-        const plotH = height - padding.top - padding.bottom;
-
-        ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = colors.bg;
-        ctx.fillRect(0, 0, width, height);
-
-        // Title
-        ctx.fillStyle = colors.fg;
-        ctx.font = '14px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(label, width / 2, 20);
-
-        if (xData.length === 0) {
-            ctx.fillStyle = colors.fg;
-            ctx.font = '12px sans-serif';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText('Press Run', width / 2, height / 2);
-            return;
-        }
-
-        // Find data ranges
-        let xMin = Math.min(...xData);
-        let xMax = Math.max(...xData);
-        let yMin = Math.min(...yData);
-        let yMax = Math.max(...yData);
-
-        if (xMax === xMin) { xMin -= 1; xMax += 1; }
-        if (yMax === yMin) { yMin -= 1; yMax += 1; }
-
-        // Draw axes
-        ctx.strokeStyle = colors.fg2;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(padding.left, padding.top);
-        ctx.lineTo(padding.left, height - padding.bottom);
-        ctx.lineTo(width - padding.right, height - padding.bottom);
-        ctx.stroke();
-
-        // Extract axis labels from title (e.g., "Ice Cream vs Crime")
         const labels = nodeLabels[structure] || nodeLabels['default'];
         const xLabel = labels['A'] || 'A';
         const yLabel = labels['C'] || 'C';
 
-        // X-axis label
-        ctx.fillStyle = colors.fg;
-        ctx.font = '12px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        ctx.fillText(xLabel, padding.left + plotW / 2, height - padding.bottom + 25);
-
-        // Y-axis label (rotated)
-        ctx.save();
-        ctx.translate(15, padding.top + plotH / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        ctx.fillText(yLabel, 0, 0);
-        ctx.restore();
-
-        // Draw points
-        const n = xData.length;
-        ctx.fillStyle = colors.node;
-        for (let i = 0; i < n; i++) {
-            const x = padding.left + ((xData[i] - xMin) / (xMax - xMin)) * plotW;
-            const y = height - padding.bottom - ((yData[i] - yMin) / (yMax - yMin)) * plotH;
-            ctx.beginPath();
-            ctx.arc(x, y, 3, 0, 2 * Math.PI);
-            ctx.fill();
-        }
-
-        // Calculate and draw regression line
-        if (n > 1) {
-            let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
-            for (let i = 0; i < n; i++) {
-                sumX += xData[i];
-                sumY += yData[i];
-                sumXY += xData[i] * yData[i];
-                sumX2 += xData[i] * xData[i];
-            }
-            const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
-            const intercept = (sumY - slope * sumX) / n;
-
-            // Draw regression line
-            const y1 = slope * xMin + intercept;
-            const y2 = slope * xMax + intercept;
-            const px1 = padding.left;
-            const py1 = height - padding.bottom - ((y1 - yMin) / (yMax - yMin)) * plotH;
-            const px2 = padding.left + plotW;
-            const py2 = height - padding.bottom - ((y2 - yMin) / (yMax - yMin)) * plotH;
-
-            ctx.strokeStyle = colors.trendLine;
-            ctx.lineWidth = 2;
-            ctx.beginPath();
-            ctx.moveTo(px1, py1);
-            ctx.lineTo(px2, py2);
-            ctx.stroke();
-        }
-
-        // R² display
-        const corr = correlation(xData, yData);
-        const rSquared = corr * corr;
-        ctx.fillStyle = colors.fg;
-        ctx.font = '12px sans-serif';
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'top';
-        ctx.fillText(`R² = ${rSquared.toFixed(2)}`, width - padding.right - 10, padding.top + 10);
-    }
-
-    function runLoop() {
-        if (!isRunning) return;
-        generateSamples(10); // Add 10 samples per frame
-        setTimeout(() => {
-            animationId = requestAnimationFrame(runLoop);
-        }, 100);
-    }
-
-    if (stepBtn) {
-        stepBtn.addEventListener('click', () => {
-            generateSamples(10); // Default to 10 samples per step
+        const renderer = new ScatterplotRenderer(ctx, {
+            title: label,
+            xLabel: xLabel,
+            yLabel: yLabel,
+            showRegression: true,
+            showR2: true
         });
+
+        renderer.draw(xData, yData, width, height);
     }
 
-    if (runBtn) {
-        runBtn.addEventListener('click', () => {
-            isRunning = !isRunning;
-            if (isRunning) {
-                runBtn.textContent = 'Stop';
-                runLoop();
-            } else {
-                runBtn.textContent = 'Run';
-                if (animationId) {
-                    cancelAnimationFrame(animationId);
-                    animationId = null;
-                }
+    const controller = new SimulationController({
+        stepBtn,
+        runBtn,
+        resetBtn,
+        speed: 100,
+        onStep: () => {
+            generateSamples(10);
+        },
+        onReset: reset,
+        onStop: () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
             }
-        });
-    }
+        }
+    });
 
-    if (resetBtn) {
-        resetBtn.addEventListener('click', reset);
-    }
+    // Override generateSamples to stop controller if limit reached
+    const originalGenerateSamples = generateSamples;
+    generateSamples = function (count) {
+        originalGenerateSamples(count);
+        if (data.A.length >= 500) {
+            controller.stop();
+        }
+    };
 
     let resizeTimeout;
     window.addEventListener('resize', () => {

@@ -1,4 +1,6 @@
+
 import { getThemeColors, listenForThemeChange } from "./utils.js";
+import { AxisRenderer, linearTicks } from "./axis-renderer.js";
 
 /**
  * England & Wales House Prices - Real transaction data
@@ -37,8 +39,8 @@ export async function initHomeValues(containerId, logCheckboxId) {
     const dpr = window.devicePixelRatio || 1;
     width = rect.width;
     height = Math.max(260, Math.min(480, rect.width * 0.5));
-    canvas.style.width = `${width}px`;
-    canvas.style.height = `${height}px`;
+    canvas.style.width = `${width} px`;
+    canvas.style.height = `${height} px`;
     canvas.width = Math.floor(width * dpr);
     canvas.height = Math.floor(height * dpr);
     ctx.resetTransform();
@@ -58,6 +60,21 @@ export async function initHomeValues(containerId, logCheckboxId) {
     const xMax = Math.max(...data.map((d) => d.price));
     const yMax = Math.max(...data.map((d) => d.count));
 
+    // Calculate bin width to ensure bars fit within the plot
+    let xDomainMin = xMin;
+    let xDomainMax = xMax;
+
+    if (!useLog && data.length > 1) {
+      const prices = data.map(d => d.price).sort((a, b) => a - b);
+      let minDiff = Infinity;
+      for (let i = 1; i < prices.length; i++) {
+        const diff = prices[i] - prices[i - 1];
+        if (diff < minDiff) minDiff = diff;
+      }
+      xDomainMin = xMin - minDiff / 2;
+      xDomainMax = xMax + minDiff / 2;
+    }
+
     function xScale(v) {
       if (useLog) {
         const lv = Math.log10(v);
@@ -65,7 +82,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
         const lmax = Math.log10(xMax);
         return padding.left + ((lv - lmin) / (lmax - lmin)) * plotW;
       }
-      return padding.left + ((v - xMin) / (xMax - xMin)) * plotW;
+      return padding.left + ((v - xDomainMin) / (xDomainMax - xDomainMin)) * plotW;
     }
     function yScale(v) {
       // Y-axis is always linear
@@ -73,87 +90,36 @@ export async function initHomeValues(containerId, logCheckboxId) {
     }
 
     function formatMoney(v) {
-      if (v >= 1e6) return `£${Math.round(v / 1e5) / 10}M`;
-      if (v >= 1e3) return `£${Math.round(v / 1e2) / 10}k`;
-      return `£${v}`;
+      if (v >= 1e6) return `£${Math.round(v / 1e5) / 10} M`;
+      if (v >= 1e3) return `£${Math.round(v / 1e2) / 10} k`;
+      return `£${v} `;
     }
 
-    function linearTicks(min, max, desired = 5) {
-      const span = max - min;
-      if (span <= 0) return [min];
-      const rawStep = span / desired;
-      const step = Math.pow(10, Math.floor(Math.log10(rawStep)));
-      const niceStep = rawStep / step >= 5 ? 5 * step : rawStep / step >= 2 ? 2 * step : step;
-      const start = Math.ceil(min / niceStep) * niceStep;
-      const ticks = [];
-      for (let t = start; t <= max; t += niceStep) ticks.push(t);
-      if (ticks.length === 0) ticks.push(max);
-      return ticks;
-    }
+    // Use AxisRenderer
+    const axisRenderer = new AxisRenderer(ctx, {
+      padding,
+      xLabel: "Home Value",
+      yLabel: "Properties sold",
+      grid: true,
+      colors: c
+    });
 
-    // axes
-    ctx.strokeStyle = c.grid;
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(padding.left, padding.top);
-    ctx.lineTo(padding.left, height - padding.bottom);
-    ctx.lineTo(width - padding.right, height - padding.bottom);
-    ctx.stroke();
-
-    // grid + ticks x
-    ctx.fillStyle = c.fg;
-    ctx.font = "11px system-ui, sans-serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "top";
     const xTicks = useLog
       ? [10000, 100000, 1000000, 10000000, 100000000].filter((t) => t >= xMin && t <= xMax)
-      : linearTicks(xMin, xMax);
-    xTicks.forEach((t) => {
-      const px = xScale(t);
-      ctx.strokeStyle = c.grid;
-      ctx.beginPath();
-      ctx.moveTo(px, padding.top);
-      ctx.lineTo(px, height - padding.bottom);
-      ctx.stroke();
-      ctx.strokeStyle = c.grid;
-      ctx.beginPath();
-      ctx.moveTo(px, height - padding.bottom);
-      ctx.lineTo(px, height - padding.bottom + 4);
-      ctx.stroke();
-      ctx.fillText(useLog ? `£1e${Math.round(Math.log10(t))}` : formatMoney(t), px, height - padding.bottom + 6);
-    });
-    ctx.fillStyle = c.fg;
-    ctx.font = "12px system-ui, sans-serif";
-    ctx.fillText("Home Value", padding.left + plotW / 2, height - padding.bottom / 2 + 3);
+      : linearTicks(xDomainMin, xDomainMax);
 
-    // y ticks (always linear)
-    ctx.textAlign = "right";
-    ctx.textBaseline = "middle";
     const yTicks = linearTicks(0, yMax);
-    yTicks.forEach((t) => {
-      const py = yScale(t);
-      ctx.strokeStyle = c.grid;
-      ctx.beginPath();
-      ctx.moveTo(padding.left, py);
-      ctx.lineTo(width - padding.right, py);
-      ctx.stroke();
-      ctx.strokeStyle = c.grid;
-      ctx.beginPath();
-      ctx.moveTo(padding.left - 4, py);
-      ctx.lineTo(padding.left, py);
-      ctx.stroke();
-      ctx.fillStyle = c.fg;
-      ctx.font = "11px system-ui, sans-serif";
-      ctx.fillText(formatMoney(t), padding.left - 8, py);
+
+    axisRenderer.draw({
+      width,
+      height,
+      xScale,
+      yScale,
+      xTicks,
+      yTicks,
+      xFormat: (v) => useLog ? `£1e${Math.round(Math.log10(v))}` : formatMoney(v),
+      yFormat: formatMoney
     });
-    ctx.save();
-    ctx.translate(18, padding.top + plotH / 2);
-    ctx.rotate(-Math.PI / 2);
-    ctx.textAlign = "center";
-    ctx.font = "12px system-ui, sans-serif";
-    ctx.fillStyle = c.fg;
-    ctx.fillText("Properties sold", 0, 0);
-    ctx.restore();
 
     // bars
     ctx.fillStyle = c.point; // Use transparent color
@@ -176,6 +142,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
     });
     ctx.strokeStyle = c.node; // Use solid color
     ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
     ctx.stroke();
   }
 

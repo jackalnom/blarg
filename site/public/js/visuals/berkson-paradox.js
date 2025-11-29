@@ -5,6 +5,8 @@
 
 import { getThemeColors, listenForThemeChange } from "./utils.js";
 import { linearRegression } from "./stats.js";
+import { ScatterplotRenderer } from "./scatterplot-renderer.js";
+import { SimulationController } from "./simulation-controller.js";
 
 export function initBerksonParadox(config) {
     const dagCanvas = document.getElementById(config.dagCanvasId);
@@ -24,17 +26,10 @@ export function initBerksonParadox(config) {
 
     let data = [];
     let threshold = 100;
-    let running = false;
-    let animationId = null;
 
     function reset() {
+        if (controller) controller.stop();
         data = [];
-        running = false;
-        if (animationId) {
-            cancelAnimationFrame(animationId);
-            animationId = null;
-        }
-        runBtn.textContent = 'Run';
         drawDAG();
         drawScatterplots();
     }
@@ -48,19 +43,22 @@ export function initBerksonParadox(config) {
             data.push({ location, taste, selected });
         }
 
-        // Stop simulation when we reach 200 points
-        if (data.length >= 200) {
-            running = false;
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-                animationId = null;
-            }
-            runBtn.textContent = 'Run';
-        }
-
         drawScatterplots();
     }
 
+    const controller = new SimulationController({
+        stepBtn,
+        runBtn,
+        resetBtn,
+        speed: 200,
+        onStep: () => {
+            step();
+            if (data.length >= 200) {
+                controller.stop();
+            }
+        },
+        onReset: reset
+    });
 
 
     // getColors removed, using getThemeColors from utils.js
@@ -167,202 +165,90 @@ export function initBerksonParadox(config) {
     }
 
     function drawScatterplot(canvas, ctx, dataPoints, title, showSelected) {
-        const dims = setupCanvas(canvas, 1.5);
-        const { width, height } = dims;
-        const colors = getThemeColors();
+        const xData = dataPoints.map(p => p.location);
+        const yData = dataPoints.map(p => p.taste);
 
-        const padding = { top: 50, right: 20, bottom: 50, left: 60 };
-        const plotW = width - padding.left - padding.right;
-        const plotH = height - padding.top - padding.bottom;
+        // Custom background drawing for selection region
+        const drawSelectionRegion = (ctx, { xScale, yScale, colors }) => {
+            if (showSelected) return;
 
-        ctx.clearRect(0, 0, width, height);
-        ctx.fillStyle = colors.bg;
-        ctx.fillRect(0, 0, width, height);
-
-        // Title
-        ctx.fillStyle = colors.fg;
-        ctx.font = '14px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.fillText(title, width / 2, 20);
-
-        if (dataPoints.length === 0) {
-            ctx.fillStyle = colors.fg;
-            ctx.font = '12px sans-serif';
-            ctx.fillText('Press Step or Run to generate data', width / 2, height / 2);
-            return;
-        }
-
-        // Scales
-        const maxVal = 100;
-        const scaleX = (x) => padding.left + (x / maxVal) * plotW;
-        const scaleY = (y) => height - padding.bottom - (y / maxVal) * plotH;
-
-        // Draw axes
-        ctx.strokeStyle = colors.fg;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(padding.left, padding.top);
-        ctx.lineTo(padding.left, height - padding.bottom);
-        ctx.lineTo(width - padding.right, height - padding.bottom);
-        ctx.stroke();
-
-        // X-axis labels
-        ctx.fillStyle = colors.fg;
-        ctx.font = '11px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        for (let i = 0; i <= 5; i++) {
-            const val = (maxVal / 5) * i;
-            const x = scaleX(val);
-            ctx.fillText(val, x, height - padding.bottom + 5);
-        }
-
-        // Y-axis labels
-        ctx.textAlign = 'right';
-        ctx.textBaseline = 'middle';
-        for (let i = 0; i <= 5; i++) {
-            const val = (maxVal / 5) * i;
-            const y = scaleY(val);
-            ctx.fillText(val, padding.left - 5, y);
-        }
-
-        // Axis titles
-        ctx.fillStyle = colors.fg;
-        ctx.font = '12px sans-serif';
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        ctx.fillText('Location Quality', width / 2, height - padding.bottom / 2 + 3);
-
-        ctx.save();
-        ctx.translate(15, height / 2);
-        ctx.rotate(-Math.PI / 2);
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        ctx.fillText('Food Quality', 0, 0);
-        ctx.restore();
-
-        // Draw selection region shading if showing all data
-        if (!showSelected) {
-            // Shade the region where location + taste > threshold
             ctx.fillStyle = colors.selected;
             ctx.globalAlpha = 0.1;
             ctx.beginPath();
 
             // Line equation: location + taste = threshold
-            // Find intersections with the 0-100 box
-            let linePoints = [];
+            // y = threshold - x
+            const points = [];
 
-            // Check intersection with left edge (location = 0)
-            if (threshold <= 100) {
-                linePoints.push({ x: 0, y: threshold });
-            }
+            // Intersections with box (0,0) to (100,100)
+            // Left (x=0): y = threshold
+            if (threshold <= 100) points.push({ x: 0, y: threshold });
+            // Top (y=100): x = threshold - 100
+            if (threshold >= 100 && threshold <= 200) points.push({ x: threshold - 100, y: 100 });
+            // Right (x=100): y = threshold - 100
+            if (threshold >= 100 && threshold <= 200) points.push({ x: 100, y: threshold - 100 });
+            // Bottom (y=0): x = threshold
+            if (threshold <= 100) points.push({ x: threshold, y: 0 });
 
-            // Check intersection with top edge (taste = 100)
-            const topX = threshold - 100;
-            if (topX >= 0 && topX <= 100) {
-                linePoints.push({ x: topX, y: 100 });
-            }
-
-            // Check intersection with right edge (location = 100)
-            const rightY = threshold - 100;
-            if (rightY >= 0 && rightY <= 100) {
-                linePoints.push({ x: 100, y: rightY });
-            }
-
-            // Check intersection with bottom edge (taste = 0)
-            if (threshold <= 100) {
-                linePoints.push({ x: threshold, y: 0 });
-            }
-
-            // Draw the shaded region (upper-right area above the line)
-            if (linePoints.length >= 2) {
-                ctx.moveTo(scaleX(linePoints[0].x), scaleY(linePoints[0].y));
-
-                // Go along the edge to the top-right corner
-                if (linePoints[0].x === 0) {
-                    ctx.lineTo(scaleX(0), scaleY(100));
-                }
-                ctx.lineTo(scaleX(100), scaleY(100));
-                if (linePoints[linePoints.length - 1].y > 0) {
-                    ctx.lineTo(scaleX(100), scaleY(linePoints[linePoints.length - 1].y));
-                }
-
-                // Back to start along the threshold line
-                ctx.lineTo(scaleX(linePoints[linePoints.length - 1].x), scaleY(linePoints[linePoints.length - 1].y));
+            if (points.length >= 2) {
+                ctx.moveTo(xScale(points[0].x), yScale(points[0].y));
+                // We want the upper right region
+                // If we started at x=0, we go to (0,100) then (100,100)
+                if (points[0].x === 0) ctx.lineTo(xScale(0), yScale(100));
+                ctx.lineTo(xScale(100), yScale(100));
+                if (points[points.length - 1].y > 0) ctx.lineTo(xScale(100), yScale(points[points.length - 1].y));
+                ctx.lineTo(xScale(points[points.length - 1].x), yScale(points[points.length - 1].y));
                 ctx.closePath();
                 ctx.fill();
             }
             ctx.globalAlpha = 1;
 
-            // Draw threshold line
-            if (linePoints.length >= 2) {
+            // Threshold line
+            if (points.length >= 2) {
                 ctx.strokeStyle = colors.threshold;
                 ctx.lineWidth = 2;
                 ctx.setLineDash([5, 5]);
                 ctx.beginPath();
-                ctx.moveTo(scaleX(linePoints[0].x), scaleY(linePoints[0].y));
-                ctx.lineTo(scaleX(linePoints[linePoints.length - 1].x), scaleY(linePoints[linePoints.length - 1].y));
+                ctx.moveTo(xScale(points[0].x), yScale(points[0].y));
+                ctx.lineTo(xScale(points[points.length - 1].x), yScale(points[points.length - 1].y));
                 ctx.stroke();
                 ctx.setLineDash([]);
             }
-        }
+        };
 
-        // Calculate regression
-        const regression = linearRegression(
-            dataPoints.map(p => p.location),
-            dataPoints.map(p => p.taste)
-        );
+        const drawStats = (ctx, { width, colors }) => {
+            if (dataPoints.length <= 1) return;
 
-        // Draw regression line if we have enough data
-        if (dataPoints.length > 1 && !isNaN(regression.slope)) {
-            ctx.strokeStyle = colors.trendLine;
-            ctx.lineWidth = showSelected ? 3 : 2;
-            ctx.globalAlpha = showSelected ? 1 : 0.5;
-            ctx.beginPath();
-            const y1 = regression.intercept;
-            const y2 = regression.slope * 100 + regression.intercept;
-            ctx.moveTo(scaleX(0), scaleY(y1));
-            ctx.lineTo(scaleX(100), scaleY(y2));
-            ctx.stroke();
-            ctx.globalAlpha = 1;
+            const regression = linearRegression(xData, yData);
+            if (isNaN(regression.slope)) return;
 
-            // Calculate R²
-            let ssRes = 0;
-            let ssTot = 0;
-            const meanY = dataPoints.reduce((sum, p) => sum + p.taste, 0) / dataPoints.length;
+            // Calculate R² manually since we want to display it differently
+            // Actually stats.js linearRegression returns r2
+            const r2 = regression.r2;
 
-            for (const p of dataPoints) {
-                const predictedY = regression.slope * p.location + regression.intercept;
-                ssRes += Math.pow(p.taste - predictedY, 2);
-                ssTot += Math.pow(p.taste - meanY, 2);
-            }
-
-            const r2 = ssTot > 0 ? 1 - (ssRes / ssTot) : 0;
-
-            // Show statistics
             ctx.fillStyle = colors.fg;
             ctx.font = '11px sans-serif';
             ctx.textAlign = 'left';
             const slopeText = regression.slope >= 0 ? '+' + regression.slope.toFixed(3) : regression.slope.toFixed(3);
+            // Hardcoded padding values from ScatterplotRenderer default
+            const padding = { top: 30, left: 60 };
             ctx.fillText(`Slope: ${slopeText}`, padding.left + 10, padding.top + 10);
             ctx.fillText(`R² = ${r2.toFixed(3)}`, padding.left + 10, padding.top + 25);
-        }
+        };
 
-        // Draw data points
-        for (const d of dataPoints) {
-            if (showSelected) {
-                // Right plot: only selected points, visible
-                ctx.fillStyle = colors.selected;
-            } else {
-                // Left plot: all points, uniform appearance
-                ctx.fillStyle = colors.node;
-            }
-            const px = scaleX(d.location);
-            const py = scaleY(d.taste);
-            ctx.beginPath();
-            ctx.arc(px, py, 3, 0, Math.PI * 2);
-            ctx.fill();
-        }
+        const renderer = new ScatterplotRenderer(ctx, {
+            title,
+            xLabel: 'Location Quality',
+            yLabel: 'Food Quality',
+            pointColor: showSelected ? getThemeColors().selected : getThemeColors().node,
+            showRegression: true,
+            showR2: false, // We draw it manually
+            onDrawBackground: drawSelectionRegion,
+            onDrawForeground: drawStats
+        });
+
+        const dims = setupCanvas(canvas, 1.5);
+        renderer.draw(xData, yData, dims.width, dims.height);
     }
 
     function drawScatterplots() {
@@ -371,33 +257,7 @@ export function initBerksonParadox(config) {
         drawScatterplot(selectedCanvas, selectedCtx, selectedData, 'Surviving Restaurants Only', true);
     }
 
-    function runLoop() {
-        if (!running) return;
-        step();
-        setTimeout(() => {
-            animationId = requestAnimationFrame(runLoop);
-        }, 200);
-    }
-
     // Event listeners
-    stepBtn.addEventListener('click', step);
-
-    runBtn.addEventListener('click', () => {
-        running = !running;
-        if (running) {
-            runBtn.textContent = 'Stop';
-            runLoop();
-        } else {
-            runBtn.textContent = 'Run';
-            if (animationId) {
-                cancelAnimationFrame(animationId);
-                animationId = null;
-            }
-        }
-    });
-
-    resetBtn.addEventListener('click', reset);
-
     if (thresholdSlider) {
         thresholdSlider.addEventListener('input', () => {
             threshold = parseFloat(thresholdSlider.value);
