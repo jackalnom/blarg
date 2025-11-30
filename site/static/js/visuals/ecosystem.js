@@ -72,6 +72,7 @@ export function initEcosystem(config) {
         // Update CELL_SIZE to fit the grid in the available width
         CELL_SIZE = width / GRID_SIZE;
         draw();
+        drawChart();
     });
 
     function initGrid() {
@@ -417,7 +418,7 @@ export function initEcosystem(config) {
         // Setup canvas with proper DPI scaling
         const dpr = window.devicePixelRatio || 1;
         const rect = chartCanvas.getBoundingClientRect();
-        const displayWidth = rect.width;
+        const displayWidth = chartCanvas.parentElement.clientWidth;
         const displayHeight = rect.height;
 
         chartCanvas.width = displayWidth * dpr;

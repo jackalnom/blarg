@@ -421,6 +421,10 @@ input[type="checkbox"]:hover {
   background: var(--bg_h);
 }
 
+.darkmode .elec-main-canvas {
+  background: var(--bg1);
+}
+
 .elec-patterns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
