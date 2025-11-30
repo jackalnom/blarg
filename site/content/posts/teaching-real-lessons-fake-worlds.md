@@ -1,15 +1,15 @@
 ---
 author: Lucas Pierce
-title: Teaching Real Lessons with Fake Worlds
-date: 2025-11-23
+title: Teaching real lessons with fake worlds
+date: 2025-11-30
 description: Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.
 categories: ["Career & Professional"]
+tags: ['teaching', 'data science', 'software engineering']
 _build:
   render: always
   list: never
   publishResources: true
-tags: ['teaching', 'data science', 'software engineering']
-
+  
 ---
 
 I build little worlds full of adventurers, potions, and dragons. Students run potion shops where they manage magical supply chains for demanding fighters and wizards. They run media companies providing entertainment to dragons, frog-folk, and discerning gnomes. And in the process, they become curious about how the worlds themselves work and come alive.
@@ -63,7 +63,7 @@ Why are they correlated though? We've all heard the phrase *correlation does not
 
 I draw upon [Judea Pearl's causal directed acyclic graphs (DAGs)](https://www.jstor.org/stable/2337329) to make this happen. I start by drawing out a causal graph, giving each effect multiple causes, often layers and layers deep.
 
-For example, in the interaction below, we can see how the ice-cream/violent crime correlation could arise via confounding illustrated using a DAG. In this case both ice-cream consumption and violent crime are dependent on season (the confounder). You can see in the scatter plots how ice-cream and violent crime become correlated as a result even without any direct causal link.
+For example, in the interaction below, we can see how the ice-cream/violent crime correlation could arise via confounding, as illustrated using a DAG. In this case, both ice-cream consumption and violent crime depend on season (the confounder). The scatter plots show how ice-cream consumption and violent crime become correlated as a result, even without any direct causal link.
 
 {{< dag-vis id="dag" structure="confounded" >}}
 
@@ -111,19 +111,15 @@ We can get something similar using our same dice rolling example. But this time,
 
 {{< generate-samples id="log" type="lognormal" >}}
 
-Many human systems aren't just multiplicative—they're self-reinforcing. Popular people attract more popularity simply because they're already popular. Algorithms that surface trending videos, products, or songs push content that is already successful. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.
+Many human systems aren't just multiplicative—they're self-reinforcing. Algorithms frequently elevate videos, products, games, or songs based on existing popularity, which in turn makes them even more popular. Because attention is finite, these dynamics often lead to winner-takes-most outcomes. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.
 
-When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of [reviews per game on Steam](https://www.kaggle.com/datasets/andrewmvd/steam-reviews). Technically, both the reviews per game on Steam and the housing price data above are a mix of [log-normal on the left, power-law on the right](https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf) (I prefer to call it a [mullet distributions](https://www.urbandictionary.com/define.php?term=Business+in+front%2C+party+in+the+back)). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.
+When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of [reviews per game on Steam](https://zenodo.org/records/1000885). Technically, both the reviews per game on Steam and the housing price data above are a mix of [log-normal on the left, power-law on the right](https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf) (I prefer to call it a [mullet distributions](https://www.urbandictionary.com/define.php?term=Business+in+front%2C+party+in+the+back)). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.
 
 {{< steam-reviews id="steam" >}}
 
-You can make preferential attachment appear in a simulation by simply making prior success increase the odds of future success. Make customers more likely to pick the company that already has a lot of customers. Allow the wealthy to reinvest their money in ways that they get preferential deals. In the simulation below I have an example of a distribution generated solely on preferential attachment.
+You can make preferential attachment appear in a simulation by making prior success increase the odds of future success. In the simulation below I have an example of a distribution generated solely on preferential attachment.
 
 {{< generate-samples id="pa" type="preferential-attachment" >}}
-
-The sigmoid, or S-curve, has a way of spontaneously appearing on its own. Start with exponential growth—your babies have babies, and theirs do too—and sooner or later a carrying capacity reins things in, bending the curve into a smooth logistic shape. A different route to a sigmoid is if your agents each have a normally distributed threshold: as the value rises, the cumulative number who cross that line climbs along a probit curve that looks much the same. This probit curve is what I demonstrate through simulation below.
-
-{{< generate-samples id="sig" type="sigmoid" >}}
 
 Getting these shapes to emerge naturally is key. When I'm building simulations, I never directly sample these distributions. Instead, I code my agents so that, taken together, they arrive at those shapes honestly. I create the feedback loops that produce power-law distributions. I make processes multiplicative where they should be, and allow for multimodality by giving categories different generative properties.
 

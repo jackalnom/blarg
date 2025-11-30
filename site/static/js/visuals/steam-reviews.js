@@ -9,9 +9,16 @@ export async function initSteamReviews(containerId, logCheckboxId) {
   const logCheckbox = document.getElementById(logCheckboxId);
   if (!container) return;
 
+  // Create layout
+  container.innerHTML = `
+    <div class="static-chart-container"></div>
+    <div class="static-chart-source">Source: Antoni Sobkowicz. (2017). Steam Review Dataset (2017) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.1000885</div>
+  `;
+
+  const chartContainer = container.querySelector(".static-chart-container");
   const canvas = document.createElement("canvas");
   canvas.className = "static-chart-canvas";
-  container.appendChild(canvas);
+  chartContainer.appendChild(canvas);
   const ctx = canvas.getContext("2d");
 
   async function loadData() {

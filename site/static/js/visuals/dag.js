@@ -155,7 +155,9 @@ export function initDAG(ids) {
     }
 
     function drawDAG() {
-        const dims = setupCanvas(dagCanvas, 3); // 3:1 aspect ratio like berkson
+        const isMobile = window.innerWidth < 600;
+        const aspectRatio = isMobile ? 2 : 3;
+        const dims = setupCanvas(dagCanvas, aspectRatio);
         const { width, height } = dims;
         const colors = getThemeColors();
 

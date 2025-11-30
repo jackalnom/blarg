@@ -90,9 +90,15 @@ export async function initHomeValues(containerId, logCheckboxId) {
     }
 
     function formatMoney(v) {
-      if (v >= 1e6) return `£${Math.round(v / 1e5) / 10} M`;
-      if (v >= 1e3) return `£${Math.round(v / 1e2) / 10} k`;
-      return `£${v} `;
+      if (v >= 1e6) return `£${Math.round(v / 1e5) / 10}M`;
+      if (v >= 1e3) return `£${Math.round(v / 1e2) / 10}k`;
+      return `£${v}`;
+    }
+
+    function formatCount(v) {
+      if (v >= 1e6) return `${Math.round(v / 1e5) / 10}M`;
+      if (v >= 1e3) return `${Math.round(v / 1e2) / 10}k`;
+      return `${v}`;
     }
 
     // Use AxisRenderer
@@ -104,11 +110,15 @@ export async function initHomeValues(containerId, logCheckboxId) {
       colors: c
     });
 
+    const isMobile = width < 600;
+    const xTickCount = isMobile ? 3 : 5;
+    const yTickCount = isMobile ? 3 : 5;
+
     const xTicks = useLog
       ? [10000, 100000, 1000000, 10000000, 100000000].filter((t) => t >= xMin && t <= xMax)
-      : linearTicks(xDomainMin, xDomainMax);
+      : linearTicks(xDomainMin, xDomainMax, xTickCount);
 
-    const yTicks = linearTicks(0, yMax);
+    const yTicks = linearTicks(0, yMax, yTickCount);
 
     axisRenderer.draw({
       width,
@@ -118,7 +128,7 @@ export async function initHomeValues(containerId, logCheckboxId) {
       xTicks,
       yTicks,
       xFormat: (v) => useLog ? `£1e${Math.round(Math.log10(v))}` : formatMoney(v),
-      yFormat: formatMoney
+      yFormat: formatCount
     });
 
     // bars
