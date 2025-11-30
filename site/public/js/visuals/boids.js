@@ -194,7 +194,7 @@ class Boid {
 
 class BoidsVisualization extends BaseVisualization {
     constructor(containerId, ids) {
-        super(containerId);
+        super(containerId, 1);
 
         this.params = {
             separation: 1.5,

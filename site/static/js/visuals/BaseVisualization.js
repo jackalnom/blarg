@@ -10,7 +10,7 @@ import { LAYOUT } from "./constants.js";
  * - Basic animation loop
  */
 export class BaseVisualization {
-    constructor(containerId) {
+    constructor(containerId, aspectRatio = LAYOUT.defaultAspectRatio) {
         this.container = document.getElementById(containerId);
         if (!this.container) {
             console.warn(`Container not found: ${containerId}`);
@@ -30,6 +30,7 @@ export class BaseVisualization {
         this.colors = getThemeColors();
         this.animationId = null;
         this.isRunning = false;
+        this.aspectRatio = aspectRatio;
 
         // Auto-setup
         this.setupCanvas();
@@ -37,7 +38,7 @@ export class BaseVisualization {
     }
 
     setupCanvas() {
-        setupResponsiveCanvas(this.canvas, LAYOUT.defaultAspectRatio, ({ width, height }) => {
+        setupResponsiveCanvas(this.canvas, this.aspectRatio, ({ width, height }) => {
             this.width = width;
             this.height = height;
             this.draw();

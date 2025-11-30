@@ -55,7 +55,7 @@
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
     <meta property="article:published_time" content="2025-11-23T00:00:00+00:00">
-    <meta property="article:modified_time" content="2025-11-29T10:46:20-08:00">
+    <meta property="article:modified_time" content="2025-11-29T12:03:49-08:00">
     <meta property="article:tag" content="Teaching">
     <meta property="article:tag" content="Data Science">
     <meta property="article:tag" content="Software Engineering">
@@ -70,8 +70,8 @@
   <meta itemprop="name" content="Teaching Real Lessons with Fake Worlds">
   <meta itemprop="description" content="Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.">
   <meta itemprop="datePublished" content="2025-11-23T00:00:00+00:00">
-  <meta itemprop="dateModified" content="2025-11-29T10:46:20-08:00">
-  <meta itemprop="wordCount" content="3311">
+  <meta itemprop="dateModified" content="2025-11-29T12:03:49-08:00">
+  <meta itemprop="wordCount" content="3290">
   <meta itemprop="keywords" content="Teaching,Data Science,Software Engineering">
 
   
@@ -229,7 +229,7 @@
           <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          3311 words
+          3290 words
         </span>
       
       
@@ -271,7 +271,7 @@
 <li><strong>Interpret:</strong> Evaluate whether your solution actually solved the problem.</li>
 </ol>
 <p>Even when toy problems attempt steps 1 and 3, it&rsquo;s often thin pseudocontext. There isn&rsquo;t enough noise, and it&rsquo;s painfully obvious what technical thing needs to be done.</p>
-<p>Large language models have exacerbated this in the classroom. Step 2—the &ldquo;doing&rdquo;—is now often solvable with a copy and a paste. It&rsquo;s similar to how calculators solved &ldquo;how do I perform arithmetic on these numbers&rdquo; but didn&rsquo;t solve &ldquo;how do I turn my problem into something I can plug into a calculator.&rdquo; If we only teach Step 2, students aren&rsquo;t just working on problems that don&rsquo;t match the real world; they often aren&rsquo;t building any fundamental skills at all.</p>
+<p>Large language models have made this gap impossible to ignore. Step 2—doing the technical work—is now too often solvable with a prompt→copy→paste. It&rsquo;s the same shift calculators brought to arithmetic: the execution is automated, but the framing of the problem is not. Simulations let me push students into Steps 1 and 3, where intellectual work continues to thrive.</p>
 <p>I&rsquo;ve incorporated simulations into my upper-division computer science courses to teach the metacognitive and epistemic skills necessary to solve difficult problems as they actually exist.</p>
 <h2 id="why-simulation">Why Simulation?</h2>
 <p>I&rsquo;ve always loved simulation-style games. Ever since playing the gold-cartridge <em>Legend of Zelda</em> on the NES, I&rsquo;ve been fascinated by the idea that the little characters in those worlds might have lives of their own; that they might keep moving even when the player isn&rsquo;t looking.</p>
@@ -282,8 +282,7 @@
 <li>Teaching concurrency errors: As &ldquo;customers&rdquo; fire off parallel cart checkouts, students&rsquo; code runs into fun and unpredictable race conditions. Sorry, your inventory is out of sync. You had a lost update. The week after, when I lecture on transactions, you&rsquo;re excited when it solves your problem.</li>
 <li>Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, systems designed for observability. That&rsquo;s how many experienced developers come to care about those principles: not from theory, but from scars.</li>
 </ul>
-<p>This matters even more when teaching data science. In my <em>Knowledge Discovery</em> class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it&rsquo;s any good without knowing what would have happened if the user was shown different content?</p>
-<p>Offline evaluation metrics often fail to capture what only reveals itself in a live test. A simulation is the best way I can bring that messy complexity into the classroom.</p>
+<p>This matters even more when teaching data science. In my <em>Knowledge Discovery</em> class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it&rsquo;s any good without knowing what would have happened if the user was shown different content? Offline evaluation metrics often fail to capture what only reveals itself in a live test. A simulation is a way I can bring that necessary complexity into the classroom.</p>
 <p>Simulations also provide an ethical sandbox—an advantage over even the real world. If you deploy a recommendation engine that accidentally optimizes for outrage or suppresses a demographic, people get hurt. In my classroom, if a student&rsquo;s algorithm radicalizes the gnomes or creates dystopian inequality among the frog-folk, we can pause and examine what went wrong. Consequences made visible, without the lasting damage.</p>
 <h2 id="how-i-build-simulations">How I Build Simulations</h2>
 <p>My goal when designing a simulation is for it to mimic the authentic data in the ways that matter. It has to feel genuine, even when the subject matter of the simulation is fantastical. Synthetic data too often looks fake.</p>
@@ -506,7 +505,7 @@
 </script>
 
 <p>Many human systems aren&rsquo;t just multiplicative—they&rsquo;re self-reinforcing. Popular people attract more popularity simply because they&rsquo;re already popular. Algorithms that surface trending videos, products, or songs push content that is already successful. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.</p>
-<p>When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of <a href="https://www.kaggle.com/datasets/andrewmvd/steam-reviews">reviews per game on Steam</a>. Technically, both the reviews per game on Steam and the housing price data above are a mix of log-normal on the left, power-law on the right (I call it the <a href="https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf">mullet</a> of distributions). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.</p>
+<p>When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of <a href="https://www.kaggle.com/datasets/andrewmvd/steam-reviews">reviews per game on Steam</a>. Technically, both the reviews per game on Steam and the housing price data above are a mix of <a href="https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf">log-normal on the left, power-law on the right</a> (I prefer to call it a <a href="https://www.urbandictionary.com/define.php?term=Business+in+front%2C+party+in+the+back">mullet distributions</a>). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.</p>
 <div class="static-chart-wrapper">
   <div class="static-chart-controls" style="display:flex; align-items:center; gap:10px;">
     <strong>Steam reviews per game</strong>
@@ -633,7 +632,7 @@
 <h2 id="emergent-complexity">Emergent Complexity</h2>
 <p>Now that we know what our data should look like, how do we achieve that without manually faking every data point? That sounds so complex!</p>
 <p>It does. But we&rsquo;re in luck; we don&rsquo;t have to (and we shouldn&rsquo;t) code the complexity directly. We rely on it emerging. When programming our simulations, we can focus on just the primary generative mechanisms (with some added individual-level truly random noise), and generate an overall more complex simulation with very simple individual-level rules.</p>
-<p>The fact that complexity can arise from simple rules is well established. Boids is the classic example: three simple rules—steer away from crowds, move with the flock, and head toward its center of mass—produce beautiful flocking behavior. That&rsquo;s always the goal: rich, organic behavior that feels real but emerges from simple, understandable rules. Try adjusting the relative strength of those three simple rules in the simulation below; you can see the mix of effects that emerge.</p>
+<p>The fact that complexity can arise from simple rules is well established. <a href="https://www.red3d.com/cwr/papers/1987/boids.html">Boids</a> is the classic example: three simple rules—steer away from crowds, move with the flock, and head toward its center of mass—produce beautiful flocking behavior. That&rsquo;s always the goal: rich, organic behavior that feels real but emerges from simple, understandable rules. Try adjusting the relative strength of those three simple rules in the simulation below; you can see the mix of effects that emerge.</p>
 <div class="boids-controls">
     <div class="boids-rule">
         <label>Separation <small>(avoid crowding)</small></label>

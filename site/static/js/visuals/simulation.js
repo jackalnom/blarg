@@ -450,13 +450,98 @@ export class StandardSimulation {
         });
     }
 
-    // ... (updateLayout, getParams, updateInfo, rollSample, recordSample, valueToBin, recompute remain same)
+    updateLayout(bins = this.runner.bins) {
+        // Allow custom override (e.g. for pref-attach which has dynamic bins/layout)
+        if (this.config.customUpdateLayout) {
+            this.config.customUpdateLayout(this, bins);
+            return;
+        }
 
-    // startRun and reset are now handled by controller, but we might keep reset() as a method if called externally?
-    // The controller calls onReset which contains the logic.
-    // But StandardSimulation.reset() might be called by other things (like recompute).
-    // Actually recompute calls runner.reset().
-    // Let's keep a reset method that calls controller.reset().
+        // Default layout update
+        const logX = this.logXToggle?.checked || false;
+        const availableWidth = this.runner.width - LAYOUT.leftPadding;
+        this.runner.layout = makeBarLayout(availableWidth, bins, logX);
+
+        // Allow custom step logic to run after layout update if needed
+        if (this.customOnStep) {
+            this.customOnStep(this);
+        }
+    }
+
+    getParams() {
+        return {
+            sides: this.sidesSelect ? parseInt(this.sidesSelect.value) : 6,
+            count: this.countInput ? parseInt(this.countInput.value) : 1,
+            logX: this.logXToggle?.checked || false
+        };
+    }
+
+    updateInfo() {
+        // Info text removed - controls are now self-explanatory
+    }
+
+    rollSample() {
+        return Math.random(); // Continuous [0, 1)
+    }
+
+    recordSample(val) {
+        this.samples.push(val);
+    }
+
+    valueToBin(val) {
+        const bins = this.bins || this.config.bins;
+
+        if (this.config.customValueToBin) {
+            return this.config.customValueToBin(val, this);
+        }
+
+        // Always use linear binning - logX only affects visual layout, not binning
+        const t = (val - this.rangeLow) / (this.rangeHigh - this.rangeLow);
+        return Math.min(Math.floor(t * bins), bins - 1);
+    }
+
+    recompute() {
+        // If custom recompute is provided, use it (legacy support or complex cases like pref-attach)
+        if (this.customOnRecompute) {
+            this.customOnRecompute(this);
+            return;
+        }
+
+        const params = this.getParams();
+        const { sides, count } = params;
+        let bins = this.config.bins;
+
+        // Update range
+        if (this.config.getRange) {
+            const range = this.config.getRange(params);
+            this.rangeLow = range.min;
+            this.rangeHigh = range.max;
+            if (range.bins) bins = range.bins;
+        }
+
+        this.bins = bins; // Store current bins
+
+        // Reset runner layout using updateLayout to respect logX
+        this.updateLayout(bins);
+        this.runner.reset({ bins, layout: this.runner.layout });
+
+        // Re-bin existing samples
+        if (this.samples.length > 0) {
+            for (const val of this.samples) {
+                const bin = this.valueToBin(val);
+                if (bin >= 0 && bin < bins) {
+                    this.runner.counts[bin]++;
+                    this.runner.stacks[bin]++;
+                }
+            }
+            // Update total
+            this.runner.total = this.samples.length;
+
+            // Recalculate max stack for y-scale
+            // (SimulationRunner doesn't track maxStack automatically on reset, 
+            // but it calculates it in getYScale, so we are good)
+        }
+    }
 
     reset() {
         this.controller.reset();

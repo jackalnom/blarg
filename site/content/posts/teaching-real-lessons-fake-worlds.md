@@ -22,7 +22,7 @@ I worked in tech for a long time, most of it leading technical teams. I kept not
 
 Even when toy problems attempt steps 1 and 3, it's often thin pseudocontext. There isn't enough noise, and it's painfully obvious what technical thing needs to be done.
 
-Large language models have exacerbated this in the classroom. Step 2—the "doing"—is now often solvable with a copy and a paste. It's similar to how calculators solved "how do I perform arithmetic on these numbers" but didn't solve "how do I turn my problem into something I can plug into a calculator." If we only teach Step 2, students aren't just working on problems that don't match the real world; they often aren't building any fundamental skills at all.
+Large language models have made this gap impossible to ignore. Step 2—doing the technical work—is now too often solvable with a prompt→copy→paste. It's the same shift calculators brought to arithmetic: the execution is automated, but the framing of the problem is not. Simulations let me push students into Steps 1 and 3, where intellectual work continues to thrive.
 
 I've incorporated simulations into my upper-division computer science courses to teach the metacognitive and epistemic skills necessary to solve difficult problems as they actually exist.
 
@@ -39,9 +39,7 @@ For example:
 * Teaching concurrency errors: As "customers" fire off parallel cart checkouts, students' code runs into fun and unpredictable race conditions. Sorry, your inventory is out of sync. You had a lost update. The week after, when I lecture on transactions, you're excited when it solves your problem.
 * Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, systems designed for observability. That's how many experienced developers come to care about those principles: not from theory, but from scars.
 
-This matters even more when teaching data science. In my *Knowledge Discovery* class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it's any good without knowing what would have happened if the user was shown different content?
-
-Offline evaluation metrics often fail to capture what only reveals itself in a live test. A simulation is the best way I can bring that messy complexity into the classroom.
+This matters even more when teaching data science. In my *Knowledge Discovery* class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it's any good without knowing what would have happened if the user was shown different content? Offline evaluation metrics often fail to capture what only reveals itself in a live test. A simulation is a way I can bring that necessary complexity into the classroom.
 
 Simulations also provide an ethical sandbox—an advantage over even the real world. If you deploy a recommendation engine that accidentally optimizes for outrage or suppresses a demographic, people get hurt. In my classroom, if a student's algorithm radicalizes the gnomes or creates dystopian inequality among the frog-folk, we can pause and examine what went wrong. Consequences made visible, without the lasting damage.
 
@@ -115,7 +113,7 @@ We can get something similar using our same dice rolling example. But this time,
 
 Many human systems aren't just multiplicative—they're self-reinforcing. Popular people attract more popularity simply because they're already popular. Algorithms that surface trending videos, products, or songs push content that is already successful. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.
 
-When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of [reviews per game on Steam](https://www.kaggle.com/datasets/andrewmvd/steam-reviews). Technically, both the reviews per game on Steam and the housing price data above are a mix of log-normal on the left, power-law on the right (I call it the [mullet](https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf) of distributions). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.
+When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of [reviews per game on Steam](https://www.kaggle.com/datasets/andrewmvd/steam-reviews). Technically, both the reviews per game on Steam and the housing price data above are a mix of [log-normal on the left, power-law on the right](https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf) (I prefer to call it a [mullet distributions](https://www.urbandictionary.com/define.php?term=Business+in+front%2C+party+in+the+back)). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.
 
 {{< steam-reviews id="steam" >}}
 
@@ -155,7 +153,7 @@ Now that we know what our data should look like, how do we achieve that without 
 
 It does. But we're in luck; we don't have to (and we shouldn't) code the complexity directly. We rely on it emerging. When programming our simulations, we can focus on just the primary generative mechanisms (with some added individual-level truly random noise), and generate an overall more complex simulation with very simple individual-level rules.
 
-The fact that complexity can arise from simple rules is well established. Boids is the classic example: three simple rules—steer away from crowds, move with the flock, and head toward its center of mass—produce beautiful flocking behavior. That's always the goal: rich, organic behavior that feels real but emerges from simple, understandable rules. Try adjusting the relative strength of those three simple rules in the simulation below; you can see the mix of effects that emerge.
+The fact that complexity can arise from simple rules is well established. [Boids](https://www.red3d.com/cwr/papers/1987/boids.html) is the classic example: three simple rules—steer away from crowds, move with the flock, and head toward its center of mass—produce beautiful flocking behavior. That's always the goal: rich, organic behavior that feels real but emerges from simple, understandable rules. Try adjusting the relative strength of those three simple rules in the simulation below; you can see the mix of effects that emerge.
 
 {{< boids-vis id="boids" >}}
 
