@@ -6,7 +6,494 @@
     <description>Recent content in Data Science on BonnyCode</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 30 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://www.bonnycode.com/tags/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Teaching real lessons with fake worlds</title>
+      <link>https://www.bonnycode.com/posts/teaching-real-lessons-fake-worlds/</link>
+      <pubDate>Tue, 02 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.bonnycode.com/posts/teaching-real-lessons-fake-worlds/</guid>
+      <description>&lt;p&gt;I build little worlds full of adventurers, potions, and dragons. Students run potion shops where they manage magical supply chains for demanding fighters and wizards. They run media companies providing entertainment to dragons, frog-folk, and discerning gnomes. And in the process, they become curious about how the worlds themselves work and come alive.&lt;/p&gt;
+&lt;p&gt;I worked in tech for a long time, most of it leading technical teams. I kept noticing the same thing: new grads who struggled with problems that looked nothing like their coursework. They knew how to do the work, but only if it was carefully packaged for them. In the wild, solving a technical problem is a cycle:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Formulate:&lt;/strong&gt; Translate an unbounded, ambiguous situation into a technical problem.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Solve:&lt;/strong&gt; Execute the technical solution.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Interpret:&lt;/strong&gt; Evaluate whether your solution actually solved the problem.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Even when toy problems attempt steps 1 and 3, it&amp;rsquo;s often thin pseudocontext. There isn&amp;rsquo;t enough noise, and it&amp;rsquo;s painfully obvious what technical thing needs to be done.&lt;/p&gt;
+&lt;p&gt;Large language models have made this gap impossible to ignore. Step 2—doing the technical work—is now too often solvable with a prompt→copy→paste. It&amp;rsquo;s the same shift calculators brought to arithmetic: the execution is automated, but the framing of the problem is not. Simulations let me push students into Steps 1 and 3, where intellectual work continues to thrive.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve incorporated simulations into my upper-division computer science courses to teach the metacognitive and epistemic skills necessary to solve difficult problems as they actually exist.&lt;/p&gt;
+&lt;h2 id=&#34;why-simulation&#34;&gt;Why Simulation?&lt;/h2&gt;
+&lt;p&gt;I&amp;rsquo;ve always loved simulation-style games. Ever since playing the gold-cartridge &lt;em&gt;Legend of Zelda&lt;/em&gt; on the NES, I&amp;rsquo;ve been fascinated by the idea that the little characters in those worlds might have lives of their own; that they might keep moving even when the player isn&amp;rsquo;t looking.&lt;/p&gt;
+&lt;p&gt;That notion is the seed of my classroom simulations: worlds that run on their own, where students must reason about living systems rather than static puzzles.&lt;/p&gt;
+&lt;p&gt;My first classroom simulation-game came out of a databases course. Early on, I realized students weren&amp;rsquo;t really feeling what it meant to run a production system: the pressure, the messiness, the human factors. Software without customers is sterile. But software that serves a live world, with people depending on it, becomes something else entirely—unpredictable, alive, and worth thinking about.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Teaching concurrency errors: As &amp;ldquo;customers&amp;rdquo; fire off parallel cart checkouts, students&amp;rsquo; code runs into fun and unpredictable race conditions. Sorry, your inventory is out of sync. You had a lost update. The week after, when I lecture on transactions, you&amp;rsquo;re excited to see it solves your problem.&lt;/li&gt;
+&lt;li&gt;Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, systems designed for observability. That&amp;rsquo;s how many experienced developers come to care about those principles: not from theory, but from scars.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This matters even more when teaching data science. In my &lt;em&gt;Knowledge Discovery&lt;/em&gt; class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it&amp;rsquo;s any good without knowing what would have happened if the user was shown different content? Offline evaluation metrics often fail to capture what only reveals itself in a live test. A simulation is a way I can bring that necessary complexity into the classroom.&lt;/p&gt;
+&lt;p&gt;Simulations also provide an ethical sandbox—an advantage over even the real world. If you deploy a recommendation engine that accidentally optimizes for outrage or suppresses a demographic, people get hurt. In my classroom, if a student&amp;rsquo;s algorithm radicalizes the gnomes or creates dystopian inequality among the frog-folk, we can pause and examine what went wrong. Consequences made visible, without the lasting damage.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-build-simulations&#34;&gt;How I Build Simulations&lt;/h2&gt;
+&lt;p&gt;My goal when designing a simulation is for it to mimic the authentic data in the ways that matter. It has to feel genuine, even when the subject matter of the simulation is fantastical. Synthetic data too often looks fake.&lt;/p&gt;
+&lt;p&gt;There are three ways fake data tends to give itself away:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Correlation: Data should be a web of interesting, interconnected correlations of varying degrees.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Shape: Data should have the right shape for its process.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Time: Data should both change over time and operate cyclically; it&amp;rsquo;s influenced by the sun, the moon, and the social patterns of human life.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;correlation&#34;&gt;Correlation&lt;/h3&gt;
+&lt;p&gt;Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “Well obviously! Crime is hard work and you need to treat yourself afterwards.” Moving on.&lt;/p&gt;
+&lt;p&gt;Why are they correlated though? We&amp;rsquo;ve all heard the phrase &lt;em&gt;correlation does not imply causation.&lt;/em&gt; When we say that, we mostly mean &lt;em&gt;direct causation&lt;/em&gt;. If we accept that our highly correlated world results from a web of causes—“this causes this, which causes these two things, and then those in turn cause others”—we can use that fact as the foundation for natural-looking correlations.&lt;/p&gt;
+&lt;p&gt;I draw upon &lt;a href=&#34;https://www.jstor.org/stable/2337329&#34;&gt;Judea Pearl&amp;rsquo;s causal directed acyclic graphs (DAGs)&lt;/a&gt; to make this happen. I start by drawing out a causal graph, giving each effect multiple causes, often layers and layers deep.&lt;/p&gt;
+&lt;p&gt;For example, in the interaction below, we can see how the ice-cream/violent crime correlation could arise via confounding, as illustrated using a DAG. In this case, both ice-cream consumption and violent crime depend on season (the confounder). The scatter plots show how ice-cream consumption and violent crime become correlated as a result, even without any direct causal link.&lt;/p&gt;
+&lt;div id=&#34;dagWeights&#34; class=&#34;dag-weights&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;sim-controls&#34;&gt;
+    &lt;button id=&#34;dagStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;dagRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;dagReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;dagCorrelation&#34; class=&#34;dag-correlation&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;berkson-dag&#34;&gt;
+    &lt;canvas id=&#34;dagDAG&#34; class=&#34;berkson-dag-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;berkson-charts&#34;&gt;
+    &lt;div class=&#34;berkson-chart&#34;&gt;
+        &lt;canvas id=&#34;dagScatter&#34; class=&#34;berkson-scatter-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initDAG } from &#34;/js/teaching-visuals.js&#34;;
+    initDAG({
+        dagCanvasId: &#34;dagDAG&#34;,
+        scatterCanvasId: &#34;dagScatter&#34;,
+        structure: &#34;confounded&#34;,
+        correlationId: &#34;dagCorrelation&#34;,
+        weightsId: &#34;dagWeights&#34;,
+        stepId: &#34;dagStep&#34;,
+        runId: &#34;dagRun&#34;,
+        resetId: &#34;dagReset&#34;
+    });
+&lt;/script&gt;
+&lt;p&gt;This is unrealistically transparent, though, if we actually let students see all of this. It is like &lt;a href=&#34;https://en.wikipedia.org/wiki/Blind_men_and_an_elephant&#34;&gt;the blind men and the elephant&lt;/a&gt; from the &lt;em&gt;Tittha Sutta&lt;/em&gt;. One blind man feels the trunk and says “It&amp;rsquo;s a snake!” Another feels a leg and says “It&amp;rsquo;s a tree!” Yet another feels the tusk and says “No, you fools, it&amp;rsquo;s a giant spear!” Each has only a partial view of the underlying truth.&lt;/p&gt;
+&lt;p&gt;I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.&lt;/p&gt;
+&lt;p&gt;It isn&amp;rsquo;t just about the strength and reason for correlation, we also shouldn&amp;rsquo;t limit ourselves to linear correlations. Non-linear correlations happen for various reasons, but a common one is diminishing returns. In most systems, having a little bit of something is a big deal, and every one after that matters a little less. In a messaging app, the first friend who texts you makes the app come alive. Each additional friend adds some pull, but your hundredth friend matters a lot less than your first or your tenth—you only have so much attention to give. Economists call this diminishing marginal utility: each new unit yields a smaller gain than the last. The same curve shows up in studying/exam results, income/happiness, marketing spend/impact, and many more such cases. It&amp;rsquo;s what gives a lot of empirical correlations a characteristic bend when viewed as a scatterplot.&lt;/p&gt;
+&lt;div class=&#34;diminishing-param&#34;&gt;
+    &lt;label&gt;Strength of Diminishing Returns: &lt;span id=&#34;diminishingExponentValue&#34;&gt;Medium&lt;/span&gt;&lt;/label&gt;
+    &lt;input type=&#34;range&#34; id=&#34;diminishingExponent&#34; min=&#34;0.2&#34; max=&#34;1.0&#34; step=&#34;0.05&#34; value=&#34;0.5&#34; class=&#34;diminishing-slider&#34;&gt;
+    &lt;div style=&#34;font-size: 0.75em; color: var(--fg3); margin-top: 2px;&#34;&gt;
+        &lt;span style=&#34;float: left;&#34;&gt;Weak&lt;/span&gt;
+        &lt;span style=&#34;float: right;&#34;&gt;Strong&lt;/span&gt;
+        &lt;div style=&#34;clear: both;&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;sim-controls&#34;&gt;
+    &lt;button id=&#34;diminishingStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;diminishingRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;diminishingReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;diminishing-container&#34;&gt;
+    &lt;canvas id=&#34;diminishingCanvas&#34; class=&#34;diminishing-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initDiminishingReturns } from &#34;/js/teaching-visuals.js&#34;;
+    initDiminishingReturns({
+        canvasId: &#34;diminishingCanvas&#34;,
+        stepId: &#34;diminishingStep&#34;,
+        runId: &#34;diminishingRun&#34;,
+        resetId: &#34;diminishingReset&#34;,
+        exponentId: &#34;diminishingExponent&#34;,
+        exponentValueId: &#34;diminishingExponentValue&#34;
+    });
+&lt;/script&gt;
+
+&lt;p&gt;Lastly, and perhaps most tricky, life is littered with selection biases; what we observe is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, &lt;a href=&#34;https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363&#34;&gt;a hospital in Canada&lt;/a&gt; noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were ~50% more likely to have a serious injury compared to not wearing a helmet. That seems wrong, doesn&amp;rsquo;t it?&lt;/p&gt;
+&lt;p&gt;This is a specific form of selection bias called collider bias (or Berkson&amp;rsquo;s paradox). The hospital isn&amp;rsquo;t seeing all bike riders and all bike accidents; they don&amp;rsquo;t see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.&lt;/p&gt;
+&lt;p&gt;You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It&amp;rsquo;s a kind of selection echo: the world you see isn&amp;rsquo;t the world as it is, but the world that lasted.&lt;/p&gt;
+&lt;p&gt;In the simulation below, I show how food quality and location can become inversely correlated, even if they start out completely independent. This happens because survival is a filter: a restaurant can survive with bad food if it has high foot traffic (a tourist trap), and it can survive in a bad location if the food is amazing. But if it has bad food and a bad location, it goes out of business and disappears from the dataset. We only see the survivors.&lt;/p&gt;
+&lt;div class=&#34;berkson-param&#34;&gt;
+    &lt;label&gt;Survival Threshold: &lt;span id=&#34;berksonThresholdValue&#34;&gt;100&lt;/span&gt;&lt;/label&gt;
+    &lt;input type=&#34;range&#34; id=&#34;berksonThreshold&#34; min=&#34;50&#34; max=&#34;150&#34; step=&#34;5&#34; value=&#34;100&#34; class=&#34;berkson-slider&#34;&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;sim-controls&#34;&gt;
+    &lt;button id=&#34;berksonStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;berksonRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;berksonReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;berkson-dag&#34;&gt;
+    &lt;canvas id=&#34;berksonDAG&#34; class=&#34;berkson-dag-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;berkson-charts&#34;&gt;
+    &lt;div class=&#34;berkson-chart&#34;&gt;
+        &lt;canvas id=&#34;berksonFull&#34; class=&#34;berkson-scatter-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;berkson-chart&#34;&gt;
+        &lt;canvas id=&#34;berksonSelected&#34; class=&#34;berkson-scatter-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initBerksonParadox } from &#34;/js/teaching-visuals.js&#34;;
+    initBerksonParadox({
+        dagCanvasId: &#34;berksonDAG&#34;,
+        fullCanvasId: &#34;berksonFull&#34;,
+        selectedCanvasId: &#34;berksonSelected&#34;,
+        stepId: &#34;berksonStep&#34;,
+        runId: &#34;berksonRun&#34;,
+        resetId: &#34;berksonReset&#34;,
+        thresholdId: &#34;berksonThreshold&#34;,
+        thresholdValueId: &#34;berksonThresholdValue&#34;
+    });
+&lt;/script&gt;
+
+&lt;p&gt;Combine this all together and you get data that is filled with correlations, large and small, inverse and positive, linear and not-so-linear, spurious and true. Or in other words, data that is actually worth analyzing.&lt;/p&gt;
+&lt;h3 id=&#34;shape&#34;&gt;Shape&lt;/h3&gt;
+&lt;p&gt;I&amp;rsquo;ve long been fascinated by the beautifully smooth shapes that data makes when generated at scale. Not just systems, but data that is based on human behavior. I once assumed that because individual humans are so complicated, so individual, so hard to predict individually, that a bunch of humans would be exponentially more complicated to predict. But it is, in fact, the opposite. When you get lots of people, all the individual differences wash out, and what you are left with is the smooth underlying generative mechanisms that underlie their common behavior.&lt;/p&gt;
+&lt;p&gt;Most people are familiar with the bell curve or normal distribution. Plot human height and you&amp;rsquo;ll get something roughly normal. Human height follows this pattern because it&amp;rsquo;s the sum of many small, independent effects: genes, nutrition, environment. You can see below that adult human height is approximately normal; if you split by gender even more so.&lt;/p&gt;
+&lt;div class=&#34;static-chart-wrapper&#34;&gt;
+  &lt;div class=&#34;static-chart-controls&#34;&gt;
+    &lt;label&gt;
+      &lt;input type=&#34;checkbox&#34; id=&#34;height-split&#34;&gt; Split by gender
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;static-chart-container&#34; id=&#34;height&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initHeightDistribution } from &#34;/js/teaching-visuals.js&#34;;
+  initHeightDistribution(&#34;height&#34;, &#34;height-split&#34;);
+&lt;/script&gt;
+
+&lt;p&gt;Roll a bunch of dice, add them up, record that sum, repeat many times, and you&amp;rsquo;ll get the same shape; that&amp;rsquo;s the central limit theorem at work. When I see a bell-curve I see a process that has a bunch of uncorrelated randomness that is being added together. In the simulation below, try running it and seeing how as you add more samples it gets closer and closer to a smooth normal distribution.&lt;/p&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+    &lt;label class=&#34;sim-param-label&#34;&gt;Dice per roll
+        &lt;input id=&#34;cltCount&#34; type=&#34;number&#34; min=&#34;1&#34; max=&#34;20&#34; value=&#34;5&#34;&gt;
+    &lt;/label&gt;
+    
+
+    &lt;button id=&#34;cltStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;cltRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;cltReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+
+&lt;div id=&#34;cltInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;cltCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;clt&#34;, &#34;normal&#34;);
+&lt;/script&gt;
+
+&lt;p&gt;Most of the data I&amp;rsquo;ve worked with doesn&amp;rsquo;t follow a normal distribution, though. Systems and behaviors rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.&lt;/p&gt;
+&lt;p&gt;For example, &lt;a href=&#34;https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf&#34;&gt;housing prices&lt;/a&gt; are generally right-skewed, largely because each property&amp;rsquo;s value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because logarithms turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is common to look at these right-skewed distributions in log space.&lt;/p&gt;
+&lt;p&gt;Below, home sales data from &lt;a href=&#34;https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads#yearly-file&#34;&gt;England and Wales&lt;/a&gt; is charted; try viewing in both linear and log space.&lt;/p&gt;
+&lt;div class=&#34;static-chart-wrapper&#34;&gt;
+  &lt;div class=&#34;static-chart-controls&#34;&gt;
+    &lt;label&gt;
+      &lt;input type=&#34;checkbox&#34; id=&#34;homevalues-log&#34;&gt; Log x-axis
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;static-chart-container&#34; id=&#34;homevalues&#34;&gt;&lt;/div&gt;
+  &lt;div class=&#34;static-chart-source&#34;&gt;Source: HM Land Registry Price Paid Data, England &amp; Wales (2024)&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initHomeValues } from &#34;/js/teaching-visuals.js&#34;;
+  initHomeValues(&#34;homevalues&#34;, &#34;homevalues-log&#34;);
+&lt;/script&gt;
+
+&lt;p&gt;We can get something similar using our same dice rolling example. But this time, rather than adding the dice, we will multiply them together.&lt;/p&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+    &lt;label class=&#34;sim-param-label&#34;&gt;Dice per roll
+        &lt;input id=&#34;logCount&#34; type=&#34;number&#34; min=&#34;1&#34; max=&#34;20&#34; value=&#34;5&#34;&gt;
+    &lt;/label&gt;
+    
+
+    &lt;button id=&#34;logStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;logRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;logReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;sim-log-options&#34;&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; id=&#34;logLogX&#34;&gt; Log x-axis&lt;/label&gt;
+&lt;/div&gt;
+
+
+&lt;div id=&#34;logInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;logCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;log&#34;, &#34;lognormal&#34;);
+&lt;/script&gt;
+
+&lt;p&gt;Many human systems aren&amp;rsquo;t just multiplicative—they&amp;rsquo;re self-reinforcing. Algorithms frequently elevate videos, products, games, or songs based on existing popularity, which in turn makes them even more popular. Because attention is finite, these dynamics often lead to winner-takes-most outcomes. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.&lt;/p&gt;
+&lt;p&gt;When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of &lt;a href=&#34;https://zenodo.org/records/1000885&#34;&gt;reviews per game on Steam&lt;/a&gt;. Technically, both the reviews per game on Steam and the housing price data above are a mix of &lt;a href=&#34;https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf&#34;&gt;log-normal on the left, power-law on the right&lt;/a&gt; (I prefer to call it a &lt;a href=&#34;https://www.urbandictionary.com/define.php?term=Business+in+front%2C+party+in+the+back&#34;&gt;mullet distribution&lt;/a&gt;). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.&lt;/p&gt;
+&lt;div class=&#34;static-chart-wrapper&#34;&gt;
+  &lt;div class=&#34;static-chart-controls&#34; style=&#34;display:flex; align-items:center; gap:10px;&#34;&gt;
+    &lt;strong&gt;Steam reviews per game&lt;/strong&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; id=&#34;steamLog&#34;&gt; Log axes&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;static-chart-container&#34; id=&#34;steamContainer&#34;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&#34;module&#34;&gt;
+  import { initSteamReviews } from &#34;/js/teaching-visuals.js&#34;;
+  initSteamReviews(&#34;steamContainer&#34;, &#34;steamLog&#34;);
+&lt;/script&gt;
+
+&lt;p&gt;You can make preferential attachment appear in a simulation by making prior success increase the odds of future success. In the simulation below I have an example of a distribution generated solely on preferential attachment.&lt;/p&gt;
+&lt;div class=&#34;sim-controls&#34;&gt;
+    
+
+    &lt;button id=&#34;paStep&#34;&gt;Step&lt;/button&gt;
+
+    &lt;button id=&#34;paRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;paReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+
+&lt;div class=&#34;sim-log-options&#34;&gt;
+    &lt;label&gt;&lt;input type=&#34;checkbox&#34; id=&#34;paLog&#34;&gt; Log axes&lt;/label&gt;
+&lt;/div&gt;
+
+
+&lt;div id=&#34;paInfo&#34; class=&#34;sim-info&#34;&gt;&lt;/div&gt;
+&lt;div class=&#34;sim-container&#34;&gt;
+    &lt;canvas id=&#34;paCanvas&#34; class=&#34;sim-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initGenerateSamples } from &#34;/js/teaching-visuals.js&#34;;
+  initGenerateSamples(&#34;pa&#34;, &#34;preferential-attachment&#34;);
+&lt;/script&gt;
+
+&lt;p&gt;Getting these shapes to emerge naturally is key. When I&amp;rsquo;m building simulations, I never directly sample these distributions. Instead, I code my agents so that, taken together, they arrive at those shapes honestly. I create the feedback loops that produce power-law distributions. I make processes multiplicative where they should be, and allow for multimodality by giving categories different generative properties.&lt;/p&gt;
+&lt;h3 id=&#34;time&#34;&gt;Time&lt;/h3&gt;
+&lt;p&gt;When I worked at Snap, I could tell when holidays were happening without ever doing something as prosaic as checking a calendar. I&amp;rsquo;d just look at time-series charts of user engagement, split by region. If people started taking pictures at six or seven in the morning, it was a work or school day. If usage didn&amp;rsquo;t spike until around 10 in the morning, it was a weekend or holiday.&lt;/p&gt;
+&lt;p&gt;Anyone who has looked at these time-series is familiar with their rhythms. For example, below is &lt;a href=&#34;https://www.eia.gov/electricity/gridmonitor/&#34;&gt;daily demand for electricity&lt;/a&gt; in California for the past three years. You can see the weekly peaks plus the greater demand for electricity in summer. Summer strikes again with its many correlations.&lt;/p&gt;
+&lt;div class=&#34;electricity-demand-container&#34; id=&#34;elec&#34;&gt;&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+  import { initElectricityDemand } from &#34;/js/teaching-visuals.js&#34;;
+  initElectricityDemand(&#34;elec&#34;);
+&lt;/script&gt;
+
+&lt;p&gt;Real data shows this rhythm for several reasons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You see it across a day because we sleep, work, and live as the earth spins and brings day and night.&lt;/li&gt;
+&lt;li&gt;You see it across a week based on however your culture defines weekends and weekdays; Friday nights out, Sunday nights in.&lt;/li&gt;
+&lt;li&gt;And you see it across a year, driven by that same sun: the seasons, and the layers we&amp;rsquo;ve added on top—holidays, festivals, school breaks, and all the rituals that divide our time into meaning.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In the visualization below, I multiply these temporal components—daily, weekly, and yearly—to approximate the kinds of cycles that appear in real time series. Conceptually, it&amp;rsquo;s similar to seasonal–trend decomposition, where a signal is separated into trend and seasonal components for analysis or forecasting. The difference is that here I&amp;rsquo;m composing those cycles from the ground up rather than decomposing observed data.&lt;/p&gt;
+&lt;div class=&#34;seasonality-grid&#34;&gt;
+  &lt;div class=&#34;seasonality-panel&#34;&gt;
+    &lt;div class=&#34;seasonality-header&#34;&gt;
+      &lt;strong&gt;Weekly&lt;/strong&gt;
+      &lt;small class=&#34;seasonality-hint&#34;&gt;drag dots&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;canvas id=&#34;weeklyCanvas&#34; class=&#34;seasonality-canvas&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;seasonality-panel&#34;&gt;
+    &lt;div class=&#34;seasonality-header&#34;&gt;
+      &lt;strong&gt;Annual&lt;/strong&gt;
+      &lt;small class=&#34;seasonality-hint&#34;&gt;drag dots&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;canvas id=&#34;annualCanvas&#34; class=&#34;seasonality-canvas&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;seasonality-panel&#34;&gt;
+    &lt;div class=&#34;seasonality-header&#34;&gt;
+      &lt;strong&gt;Trend&lt;/strong&gt;
+      &lt;small class=&#34;seasonality-hint&#34;&gt;drag dots&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;canvas id=&#34;trendCanvas&#34; class=&#34;seasonality-canvas&#34;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;seasonality-combo&#34;&gt;
+  &lt;div class=&#34;seasonality-header&#34;&gt;
+    &lt;strong&gt;Combined (3 years)&lt;/strong&gt;
+    &lt;small class=&#34;seasonality-hint&#34;&gt;driven by controls above&lt;/small&gt;
+  &lt;/div&gt;
+  &lt;div class=&#34;seasonality-controls&#34; style=&#34;margin-bottom: 8px;&#34;&gt;
+    &lt;label style=&#34;font-size: 0.9em; color: var(--fg2); display: flex; align-items: center; gap: 8px;&#34;&gt;
+      &lt;span&gt;Noise:&lt;/span&gt;
+      &lt;input type=&#34;range&#34; id=&#34;seasonalityNoise&#34; min=&#34;0&#34; max=&#34;0.5&#34; step=&#34;0.01&#34; value=&#34;0.25&#34; style=&#34;width: 100px;&#34;&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;canvas id=&#34;comboCanvas&#34; class=&#34;seasonality-combo-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;script type=&#34;module&#34;&gt;
+  import { initSeasonality } from &#34;/js/teaching-visuals.js&#34;;
+  initSeasonality();
+&lt;/script&gt;
+&lt;p&gt;I combine those cycles with holidays—which turn weekdays into weekends—and make them an integral part of the causal DAG that drives my agents. By giving the root nodes those rhythms and letting them propagate through the graph, the model naturally produces the kinds of correlated effects that trip people up—spurious patterns like, “Hey, I think ice cream causes murder!”&lt;/p&gt;
+&lt;h2 id=&#34;emergent-complexity&#34;&gt;Emergent Complexity&lt;/h2&gt;
+&lt;p&gt;Now that we know what our data should look like, how do we achieve that without manually faking every data point? That sounds so complex!&lt;/p&gt;
+&lt;p&gt;It does. But we&amp;rsquo;re in luck; we don&amp;rsquo;t have to (and we shouldn&amp;rsquo;t) code the complexity directly. We rely on it emerging. When programming our simulations, we can focus on just the primary generative mechanisms (with some added individual-level truly random noise), and generate an overall more complex simulation with very simple individual-level rules.&lt;/p&gt;
+&lt;p&gt;The fact that complexity can arise from simple rules is well established. &lt;a href=&#34;https://www.red3d.com/cwr/papers/1987/boids.html&#34;&gt;Boids&lt;/a&gt; is the classic example: three simple rules—steer away from crowds, move with the flock, and head toward its center of mass—produce beautiful flocking behavior. That&amp;rsquo;s always the goal: rich, organic behavior that feels real but emerges from simple, understandable rules. Try adjusting the relative strength of those three simple rules in the simulation below; you can see the mix of effects that emerge.&lt;/p&gt;
+&lt;div class=&#34;boids-controls&#34;&gt;
+    &lt;div class=&#34;boids-rule&#34;&gt;
+        &lt;label&gt;Separation &lt;small&gt;(avoid crowding)&lt;/small&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;boidsSeparation&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.5&#34; class=&#34;boids-slider&#34;&gt;
+        &lt;span id=&#34;boidsSeparationValue&#34; class=&#34;boids-value&#34;&gt;1.5&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;boids-rule&#34;&gt;
+        &lt;label&gt;Alignment &lt;small&gt;(match direction)&lt;/small&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;boidsAlignment&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.0&#34; class=&#34;boids-slider&#34;&gt;
+        &lt;span id=&#34;boidsAlignmentValue&#34; class=&#34;boids-value&#34;&gt;1.0&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;boids-rule&#34;&gt;
+        &lt;label&gt;Cohesion &lt;small&gt;(stay together)&lt;/small&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;boidsCohesion&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.0&#34; class=&#34;boids-slider&#34;&gt;
+        &lt;span id=&#34;boidsCohesionValue&#34; class=&#34;boids-value&#34;&gt;1.0&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;boids-secondary-controls&#34;&gt;
+    &lt;label&gt;Boids: &lt;span id=&#34;boidsCountValue&#34;&gt;100&lt;/span&gt;&lt;/label&gt;
+    &lt;input type=&#34;range&#34; id=&#34;boidsCount&#34; min=&#34;10&#34; max=&#34;300&#34; step=&#34;10&#34; value=&#34;100&#34; class=&#34;boids-slider&#34;&gt;
+    &lt;button id=&#34;boidsReset&#34; class=&#34;btn-secondary sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;boids-container&#34;&gt;
+    &lt;canvas id=&#34;boidsCanvas&#34; class=&#34;boids-canvas&#34;&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initBoids } from &#34;/js/teaching-visuals.js&#34;;
+    initBoids({
+        canvasId: &#34;boidsCanvas&#34;,
+        separationId: &#34;boidsSeparation&#34;,
+        alignmentId: &#34;boidsAlignment&#34;,
+        cohesionId: &#34;boidsCohesion&#34;,
+        separationValueId: &#34;boidsSeparationValue&#34;,
+        alignmentValueId: &#34;boidsAlignmentValue&#34;,
+        cohesionValueId: &#34;boidsCohesionValue&#34;,
+        countId: &#34;boidsCount&#34;,
+        countValueId: &#34;boidsCountValue&#34;,
+        resetId: &#34;boidsReset&#34;
+    });
+&lt;/script&gt;
+
+&lt;p&gt;My agents are generally utility-driven; each agent has a utility function that it tries to maximize at every step. Individually, they&amp;rsquo;re single-minded and unintelligent, and if I relied on any one of them alone, the simulation would quickly collapse into some pathological or divergent behavior.&lt;/p&gt;
+&lt;p&gt;To avoid that, I build a range of intentionally simple strategies. One set of agents repeats whatever was most profitable in the past; another acts randomly; another imitates whatever has been most popular recently.&lt;/p&gt;
+&lt;p&gt;What I&amp;rsquo;ve discovered over years of building these systems is that when I combine many such agents—each using different but simple heuristics—the overall system becomes surprisingly robust and often appears intelligent. It&amp;rsquo;s a form of the wisdom of the crowds: a collection of uncorrelated, naïve guesses can, when aggregated, produce remarkably accurate behavior.&lt;/p&gt;
+&lt;p&gt;I create balance in the system without hard-coded limits by putting agents in tension with one another. As an example, I have a simple predator-prey simulation below: the prey eat grass, predators eat the prey. When there are too many prey, the grass thins and predators thrive; when there are too many predators, they starve. The system naturally ebbs and flows as everyone does their part to keep it in rhythmic balance. You can play around with the levers to see if you can make the system stay in balance without the ecosystem collapsing.&lt;/p&gt;
+&lt;div class=&#34;ecosystem-params&#34;&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Cat Speed: &lt;span id=&#34;ecosystemCatSpeedValue&#34;&gt;1.5&lt;/span&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemCatSpeed&#34; min=&#34;0&#34; max=&#34;2&#34; step=&#34;0.1&#34; value=&#34;1.5&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Mouse Speed: &lt;span id=&#34;ecosystemMouseSpeedValue&#34;&gt;0.6&lt;/span&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemMouseSpeed&#34; min=&#34;0&#34; max=&#34;2&#34; step=&#34;0.1&#34; value=&#34;0.6&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Grass Growth: &lt;span id=&#34;ecosystemGrassGrowthValue&#34;&gt;1.0&lt;/span&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemGrassGrowth&#34; min=&#34;0&#34; max=&#34;3&#34; step=&#34;0.1&#34; value=&#34;1.0&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Cat Vision: &lt;span id=&#34;ecosystemVisionValue&#34;&gt;10&lt;/span&gt; cells&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemVision&#34; min=&#34;1&#34; max=&#34;30&#34; step=&#34;1&#34; value=&#34;10&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Mouse Vision: &lt;span id=&#34;ecosystemMouseVisionValue&#34;&gt;5&lt;/span&gt; cells&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemMouseVision&#34; min=&#34;1&#34; max=&#34;30&#34; step=&#34;1&#34; value=&#34;5&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Mouse Reproduce: &lt;span id=&#34;ecosystemMouseReproduceValue&#34;&gt;5&lt;/span&gt; grass&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemMouseReproduce&#34; min=&#34;1&#34; max=&#34;30&#34; step=&#34;1&#34; value=&#34;5&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Cat Reproduce: &lt;span id=&#34;ecosystemCatReproduceValue&#34;&gt;15&lt;/span&gt; mice&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemCatReproduce&#34; min=&#34;1&#34; max=&#34;30&#34; step=&#34;1&#34; value=&#34;15&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-param&#34;&gt;
+        &lt;label&gt;Starve After: &lt;span id=&#34;ecosystemStarvationValue&#34;&gt;50&lt;/span&gt; turns&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;ecosystemStarvation&#34; min=&#34;10&#34; max=&#34;200&#34; step=&#34;10&#34; value=&#34;50&#34; class=&#34;ecosystem-slider&#34;&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;ecosystem-controls&#34;&gt;
+    &lt;button id=&#34;ecosystemStep&#34;&gt;Step&lt;/button&gt;
+    &lt;button id=&#34;ecosystemRun&#34;&gt;Run&lt;/button&gt;
+    &lt;button id=&#34;ecosystemReset&#34; class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;ecosystem-container&#34;&gt;
+    &lt;div class=&#34;ecosystem-grid&#34;&gt;
+        &lt;canvas id=&#34;ecosystemCanvas&#34; class=&#34;ecosystem-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;ecosystem-chart&#34;&gt;
+        &lt;div style=&#34;margin-bottom: 8px;&#34;&gt;
+            &lt;label&gt;
+                &lt;input type=&#34;checkbox&#34; id=&#34;ecosystemLogScale&#34;&gt;
+                Log scale
+            &lt;/label&gt;
+        &lt;/div&gt;
+        &lt;canvas id=&#34;ecosystemChart&#34; class=&#34;ecosystem-chart-canvas&#34;&gt;&lt;/canvas&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initEcosystem } from &#34;/js/teaching-visuals.js&#34;;
+    initEcosystem({
+        canvasId: &#34;ecosystemCanvas&#34;,
+        chartId: &#34;ecosystemChart&#34;,
+        stepId: &#34;ecosystemStep&#34;,
+        runId: &#34;ecosystemRun&#34;,
+        resetId: &#34;ecosystemReset&#34;,
+        logScaleId: &#34;ecosystemLogScale&#34;,
+        catSpeedId: &#34;ecosystemCatSpeed&#34;,
+        catSpeedValueId: &#34;ecosystemCatSpeedValue&#34;,
+        mouseSpeedId: &#34;ecosystemMouseSpeed&#34;,
+        mouseSpeedValueId: &#34;ecosystemMouseSpeedValue&#34;,
+        grassGrowthId: &#34;ecosystemGrassGrowth&#34;,
+        grassGrowthValueId: &#34;ecosystemGrassGrowthValue&#34;,
+        visionId: &#34;ecosystemVision&#34;,
+        visionValueId: &#34;ecosystemVisionValue&#34;,
+        mouseVisionId: &#34;ecosystemMouseVision&#34;,
+        mouseVisionValueId: &#34;ecosystemMouseVisionValue&#34;,
+        mouseReproduceId: &#34;ecosystemMouseReproduce&#34;,
+        mouseReproduceValueId: &#34;ecosystemMouseReproduceValue&#34;,
+        catReproduceId: &#34;ecosystemCatReproduce&#34;,
+        catReproduceValueId: &#34;ecosystemCatReproduceValue&#34;,
+        starvationId: &#34;ecosystemStarvation&#34;,
+        starvationValueId: &#34;ecosystemStarvationValue&#34;
+    });
+&lt;/script&gt;
+&lt;p&gt;I usually introduce some form of survival of the fittest to stabilize things. I&amp;rsquo;m not afraid to let agents die if they can&amp;rsquo;t achieve their utility, but I&amp;rsquo;m always spawning new ones. When new agents appear, they mutate off the strategies of the successful ones. Winning strategies get copied (with variation), and the rest die off.&lt;/p&gt;
+&lt;p&gt;Over time, the system reaches a kind of equilibrium. I never expose day zero of my simulations; things are too weird then, too obviously hand-tuned. Instead, I let the world run for a while and settle; I let the genetic algorithms do their thing. I graph everything, check the curves, adjust the balance. For many processes, I already have strong expectations on what everything should look like, because I&amp;rsquo;ve seen the equivalent in my work many times over. When I haven&amp;rsquo;t, I search through papers and find empirical observations I can ensure my simulation matches the same generative spirit.&lt;/p&gt;
+&lt;p&gt;It is less pure engineering and more gardening. I tend to my simulation as much as I build it. Little worlds, carefully grown, for students to explore.&lt;/p&gt;
+</description>
+    </item>
+    
     <item>
       <title>The architecture of truth-seeking</title>
       <link>https://www.bonnycode.com/posts/architecture-of-truth-seeking/</link>

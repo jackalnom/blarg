@@ -1,14 +1,10 @@
 ---
 author: Lucas Pierce
 title: Teaching real lessons with fake worlds
-date: 2025-11-30
+date: 2025-12-02
 description: Why toy problems fail in the age of AI, and how to build messy, realistic worlds for students.
 categories: ["Career & Professional"]
 tags: ['teaching', 'data science', 'software engineering']
-_build:
-  render: always
-  list: never
-  publishResources: true
   
 ---
 
@@ -36,7 +32,7 @@ My first classroom simulation-game came out of a databases course. Early on, I r
 
 For example:
 
-* Teaching concurrency errors: As "customers" fire off parallel cart checkouts, students' code runs into fun and unpredictable race conditions. Sorry, your inventory is out of sync. You had a lost update. The week after, when I lecture on transactions, you're excited when it solves your problem.
+* Teaching concurrency errors: As "customers" fire off parallel cart checkouts, students' code runs into fun and unpredictable race conditions. Sorry, your inventory is out of sync. You had a lost update. The week after, when I lecture on transactions, you're excited to see it solves your problem.
 * Teaching design principles: Let students debug the chaos of a mutable, update-in-place system, then guide them toward architectural patterns that reduce that pain—immutability, append-only logs, systems designed for observability. That's how many experienced developers come to care about those principles: not from theory, but from scars.
 
 This matters even more when teaching data science. In my *Knowledge Discovery* class, students build recommendation engines, churn detectors, and user personas. Simulations are foundational here because of the counterfactual: for a recommender, how do you know if it's any good without knowing what would have happened if the user was shown different content? Offline evaluation metrics often fail to capture what only reveals itself in a live test. A simulation is a way I can bring that necessary complexity into the classroom.
@@ -57,7 +53,7 @@ There are three ways fake data tends to give itself away:
 
 ### Correlation
 
-Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “well obviously! crime is hard work and you need to treat yourself afterwards.” Moving on.
+Did you know that ice cream consumption and violent crime rates are frequently correlated? I asked my students this question, and one response was, “Well obviously! Crime is hard work and you need to treat yourself afterwards.” Moving on.
 
 Why are they correlated though? We've all heard the phrase *correlation does not imply causation.* When we say that, we mostly mean *direct causation*. If we accept that our highly correlated world results from a web of causes—“this causes this, which causes these two things, and then those in turn cause others”—we can use that fact as the foundation for natural-looking correlations.
 
@@ -67,7 +63,7 @@ For example, in the interaction below, we can see how the ice-cream/violent crim
 
 {{< dag-vis id="dag" structure="confounded" >}}
 
-This is unrealistically transparent, though, if we actually let students see all of this. It is like [the blind men and an elephant](https://en.wikipedia.org/wiki/Blind_men_and_an_elephant) from the *Tittha Sutta*. One blind man feels the trunk and says “It's a snake!” Another feels a leg and says “It's a tree!” Yet another feels the tusk and says “No, you fools, it's a giant spear!” Each has only a partial view of the underlying truth.
+This is unrealistically transparent, though, if we actually let students see all of this. It is like [the blind men and the elephant](https://en.wikipedia.org/wiki/Blind_men_and_an_elephant) from the *Tittha Sutta*. One blind man feels the trunk and says “It's a snake!” Another feels a leg and says “It's a tree!” Yet another feels the tusk and says “No, you fools, it's a giant spear!” Each has only a partial view of the underlying truth.
 
 I build my “elephant” by creating a large causal DAG that naturally produces realistic correlations, but I only expose a small selection of mostly terminal nodes, and often in opaque and subtle ways.
 
@@ -77,7 +73,7 @@ It isn't just about the strength and reason for correlation, we also shouldn't l
 
 Lastly, and perhaps most tricky, life is littered with selection biases; what we observe is almost never perfectly representative of the overall population but is biased in one way or another. It is important for our simulated data to have similar selection biases. For example, [a hospital in Canada](https://onlinelibrary.wiley.com/doi/pdf/10.1111/joim.12363) noticed when analyzing bicycle accidents at the ER, wearing a helmet was correlated with having a concussion and you were ~50% more likely to have a serious injury compared to not wearing a helmet. That seems wrong, doesn't it? 
 
-This is a case of a specific selection bias called a collider bias (or Berkson's paradox). The hospital isn't seeing all bike riders and all bike accidents; they don't see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.
+This is a specific form of selection bias called collider bias (or Berkson's paradox). The hospital isn't seeing all bike riders and all bike accidents; they don't see all the cases where a bike rider is wearing a helmet and that helmet saved them from going to the ER. As a result, the helmet effectively filtered out lower-end accidents leaving only the more serious accidents for the ER.
 
 You find this pattern all the time when doing data analysis. You see a study on what it takes to make a successful startup, but they only look at the ones who made it, not the ones that died out. You analyze active users and forget the ones who churned. The data you have is conditioned on having survived long enough to be recorded. It's a kind of selection echo: the world you see isn't the world as it is, but the world that lasted.
 
@@ -89,7 +85,7 @@ Combine this all together and you get data that is filled with correlations, lar
 
 ### Shape
 
-I've long been fascinated by the beautifully smooth shapes that data makes when generated at scale. Not just systems, but data that is based on human behavior. I had once assumed just because individual humans are so complicated, so individual, so hard to predict individually, that a bunch of humans should be exponentially more complicated to predict. But it is in fact the opposite. When you get lots of people, all the individual differences wash out, and what you are left with is the smooth underlying generative mechanisms that underlie their common behavior.
+I've long been fascinated by the beautifully smooth shapes that data makes when generated at scale. Not just systems, but data that is based on human behavior. I once assumed that because individual humans are so complicated, so individual, so hard to predict individually, that a bunch of humans would be exponentially more complicated to predict. But it is, in fact, the opposite. When you get lots of people, all the individual differences wash out, and what you are left with is the smooth underlying generative mechanisms that underlie their common behavior.
 
 Most people are familiar with the bell curve or normal distribution. Plot human height and you'll get something roughly normal. Human height follows this pattern because it's the sum of many small, independent effects: genes, nutrition, environment. You can see below that adult human height is approximately normal; if you split by gender even more so.
 
@@ -101,7 +97,7 @@ Roll a bunch of dice, add them up, record that sum, repeat many times, and you'l
 
 Most of the data I've worked with doesn't follow a normal distribution, though. Systems and behaviors rarely follow additive processes. They are more commonly multiplicative and/or full of feedback loops—both of which create long right tails.  
 
-For example, [housing prices](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf) are generally right-skewed, largely because each property's value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because log turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is common to look at these right-skewed distributions in log space. 
+For example, [housing prices](https://unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.22/2010/zip.36.e.pdf) are generally right-skewed, largely because each property's value grows through a chain of proportional effects: land value, size, location premiums, amenities, and market appreciation all compound on top of one another. Small percentage differences in these factors multiply rather than add. This makes the main body of the distribution log-normal; it is log simply because logarithms turns multiplication problems into addition problems. Remember, normal is additive, log-normal is multiplicative. For that reason, it is common to look at these right-skewed distributions in log space. 
  
 Below, home sales data from [England and Wales](https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads#yearly-file) is charted; try viewing in both linear and log space.
 
@@ -113,7 +109,7 @@ We can get something similar using our same dice rolling example. But this time,
 
 Many human systems aren't just multiplicative—they're self-reinforcing. Algorithms frequently elevate videos, products, games, or songs based on existing popularity, which in turn makes them even more popular. Because attention is finite, these dynamics often lead to winner-takes-most outcomes. This kind of feedback loop—known as preferential attachment—naturally produces highly right-skewed, power-law distributions.
 
-When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of [reviews per game on Steam](https://zenodo.org/records/1000885). Technically, both the reviews per game on Steam and the housing price data above are a mix of [log-normal on the left, power-law on the right](https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf) (I prefer to call it a [mullet distributions](https://www.urbandictionary.com/define.php?term=Business+in+front%2C+party+in+the+back)). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.
+When I first started plotting data—any kind of data—on user engagement, I was struck by how often these extreme right-skewed curves appeared. They looked like the chart below of [reviews per game on Steam](https://zenodo.org/records/1000885). Technically, both the reviews per game on Steam and the housing price data above are a mix of [log-normal on the left, power-law on the right](https://web.uvic.ca/~math-statistics/emeritus/wjreed/dPlN.3.pdf) (I prefer to call it a [mullet distribution](https://www.urbandictionary.com/define.php?term=Business+in+front%2C+party+in+the+back)). Multiplicative effects dominate in one regime, preferential attachment in another. The Steam data is just more dominated by power-law than housing prices are, likely because of the strength of the popularity dynamics I described above.
 
 {{< steam-reviews id="steam" >}}
 
