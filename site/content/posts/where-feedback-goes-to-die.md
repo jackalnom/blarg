@@ -7,7 +7,7 @@ categories: ['Career & Professional']
 tags: ['professional-development', 'leadership']
 ---
 
-I have a cabinet above my espresso maker where unused gifts go to sit. For each gift I said thank you, and it felt disrespectful to later throw them away, so they sit there for years. Acknowledged yet untouched; quietly accumulating[^1].
+I have a cabinet above my espresso maker where unused gifts go to sit. For each gift I said thank you, and it felt disrespectful to later throw them away, so they sit there for years. Acknowledged yet untouched; quietly accumulating.
 
 The cabinet is what we used to jokingly call write-only storage. A physical manifestation of gratitude and obligation, but really just a way of postponing honesty. There are ideas, observations, and judgments we receive in much the same way: politely accepted, carefully stored, and just as carefully kept from interfering with how we live.
 
