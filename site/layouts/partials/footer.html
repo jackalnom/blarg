@@ -1,0 +1,8 @@
+<footer id="footer">
+  <div>
+    <span>{{ .Site.Params.footnote | safeHTML }}</span>
+  </div>
+  <div>
+    <span>Copyright © {{ now.Format "2006"}} <a href="/about/">{{ .Site.Params.author }}</a></span>
+  </div>
+</footer>
