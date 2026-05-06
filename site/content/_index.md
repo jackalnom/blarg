@@ -1,9 +1,9 @@
 ---
-title: "Home"
-description: "Bonnycode is a blog focused on software development, leadership, and philosophy."
+title: "Lucas Pierce — BonnyCode"
+description: "BonnyCode is the personal blog of Lucas Pierce, focused on software development, leadership, teaching, data science, and philosophy."
 ---
 
-A little blog of questionable wisdom written by a builder of little games. I do a lot of little things these days. I hope some of them do a little good.
+A little blog of questionable wisdom written by Lucas Pierce. I do a lot of little things these days. I hope some of them do a little good.
 
 These posts are old and new, serious and absurd, technical yet philosophical. I've kept even the questionable bits—partly for nostalgia, mostly as proof that wisdom arrives slowly, if at all.
 
