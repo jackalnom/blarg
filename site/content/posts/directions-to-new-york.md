@@ -1,7 +1,7 @@
 ---
 author: Lucas Pierce
 title: Directions to New York
-date: 2026-05-02
+date: 2026-05-06
 description: A fable of arrival
 categories: []
 tags: []
