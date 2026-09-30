@@ -23,7 +23,8 @@ Knows the military,
 Someone tested and ready to lead in a dangerous world.
 It&amp;rsquo;s 3 am and your children are safe and asleep.
 Who do you want answering that phone?”
-&amp;ndash; voiceover for Hillary Clinton campaign ad&lt;/p&gt;&lt;/blockquote&gt;
+&amp;ndash; voiceover for Hillary Clinton campaign ad&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;How will you respond when things don&amp;rsquo;t go accordingly to plan? We recognize true greatness not as those that do well when everything is fine, but those who respond with grace and courage when things go terribly wrong. Most historians consider our three greatest presidents to be George Washington, Abraham Lincoln, and Franklin Roosevelt. It is no coincidence that they led us through the 4 largest crises our nation has faced: the War for Independence, the Civil War, the Great Depression and World War II.&lt;/p&gt;
 &lt;p&gt;I believe the absolutely most important thing about being a great professional software developer is being prepared for when things go wrong. The naive developer will claim that nothing can go wrong and so fails to prepare. The battle hardened but cynical developer throws up their hands and says there is nothing they can do about it. I will try to walk you somewhere between these two extremes and combine the pessimism that tells us what can go wrong and the optimism that tells us how we can recover from it.&lt;/p&gt;
 &lt;p&gt;These are the error handling techniques that software developers should be aware of:&lt;/p&gt;
@@ -128,7 +129,8 @@ Who do you want answering that phone?”
       <guid>https://www.bonnycode.com/posts/exceptional-pro/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;No battle plan ever survives contact with the enemy.&lt;/p&gt;
-&lt;p&gt;&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&amp;ndash; Helmuth von Moltke the Elder&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;No discussion of handling exceptions in programming should begin without quoting the great Prussian &lt;a href=&#34;http://en.wikipedia.org/wiki/Helmuth_von_Moltke_the_Elder&#34;&gt;Generalfeldmarschall Helmuth Karl Bernhard Graf von Moltke&lt;/a&gt;. In software development, your programs are the battle plans and inputs are the enemy. Even bad programmers can write a program that works when everything goes as expected. Good programmers write programs that gracefully handle all plausible situations.&lt;/p&gt;
 &lt;p&gt;I will imbue onto you the knowledge necessary to write such graceful programs. As part of a multi-part series, I will go into all the wonderful things that good developers should know when dealing with exceptional cases. I&amp;rsquo;m assuming that anyone reading this already understands the technical aspects of exceptions. If you don&amp;rsquo;t and you are programming in Java, you can start out by reading &lt;a href=&#34;http://java.sun.com/docs/books/tutorial/essential/exceptions/index.html&#34;&gt;Sun&amp;rsquo;s tutorial&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;First up, I will go into the differences between exceptions, status codes, and assertions.&lt;/p&gt;

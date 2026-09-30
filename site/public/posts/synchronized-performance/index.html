@@ -48,18 +48,18 @@
 
   
   <meta property="og:url" content="https://www.bonnycode.com/posts/synchronized-performance/">
-  <meta property="og:site_name" content="BonnyCode">
-  <meta property="og:title" content="Synchronized Performance">
-  <meta property="og:description" content="In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2008-06-10T00:39:10+00:00">
-    <meta property="article:modified_time" content="2025-07-16T21:14:13-07:00">
-    <meta property="article:tag" content="Java">
-    <meta property="article:tag" content="Threading">
-    <meta property="article:tag" content="Performance">
-    <meta property="article:tag" content="Synchronization">
+	<meta property="og:site_name" content="BonnyCode">
+	<meta property="og:title" content="Synchronized Performance">
+	<meta property="og:description" content="In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2008-06-10T00:39:10+00:00">
+		<meta property="article:modified_time" content="2025-07-16T21:14:13-07:00">
+		<meta property="article:tag" content="Java">
+		<meta property="article:tag" content="Threading">
+		<meta property="article:tag" content="Performance">
+		<meta property="article:tag" content="Synchronization">
 
 
   
@@ -68,22 +68,22 @@
   
   
   
-  <meta itemprop="name" content="Synchronized Performance">
-  <meta itemprop="description" content="In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.">
-  <meta itemprop="datePublished" content="2008-06-10T00:39:10+00:00">
-  <meta itemprop="dateModified" content="2025-07-16T21:14:13-07:00">
-  <meta itemprop="wordCount" content="720">
-  <meta itemprop="keywords" content="Java,Threading,Performance,Synchronization">
+	<meta itemprop="name" content="Synchronized Performance">
+	<meta itemprop="description" content="In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.">
+	<meta itemprop="datePublished" content="2008-06-10T00:39:10+00:00">
+	<meta itemprop="dateModified" content="2025-07-16T21:14:13-07:00">
+	<meta itemprop="wordCount" content="720">
+	<meta itemprop="keywords" content="Java,Threading,Performance,Synchronization">
 
   
   
   
-    <link rel="stylesheet" href="/css/common.min.2a72526c4806fe4ebefe5caeb9f480eaa4f71b29888965f4c8be789f4661a319.css" integrity="sha256-KnJSbEgG/k6&#43;/lyuufSA6qT3GymIiWX0yL54n0Zhoxk=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/common.min.0535ea1bd10c220dd0b433245518579f1f17174fc7bffbece54871b9aae1b88f.css" integrity="sha256-BTXqG9EMIg3QtDMkVRhXnx8XF0/Hv/vs5UhxuarhuI8=" crossorigin="anonymous">
   
 
   
   
-    <link rel="stylesheet" href="/css/content.min.b57b9e7d79fdace6829931a6c63939467d2b1e062b783525480055f9aad4d780.css" integrity="sha256-tXuefXn9rOaCmTGmxjk5Rn0rHgYreDUlSABV&#43;arU14A=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/content.min.90154405494b216d851cfbd952d65d98b15bacebe13d65e928e30d78a4457f98.css" integrity="sha256-kBVEBUlLIW2FHPvZUtZdmLFbrOvhPWXpKOMNeKRFf5g=" crossorigin="anonymous">
   
 
   
@@ -93,9 +93,9 @@
 
   
   
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Synchronized Performance">
-  <meta name="twitter:description" content="In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="Synchronized Performance">
+	<meta name="twitter:description" content="In a recent code review meeting, the performance of synchronized vs. non-synchronized methods came up. I threw out a ridiculous (in retrospect) statement that uncontested synchronized methods can have an overhead of up to 100 times that of an unsynchronized method. Kyle Haughey almost immediately called bullshit on my statement. I made some sample programs to try to test out the performance in some trivial cases and showed the respective output.">
 
 
   
@@ -293,7 +293,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Hi&#34;</span><span class="p">;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Output:</strong></p>
 <pre tabindex="0"><code>Synchronized: 106  
 Unsynchronized: 46
@@ -324,7 +324,7 @@ Unsynchronized: 46
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Hi&#34;</span><span class="p">;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Output:</strong></p>
 <pre tabindex="0"><code>Unsynchronized: 72  
 Synchronized: 82
@@ -342,9 +342,9 @@ Synchronized: 82
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Hi&#34;</span><span class="p">;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">class</span> <span class="nc">Synchronized</span><span class="w"> </span><span class="p">{</span><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="kd">class</span> <span class="nc">Synchronized</span><span class="w"> </span><span class="p">{</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">startTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">currentTimeMillis</span><span class="p">();</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">1000000</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  
@@ -357,7 +357,7 @@ Synchronized: 82
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kd">synchronized</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&#34;Hi&#34;</span><span class="p">;</span><span class="w">  
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div><p><strong>Output:</strong></p>
 <pre tabindex="0"><code>Unsynchronized: 3  
 Synchronized: 36
