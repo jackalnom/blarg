@@ -9,3 +9,8 @@ export { initElectricityDemand } from "./visuals/electricity-demand.js";
 export { initEcosystem } from "./visuals/ecosystem.js";
 export { initDiminishingReturns } from "./visuals/diminishing-returns.js";
 export { initBerksonParadox } from "./visuals/berkson-paradox.js";
+export { initProbability } from "./visuals/probability.js";
+export { initCoinFlips } from "./visuals/coin-flips.js";
+export { initTuesdayFamilies } from "./visuals/tuesday-families.js";
+export { initMontyPiles } from "./visuals/monty-piles.js";
+export { initDiceCounting } from "./visuals/dice-counting.js";

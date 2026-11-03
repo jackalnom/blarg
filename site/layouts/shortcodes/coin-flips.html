@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default "coin-flips" -}}
+<figure id="{{ $id }}" class="probability-vis">
+    <div class="sim-controls">
+        <button type="button" data-step>Flip two coins</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>With the first coin fixed to heads, HH and HT remain: half are HH. With at least one heads, HH, HT, and TH remain: one third are HH.</noscript>
+</figure>
+<script type="module">
+    import { initCoinFlips } from "/js/teaching-visuals.js";
+    initCoinFlips({ id: "{{ $id }}" });
+</script>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Science on BonnyCode</title>
+    <link>http://localhost:1313/categories/data-science/</link>
+    <description>Recent content in Data Science on BonnyCode</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 18 Oct 2026 21:38:25 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/data-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What we don&#39;t count</title>
+      <link>http://localhost:1313/posts/odd-grudges-i-should-probably-let-go/</link>
+      <pubDate>Sun, 18 Oct 2026 21:38:25 +0000</pubDate>
+      
+      <guid>http://localhost:1313/posts/odd-grudges-i-should-probably-let-go/</guid>
+      <description>&lt;p&gt;Many years ago, I took a statistics class with the following question on an exam:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;You are on a game show where you have to pick one of three doors. Two of the doors have goats behind them, and the other has a brand new car. You pick one of the three doors. The host randomly opens one of the two doors you didn&amp;rsquo;t choose and it reveals a goat. He offers you the chance to switch. Should you?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We had talked about the Monty Hall problem in class, but I noticed the wording was different. In the original problem we went over, the host knew where the car was and intentionally opened a door without the car. In the original problem, you want to switch because the odds are initially 1 in 3 that you choose correctly, and when the host eliminates one of the goats, the chance of the car being behind the remaining door is now the remaining 2 in 3.&lt;/p&gt;
+&lt;p&gt;In this case, the host didn&amp;rsquo;t know and was randomly opening a door. I thought my teacher was being especially tricky, and was proud that I had caught the subtle change. I marked down that it didn&amp;rsquo;t matter if I switched; there was a 50% chance of getting the car either way.&lt;/p&gt;
+&lt;p&gt;I got back my test the next week and I got zero points for my answer. My teacher said the odds were 2 in 3 if you switched.&lt;/p&gt;
+&lt;p&gt;I went through many emotions. Was I wrong? Why did I think it was 50%? It really seemed like it should be 50%. My teacher&amp;rsquo;s answer really didn&amp;rsquo;t make sense to me, but I didn&amp;rsquo;t know where I got it wrong. So I went home and solved it the way I knew as a computer scientist: I made a small Monte Carlo simulation. I first coded up the traditional Monty Hall problem, and got the ~66% probability of getting the car by switching. I then coded up the host not knowing where the car was and randomly selecting, counting only the games where he happened to reveal a goat. I got ~50%. I double-checked my code, I double-checked the problem&amp;rsquo;s wording, I double-checked the code again. I wasn&amp;rsquo;t wrong. It felt like one of those apocryphal stories I used to hear on AM radio as a kid, where a brilliant child disagrees with their knowledgeable teacher and that child was Albert Einstein or something like that.&lt;/p&gt;
+&lt;p&gt;I was so excited when I came in with my results to show my teacher. I don&amp;rsquo;t know what I expected exactly. The grade was not even my main concern at that point. I was just so happy to share my discovery. And I expected my teacher to share in that happiness. That&amp;rsquo;s not the reaction I got, though. My teacher had no interest in my simulation or its results. She didn&amp;rsquo;t even look at them.&lt;/p&gt;
+&lt;p&gt;What she did want to talk about was my disrespectful attitude in questioning exam answers. Which, to be fair, here I was, an overly intense student who had never said a word in class up until that point, excitedly trying to get my poor teacher to look at a computer program that supposedly disproved a classic statistics problem she&amp;rsquo;d probably taught for years. I&amp;rsquo;ve spent a lifetime learning to be more tactful, and I was still early in that journey.&lt;/p&gt;
+&lt;p&gt;I tell this story because that was the day I fell in love with statistics. I didn&amp;rsquo;t become a great statistician. I&amp;rsquo;m told by some that I resort to simulation too often for that, but I do believe I&amp;rsquo;m a pretty good amateur. More than that, I think statistics is simply fun, and that&amp;rsquo;s what I want to share with you.&lt;/p&gt;
+&lt;h2 id=&#34;probability-by-counting&#34;&gt;Probability by counting&lt;/h2&gt;
+&lt;p&gt;I grew up in a family of gamblers and I love dice games. In kindergarten, my teacher once sent home a concerned note because I wrote craps as my favorite thing to do and had a picture of me throwing dice. If you play a lot of craps, you probably already know the odds of rolling a seven, but it&amp;rsquo;s also surprisingly easy to figure out.&lt;/p&gt;
+&lt;p&gt;We just count the possibilities we want and divide by the total number of possibilities. The trick is that this only works if all those possibilities are equally likely. Fortunately, with two fair dice, they are.&lt;/p&gt;
+&lt;p&gt;We start by listing out all the possibilities on two dice:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1,1  1,2  1,3  1,4  1,5  1,6
+2,1  2,2  2,3  2,4  2,5  2,6
+3,1  3,2  3,3  3,4  3,5  3,6
+4,1  4,2  4,3  4,4  4,5  4,6
+5,1  5,2  5,3  5,4  5,5  5,6
+6,1  6,2  6,3  6,4  6,5  6,6
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That&amp;rsquo;s 6 × 6 = 36 possibilities. Now we count how many of those possibilities add up to 7.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;1,6  6,1  2,5  5,2  3,4  4,3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;That gives us 6/36, or we can simplify it to 1/6 or ~16.6%. There is a 1 in 6 chance every time you roll two dice that they will add up to 7.&lt;/p&gt;
+&lt;figure id=&#34;dice-counting&#34; class=&#34;probability-vis&#34;&gt;
+    &lt;div class=&#34;sim-controls&#34;&gt;
+        &lt;button type=&#34;button&#34; data-step&gt;Roll two dice&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-run&gt;Run&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-reset class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;canvas role=&#34;img&#34;&gt;&lt;/canvas&gt;
+    &lt;span data-summary hidden&gt;&lt;/span&gt;
+    &lt;noscript&gt;Six of the 36 equally likely outcomes of two fair dice sum to seven: a probability of 1/6.&lt;/noscript&gt;
+&lt;/figure&gt;
+&lt;script type=&#34;module&#34;&gt;
+    import { initDiceCounting } from &#34;/js/teaching-visuals.js&#34;;
+    initDiceCounting({ id: &#34;dice-counting&#34; });
+&lt;/script&gt;
+
+&lt;p&gt;That&amp;rsquo;s it. You&amp;rsquo;re now calculating probabilities. The arithmetic won&amp;rsquo;t get much harder than this. The tricky part is figuring out what to count, and what assumptions we&amp;rsquo;re making when we count it.&lt;/p&gt;
+&lt;h2 id=&#34;flipping-coins&#34;&gt;Flipping coins&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s say you flip a coin twice. If I tell you the first flip was heads, what&amp;rsquo;s the chance the second flip was also heads? Some gamblers will say &amp;ldquo;the coin is hot,&amp;rdquo; but as long as the flips are fair and independent, the answer is 50%. Knowing the result of one coin flip doesn&amp;rsquo;t change the probability of the next one.&lt;/p&gt;
+&lt;p&gt;But what if I instead tell you I&amp;rsquo;ve flipped a coin twice, and that &lt;strong&gt;at least one&lt;/strong&gt; of the two flips was heads? What&amp;rsquo;s the probability that both were heads?&lt;/p&gt;
+&lt;p&gt;Now the answer is 1/3. How can that be?&lt;/p&gt;
+&lt;p&gt;Consider the four possible outcomes:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;HH, HT,
+TH, TT
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;By telling you that at least one flip was heads, I&amp;rsquo;ve eliminated TT. That leaves HH, HT, and TH.&lt;/p&gt;
+&lt;p&gt;When we knew that the first flip was heads, we were left with just two outcomes, HH and HT, both of which were equally plausible. But when we say &amp;ldquo;at least one,&amp;rdquo; we also have to include TH. That gives us three equally likely possibilities instead of two, and only one of them has two heads.&lt;/p&gt;
+&lt;figure id=&#34;coin-flips&#34; class=&#34;probability-vis&#34;&gt;
+    &lt;div class=&#34;sim-controls&#34;&gt;
+        &lt;button type=&#34;button&#34; data-step&gt;Flip two coins&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-run&gt;Run&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-reset class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;canvas role=&#34;img&#34;&gt;&lt;/canvas&gt;
+    &lt;span data-summary hidden&gt;&lt;/span&gt;
+    &lt;noscript&gt;With the first coin fixed to heads, HH and HT remain: half are HH. With at least one heads, HH, HT, and TH remain: one third are HH.&lt;/noscript&gt;
+&lt;/figure&gt;
+&lt;script type=&#34;module&#34;&gt;
+    import { initCoinFlips } from &#34;/js/teaching-visuals.js&#34;;
+    initCoinFlips({ id: &#34;coin-flips&#34; });
+&lt;/script&gt;
+
+&lt;p&gt;This is one of the most important lessons in statistics and in life. We can create statistical relationships between independent events simply by changing which events we choose to look at. How we select our data, and how that data comes to us, matters.&lt;/p&gt;
+&lt;h2 id=&#34;tuesday-boy-problem&#34;&gt;Tuesday Boy Problem&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s apply this learning to the classic Tuesday Boy Problem. Consider the following variant that mirrors our original successive coin flips:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mr. Smith has two children. The older child is a boy. What is the probability that both children are boys?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We&amp;rsquo;ll assume that each child has an equal chance of being a boy or a girl, and that the sex of one child is independent of the other.&lt;/p&gt;
+&lt;p&gt;Just like the coins, the first child has no bearing on the sex of the second child. So we end up with a 50% chance of the younger child being a boy, and thus a 50% chance that both children are boys.&lt;/p&gt;
+&lt;p&gt;Now let&amp;rsquo;s make a small adjustment to the problem&amp;rsquo;s framing:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mr. Smith has two children. At least one child is a boy. What is the probability that both children are boys?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This should look familiar. Just like our coin flips, we have four equally likely possibilities:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;BB, BG,
+GB, GG
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;By saying at least one child is a boy, we&amp;rsquo;ve eliminated GG, leaving us with three possibilities. Only one of those has two boys, so the answer is 1/3. Again, this is the same as what happened in our coin flips.&lt;/p&gt;
+&lt;p&gt;Now, we finally get to the classic version of the problem, where we also specific the boy was born on Tuesday:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Mr. Smith has two children. At least one child is a boy born on Tuesday. What is the probability that both children are boys?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This tiny change tweaks how we count the possibilities. The probability shifts from 1/3 to 13/27, or about 48%.&lt;/p&gt;
+&lt;p&gt;What is special about Tuesday here? Nothing, we could say a boy born on Monday. Or a boy born in December.&lt;/p&gt;
+&lt;p&gt;All Tuesday is doing in this case, under an assumption that ever day of the week is equal probability, is expanding the number of possibilities from 2 (boy or girl) to 7 (days of the week) * 2 (boy or girl) = 14 possibilities. For two children, that&amp;rsquo;s 14 × 14 = 196 equally likely combinations (again an assumption we are making for the purpose of the problem).&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s count the possibilities with at least one boy born on Tuesday. If the older child is a Tuesday boy, the younger child has 14 possibilities: seven days for a boy and seven for a girl. If the younger child is a Tuesday boy, we get another 14 possibilities.&lt;/p&gt;
+&lt;p&gt;But there&amp;rsquo;s an overlap. The case where &lt;strong&gt;both boys are born on Tuesday&lt;/strong&gt; appears in both groups.&lt;/p&gt;
+&lt;p&gt;That leaves 13 out of 27 possibilities, or about 48%.&lt;/p&gt;
+
+&lt;div id=&#34;probability-children&#34; class=&#34;probability-vis child-family-grids&#34;&gt;
+    
+    &lt;figure id=&#34;probability-children-older-tuesday&#34; class=&#34;child-family-grid&#34; data-condition=&#34;older-tuesday&#34;&gt;
+        &lt;strong class=&#34;child-family-label&#34;&gt;The older child is a boy born on Tuesday&lt;/strong&gt;
+        &lt;canvas role=&#34;img&#34;&gt;&lt;/canvas&gt;
+        &lt;span data-summary hidden&gt;&lt;/span&gt;
+    &lt;/figure&gt;
+    
+    &lt;figure id=&#34;probability-children-tuesday&#34; class=&#34;child-family-grid&#34; data-condition=&#34;tuesday&#34;&gt;
+        &lt;strong class=&#34;child-family-label&#34;&gt;At least one child is a boy born on Tuesday&lt;/strong&gt;
+        &lt;canvas role=&#34;img&#34;&gt;&lt;/canvas&gt;
+        &lt;span data-summary hidden&gt;&lt;/span&gt;
+    &lt;/figure&gt;
+    
+&lt;/div&gt;
+
+&lt;script type=&#34;module&#34;&gt;
+    import { initProbability } from &#34;/js/teaching-visuals.js&#34;;
+    initProbability({ id: &#34;probability-children&#34;, kind: &#34;children&#34; });
+&lt;/script&gt;
+
+&lt;p&gt;The intuition is that families with two boys have two chances to produce a Tuesday-born boy, while mixed-sex families have only one. When we filter for families with at least one Tuesday-born boy, we end up including proportionally more two-boy families.&lt;/p&gt;
+&lt;figure id=&#34;tuesday-families&#34; class=&#34;probability-vis&#34;&gt;
+    &lt;div class=&#34;sim-controls&#34;&gt;
+        &lt;button type=&#34;button&#34; data-step&gt;Add one family&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-run&gt;Run&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-reset class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;canvas role=&#34;img&#34;&gt;&lt;/canvas&gt;
+    &lt;span data-summary hidden&gt;&lt;/span&gt;
+    &lt;noscript&gt;Of 196 equally likely families, 14 have an older Tuesday boy and 7 of these have two boys. 27 have at least one Tuesday boy and 13 of these have two boys.&lt;/noscript&gt;
+&lt;/figure&gt;
+&lt;script type=&#34;module&#34;&gt;
+    import { initTuesdayFamilies } from &#34;/js/teaching-visuals.js&#34;;
+    initTuesdayFamilies({ id: &#34;tuesday-families&#34; });
+&lt;/script&gt;
+
+&lt;h2 id=&#34;berksons-paradox&#34;&gt;Berkson&amp;rsquo;s Paradox&lt;/h2&gt;
+&lt;p&gt;Thinking about these questions as brain teasers is, to me, the least interesting way to approach them. I actually think it builds the wrong mental model. They become tricks you memorize rather than ideas you internalize. These aren&amp;rsquo;t riddles. They&amp;rsquo;re ways of thinking about the information you receive, questioning where it came from, and making better decisions as a result.&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ve been encountering this exact phenomenon throughout your life, probably without realizing it. And if the Tuesday Boy Problem surprised you, you might be surprised by how often the same thing happens in the real world.&lt;/p&gt;
+&lt;p&gt;The Tuesday Boy Problem is an example of a broader phenomenon called &lt;strong&gt;Berkson&amp;rsquo;s paradox&lt;/strong&gt;. Two things can be completely unrelated, but if they both influence what makes it into the group you&amp;rsquo;re looking at, they can suddenly appear related.&lt;/p&gt;
+&lt;p&gt;Think about restaurants in touristy areas. Times Square, or right next to the Eiffel Tower. When you see a restaurant in one of those locations, do you think, &amp;ldquo;Wow, they probably have great food there!&amp;rdquo;?&lt;/p&gt;
+&lt;p&gt;Probably not. But why? Does the Eiffel Tower give off some weird odor that spoils the food?&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s no inherent reason that a restaurant with a great location should have worse food. But imagine that, for a restaurant to survive, it needs either a great location or great food.&lt;/p&gt;
+&lt;p&gt;If a restaurant is in a bad location and has bad food, why would anyone go there? It will go out of business. A restaurant in a bad location can only survive if its food is good. A restaurant in a great location, on the other hand, can survive even if its food is mediocre.&lt;/p&gt;
+&lt;p&gt;Now, that&amp;rsquo;s not to say location and food quality have nothing to do with each other in the real world. But even if they were completely unrelated to begin with, we&amp;rsquo;d still find a negative correlation among the restaurants that survived.&lt;/p&gt;
+&lt;p&gt;The restaurants that didn&amp;rsquo;t survive are missing from our data. And those missing restaurants are precisely what create the illusion that great locations and great food don&amp;rsquo;t go together.&lt;/p&gt;
+&lt;p&gt;What we don&amp;rsquo;t see can change what we think we know about what we do see.&lt;/p&gt;
+&lt;h2 id=&#34;is-it-true&#34;&gt;Is it true?&lt;/h2&gt;
+&lt;p&gt;We live in a world where we have access to more information than ever before. And we&amp;rsquo;ve become increasingly concerned with whether that information is true. That&amp;rsquo;s a good thing. Truth matters.&lt;/p&gt;
+&lt;p&gt;But truth isn&amp;rsquo;t enough.&lt;/p&gt;
+&lt;p&gt;Imagine I show you twenty completely true stories about violent crimes committed in the past week worldwide. What have you learned about whether crime is increasing or decreasing?&lt;/p&gt;
+&lt;p&gt;Almost nothing. You don&amp;rsquo;t know how many crimes happened last week, or last year, or how I chose which stories to show you.&lt;/p&gt;
+&lt;p&gt;Newspapers have always had editors deciding which stories were newsworthy. Those decisions were influenced by what they thought was important, what would interest their readers, and, consciously or not, their own beliefs about the world.&lt;/p&gt;
+&lt;p&gt;I had a conversation about this just last week. A visitor from out of town was reading our local newspaper and remarked, &amp;ldquo;Wow, you have a lot more traffic accidents here than back home in Los Angeles.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Maybe we do. But Los Angeles has a lot more news in general, while we&amp;rsquo;re a largely rural area. What makes the news here might not even warrant a mention there. We can&amp;rsquo;t tell which place has more accidents just by counting the stories in the newspaper.&lt;/p&gt;
+&lt;p&gt;Today, we have another layer. People create content that they think will get attention, and algorithms select what to show us based on what we&amp;rsquo;re likely to engage with. Nobody has to lie. Nobody even has to be deliberately misleading. But the things most likely to get our attention aren&amp;rsquo;t necessarily representative of the world.&lt;/p&gt;
+&lt;p&gt;You can be told nothing but the truth and still be misled.&lt;/p&gt;
+&lt;h2 id=&#34;monty-fails&#34;&gt;Monty Fails&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s turn back to the Monty Hall problem. In the classic version, the host knows where the car is and deliberately opens a door with a goat. But when the host knowingly eliminates a goaty option, you have a 2 in 3 chance of getting the car if you switch.&lt;/p&gt;
+&lt;p&gt;But the problem on my test said the host opened a door &lt;strong&gt;randomly&lt;/strong&gt;. The host might have opened the door with the car, but we&amp;rsquo;re only looking at the games where he didn&amp;rsquo;t.&lt;/p&gt;
+&lt;p&gt;Imagine playing 300 games. In 100 of them, you initially pick the car, so the host is guaranteed to reveal a goat. In the other 200, you pick a goat, and the host has a 50% chance of accidentally revealing the car. That eliminates 100 games, leaving us with 100 games where you initially picked the car and 100 where you picked a goat. Among the games where the host revealed a goat, switching and staying are now equally likely to win.&lt;/p&gt;
+&lt;p&gt;When I initially pushed back on having my answer marked wrong because of the word &amp;ldquo;randomly,&amp;rdquo; she argued that all the information we needed was that the host had opened a door and revealed a goat. And that&amp;rsquo;s true at one level. We observe exactly the same thing in both versions of the problem. But the observation doesn&amp;rsquo;t carry the same information when the process that produced it is different.&lt;/p&gt;
+&lt;figure id=&#34;monty-piles&#34; class=&#34;probability-vis&#34;&gt;
+    &lt;div class=&#34;sim-controls&#34;&gt;
+        &lt;button type=&#34;button&#34; data-step&gt;Play one game&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-run&gt;Run&lt;/button&gt;
+        &lt;button type=&#34;button&#34; data-reset class=&#34;sim-reset-btn&#34;&gt;Reset&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;canvas role=&#34;img&#34;&gt;&lt;/canvas&gt;
+    &lt;span data-summary hidden&gt;&lt;/span&gt;
+    &lt;noscript&gt;With a knowing host, staying wins 1/3 and switching wins 2/3 of games. With a random host, 1/3 of games reveal the car and are discarded. Among the remaining games, staying and switching each win 1/2.&lt;/noscript&gt;
+&lt;/figure&gt;
+&lt;script type=&#34;module&#34;&gt;
+    import { initMontyPiles } from &#34;/js/teaching-visuals.js&#34;;
+    initMontyPiles({ id: &#34;monty-piles&#34; });
+&lt;/script&gt;
+
+&lt;p&gt;Bayes is fun and all, but in the problems we&amp;rsquo;ve explored, the computation has never been the hard part. The difficult part is questioning the often unstated assumptions behind what we observe. What are we actually looking at? How was that information generated? And perhaps most importantly, what aren&amp;rsquo;t we seeing? An observation can be perfectly accurate and still be misleading. A correlation can be perfectly real and still tell us very little about what caused it.&lt;/p&gt;
+&lt;p&gt;Long ago, a tiny change in the wording of a test question made me question something I thought I understood. And I think that&amp;rsquo;s still what I love most about statistics. We don&amp;rsquo;t have to choose between believing everything and doubting everything. Statistics teaches us to question the things we think we know, and gives us the tools to find out.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

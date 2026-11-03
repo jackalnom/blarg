@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default "tuesday-families" -}}
+<figure id="{{ $id }}" class="probability-vis">
+    <div class="sim-controls">
+        <button type="button" data-step>Add one family</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>Of 196 equally likely families, 14 have an older Tuesday boy and 7 of these have two boys. 27 have at least one Tuesday boy and 13 of these have two boys.</noscript>
+</figure>
+<script type="module">
+    import { initTuesdayFamilies } from "/js/teaching-visuals.js";
+    initTuesdayFamilies({ id: "{{ $id }}" });
+</script>

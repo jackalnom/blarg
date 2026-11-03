@@ -1,0 +1,36 @@
+{{- $kind := .Get "kind" -}}
+{{- $id := .Get "id" | default (printf "probability-%s" $kind) -}}
+{{ if eq $kind "children" }}
+<div id="{{ $id }}" class="probability-vis child-family-grids">
+    {{ range slice
+        (dict "condition" "older-tuesday" "label" "The older child is a boy born on Tuesday")
+        (dict "condition" "tuesday" "label" "At least one child is a boy born on Tuesday")
+    }}
+    <figure id="{{ $id }}-{{ .condition }}" class="child-family-grid" data-condition="{{ .condition }}">
+        <strong class="child-family-label">{{ .label }}</strong>
+        <canvas role="img"></canvas>
+        <span data-summary hidden></span>
+    </figure>
+    {{ end }}
+</div>
+{{ else }}
+<figure id="{{ $id }}" class="probability-vis">
+    {{ if eq $kind "birthdays" }}
+    <label for="{{ $id }}Input">Students in the room: <output data-value>30</output></label>
+    <input id="{{ $id }}Input" data-input type="range" min="1" max="366" value="30">
+    {{ else if eq $kind "monty" }}
+    <div class="sim-controls">
+        <button type="button" data-step>Step (1,000 games)</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    {{ end }}
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>Enable JavaScript to explore this illustration.</noscript>
+</figure>
+{{ end }}
+<script type="module">
+    import { initProbability } from "/js/teaching-visuals.js";
+    initProbability({ id: "{{ $id }}", kind: "{{ $kind }}" });
+</script>

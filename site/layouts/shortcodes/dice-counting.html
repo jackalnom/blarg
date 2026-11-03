@@ -1,0 +1,15 @@
+{{- $id := .Get "id" | default "dice-counting" -}}
+<figure id="{{ $id }}" class="probability-vis">
+    <div class="sim-controls">
+        <button type="button" data-step>Roll two dice</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>Six of the 36 equally likely outcomes of two fair dice sum to seven: a probability of 1/6.</noscript>
+</figure>
+<script type="module">
+    import { initDiceCounting } from "/js/teaching-visuals.js";
+    initDiceCounting({ id: "{{ $id }}" });
+</script>

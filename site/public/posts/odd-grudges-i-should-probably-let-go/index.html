@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 105%">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <meta name="author" content="Lucas Pierce">
+
+  
+  
+  <meta name="description" content="A simulation-driven exploration of selection bias and how the information we don&#39;t see shapes what we think we know.">
+  
+
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313//images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313//images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313//images/favicon-16x16.png">
+
+  
+  
+  <meta name="keywords" content='hugo latex theme blog texify texify2 texify3 michael neuper'>
+  
+
+  
+  
+  <link rel="stylesheet" href='/katex/katex.min.css'>
+<script defer defer src='/katex/katex.min.js'></script>
+<script defer src='/katex/contrib/auto-render.min.js'></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });
+    });
+</script>
+  
+
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/posts/odd-grudges-i-should-probably-let-go/">
+	<meta property="og:site_name" content="BonnyCode">
+	<meta property="og:title" content="What we don&#39;t count">
+	<meta property="og:description" content="A simulation-driven exploration of selection bias and how the information we don&#39;t see shapes what we think we know.">
+	<meta property="og:locale" content="en">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2026-10-18T21:38:25+00:00">
+		<meta property="article:modified_time" content="2026-10-18T21:38:25+00:00">
+		<meta property="article:tag" content="Data Science">
+		<meta property="article:tag" content="Teaching">
+
+
+  
+  <link rel="canonical" href="http://localhost:1313/posts/odd-grudges-i-should-probably-let-go/">
+
+  
+  
+  
+	<meta itemprop="name" content="What we don&#39;t count">
+	<meta itemprop="description" content="A simulation-driven exploration of selection bias and how the information we don&#39;t see shapes what we think we know.">
+	<meta itemprop="datePublished" content="2026-10-18T21:38:25+00:00">
+	<meta itemprop="dateModified" content="2026-10-18T21:38:25+00:00">
+	<meta itemprop="wordCount" content="2521">
+	<meta itemprop="keywords" content="Data Science,Teaching">
+
+  
+  
+  
+    <link rel="stylesheet" href="/css/common.min.0535ea1bd10c220dd0b433245518579f1f17174fc7bffbece54871b9aae1b88f.css" integrity="sha256-BTXqG9EMIg3QtDMkVRhXnx8XF0/Hv/vs5UhxuarhuI8=" crossorigin="anonymous">
+  
+
+  
+  
+    <link rel="stylesheet" href="/css/content.min.90154405494b216d851cfbd952d65d98b15bacebe13d65e928e30d78a4457f98.css" integrity="sha256-kBVEBUlLIW2FHPvZUtZdmLFbrOvhPWXpKOMNeKRFf5g=" crossorigin="anonymous">
+  
+
+  
+  
+  <title>What we don&#39;t count - BonnyCode</title>
+  
+
+  
+  
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="What we don&#39;t count">
+	<meta name="twitter:description" content="A simulation-driven exploration of selection bias and how the information we don&#39;t see shapes what we think we know.">
+
+
+  
+
+
+  <link rel="stylesheet" href="/css/single.min.be2da7a982252421d90f4578f4b4fbaf28fd3cb622b5b7079aae0999f0ecfeb0.css" integrity="sha256-vi2nqYIlJCHZD0V49LT7ryj9PLYitbcHmq4JmfDs/rA=" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="/css/single.min.78a121b7d7a160420f9daab0ea13add66c37b9c44f27bba07b27207e2b0975d2.css" integrity="sha256-eKEht9ehYEIPnaqw6hOt1mw3ucRPJ7ugeycgfisJddI=" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+  <div id="wrapper">
+    
+
+
+
+<header id="header">
+  <h1>
+    <a href="http://localhost:1313/">
+<svg width="40"
+  height="43" id="Layer_1" fill="currentColor" stroke="currentColor" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 422.89 448.32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: var(--random-color, #ed3293);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-miterlimit: 10;
+        stroke-width: 12px;
+      }
+    </style>
+  </defs>
+  <g id="potion-bottle-pattern-7">
+    <path class="cls-2" d="M337.62,91.46c-14.26,3.88-27.62,10.43-41.14,16.4-13.52,5.97-27.49,11.46-42.19,13.02-7.95.84-16.16.36-23.89-1.64v-30.32c4.86-1.56,8.4-6.06,8.4-11.44v-3.39c0-6.67-5.4-12.07-12.07-12.07h-12.27c1.53-12.25,2.86-24.52,3.86-36.82.32-3.93.52-8.19-1.66-11.48-2.61-3.91-7.71-5.13-12.34-5.96-20.22-3.6-35.89-.56-56.43-.75-4.53-.04-9.16.01-13.45,1.47-4.29,1.45-8.27,4.55-9.65,8.87-1.11,3.47-.45,7.23.22,10.81,2.22,11.8,3.76,22.91,5.14,33.86h-16.92c-6.67,0-12.07,5.4-12.07,12.07v3.39c0,5.38,3.54,9.88,8.4,11.44v84.54L8.89,246.62l53.95,166.04c4.52,13.92,17.49,23.34,32.13,23.34h150.05c14.63,0,27.6-9.42,32.13-23.34l53.95-166.04-100.68-73.15v-19.58c12.15,13.99,32.15,19.29,50.6,17.44,18.58-1.86,35.92-10.01,52.24-19.09,11.11-6.18,22.24-12.97,34.73-15.36,12.49-2.39,26.96.66,34.42,10.96,3.17-17.09,6.34-34.19,9.51-51.28-23.18-10.13-49.87-11.75-74.28-5.1Z"/>
+  </g>
+  <g id="potion-bottle-pattern-7-2" data-name="potion-bottle-pattern-7">
+    <path class="cls-1" d="M8.89,252.93l53.95,166.04c4.52,13.92,17.49,23.34,32.13,23.34h150.05c14.63,0,27.6-9.42,32.13-23.34l53.95-166.04-81.52,10.88c-24-3.79-48-7.59-72-11.39-17,2.13-34,4.26-51,6.39l-60,6-57.68-11.88Z"/>
+  </g>
+</svg>
+
+      
+      Bonnycode</a>
+    <button id="dark-mode-toggle" class="dark-mode-toggle" aria-label="Toggle theme">
+        <svg width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 496">
+        <path fill="currentColor" d="M8,256C8,393,119,504,256,504S504,393,504,256,393,8,256,8,8,119,8,256ZM256,440V72a184,184,0,0,1,0,368Z" transform="translate(-8 -8)"/>
+        </svg>
+    </button>
+  </h1>
+
+  
+
+
+  <nav>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17,11H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm0,4H16a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2ZM11,9h6a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2ZM21,3H7A1,1,0,0,0,6,4V7H3A1,1,0,0,0,2,8V18a3,3,0,0,0,3,3H18a4,4,0,0,0,4-4V4A1,1,0,0,0,21,3ZM6,18a1,1,0,0,1-2,0V9H6Zm14-1a2,2,0,0,1-2,2H7.82A3,3,0,0,0,8,18V5H20Zm-9-4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Zm0,4h1a1,1,0,0,0,0-2H11a1,1,0,0,0,0,2Z"/></svg>
+</span>
+      
+      <a class="link" href="/posts/">Blog</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.88,16.88a3,3,0,0,0,0,4.24,3,3,0,0,0,4.24,0,3,3,0,0,0-4.24-4.24Zm2.83,2.83a1,1,0,0,1-1.42-1.42,1,1,0,0,1,1.42,0A1,1,0,0,1,5.71,19.71ZM5,12a1,1,0,0,0,0,2,5,5,0,0,1,5,5,1,1,0,0,0,2,0,7,7,0,0,0-7-7ZM5,8a1,1,0,0,0,0,2,9,9,0,0,1,9,9,1,1,0,0,0,2,0,11.08,11.08,0,0,0-3.22-7.78A11.08,11.08,0,0,0,5,8Zm10.61.39A15.11,15.11,0,0,0,5,4,1,1,0,0,0,5,6,13,13,0,0,1,18,19a1,1,0,0,0,2,0A15.11,15.11,0,0,0,15.61,8.39Z"/></svg>
+</span>
+      
+      <a class="link" href="/index.xml">RSS</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">...</svg></span>
+      
+      <a class="link" href="https://github.com/jackalnom">GitHub</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      
+        <span class="icon"><svg width="1em" height="1em" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">...</svg></span>
+      
+      <a class="link" href="https://www.linkedin.com/in/lucaspierce/">LinkedIn</a>
+    </span>
+    
+  </nav>
+</header>
+<hr class="head-rule"></hr>
+
+<script>
+  function generateRandomHueColor() {
+    const hue = Math.floor(Math.random() * 360); 
+    const saturation = 82; 
+    const lightness = 56; 
+
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const svg = document.getElementById('Layer_1');
+    svg.style.setProperty('--random-color', generateRandomHueColor());
+  });
+</script>
+    
+<main id="main" class="post">
+  
+  <div class="post-heading">
+    <h1 class="post-title">What we don&#39;t count</h1>
+    <div class="publish-metadata">
+      
+      
+        <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Lucas Pierce
+        &nbsp;
+      
+      
+      <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 9H21M7 3V5M17 3V5M6 13H8M6 17H8M11 13H13M11 17H13M16 13H18M16 17H18M6.2 21H17.8C18.9201 21 19.4802 21 19.908 20.782C20.2843 20.5903 20.5903 20.2843 20.782 19.908C21 19.4802 21 18.9201 21 17.8V8.2C21 7.07989 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V17.8C3 18.9201 3 19.4802 3.21799 19.908C3.40973 20.2843 3.71569 20.5903 4.09202 20.782C4.51984 21 5.07989 21 6.2 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      18 October 2026
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15.4998 5.49994L18.3282 8.32837M3 20.9997L3.04745 20.6675C3.21536 19.4922 3.29932 18.9045 3.49029 18.3558C3.65975 17.8689 3.89124 17.4059 4.17906 16.9783C4.50341 16.4963 4.92319 16.0765 5.76274 15.237L17.4107 3.58896C18.1918 2.80791 19.4581 2.80791 20.2392 3.58896C21.0202 4.37001 21.0202 5.63634 20.2392 6.41739L8.37744 18.2791C7.61579 19.0408 7.23497 19.4216 6.8012 19.7244C6.41618 19.9932 6.00093 20.2159 5.56398 20.3879C5.07171 20.5817 4.54375 20.6882 3.48793 20.9012L3 20.9997Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          2521 words
+        </span>
+      
+      
+      
+        
+      
+      
+        &nbsp;
+        <span>
+          <svg width="0.75em" height="0.75em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 7V12L14.5 13.5M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          ~12 mins
+        </span>
+      
+    </div>
+  </div>
+
+  
+  <div>
+    
+    <a class="link tag" href='http://localhost:1313/tags/data-science'>#data science</a>
+    
+    <a class="link tag" href='http://localhost:1313/tags/teaching'>#teaching</a>
+    
+    <br></br>
+  </div>
+  
+  
+  <article class="content ">
+    
+    <p>Many years ago, I took a statistics class with the following question on an exam:</p>
+<blockquote>
+<p>You are on a game show where you have to pick one of three doors. Two of the doors have goats behind them, and the other has a brand new car. You pick one of the three doors. The host randomly opens one of the two doors you didn&rsquo;t choose and it reveals a goat. He offers you the chance to switch. Should you?</p>
+</blockquote>
+<p>We had talked about the Monty Hall problem in class, but I noticed the wording was different. In the original, the host knew where the car was and intentionally opened a door with a goat. You want to switch because your initial pick has a 1 in 3 chance of being correct, leaving a 2 in 3 chance that the car is behind the other unopened door.</p>
+<p>In this case, the host didn&rsquo;t know and was randomly opening a door. I thought my teacher was being especially tricky, and was proud that I had caught the subtle change. I marked down that it didn&rsquo;t matter if I switched; there was a 50% chance of getting the car either way.</p>
+<p>I got back my test the next week and I got zero points for my answer. My teacher said the odds were 2 in 3 if you switched.</p>
+<p>I went through many emotions. Was I wrong? It really seemed like it should be 50%, but I couldn&rsquo;t figure out where I&rsquo;d gone wrong. So I went home and solved it the way I knew as a computer scientist: I made a small Monte Carlo simulation. I first coded up the traditional Monty Hall problem, and got the ~66% probability of getting the car by switching. I then coded up the host not knowing where the car was and randomly selecting, counting only the games where he happened to reveal a goat. I got ~50%. I double-checked my code, I double-checked the problem&rsquo;s wording, I double-checked the code again. I wasn&rsquo;t wrong. It felt like one of those apocryphal stories I used to hear on AM radio as a kid, where a brilliant child disagrees with their knowledgeable teacher and that child was Albert Einstein or something like that.</p>
+<p>I was so excited to show my teacher the results. I don&rsquo;t know what I expected exactly. The grade wasn&rsquo;t even my main concern. I just wanted to share my discovery, and expected her to share my excitement. That&rsquo;s not the reaction I got. My teacher had no interest in the simulation. She didn&rsquo;t even look at it.</p>
+<p>What she did want to talk about was my disrespectful attitude in questioning exam answers. Which, to be fair, here I was, an overly intense student who had never said a word in class up until that point, excitedly trying to get my poor teacher to look at a computer program that supposedly disproved a classic statistics problem she&rsquo;d probably taught for years. I&rsquo;ve spent a lifetime learning to be more tactful, and I was still early in that journey.</p>
+<p>I tell this story because that was the day I fell in love with statistics. I didn&rsquo;t become a great statistician. I&rsquo;m told by some that I resort to simulation too often for that, but I do believe I&rsquo;m a pretty good amateur. More than that, I think statistics is simply fun, and that&rsquo;s what I want to share with you.</p>
+<h2 id="probability-by-counting">Probability by counting</h2>
+<p>I grew up in a family of gamblers and I love dice games. In kindergarten, my teacher once sent home a concerned note because I wrote craps as my favorite thing to do and had a picture of me throwing dice. If you play a lot of craps, you probably know the odds of rolling a seven, but they&rsquo;re surprisingly easy to figure out.</p>
+<p>We count the outcomes we want and divide by all possible outcomes. This only works when they&rsquo;re equally likely, as they are with two fair dice.</p>
+<p>We start by listing out all the possibilities on two dice:</p>
+<pre tabindex="0"><code>
+1,1  1,2  1,3  1,4  1,5  1,6
+
+2,1  2,2  2,3  2,4  2,5  2,6
+
+3,1  3,2  3,3  3,4  3,5  3,6
+
+4,1  4,2  4,3  4,4  4,5  4,6
+
+5,1  5,2  5,3  5,4  5,5  5,6
+
+6,1  6,2  6,3  6,4  6,5  6,6
+</code></pre><p>That&rsquo;s 6 × 6 = 36 possibilities. Six add up to 7:</p>
+<pre tabindex="0"><code>
+1,6  6,1  2,5  5,2  3,4  4,3
+</code></pre><p>That gives us 6/36, or 1/6 (about 16.6%), for a roll of seven.</p>
+<figure id="dice-counting" class="probability-vis">
+    <div class="sim-controls">
+        <button type="button" data-step>Roll two dice</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>Six of the 36 equally likely outcomes of two fair dice sum to seven: a probability of 1/6.</noscript>
+</figure>
+<script type="module">
+    import { initDiceCounting } from "/js/teaching-visuals.js";
+    initDiceCounting({ id: "dice-counting" });
+</script>
+
+<p>That&rsquo;s it. You&rsquo;re now calculating probabilities. The arithmetic won&rsquo;t get much harder than this. The tricky part is figuring out what to count, and what assumptions we&rsquo;re making when we count it.</p>
+<h2 id="flipping-coins">Flipping coins</h2>
+<p>Let&rsquo;s say you flip a coin twice. If I tell you the first flip was heads, what&rsquo;s the chance the second flip was also heads? Some gamblers will say &ldquo;the coin is hot,&rdquo; but as long as the flips are fair and independent, the answer is 50%. Knowing the result of one coin flip doesn&rsquo;t change the probability of the next one.</p>
+<p>But what if I instead tell you I&rsquo;ve flipped a coin twice, and that <strong>at least one</strong> of the two flips was heads? What&rsquo;s the probability that both were heads?</p>
+<p>Now the answer is 1/3. How can that be?</p>
+<p>Consider the four possible outcomes:</p>
+<pre tabindex="0"><code>
+HH, HT,
+
+TH, TT
+</code></pre><p>By telling you that at least one flip was heads, I&rsquo;ve eliminated TT. That leaves HH, HT, and TH.</p>
+<p>When the first flip was heads, only HH and HT remained. But &ldquo;at least one&rdquo; also includes TH. That gives us three equally likely outcomes, only one of which has two heads.</p>
+<figure id="coin-flips" class="probability-vis">
+    <div class="sim-controls">
+        <button type="button" data-step>Flip two coins</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>With the first coin fixed to heads, HH and HT remain: half are HH. With at least one heads, HH, HT, and TH remain: one third are HH.</noscript>
+</figure>
+<script type="module">
+    import { initCoinFlips } from "/js/teaching-visuals.js";
+    initCoinFlips({ id: "coin-flips" });
+</script>
+
+<p>This is one of the most important lessons in statistics and in life. We can create statistical relationships between independent events simply by changing which events we choose to look at. How we select our data, and how that data comes to us, matters.</p>
+<h2 id="tuesday-boy-problem">Tuesday Boy Problem</h2>
+<p>Now let&rsquo;s apply this to the Tuesday Boy Problem, starting with a familiar variation:</p>
+<blockquote>
+<p>Mr. Smith has two children. The older child is a boy. What is the probability that both children are boys?</p>
+</blockquote>
+<p>We&rsquo;ll assume that each child has an equal chance of being a boy or a girl, and that the sex of one child is independent of the other.</p>
+<p>Like the coins, the older child&rsquo;s sex has no bearing on the younger&rsquo;s, so the chance that both are boys is 50%.</p>
+<p>Now let&rsquo;s make a small adjustment to the problem&rsquo;s framing:</p>
+<blockquote>
+<p>Mr. Smith has two children. At least one child is a boy. What is the probability that both children are boys?</p>
+</blockquote>
+<p>Like the coin flips, there are four equally likely possibilities:</p>
+<pre tabindex="0"><code>
+BB, BG,
+
+GB, GG
+</code></pre><p>Knowing at least one child is a boy eliminates GG. Only one of the remaining three possibilities has two boys, so the answer is 1/3.</p>
+<p>Now, finally, the classic version, where we also specify that the boy was born on Tuesday:</p>
+<blockquote>
+<p>Mr. Smith has two children. At least one child is a boy born on Tuesday. What is the probability that both children are boys?</p>
+</blockquote>
+<p>This tiny change tweaks how we count the possibilities. The probability shifts from 1/3 to 13/27, or about 48%.</p>
+<p>What&rsquo;s special about Tuesday? Nothing. We could say Monday, or a boy born in December.</p>
+<p>Assuming each day of the week is equally likely, we now have 7 days × 2 sexes = 14 possibilities per child. For two children, that&rsquo;s 14 × 14 = 196 equally likely combinations.</p>
+<p>Let&rsquo;s count the possibilities with at least one boy born on Tuesday. If the older child is a Tuesday boy, the younger has 14 possibilities. If the younger is a Tuesday boy, that gives us another 14. But the case where <strong>both boys are born on Tuesday</strong> appears in both groups, leaving 27 possibilities. Of those, 13 have two boys (7 + 7 − 1), so the answer is 13/27, or about 48%.</p>
+
+<div id="probability-children" class="probability-vis child-family-grids">
+    
+    <figure id="probability-children-older-tuesday" class="child-family-grid" data-condition="older-tuesday">
+        <strong class="child-family-label">The older child is a boy born on Tuesday</strong>
+        <canvas role="img"></canvas>
+        <span data-summary hidden></span>
+    </figure>
+    
+    <figure id="probability-children-tuesday" class="child-family-grid" data-condition="tuesday">
+        <strong class="child-family-label">At least one child is a boy born on Tuesday</strong>
+        <canvas role="img"></canvas>
+        <span data-summary hidden></span>
+    </figure>
+    
+</div>
+
+<script type="module">
+    import { initProbability } from "/js/teaching-visuals.js";
+    initProbability({ id: "probability-children", kind: "children" });
+</script>
+
+<p>The intuition is that families with two boys have two chances to produce a Tuesday-born boy, while mixed-sex families have only one. When we filter for families with at least one Tuesday-born boy, we end up including proportionally more two-boy families.</p>
+<figure id="tuesday-families" class="probability-vis">
+    <div class="sim-controls">
+        <button type="button" data-step>Add one family</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>Of 196 equally likely families, 14 have an older Tuesday boy and 7 of these have two boys. 27 have at least one Tuesday boy and 13 of these have two boys.</noscript>
+</figure>
+<script type="module">
+    import { initTuesdayFamilies } from "/js/teaching-visuals.js";
+    initTuesdayFamilies({ id: "tuesday-families" });
+</script>
+
+<h2 id="berksons-paradox">Berkson&rsquo;s Paradox</h2>
+<p>Thinking about these questions as brain teasers is, to me, the least interesting way to approach them. They become tricks you memorize rather than ideas you internalize. These aren&rsquo;t riddles. They&rsquo;re ways of thinking about the information you receive, questioning where it came from, and making better decisions as a result.</p>
+<p>You&rsquo;ve been encountering this exact phenomenon throughout your life, probably without realizing it. And if the Tuesday Boy Problem surprised you, you might be surprised by how often the same thing happens in the real world.</p>
+<p>The Tuesday Boy Problem is an example of a broader phenomenon called <strong>Berkson&rsquo;s paradox</strong>. Two things can be completely unrelated, but if they both influence what makes it into the group you&rsquo;re looking at, they can suddenly appear related.</p>
+<p>Think about restaurants in touristy areas. Times Square, or right next to the Eiffel Tower. When you see a restaurant in one of those locations, do you think, &ldquo;Wow, they probably have great food there!&rdquo;?</p>
+<p>Probably not. But why? Does the Eiffel Tower give off some weird odor that spoils the food?</p>
+<p>There&rsquo;s no inherent reason that a restaurant with a great location should have worse food. But imagine that, for a restaurant to survive, it needs either a great location or great food.</p>
+<p>If a restaurant is in a bad location and has bad food, why would anyone go there? It will go out of business. A restaurant in a bad location can only survive if its food is good. A restaurant in a great location, on the other hand, can survive even if its food is mediocre.</p>
+<p>Now, that&rsquo;s not to say location and food quality have nothing to do with each other in the real world. But even if they were completely unrelated to begin with, we&rsquo;d still find a negative correlation among the restaurants that survived.</p>
+<p>The restaurants that didn&rsquo;t survive are missing from our data. And those missing restaurants are precisely what create the illusion that great locations and great food don&rsquo;t go together.</p>
+<p>What we don&rsquo;t see can change what we think we know about what we do see.</p>
+<h2 id="is-it-true">Is it true?</h2>
+<p>We live in a world where we have access to more information than ever before. And we&rsquo;ve become increasingly concerned with whether that information is true. That&rsquo;s a good thing. Truth matters.</p>
+<p>But truth isn&rsquo;t enough.</p>
+<p>Imagine I show you twenty completely true stories about violent crimes committed in the past week worldwide. What have you learned about whether crime is increasing or decreasing?</p>
+<p>Almost nothing. You don&rsquo;t know how many crimes happened last week, or last year, or how I chose which stories to show you.</p>
+<p>Newspapers have always had editors deciding which stories were newsworthy. Those decisions were influenced by what they thought was important, what would interest their readers, and, consciously or not, their own beliefs about the world.</p>
+<p>I had a conversation about this just last week. A visitor from out of town was reading our local newspaper and remarked, &ldquo;Wow, you have a lot more traffic accidents here than back home in Los Angeles.&rdquo;</p>
+<p>Maybe we do. But Los Angeles has a lot more news in general, while we&rsquo;re a largely rural area. What makes the news here might not even warrant a mention there. We can&rsquo;t tell which place has more accidents just by counting the stories in the newspaper.</p>
+<p>Today, we have another layer. People create content that they think will get attention, and algorithms select what to show us based on what we&rsquo;re likely to engage with. Nobody has to lie. Nobody even has to be deliberately misleading. But the things most likely to get our attention aren&rsquo;t necessarily representative of the world.</p>
+<p>You can be told nothing but the truth and still be misled.</p>
+<h2 id="monty-fails">Monty Fails</h2>
+<p>Let&rsquo;s turn back to the Monty Hall problem. In the classic version, the host knows where the car is and deliberately opens a door with a goat. But when the host knowingly eliminates a goaty option, you have a 2 in 3 chance of getting the car if you switch.</p>
+<p>But the problem on my test said the host opened a door <strong>randomly</strong>. The host might have opened the door with the car, but we&rsquo;re only looking at the games where he didn&rsquo;t.</p>
+<p>Imagine playing 300 games. In 100 of them, you initially pick the car, so the host is guaranteed to reveal a goat. In the other 200, you pick a goat, and the host has a 50% chance of accidentally revealing the car. That eliminates 100 games, leaving us with 100 games where you initially picked the car and 100 where you picked a goat. Among the games where the host revealed a goat, switching and staying are now equally likely to win.</p>
+<p>When I initially pushed back on having my answer marked wrong because of the word &ldquo;randomly,&rdquo; she argued that all the information we needed was that the host had opened a door and revealed a goat. And that&rsquo;s true at one level. We observe exactly the same thing in both versions of the problem. But the observation doesn&rsquo;t carry the same information when the process that produced it is different.</p>
+<figure id="monty-piles" class="probability-vis">
+    <div class="sim-controls">
+        <button type="button" data-step>Play one game</button>
+        <button type="button" data-run>Run</button>
+        <button type="button" data-reset class="sim-reset-btn">Reset</button>
+    </div>
+    <canvas role="img"></canvas>
+    <span data-summary hidden></span>
+    <noscript>With a knowing host, staying wins 1/3 and switching wins 2/3 of games. With a random host, 1/3 of games reveal the car and are discarded. Among the remaining games, staying and switching each win 1/2.</noscript>
+</figure>
+<script type="module">
+    import { initMontyPiles } from "/js/teaching-visuals.js";
+    initMontyPiles({ id: "monty-piles" });
+</script>
+
+<p>Bayes is fun and all, but in the problems we&rsquo;ve explored, the computation has never been the hard part. The difficult part is questioning the often unstated assumptions behind what we observe. What are we actually looking at? How was that information generated? And perhaps most importantly, what aren&rsquo;t we seeing? An observation can be perfectly accurate and still be misleading. A correlation can be perfectly real and still tell us very little about what caused it.</p>
+<p>Long ago, a tiny change in the wording of a test question made me question something I thought I understood. And I think that&rsquo;s still what I love most about statistics. We don&rsquo;t have to choose between believing everything and doubting everything. Statistics teaches us to question the things we think we know, and gives us the tools to find out.</p>
+
+    
+  </article>
+
+  <button onclick="topFunction()" id="back-to-top" title="Go to top">Back to Top</button>
+
+  
+
+<div id="sharingbuttons">
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://www.linkedin.com/sharing/share-offsite/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fodd-grudges-i-should-probably-let-go%2f" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 21.5h-5v-13h5v13zM4 6.5C2.5 6.5 1.5 5.3 1.5 4s1-2.4 2.5-2.4c1.6 0 2.5 1 2.6 2.5 0 1.4-1 2.5-2.6 2.5zm11.5 6c-1 0-2 1-2 2v7h-5v-13h5V10s1.6-1.5 4-1.5c3 0 5 2.2 5 6.3v6.7h-5v-7c0-1-1-2-2-2z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+    <a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fodd-grudges-i-should-probably-let-go%2f&amp;resubmit=true&amp;title=What%20we%20don%27t%20count" target="_blank" rel="noopener" aria-label="">
+      <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M24 11.5c0-1.65-1.35-3-3-3-.96 0-1.86.48-2.42 1.24-1.64-1-3.75-1.64-6.07-1.72.08-1.1.4-3.05 1.52-3.7.72-.4 1.73-.24 3 .5C17.2 6.3 18.46 7.5 20 7.5c1.65 0 3-1.35 3-3s-1.35-3-3-3c-1.38 0-2.54.94-2.88 2.22-1.43-.72-2.64-.8-3.6-.25-1.64.94-1.95 3.47-2 4.55-2.33.08-4.45.7-6.1 1.72C4.86 8.98 3.96 8.5 3 8.5c-1.65 0-3 1.35-3 3 0 1.32.84 2.44 2.05 2.84-.03.22-.05.44-.05.66 0 3.86 4.5 7 10 7s10-3.14 10-7c0-.22-.02-.44-.05-.66 1.2-.4 2.05-1.54 2.05-2.84zM2.3 13.37C1.5 13.07 1 12.35 1 11.5c0-1.1.9-2 2-2 .64 0 1.22.32 1.6.82-1.1.85-1.92 1.9-2.3 3.05zm3.7.13c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9.8 4.8c-1.08.63-2.42.96-3.8.96-1.4 0-2.74-.34-3.8-.95-.24-.13-.32-.44-.2-.68.15-.24.46-.32.7-.18 1.83 1.06 4.76 1.06 6.6 0 .23-.13.53-.05.67.2.14.23.06.54-.18.67zm.2-2.8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm5.7-2.13c-.38-1.16-1.2-2.2-2.3-3.05.38-.5.97-.82 1.6-.82 1.1 0 2 .9 2 2 0 .84-.53 1.57-1.3 1.87z"/></svg>
+        </div>
+      </div>
+    </a>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+</div>
+  <div class="paginator">
+    
+    <a class="link" href="http://localhost:1313/posts/taking-polly-for-a-walk/" title="Taking Polly for a walk">← prev</a>
+    
+    
+    <a></a>
+    
+  </div>
+  <div class="comment">
+    
+    
+    
+    
+  </div>
+  
+  
+</main>
+
+    <footer id="footer">
+  <div>
+    <span></span>
+  </div>
+  <div>
+    <span>Copyright © 2026 <a href="/about/">Lucas Pierce</a></span>
+  </div>
+</footer>
+
+  </div>
+
+  
+  <script src='http://localhost:1313/js/script.js' defer></script>
+
+  
+  
+  <link media="screen" rel="stylesheet" href="http://localhost:1313/css/styles.css" />
+  
+
+  
+  
+
+  
+  
+
+</body>
+
+</html>
