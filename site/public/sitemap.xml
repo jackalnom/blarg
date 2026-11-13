@@ -2,20 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.bonnycode.com/tags/data-science/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <loc>https://www.bonnycode.com/tags/books/</loc>
+    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/posts/you-should-read-middlemarch/</loc>
+    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/data-science/</loc>
+    <lastmod>2026-11-02T18:02:25-08:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/teaching/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-02T18:02:25-08:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/what-you-dont-see/</loc>
-    <lastmod>2026-11-03T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-02T18:02:25-08:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/taking-polly-for-a-walk/</loc>
     <lastmod>2026-10-09T10:14:54-07:00</lastmod>
