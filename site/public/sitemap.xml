@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.bonnycode.com/tags/books/</loc>
-    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://www.bonnycode.com/posts/</loc>
-    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/posts/three-villages/</loc>
+    <lastmod>2026-11-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://www.bonnycode.com/tags/books/</loc>
+    <lastmod>2026-11-13T11:24:28-08:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/</loc>
-    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-13T11:24:28-08:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/posts/you-should-read-middlemarch/</loc>
-    <lastmod>2026-11-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-13T11:24:28-08:00</lastmod>
   </url><url>
     <loc>https://www.bonnycode.com/tags/data-science/</loc>
     <lastmod>2026-11-02T18:02:25-08:00</lastmod>
